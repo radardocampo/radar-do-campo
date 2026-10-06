@@ -1,0 +1,485 @@
+{
+ "clips": {
+  "PRE": "../Videos Prontos/video pré feito.mp4",
+  "D01": "../clipes/01 - DOMINIO DO ZIDANE - ESPN Brasil (principal).mp4",
+  "D02": "../clipes/02 - DOMINIO DO ZIDANE - angulo 2 (4nas.ftbll).mp4",
+  "D03": "../clipes/03 - DOMINIO DO ZIDANE - angulo 3 (wftbllllll).mp4",
+  "SUB": "../clipes/05 - SUBSTITUICOES DO ZIDANE - Olise e Cherki entrando (ESPN Brasil).mp4",
+  "ESPN": "../clipes/06 - MELHORES MOMENTOS - ESPN Brasil 11min (gols, Lukebakio, virada).mp4",
+  "TORC": "../clipes/07 - MELHORES MOMENTOS - extended 5min (Sports Extra).mp4",
+  "BEL": "../clipes/08 - MELHORES MOMENTOS - federacao belga 11min (angulos da Belgica).mp4",
+  "COLE": "../clipes/09 - ZIDANE DEPOIS DO JOGO - analise FFF (frase isso e futebol).mp4"
+ },
+ "sem_loop": true,
+ "shots": [
+  {
+   "id": 1,
+   "tStart": 0.0,
+   "tEnd": 10.5,
+   "clip": "PRE",
+   "in": 0.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "inicio montado pelo usuario (0-10,5s), mantido intacto",
+   "ignorar_bordas": true
+  },
+  {
+   "id": 2,
+   "tStart": 10.5,
+   "tEnd": 11.96,
+   "clip": "TORC",
+   "in": 9.5,
+   "tipo": "A",
+   "fonte": "torcida",
+   "protagonista": false,
+   "nota": "Sem o Mbappe: os titulares no hino, da arquibancada (sem ele)",
+   "cx": 0.5
+  },
+  {
+   "id": 3,
+   "tStart": 11.96,
+   "tEnd": 13.8,
+   "clip": "ESPN",
+   "in": 30.2,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "trocou dez titulares: escalacao da ESPN",
+   "keys": [
+    [
+     0,
+     0.44
+    ],
+    [
+     1.84,
+     0.52
+    ]
+   ]
+  },
+  {
+   "id": 4,
+   "tStart": 13.8,
+   "tEnd": 15.35,
+   "clip": "ESPN",
+   "in": 20.75,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "aposta parecia errada: Zidane no tunel, mao no rosto",
+   "cx": 0.6
+  },
+  {
+   "id": 5,
+   "tStart": 15.35,
+   "tEnd": 16.64,
+   "clip": "BEL",
+   "in": 175.6,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "aos 35 minutos: lance ao vivo com placar 34' FRA 0-0 BEL",
+   "keys": [
+    [
+     0,
+     0.17
+    ],
+    [
+     0.5,
+     0.38
+    ],
+    [
+     1.29,
+     0.4
+    ]
+   ]
+  },
+  {
+   "id": 6,
+   "tStart": 16.64,
+   "tEnd": 18.69,
+   "clip": "ESPN",
+   "in": 248.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "Lukebakio fez 1x0: replay fechado, chute ate a rede (deteccao em 249,5 = chicote de camera, nao corte)",
+   "keys": [
+    [
+     0,
+     0.5
+    ],
+    [
+     2.05,
+     0.45
+    ]
+   ],
+   "ignorar_bordas": true
+  },
+  {
+   "id": 7,
+   "tStart": 18.69,
+   "tEnd": 19.68,
+   "clip": "BEL",
+   "in": 190.0,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "calou o estadio: Lukebakio de bracos abertos para a torcida francesa",
+   "cx": 0.5
+  },
+  {
+   "id": 8,
+   "tStart": 19.68,
+   "tEnd": 20.4,
+   "clip": "SUB",
+   "in": 5.6,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "aos sessenta: Olise com placar 59' FRA 0-1 BEL",
+   "zoom": 1.12,
+   "cx": 0.44,
+   "cy": 0.445
+  },
+  {
+   "id": 9,
+   "tStart": 20.4,
+   "tEnd": 21.4,
+   "clip": "BEL",
+   "in": 452.2,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "Zidane mandou: Zidane conversando com a comissao no banco (close)",
+   "zoom": 1.0,
+   "cx": 0.45,
+   "cy": 0.5
+  },
+  {
+   "id": 10,
+   "tStart": 21.4,
+   "tEnd": 22.62,
+   "clip": "SUB",
+   "in": 22.6,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "Olise e Cherki: costas OLISE 11 e CHERKI 9",
+   "zoom": 1.12,
+   "cx": 0.44,
+   "cy": 0.5
+  },
+  {
+   "id": 11,
+   "tStart": 22.62,
+   "tEnd": 25.6,
+   "clip": "BEL",
+   "in": 422.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "aos 77 a Franca ainda perdia: placar 76' FRA 0-1 BEL",
+   "cx": 0.17
+  },
+  {
+   "id": 12,
+   "tStart": 25.6,
+   "tEnd": 27.3,
+   "clip": "BEL",
+   "in": 435.95,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "avalanche/Doue empatou: chute e goleiro batido, placar na tela",
+   "cx": 0.18,
+   "fx": "flash"
+  },
+  {
+   "id": 13,
+   "tStart": 27.3,
+   "tEnd": 27.81,
+   "clip": "BEL",
+   "in": 440.3,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "Doue 20 em close",
+   "cx": 0.5,
+   "ignorar_bordas": true
+  },
+  {
+   "id": 14,
+   "tStart": 27.81,
+   "tEnd": 29.3,
+   "clip": "ESPN",
+   "in": 492.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "Cherki virou: o gol",
+   "cx": 0.22
+  },
+  {
+   "id": 15,
+   "tStart": 29.3,
+   "tEnd": 29.84,
+   "clip": "ESPN",
+   "in": 494.78,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "Cherki gritando",
+   "cx": 0.55,
+   "ignorar_bordas": true
+  },
+  {
+   "id": 16,
+   "tStart": 29.84,
+   "tEnd": 31.45,
+   "clip": "ESPN",
+   "in": 519.7,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "Olise fez mais dois: o terceiro",
+   "cx": 0.25
+  },
+  {
+   "id": 17,
+   "tStart": 31.45,
+   "tEnd": 32.45,
+   "clip": "ESPN",
+   "in": 566.85,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "o ultimo nos acrescimos: chute e goleiro no chao (90+3)",
+   "cx": 0.3
+  },
+  {
+   "id": 18,
+   "tStart": 32.45,
+   "tEnd": 33.51,
+   "clip": "ESPN",
+   "in": 568.85,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "quatro a um: a bola na rede do quarto gol (camera atras do gol)",
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5
+  },
+  {
+   "id": 19,
+   "tStart": 33.51,
+   "tEnd": 36.5,
+   "clip": "ESPN",
+   "in": 622.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "primeira vitoria do Zidane em casa: ele aplaudindo",
+   "cx": 0.47
+  },
+  {
+   "id": 20,
+   "tStart": 36.5,
+   "tEnd": 37.92,
+   "clip": "TORC",
+   "in": 197.0,
+   "tipo": "A",
+   "fonte": "torcida",
+   "protagonista": false,
+   "nota": "no meio da festa: comemoracao vista da arquibancada",
+   "cx": 0.55
+  },
+  {
+   "id": 21,
+   "tStart": 37.92,
+   "tEnd": 39.91,
+   "clip": "D03",
+   "in": 6.85,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "a camera pegou: Zidane na beira do banco",
+   "rate": 0.7,
+   "cx": 0.6
+  },
+  {
+   "id": 22,
+   "tStart": 39.91,
+   "tEnd": 41.41,
+   "clip": "D03",
+   "in": 0.25,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "goleiro deu um chutao (0,5x)",
+   "rate": 0.48,
+   "cx": 0.6
+  },
+  {
+   "id": 23,
+   "tStart": 41.41,
+   "tEnd": 43.54,
+   "clip": "D03",
+   "in": 1.1,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "a bola saiu voando pra beira do campo",
+   "keys": [
+    [
+     0,
+     0.45
+    ],
+    [
+     2.13,
+     0.719
+    ]
+   ]
+  },
+  {
+   "id": 24,
+   "tStart": 43.54,
+   "tEnd": 46.71,
+   "clip": "D01",
+   "in": 9.6,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "no proprio Zidane: dominio inteiro em take continuo",
+   "cx": 0.5,
+   "fx": "flash",
+   "revelacao": true,
+   "flashforward": true
+  },
+  {
+   "id": 25,
+   "tStart": 46.71,
+   "tEnd": 48.86,
+   "clip": "D02",
+   "in": 1.66,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "matou a bola com classe: angulo de tras",
+   "cx": 0.5,
+   "rate": 0.9
+  },
+  {
+   "id": 26,
+   "tStart": 48.86,
+   "tEnd": 51.26,
+   "clip": "D03",
+   "in": 8.35,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "como se nunca tivesse parado: replay lateral",
+   "keys": [
+    [
+     0,
+     0.45
+    ],
+    [
+     2.4,
+     0.5
+    ]
+   ]
+  },
+  {
+   "id": 27,
+   "tStart": 51.26,
+   "tEnd": 53.42,
+   "clip": "D02",
+   "in": 0.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "rodou o mundo: o repost viral (ZIDANE BALL TOUCHES)",
+   "rate": 0.58,
+   "cx": 0.55
+  },
+  {
+   "id": 28,
+   "tStart": 53.42,
+   "tEnd": 55.22,
+   "clip": "ESPN",
+   "in": 503.15,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "deixou de ser a virada: abraco da virada",
+   "cx": 0.5
+  },
+  {
+   "id": 29,
+   "tStart": 55.22,
+   "tEnd": 56.75,
+   "clip": "COLE",
+   "in": 72.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "depois do jogo ele resumiu: a coletiva",
+   "cx": 0.62
+  },
+  {
+   "id": 30,
+   "tStart": 56.75,
+   "tEnd": 58.89,
+   "clip": "COLE",
+   "in": 63.5,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "isso e futebol: Zidane falando",
+   "cx": 0.5
+  },
+  {
+   "id": 31,
+   "tStart": 58.89,
+   "tEnd": 59.69,
+   "clip": "ESPN",
+   "in": 596.45,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "nota": "quem nem estava em campo: Zidane rindo no banco",
+   "cx": 0.52,
+   "rate": 1.0
+  },
+  {
+   "id": 32,
+   "tStart": 59.69,
+   "tEnd": 61.42,
+   "clip": "ESPN",
+   "in": 625.0,
+   "rate": 0.85,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "cx": 0.61,
+   "nota": "quem nem estava em campo: Zidane sorrindo e aplaudindo (sem o placar)"
+  },
+  {
+   "id": 33,
+   "tStart": 61.42,
+   "tEnd": 61.997,
+   "clip": "D02",
+   "in": 4.68,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": false,
+   "nota": "loop: termina em 5,00s do clipe 02, onde abre o inicio do usuario",
+   "rate": 0.5546,
+   "zoom": 1.1,
+   "cx": 0.58,
+   "cy": 0.52
+  }
+ ]
+}
