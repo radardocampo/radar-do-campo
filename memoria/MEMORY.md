@@ -22,4 +22,5 @@
 - [Montagem pensada pra viralizar](montagem-pensada-pra-viralizar.md) — 2026-10-03 Calcutá: gancho = pico do material, ação até o impacto, sem zoom em plano de escala, frase inteira literal; skill HUB 2026-10-03
 - [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — 2026-10-05: só TikTok não serve; 7 redes no Chrome dele + grade; 06/10: X abriu, Kwai via /discover/, placares pela API da ESPN
 - [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
+- [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — 2026-10-06: roteiro+montagem na nuvem, repo radar-do-campo, enviar.ps1/receber.ps1
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
