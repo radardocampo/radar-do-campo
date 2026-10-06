@@ -24,4 +24,4 @@
 - [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
 - [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — 2026-10-06: roteiro+montagem na nuvem, repo radar-do-campo, enviar.ps1/receber.ps1
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
-- [Fluxo automático pós-jogo](fluxo-automatico-pos-jogo.md) — 2026-10-06 Messi: Routine na nuvem + sessão do PC por mensagem (precisa autorização dele no chat do PC); narração = alarme em voz alta, ele gera no AI Studio
+- [Fluxo automático pós-jogo](fluxo-automatico-pos-jogo.md) — 2026-10-06 Messi: Routine na nuvem + sessão do PC por mensagem (precisa autorização dele no chat do PC); narração = alarme só de bipe (sem voz), ele gera no AI Studio
