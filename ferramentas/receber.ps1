@@ -1,7 +1,8 @@
 # Traz da nuvem os videos prontos e a legenda do CapCut para a pasta do video no PC.
 # uso:  .\ferramentas\receber.ps1 "Zidane matou a bola na beira do campo"
 param([Parameter(Mandatory)][string]$Nome)
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"   # o git escreve progresso no stderr
+function git { & git.exe @args; if ($LASTEXITCODE) { throw "git $args falhou" } }
 $repo = Split-Path $PSScriptRoot -Parent
 $job = Join-Path (Split-Path $repo -Parent) "Videos prontos\Shorts\$Nome"
 $branch = "video/" + ($Nome -replace '[^\w\- ]', '' -replace ' ', '-')
