@@ -27,6 +27,9 @@ O usuário sobe a pasta do vídeo num branch `video/<nome>` com
    `python ferramentas/pacote.py partir "Videos prontos/Shorts/<nome>/Videos prontos"`, commit, push no mesmo branch.
 5. Diga ao usuário para rodar no PC: `ferramentas\receber.ps1 "<nome>"`.
 
+## Tempos da narração (a nuvem não baixa o Whisper)
+O Hugging Face é bloqueado aqui. Se o branch tiver `tempos do pre-feito/palavras.json` (ou `palavras.json` na pasta do vídeo), use esses tempos: foram transcritos no PC com faster-whisper medium sobre o áudio do arquivo, sem cortar nada. Corrija a grafia pelo roteiro. Se faltar, peça ao usuário para rodar no PC `python ferramentas/tempos_audio.py <áudio ou vídeo> <pasta do vídeo>/palavras.json` e subir. Não baixe modelos de fora.
+
 ## Não versionar
 `clipes/`, `_montagem/`, `frames/` só sobem no branch do vídeo. Nunca faça merge de `video/*` na `main`.
 Trilhas (`Musicas edição/`) não estão aqui: o usuário coloca a trilha no CapCut.
