@@ -1,0 +1,26 @@
+ONDE ESTÁ CADA TRECHO (tempos do 06 são aproximados, ±15 s)
+
+DOMÍNIO DO ZIDANE (payoff) — aconteceu aos 90+2:48, com o placar já em 4x1
+01 - ESPN Brasil (vertical 1080x1920, 13 s): goleiro dá o chutão -> Zidane mata a bola. Tem legenda da ESPN em cima ("Que intimidade!"), cobrir/cortar.
+02 - 4nas.ftbll (720x960, 10 s): close do rosto do Zidane no começo + domínio de outro ângulo (câmera de trás).
+03 - wftbllllll (1080x1080, 12 s): sequência completa: chutão do goleiro, bola cruzando, domínio. Placar "FRA 4-1 BEL 90:00 +3" visível.
+04 - TVC Deportes (1264x704, 12 s): domínio em plano mais aberto, com o banco e a torcida atrás. Marca TVC no canto.
+
+SUBSTITUIÇÕES (desenvolvimento: "aos sessenta, Zidane mandou Olise e Cherki pro jogo")
+05 - ESPN Brasil (vertical, 28 s): Olise (11) e Cherki entrando com placar FRA 0-1 BEL, Zidane na beira do campo. Legenda ESPN em cima.
+
+06 - MELHORES MOMENTOS ESPN Brasil (10:50, narração em PT)
+  00:15  Zidane no túnel, mão no queixo (contexto: "quarto jogo do Zidane")
+  00:30  escalação da França (dez titulares trocados)
+  00:45  Stade de France aberto (contexto: "Stade de France")
+  ~04:00 gol do Lukebakio, 1x0 Bélgica (placar 0-1 aparece por volta de 04:30)
+  05:15  Zidane de pé na área técnica
+  ~05:45 Olise (11) e o 9 prontos pra entrar
+  ~06:30-06:45 empate do Doué (77')
+  ~07:30-08:45 virada do Cherki (81') e comemoração
+  ~09:30 bola na rede, gol do Olise nos acréscimos
+  10:15  Zidane aplaudindo/comemorando (bom pro "isso é futebol")
+
+07 - extended Sports Extra (5:33): mesmos lances, outra edição, sem narração em PT.
+08 - federação belga (11:37): ângulos do lado belga; bom pro "calou o estádio" e pro gol do Lukebakio.
+09 - análise do Zidane na FFF (3:47): Zidane falando depois do jogo (fala em francês, usar como imagem).
