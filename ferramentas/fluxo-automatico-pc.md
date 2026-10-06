@@ -28,6 +28,7 @@ e os 5 a 8 posts/momentos mais fortes. Sem célula vazia. Máximo ~6000 caracter
 
 ## Etapa 2: roteiro chegou → alarme da narração + garimpo de vídeos
 A mensagem traz `NOME` (nome da pasta), o roteiro e o texto para o AI Studio.
+**O alarme é a primeira coisa a fazer, antes de qualquer busca.** Cada minuto até ele tocar atrasa o vídeo.
 1. Crie `..\Videos prontos\Shorts\<NOME>\` e grave `roteiro.txt` e `texto para o AI Studio.txt` (UTF-8),
    com o texto exatamente como veio.
 2. Busque o script do alarme sem sujar o repositório e rode **em segundo plano** (não espere):
@@ -40,8 +41,9 @@ A mensagem traz `NOME` (nome da pasta), o roteiro e o texto para o AI Studio.
    O alarme copia o texto, abre o AI Studio, mostra um aviso por cima de tudo e fala em voz alta a cada 2 min
    até aparecer um .wav/.mp3 novo em `Downloads` ou na pasta. Aí copia para `<pasta>\Narracao.wav` e sai com
    `NARRACAO_OK`. Depois de 3 h sem áudio, sai com `NARRACAO_TIMEOUT`.
-3. Ao mesmo tempo, rode a **skill `garimpo-de-videos`** inteira com esse roteiro, nessa pasta
-   (cotas, apoio, fotos, inventário com janelas). Jogo da Seleção: veja `memoria/fonte-wamo-selecao.md`.
+3. Só depois que o alarme estiver rodando, faça o garimpo. Rode a **skill `garimpo-de-videos`** em **modo rápido**:
+   no máximo ~50 min. Priorize a filmagem de torcida e o lance-chave. Entregue com o que tiver e diga quais cotas
+   ficaram faltando. Use esse roteiro e essa pasta. O `inventario.json` com as janelas é obrigatório mesmo no modo rápido. Jogo da Seleção: veja `memoria/fonte-wamo-selecao.md`.
    Use o Chrome no grupo de abas do Claude. O usuário pode estar usando a aba do AI Studio: não feche abas dele.
 4. Quando o garimpo terminar **e** o alarme tiver saído com `NARRACAO_OK`:
    `.\ferramentas\enviar.ps1 "<NOME>"`. Ele prepara a narração (`narracao.py`) e sobe o branch `video/<NOME com hífens>`.
