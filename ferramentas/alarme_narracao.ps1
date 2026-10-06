@@ -1,6 +1,6 @@
 # Alarme barulhento para o usuario gerar a narracao no AI Studio (fluxo automatico).
 # Copia o texto para o AI Studio, abre o site e o texto, mostra um aviso por cima de tudo
-# e fala em voz alta a cada 2 minutos ate aparecer um audio novo (Downloads ou pasta do video).
+# e toca bipes a cada 30 s ate aparecer um audio novo (Downloads ou pasta do video). So bipe, sem voz (pedido do usuario).
 # Quando o audio chega, copia para a pasta do video como "Narracao.<ext>" e sai com codigo 0.
 # uso:  .\ferramentas\alarme_narracao.ps1 -Pasta "<pasta do video em Shorts>" [-MaxMin 180]
 param([Parameter(Mandatory)][string]$Pasta, [int]$MaxMin = 180)
@@ -11,15 +11,7 @@ $downloads = Join-Path ([Environment]::GetFolderPath('UserProfile')) "Downloads"
 $texto = Get-ChildItem $Pasta -File -Filter "texto para o AI Studio*.txt" | Select-Object -First 1
 if (-not $texto) { $texto = Get-ChildItem $Pasta -File -Filter "roteiro*.txt" | Select-Object -First 1 }
 
-# acentos sem depender da codificacao do arquivo
-$cao = [string][char]0x00E7 + [char]0x00E3 + "o"           # "cao" de narracao/atencao
-$fala = "Aten$cao! Aten$cao! O roteiro do v" + [char]0x00ED + "deo est" + [char]0x00E1 + " pronto. Hora de gerar a narra$cao no AI Studio."
-
-Add-Type -AssemblyName System.Speech, System.Windows.Forms
-$voz = New-Object System.Speech.Synthesis.SpeechSynthesizer
-$ptbr = $voz.GetInstalledVoices() | Where-Object { $_.VoiceInfo.Culture.Name -eq 'pt-BR' } | Select-Object -First 1
-if ($ptbr) { $voz.SelectVoice($ptbr.VoiceInfo.Name) }
-$voz.Volume = 100
+Add-Type -AssemblyName System.Windows.Forms
 
 function Audio-Novo {
     foreach ($dir in @($Pasta, $downloads)) {
@@ -31,8 +23,7 @@ function Audio-Novo {
 }
 
 function Alarme {
-    foreach ($f in 880, 660, 880, 660, 880) { [console]::Beep($f, 300) }
-    $voz.Speak($fala)
+    foreach ($i in 1..3) { foreach ($f in 1000, 1500) { [console]::Beep($f, 250) } }
 }
 
 # 1) deixa tudo pronto para colar
@@ -60,11 +51,11 @@ while (((Get-Date) - $inicio).TotalMinutes -lt $MaxMin) {
         do { $t = $a.Length; Start-Sleep 3; $a.Refresh() } while ($a.Length -ne $t)   # espera terminar de baixar
         $dest = Join-Path $Pasta ("Narracao" + $a.Extension)
         if ($a.FullName -ne $dest) { Copy-Item $a.FullName $dest -Force }
-        $voz.Speak("Narra$cao recebida. Obrigado!")
+        [console]::Beep(1200, 150); [console]::Beep(1600, 400)   # bipe curto de "recebido"
         Write-Host "NARRACAO_OK $dest"
         exit 0
     }
-    if ((Get-Date) -ge $proximo) { Alarme; $proximo = (Get-Date).AddMinutes(2) }
+    if ((Get-Date) -ge $proximo) { Alarme; $proximo = (Get-Date).AddSeconds(30) }
     Start-Sleep 10
 }
 Write-Host "NARRACAO_TIMEOUT depois de $MaxMin min"

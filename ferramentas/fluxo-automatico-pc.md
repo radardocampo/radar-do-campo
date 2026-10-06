@@ -38,7 +38,7 @@ A mensagem traz `NOME` (nome da pasta), o roteiro e o texto para o AI Studio.
    powershell -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\alarme_narracao.ps1" -Pasta "<pasta do vídeo>"
    ```
    (se o arquivo já estiver na `main`, use `ferramentas\alarme_narracao.ps1` direto)
-   O alarme copia o texto, abre o AI Studio, mostra um aviso por cima de tudo e fala em voz alta a cada 2 min
+   O alarme copia o texto, abre o AI Studio, mostra um aviso por cima de tudo e toca bipes a cada 30 s (só bipe, sem voz)
    até aparecer um .wav/.mp3 novo em `Downloads` ou na pasta. Aí copia para `<pasta>\Narracao.wav` e sai com
    `NARRACAO_OK`. Depois de 3 h sem áudio, sai com `NARRACAO_TIMEOUT`.
 3. Só depois que o alarme estiver rodando, faça o garimpo. Rode a **skill `garimpo-de-videos`** em **modo rápido**:
@@ -54,5 +54,5 @@ A mensagem traz `NOME` (nome da pasta), o roteiro e o texto para o AI Studio.
 5. Mensagem final: `FLUXO-ETAPA-2 OK` + branch enviado + placar das cotas do garimpo (ou `FALHOU: motivo`).
 
 ## Etapa 3: vídeo montado
-A nuvem avisa que o vídeo está pronto. Fale uma vez em voz alta ("O vídeo está pronto na nuvem") e pare.
+A nuvem avisa que o vídeo está pronto. Toque um bipe curto ([console]::Beep(1200,300) duas vezes), sem voz, e pare.
 **Não** rode `receber.ps1`: o usuário pede para trazer quando quiser.
