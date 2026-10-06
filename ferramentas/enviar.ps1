@@ -18,5 +18,5 @@ git add -f "Videos prontos/Shorts/$Nome"
 git commit -m "video: $Nome"
 git push -u origin $branch --force
 git checkout main
-Remove-Item $destino -Recurse -Force   # so a copia do repo; o original em Shorts fica intacto
+if (Test-Path $destino) { Remove-Item $destino -Recurse -Force }   # so a copia do repo; o original em Shorts fica intacto
 Write-Host "`nEnviado no branch $branch. Na sessao da nuvem, peca: monta o video do branch $branch"
