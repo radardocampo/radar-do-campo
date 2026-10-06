@@ -1,0 +1,4 @@
+﻿.lixeira/
+__pycache__/
+# clipes e trabalho de montagem so entram nos branches video/*, com git add -f
+Videos prontos/Shorts/*/

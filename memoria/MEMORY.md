@@ -1,0 +1,25 @@
+- [Referência de montagem (Carrascal)](referencia-montagem-carrascal.md) — vídeo montado à mão pelo usuário que define o estilo das skills de garimpo/montagem
+- [Download sem cookies no garimpo](garimpo-download-sem-cookies.md) — cookies do Chrome/Edge falham no yt-dlp; TikTok/YouTube/X baixam sem
+- [Skill de montagem nova (local)](skill-montagem-versao-nova-local.md) — instalada em 2026-09-25 = cópia do HUB/.../versao-nova-2026-09-22; só grava em Shorts/<vídeo>; tampa marcas de terceiros (clone, sem borrão); loop visual obrigatório; 4 arquivos em Videos prontos/ (desde 2026-10-01 o 4º é "com-legenda-sem-marca", não mais o "limpo"); -10 LUFS
+- [Referência de montagem (Faiq)](referencia-montagem-faiq.md) — montagem à mão do usuário de 2026-09-24: frase-ponte de loop, -10 LUFS, marca YouTube no topo direito, vazamento da lupa
+- [Narração lê os rótulos do roteiro](narracao-le-rotulos-do-roteiro.md) — entregar também a versão sem "Gancho/Contexto/Payoff" para colar no AI Studio
+- [Narração é feita no AI Studio](narracao-feita-no-ai-studio.md) — o usuário gera a voz no site; skill de narração via API foi excluída a pedido dele
+- [Fonte WAMO para jogos da Seleção](fonte-wamo-selecao.md) — @canalwamo filma jogos do Brasil da arquibancada; listar perfil via yt-dlp
+- [Python da Store não lê AppData\Roaming](python-store-nao-le-appdata-roaming.md) — copiar scripts das skills (watch, folha_contato) antes de rodar; ffmpeg local sem -vsync
+- [Montagem: sem zoom excessivo, gancho forte](montagem-sem-zoom-excessivo-gancho-forte.md) — tela cheia com zoom que acompanha o lance (sem faixa desfocada), só esconder marca d'água, gancho = lance chocante com ferimento desfocado
+- [Gancho forte e contexto literal](montagem-gancho-e-contexto-literal.md) — 2026-09-27: abrir no momento mais forte; fala factual pede imagem do fato (jogos/títulos anteriores), não torcida; prévia de suspense antes da revelação
+- [Montagem: 5º arquivo com SFX](montagem-versao-extra-com-sfx.md) — 4 padrão sem efeitos + "TIKTOK - COM EFEITOS SONOROS"; transições flash+zoom e flashback via posfx.py
+- [Garimpo: coleta de links no Chrome](garimpo-coleta-links-chrome.md) — JS trunca ~1000 chars (paginar), Instagram só busca 2 palavras, título de vídeo de torcida pode ser de outro jogo
+- [Edição dele sobre Ronaldo/Arrascaeta](referencia-edicao-ronaldo-arrascaeta.md) — 2026-09-29: lance-chave em take contínuo, close de emoção nas falas de ação, loop pelo rosto, legenda refeita no CapCut, trilha em degraus, tirou nossos SFX
+- [Edição dele do Vini x Austrália](referencia-edicao-vini-penalti.md) — 2026-09-29: chute no plano, payoff com outra fonte + placar de TV até a rede, punch-in em ação pequena, sem rosto aleatório
+- [Agressão no plano + prévia no gancho](montagem-agressao-no-plano-e-previa.md) — 2026-09-30 Pochettino/Chile: gancho = briga + prévia cortada antes do contato; no meio o chute inteiro em câmera lenta, sem flash
+- [Referência de montagem (Palermo/Diogo)](referencia-montagem-palermo-diogo.md) — 2026-09-26: gancho = flash-forward do lance, replay fechado no gol, seta vermelha no protagonista, -7 LUFS, legenda a 61%
+- [Edição dele da camisa 10](referencia-edicao-camisa10.md) — 2026-10-01: aprovou o corte inteiro, só pôs trilha (entra 1s, -17 dB, queda antes da revelação, sobe na reviravolta, sai 2s antes do fim)
+- [Edições dele do Modric e do Endrick](referencia-edicao-modric-endrick.md) — 2026-10-02: só trocou gancho+loop (pessoa em ação / torcida do mesmo momento), título da Copa literal, trilha 3 degraus; skill HUB 2026-10-02
+- [Sem políticos na montagem](montagem-sem-politicos.md) — 2026-10-02 bets: tirar Lula/governantes de cena (vira conteúdo político); usar prédios, arte, placas
+- [Edição dele do Raphinha cortado](referencia-edicao-raphinha-cortado.md) — 2026-09-30: montou do zero; ícone CBF riscado, punch-in na coxa, lugar/lista/instituição literais, infográfico IA, SRT para o CapCut
+- [Placar final: conferir acréscimos](placar-final-conferir-acrescimos.md) — Índia x Brasil 03/10: páginas ao vivo diziam 3x0, foi 4x0 (90+5); público "início" ≠ oficial
+- [Montagem pensada pra viralizar](montagem-pensada-pra-viralizar.md) — 2026-10-03 Calcutá: gancho = pico do material, ação até o impacto, sem zoom em plano de escala, frase inteira literal; skill HUB 2026-10-03
+- [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — 2026-10-05: só TikTok não serve; 7 redes no Chrome dele + grade; 06/10: X abriu, Kwai via /discover/, placares pela API da ESPN
+- [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
+- [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
