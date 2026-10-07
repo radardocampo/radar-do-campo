@@ -1,0 +1,33 @@
+MESSI NAO QUERIA IR EMBORA  (Argentina 3x0 Benin, amistoso de despedida, Monumental, 06/10/2026)
+
+Gancho: Todo mundo viu o Messi se despedir da Argentina com gol. Mas quase ninguém percebeu por que esse jogo precisou existir.
+
+Contexto: Até hoje, a última imagem do Messi com a camisa da Argentina era a pior possível. Final da Copa de 2026, prorrogação, gol do Ferran Torres, e a Espanha campeã em cima dele.
+
+Desenvolvimento: Dois dias depois, ele escreveu a carta de despedida da seleção. E guardou. Quarenta e um dias na gaveta.
+No meio disso, em agosto, morreu o pai dele, Jorge. O homem que levou o filho de Rosário pra Barcelona com treze anos. Quando finalmente anunciou, o Messi disse: depois do que aconteceu com o meu pai, eu tô mais convencido do que antes.
+
+Reviravolta: Só que ele não podia ir embora com aquela final como último jogo. Então a Argentina marcou mais um. Contra o Benin. Ele entrou com os filhos, chorou no hino, e no minuto 10 o jogo parou pra aplaudir ele. Aos 71, pênalti. Gol cento e vinte e seis. O último.
+
+Payoff: E no microfone, a primeira coisa que ele lembrou foi do pai. Depois soltou: eu tô falando mais do que nunca. Não quero ir embora daqui.
+A última imagem do Messi com essa camisa não é mais a derrota na final. É ele, sem querer ir embora, depois de se despedir da Argentina com gol.
+(ponte de loop: "...se despedir da Argentina com gol." -> "Todo mundo viu o Messi se despedir da Argentina com gol.")
+
+~221 palavras.
+
+O QUE O GARIMPO PRECISA (por frase):
+- Gancho/fim: o PENALTI do Messi aos 71' (chute ate a rede) + comemoracao, de preferencia filmado da arquibancada.
+- Final da Copa 2026 (19/07, MetLife): gol do Ferran Torres na prorrogacao, Espanha campea, Messi derrotado.
+- "carta de despedida" / anuncio de 31/08: o post/video do anuncio.
+- Jorge Messi (pai) com o Messi: arquivo.
+- "Rosario pra Barcelona com 13 anos": Messi crianca (arquivo).
+- "entrou com os filhos": entrada em campo hoje com os filhos.
+- "chorou no hino": close do Messi no hino hoje.
+- "minuto 10 o jogo parou": ja baixado (clipes do minuto 10).
+- "no microfone... nao quero ir embora daqui": o DISCURSO dele no gramado (essencial), com o audio dele se der.
+
+FONTES (resumos de busca; os sites de noticia sao bloqueados na nuvem):
+- Final 19/07/2026 Espanha 1x0, Ferran Torres 106': euronews, abc7ny (19/07/2026)
+- Carta em 21/07, anuncio em 31/08, frase do pai: El Tiempo, Forbes Argentina (31/08/2026)
+- Jogo 3x0, Messi penalti 71', gol 126, entrada com os filhos, choro no hino, minuto 10: El Espectador, Primicias, La Republica (06/10/2026)
+- Discurso ("lo primero en lo que pensaba era en su padre", "estoy hablando mas que nunca, no me quiero ir de aca"): C5N, Primicias (06/10/2026)
