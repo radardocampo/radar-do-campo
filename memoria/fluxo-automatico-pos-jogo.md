@@ -19,6 +19,13 @@ Como ficou (primeira vez em 06/10/2026, Argentina x Benin, despedida do Messi, 2
 
 **Quando escrever o roteiro (regra dele, 06/10/2026, 21h40):** só depois do apito final **e** de o protagonista sair do estádio, quando acabarem as homenagens. Aí refazer a busca nas redes (o que está rolando no fim) e só então escrever. No Messi eu adiantei o roteiro no intervalo para o alarme tocar mais cedo, e ele mandou parar: "espere o minuto final e até o Messi sair do estádio". Velocidade do alarme vale **depois** desse ponto, não antes.
 
+**Lições da 1ª vez (06/10, Messi):**
+- A sessão do PC rodou o alarme como tarefa de fundo com timeout de 10 min; ele morreria antes da narração. Timeout de 2 h (está no fluxo-automatico-pc.md).
+- A 1ª narração que chegou era do roteiro antigo (ele tinha gerado no 1º alarme). Antes de montar, confira o `palavras.json` contra o roteiro atual; se não bater, mande o texto novo no chat e peça para gerar de novo.
+- A fala/discurso do protagonista no fim é o clipe mais importante e não tinha sido garimpada: peça-a nominalmente ao PC assim que o roteiro sair.
+- Reiniciar o PC derruba a extensão Claude in Chrome: ele precisa reconectar; o garimpo segue só com yt-dlp (busca ytsearch) até lá.
+- Da nuvem só dá para usar WebSearch (sites de notícia e ESPN bloqueados); a ESPN funciona pelo PowerShell do PC.
+
 **Why:** ele fica perto do PC mas esquece do jogo; sem a voz não há montagem.
 Ele quer o máximo na nuvem (crédito); o PC só para o que a nuvem não alcança (redes logadas, download de clipes, bipe). A nuvem não abre sessão no PC: ele precisa abrir a sessão Remote Control lá.
 **How to apply:** em pedido de "programar" vídeo de jogo futuro, repita esse desenho; escolha o ângulo sozinho (sem a prévia de candidatos) e avise na entrega o que decidiu. Relacionado: [[fluxo-nuvem-github]], [[narracao-feita-no-ai-studio]], [[garimpo-temas-todas-as-redes]].
