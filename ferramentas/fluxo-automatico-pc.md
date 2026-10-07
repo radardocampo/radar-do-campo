@@ -31,7 +31,7 @@ A mensagem traz `NOME` (nome da pasta), o roteiro e o texto para o AI Studio.
 **O alarme é a primeira coisa a fazer, antes de qualquer busca.** Cada minuto até ele tocar atrasa o vídeo.
 1. Crie `..\Videos prontos\Shorts\<NOME>\` e grave `roteiro.txt` e `texto para o AI Studio.txt` (UTF-8),
    com o texto exatamente como veio.
-2. Busque o script do alarme sem sujar o repositório e rode **em segundo plano** (não espere):
+2. Busque o script do alarme sem sujar o repositório e rode **em segundo plano** (não espere), com **timeout de 7200000** na tarefa: com 600000 ele morre aos 10 min, antes de a narração chegar:
    ```powershell
    git fetch origin claude/inspiring-fermi-aolhi2
    git show origin/claude/inspiring-fermi-aolhi2:ferramentas/alarme_narracao.ps1 | Set-Content "$env:TEMP\alarme_narracao.ps1" -Encoding UTF8
