@@ -17,6 +17,8 @@ Como ficou (primeira vez em 06/10/2026, Argentina x Benin, despedida do Messi, 2
 
 **Narração:** ele continua gerando no AI Studio. Quando não estiver olhando, avise de forma **barulhenta**: `ferramentas/alarme_narracao.ps1` (só bipes a cada 30 s, SEM VOZ, pedido dele em 06/10; aviso por cima de tudo, texto já copiado, AI Studio aberto) até o .wav aparecer em Downloads. Não gere a voz por conta própria.
 
+**Quando escrever o roteiro (regra dele, 06/10/2026, 21h40):** só depois do apito final **e** de o protagonista sair do estádio, quando acabarem as homenagens. Aí refazer a busca nas redes (o que está rolando no fim) e só então escrever. No Messi eu adiantei o roteiro no intervalo para o alarme tocar mais cedo, e ele mandou parar: "espere o minuto final e até o Messi sair do estádio". Velocidade do alarme vale **depois** desse ponto, não antes.
+
 **Why:** ele fica perto do PC mas esquece do jogo; sem a voz não há montagem.
 Ele quer o máximo na nuvem (crédito); o PC só para o que a nuvem não alcança (redes logadas, download de clipes, bipe). A nuvem não abre sessão no PC: ele precisa abrir a sessão Remote Control lá.
 **How to apply:** em pedido de "programar" vídeo de jogo futuro, repita esse desenho; escolha o ângulo sozinho (sem a prévia de candidatos) e avise na entrega o que decidiu. Relacionado: [[fluxo-nuvem-github]], [[narracao-feita-no-ai-studio]], [[garimpo-temas-todas-as-redes]].
