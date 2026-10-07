@@ -1,0 +1,31 @@
+# Garimpo feito na nuvem (07/10/2026). Uma URL por linha; o baixar_clipes.ps1 le este arquivo.
+# Formato: <nome do arquivo sem extensao> <url>   # o que deve mostrar (parte do roteiro)
+
+# --- DRONES (gancho, logo Sancor, camisa 10, Copa, silhueta destra) ---
+tt_diario.ole_7693736900301016338   https://www.tiktok.com/@diario.ole/video/7693736900301016338   # show de drones inteiro filmado da arquibancada (@catsarra) - BASE
+x_ESPNmx_2107647709792383331         https://x.com/ESPNmx/status/2107647709792383331               # Messi olhando o show de drones (reacao dele)
+x_NAagencia_2107661992097984994      https://x.com/NAagencia/status/2107661992097984994            # blooper: silhueta chutando de direita
+x_Cadena3_Rosario_2107786766409138393 https://x.com/Cadena3_Rosario/status/2107786766409138393     # drones (conferir)
+x_TouchlineX_2107662976916349224     https://x.com/TouchlineX/status/2107662976916349224           # drones / Sancor (conferir)
+yt_GGHq3h2AGFQ                       https://www.youtube.com/watch?v=GGHq3h2AGFQ                   # "inmenso show de drones" - camisa 10 / Copa
+yt_Ezt0plQ0Xgs                       https://www.youtube.com/shorts/Ezt0plQ0Xgs                    # despedida com drones (short)
+yt_qOCi7v1sphI                       https://www.youtube.com/shorts/qOCi7v1sphI                    # Sancor + "diestro en vez de zurdo"
+yt_BCGddRq-plA                       https://www.youtube.com/watch?v=BCGddRq-plA                   # idem, versao longa
+
+# --- SANCOR NO CEU + VAIA + CANTO CONTRA O TAPIA ---
+x_Argenpoirot_2107676232389190048    https://x.com/Argenpoirot/status/2107676232389190048          # reacao da torcida + grito contra o Chiqui Tapia (audio!)
+x_mikemaquinadel_2107645182900613614 https://x.com/mikemaquinadel/status/2107645182900613614        # todos olhando o ceu e aparece SANCOR
+x_xaviespinosaa_2107645089153454135  https://x.com/xaviespinosaa/status/2107645089153454135        # Leo olhando o ceu + Sancor
+x_catrina_nortena_2107670463337951472 https://x.com/catrina_nortena/status/2107670463337951472     # Sancor no ceu
+x_porquetendencia_2107646492739551667 https://x.com/porquetendencia/status/2107646492739551667     # "Sancor Seguros" tendencia (print do trending = prova)
+x_fer_esquivel22_2107657942128378272 https://x.com/fer_esquivel22/status/2107657942128378272        # Sancor (conferir se tem video)
+yt_g81UYQOheTk                       https://www.youtube.com/shorts/g81UYQOheTk                    # papelao Chiqui Tapia e Sancor
+yt_wp9eEXqfE0g                       https://www.youtube.com/watch?v=wp9eEXqfE0g                   # "el chiste de Sancor" no homenagem
+yt_e6WfLy2Hhb8                       https://www.youtube.com/watch?v=e6WfLy2Hhb8                   # drones Sancor e a frase sobre a final
+
+# --- CONTEXTO: fim de jogo, Monumental lotado, Messi chorando ---
+yt_6Uxgz0T-xpY                       https://www.youtube.com/watch?v=6Uxgz0T-xpY                   # despedida completa com a torcida (vlog?) - Messi chorando
+yt_Vq-wybkdA7s                       https://www.youtube.com/watch?v=Vq-wybkdA7s                   # homenagem da Selecao ao Messi
+yt_DvTQ5TSUhfs                       https://www.youtube.com/watch?v=DvTQ5TSUhfs                   # resumo (placar 3x0 na tela)
+yt_KWbL_l5LoOE                       https://www.youtube.com/watch?v=KWbL_l5LoOE                   # Argentina 3x0 Benin
+x_TyCSports_2107618378818978078      https://x.com/TyCSports/status/2107618378818978078            # Monumental rendido ao Messi (minuto 10)
