@@ -1,0 +1,585 @@
+{
+ "clips": {
+  "UY": "../clipes/yt_uYmdGLcCIo0.mp4",
+  "FI": "../clipes/Twitter_futebol_info_2107618079177953280.mp4",
+  "FIN": "../clipes/apoio/yt_6HaHNYjnghE.mp4",
+  "IP": "../clipes/apoio/yt_IP-4WLBS1xc.mp4",
+  "G0": "../clipes/apoio/yt_G0GMHFt0JOQ.mp4",
+  "VEL": "../clipes/apoio/yt_9uvvQ_eJJ4E.mp4",
+  "KI": "../clipes/apoio/yt_kiUACKN0vjE.mp4",
+  "TV9": "../clipes/apoio/yt_9uTVB83mR8g.mp4",
+  "KID": "../clipes/apoio/yt_0j9POXpurPU.mp4",
+  "SY": "../clipes/yt_sYO6xTMVC7E.mp4",
+  "RUSH": "../clipes/tt_rushfx_10_7693710355926682887.mp4",
+  "LIGA": "../clipes/tt_ligaprofesional_7693705969905306887.mp4",
+  "Q6": "../clipes/yt_discurso_q6GrJ2DmIJ4.mp4"
+ },
+ "shots": [
+  {
+   "tStart": 0.0,
+   "tEnd": 2.9,
+   "clip": "UY",
+   "in": 7.46,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.25,
+   "cx": 0.45,
+   "cy": 0.39,
+   "tracking": "fixo",
+   "flashforward": true,
+   "nota": "GANCHO: Messi comemorando o penalti (pico 1)",
+   "id": 1
+  },
+  {
+   "tStart": 2.9,
+   "tEnd": 6.06,
+   "clip": "FI",
+   "in": 64.45,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.55,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "Messi olhando o estadio",
+   "id": 2
+  },
+  {
+   "tStart": 6.06,
+   "tEnd": 10.25,
+   "clip": "FI",
+   "in": 2.6,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.42,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "Messi de costas/perfil com a 10 (ultima imagem com a camisa)",
+   "id": 3
+  },
+  {
+   "tStart": 10.25,
+   "tEnd": 12.02,
+   "clip": "FIN",
+   "in": 75.75,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.33,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "fx": "flashback_in",
+   "nota": "final da Copa 2026",
+   "id": 4
+  },
+  {
+   "tStart": 12.02,
+   "tEnd": 12.73,
+   "clip": "FIN",
+   "in": 79.6,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.47,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "fx": "flashback",
+   "nota": "bola na rede (replay)",
+   "id": 5
+  },
+  {
+   "tStart": 12.73,
+   "tEnd": 14.2,
+   "clip": "FIN",
+   "in": 82.3,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.33,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "fx": "flashback",
+   "nota": "Ferran Torres 7 comemorando",
+   "id": 6
+  },
+  {
+   "tStart": 14.2,
+   "tEnd": 15.74,
+   "clip": "IP",
+   "in": 63.3,
+   "rate": 1.0,
+   "tipo": "B",
+   "fonte": "torcida",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "recorte": [
+    0.335,
+    0.0,
+    0.33,
+    1.0
+   ],
+   "fx": "flashback",
+   "nota": "'Espanha campea': Espanha no gramado, da arquibancada",
+   "id": 7
+  },
+  {
+   "tStart": 15.74,
+   "tEnd": 16.78,
+   "clip": "G0",
+   "in": 6.3,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.3,
+   "cx": 0.6,
+   "cy": 0.38,
+   "tracking": "fixo",
+   "nota": "Messi serio (dois dias depois)",
+   "id": 8
+  },
+  {
+   "tStart": 16.78,
+   "tEnd": 19.09,
+   "clip": "G0",
+   "in": 8.25,
+   "rate": 0.95,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.3,
+   "cx": 0.43,
+   "cy": 0.38,
+   "tracking": "fixo",
+   "nota": "Messi olhando (escreveu a carta da selecao)",
+   "id": 9
+  },
+  {
+   "tStart": 19.09,
+   "tEnd": 21.58,
+   "clip": "FI",
+   "in": 83.8,
+   "rate": 0.97,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.45,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "Messi de costas, a 10 (guardou 41 dias)",
+   "id": 10
+  },
+  {
+   "tStart": 21.58,
+   "tEnd": 23.1,
+   "clip": "VEL",
+   "in": 5.6,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "keys": [
+    [
+     0,
+     0.42
+    ],
+    [
+     1.52,
+     0.56
+    ]
+   ],
+   "fx": "flashback_in",
+   "nota": "cartaz Fuerza Leo te amamos (velorio do pai)",
+   "id": 11
+  },
+  {
+   "tStart": 23.1,
+   "tEnd": 24.35,
+   "clip": "KI",
+   "in": 52.0,
+   "rate": 1.0,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.35,
+   "cx": 0.55,
+   "cy": 0.37,
+   "tracking": "fixo",
+   "fx": "flashback",
+   "nota": "'morreu o pai dele, Jorge': Jorge Messi",
+   "id": 12
+  },
+  {
+   "tStart": 24.35,
+   "tEnd": 27.77,
+   "clip": "KID",
+   "in": 23.45,
+   "rate": 0.9,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "keys": [
+    [
+     0,
+     0.5
+    ],
+    [
+     2.0,
+     0.55
+    ],
+    [
+     3.42,
+     0.65
+    ]
+   ],
+   "fx": "flashback",
+   "nota": "Messi crianca em Rosario",
+   "id": 13
+  },
+  {
+   "tStart": 27.77,
+   "tEnd": 29.68,
+   "clip": "FI",
+   "in": 80.2,
+   "rate": 0.8,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "Messi (quando anunciou, disse)",
+   "id": 14
+  },
+  {
+   "tStart": 29.68,
+   "tEnd": 33.15,
+   "clip": "TV9",
+   "in": 16.1,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.35,
+   "cx": 0.5,
+   "cy": 0.37,
+   "tracking": "fixo",
+   "keys": [
+    [
+     0,
+     0.33,
+     0.37
+    ],
+    [
+     3.47,
+     0.57,
+     0.37
+    ]
+   ],
+   "fx": "flashback",
+   "nota": "foto Messi e o pai",
+   "id": 15
+  },
+  {
+   "tStart": 33.15,
+   "tEnd": 36.22,
+   "clip": "IP",
+   "in": 68.2,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "torcida",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "recorte": [
+    0.335,
+    0.0,
+    0.33,
+    1.0
+   ],
+   "fx": "flashback_in",
+   "nota": "Espanha no chao comemorando (aquela final)",
+   "id": 16
+  },
+  {
+   "tStart": 36.22,
+   "tEnd": 38.53,
+   "clip": "LIGA",
+   "in": 3.0,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "torcida",
+   "protagonista": true,
+   "zoom": 1.15,
+   "cx": 0.47,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "fx": "flash",
+   "nota": "hoje, contra o Benin: Messi entre os jogadores do Benin (arquibancada)",
+   "id": 17
+  },
+  {
+   "tStart": 38.53,
+   "tEnd": 39.74,
+   "clip": "FI",
+   "in": 32.65,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.42,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "'entrou com os filhos': filho e Antonela no camarote",
+   "id": 18
+  },
+  {
+   "tStart": 39.74,
+   "tEnd": 40.62,
+   "clip": "FI",
+   "in": 75.1,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.38,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "'chorou no hino': Messi emocionado",
+   "id": 19
+  },
+  {
+   "tStart": 40.62,
+   "tEnd": 43.21,
+   "clip": "RUSH",
+   "in": 1.0,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "torcida",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "minuto 10: Benin aplaudindo em volta dele (arquibancada)",
+   "id": 20
+  },
+  {
+   "tStart": 43.21,
+   "tEnd": 46.1,
+   "clip": "UY",
+   "in": 0.05,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "keys": [
+    [
+     0,
+     0.4
+    ],
+    [
+     1.4,
+     0.5
+    ],
+    [
+     2.4,
+     0.62
+    ],
+    [
+     2.89,
+     0.62
+    ]
+   ],
+   "fx": "flash",
+   "nota": "aos 71, penalti ate a rede (placar 2x0 -> gol 126)",
+   "id": 21
+  },
+  {
+   "tStart": 46.1,
+   "tEnd": 46.67,
+   "clip": "SY",
+   "in": 20.0,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.2,
+   "cx": 0.48,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "'o ultimo': Messi sorrindo depois do gol",
+   "id": 22
+  },
+  {
+   "tStart": 46.67,
+   "tEnd": 48.8,
+   "clip": "Q6",
+   "in": 531.05,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.37,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "DISCURSO: Messi no microfone",
+   "id": 23
+  },
+  {
+   "tStart": 48.8,
+   "tEnd": 49.35,
+   "clip": "KI",
+   "in": 54.0,
+   "rate": 1.0,
+   "tipo": "B",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.35,
+   "cx": 0.42,
+   "cy": 0.37,
+   "tracking": "fixo",
+   "fx": "flashback_in",
+   "nota": "'foi do pai': foto com Jorge",
+   "id": 24
+  },
+  {
+   "tStart": 49.35,
+   "tEnd": 53.05,
+   "clip": "Q6",
+   "in": 557.0,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "DISCURSO: 'nao quero ir embora daqui' (janela seguindo o rosto)",
+   "id": 25,
+   "keys": [
+    [
+     0,
+     0.4
+    ],
+    [
+     0.5,
+     0.5
+    ],
+    [
+     1.0,
+     0.54
+    ],
+    [
+     1.5,
+     0.56
+    ],
+    [
+     2.0,
+     0.49
+    ],
+    [
+     2.5,
+     0.52
+    ],
+    [
+     3.0,
+     0.53
+    ],
+    [
+     3.5,
+     0.58
+    ],
+    [
+     3.7,
+     0.6
+    ]
+   ]
+  },
+  {
+   "tStart": 53.05,
+   "tEnd": 56.33,
+   "clip": "LIGA",
+   "in": 9.0,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "torcida",
+   "protagonista": true,
+   "zoom": 1.15,
+   "cx": 0.47,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "fogos no gramado com ele no meio (a ultima imagem)",
+   "id": 26
+  },
+  {
+   "tStart": 56.33,
+   "tEnd": 57.88,
+   "clip": "FI",
+   "in": 53.9,
+   "rate": 1.0,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "nota": "'e ele, sem querer ir embora': Messi sorrindo",
+   "id": 27
+  },
+  {
+   "tStart": 57.88,
+   "tEnd": 60.398,
+   "clip": "UY",
+   "in": 5.244,
+   "rate": 0.88,
+   "tipo": "A",
+   "fonte": "transmissao",
+   "protagonista": true,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "tracking": "fixo",
+   "ignorar_bordas": true,
+   "nota": "camarote da familia comemorando o gol -> loop no Messi comemorando (corte 7.45 = emenda do loop)",
+   "id": 28
+  }
+ ]
+}
