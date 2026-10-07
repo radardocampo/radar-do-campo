@@ -1,0 +1,12 @@
+GUIA DA TRILHA (padrao das suas edicoes; ajuste o que quiser no CapCut)
+
+0:01.00  musica entra, ~17 dB abaixo da voz
+0:16.88  batida/impacto na transicao
+0:33.10  queda curta (~1s) e sobe para ~12 dB abaixo da voz (degrau do meio)
+0:36.69  batida/impacto na transicao
+0:40.51  batida/impacto na transicao
+0:44.08  abaixa/some (suspense antes da revelacao)
+0:48.08  revelacao: batida/impacto e musica volta
+0:51.84  sobe para ~9 dB abaixo da voz (degrau final)
+1:00.16  musica sai (loop so com voz)
+1:02.46  fim
