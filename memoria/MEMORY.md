@@ -23,5 +23,5 @@
 - [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — 2026-10-05: só TikTok não serve; 7 redes no Chrome dele + grade; 06/10: X abriu, Kwai via /discover/, placares pela API da ESPN
 - [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
 - [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — 2026-10-06: roteiro+montagem na nuvem, repo radar-do-campo, enviar.ps1/receber.ps1
+- [Lance em sequência aprovado (Bruno Duarte)](montagem-lance-em-sequencia-aprovado.md) — 2026-10-08 "perfeito": gancho = prévia da queda; depois o lance inteiro em ordem, cada frase com o próximo momento do mesmo evento; zoom 1,2–1,6 seguindo a bola
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
-- [Fluxo automático pós-jogo](fluxo-automatico-pos-jogo.md) — 2026-10-06 Messi: Routine na nuvem + sessão do PC por mensagem (precisa autorização dele no chat do PC); narração = alarme só de bipe (sem voz), ele gera no AI Studio; roteiro só depois do apito final e da saída do protagonista do estádio (+ nova busca nas redes)

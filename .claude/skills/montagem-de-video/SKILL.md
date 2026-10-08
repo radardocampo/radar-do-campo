@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-05 (limpeza de disco: entrega manda os cortes regeneráveis para a Lixeira; `fechar_videos.py`).** A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-08 (Bruno Duarte aprovado: gancho = prévia da queda, depois o lance inteiro em ordem cronológica; Passo 3, item 21).** A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -92,6 +92,15 @@ Décima rodada, **"Lotou pro Messi… mas não pra Seleção" (Índia 0x4 Brasil
 - **torcida genérica no lugar da frase:** "um torcedor resumiu: é um buraco no bolso" foi coberto com arquibancada vazia, quando o garimpo tinha o torcedor revoltado falando do preço do ingresso (CNN, 48–55s). "Bandeira do Brasil era difícil de achar" mostrou justamente o grupinho com bandeiras do Brasil (a imagem contradizia a frase). "Quem chamou atenção cantando o hino foi a própria imprensa brasileira" mostrou fotógrafos indianos numa coletiva. "Ingresso começava em 3.500 rúpias" e "dez meses depois" viraram estádio vazio genérico. Cada frase inteira precisa da imagem do que ela diz (Passo 3b)
 - **corte antes do impacto:** o indiano com a camisa 10 da Argentina batendo a cadeira foi cortado em 22,07s, e a cadeira voa em 22,0–22,2s e ele bate de novo em 23,7–24,2s. O momento mais forte do vídeo inteiro saiu sem o golpe (Passo 3b, item 3)
 - **gancho fraco:** abri no grupinho de brasileiros no setor vazio (plano parado, de longe). O gancho tinha que ser o take mais chocante do material: o torcedor arrancando e jogando a cadeira, ou o gramado invadido, cortado logo depois do golpe, e só então a narração do "detalhe" (Passo 3b, item 1)
+
+Décima primeira rodada, **"Bruno Duarte apagou e ninguém viu" (Botafogo 1x2 Vasco, 08/out/2026)**. **Aprovado sem nenhuma mudança** ("ficou perfeito e muito bom"). Antes de montar, ele pediu três coisas, e o resultado virou o modelo para roteiro de um incidente (desmaio, lesão, briga):
+- **Gancho = prévia do incidente:** o replay fechado da joelhada e da queda já no quadro 1, depois o 2º ângulo (arquibancada) dele de joelhos indo ao chão. Corta antes do socorro.
+- **"Que os vídeos se completem":** depois do contexto, o incidente volta **inteiro e em ordem cronológica**, cada frase coberta pelo momento seguinte do mesmo evento: assistência → dividida ao vivo até o chão → replay da joelhada → ele se contorcendo → jogo parado com ele caído no canto → ele sozinho e imóvel → companheiro dando tapinhas (take contínuo) → médicos → maca → substituto entrando → maca saindo vista da arquibancada. Nada de imagem fora daquele trecho (Passo 3, item 21).
+- **Jogador sempre bem enquadrado, sem zoom enorme:** zoom de 1,2–1,6 com `keys` seguindo a bola e o jogador. O mesmo zoom tirou as logos de TNT e Prime e o texto da CazéTV.
+- **Espinha num clipe só:** um vídeo de transmissão de 50 s (xsports) cobria o incidente inteiro e foi a base, usado em ordem. Quando a frase era maior que o trecho, desacelerou 0,6–0,75x em vez de trocar de assunto.
+- **Torcida 16%** e foi aprovado: o incidente só existia na transmissão (Passo 5, meta de torcida não se aplica).
+- A revisão a cada 0,1s pegou o que faltava: logos de TNT/Prime, a dividida ao vivo mal enquadrada e a frase "o Colidio lança o David" coberta por outro lance. Foram 3 rodadas de rascunho, e só depois os 4 arquivos.
+- A narração do AI Studio veio **sem a frase de abertura** do roteiro (o gancho do Tite). Avise antes de montar (Passo 0).
 
 Loudness final e altura da legenda ele ajusta sempre no CapCut: no Palermo/Diogo publicou a -7 LUFS com a legenda a ~61%; no Raphinha, -10,3 LUFS com a legenda a ~70%. Os valores do Passo 6 e do Passo 7 são só o ponto de partida.
 
@@ -251,6 +260,10 @@ Quebre a narração em trechos pelas pausas e marque o que cada um precisa mostr
 18. **Enumeração = um corte por item, no tempo de cada palavra.** "Março, junho, setembro" → três cortes de ~0,5s, cada um na imagem de um item já mostrado no vídeo (a lesão de cada mês). Serve para listas de jogos, títulos e datas: é um resumo visual que amarra o que veio antes. Os cortes caem nas palavras, mesmo fora de pausa (Tipo B).
 19. **Instituição na pergunta ou na acusação = o rosto de quem a representa.** "A Seleção tá sugando o Raphinha?" → close do Ancelotti por ~3s. Clube → técnico ou presidente; CBF → presidente; arbitragem → o árbitro do lance. Nunca escudo parado ou estádio vazio.
 20. **Dado-resumo ou estatística = infográfico de portal**, quando o garimpo trouxer um (365Scores, ge, OneFootball): "sempre na coxa… quarta lesão em um ano" → arte "ALERTA LIGADO" com o corpo e as lesões marcadas, em tela cheia (foto entra como clipe: `prep_shots.py` trata imagem igual a vídeo) e, na palavra do dado, corte seco para a mesma arte com zoom no dado (item 16). A marca do portal sai por enquadramento (Passo 5). Se o usuário limpar ou ampliar a arte num editor de IA, **confira as letras pequenas**: no Raphinha a IA reescreveu "COXA" como "COSA", "Zona do Mundo" como "ZORA DO MONSO", "Amistoso" como "AMISTERO", e inventou um escudo no lugar do da Austrália. Prefira enquadrar a parte sem texto miúdo ou avise o usuário. Isto é diferente da regra do Matheuzinho (item 7): lá o print de post **substituía o vídeo do lance**. Infográfico é bem-vindo quando ilustra um **número ou histórico**, que não tem vídeo.
+21. **Roteiro de incidente (desmaio, lesão, briga, socorro): o evento inteiro em ordem cronológica** (Bruno Duarte, 08/out/2026, aprovado sem mudanças). O gancho é a prévia do pico (item 9). Quando a narração chega no incidente, cada frase pega **o momento seguinte do mesmo evento**: início da jogada → contato → queda → no chão → reação dos outros → socorro → maca → substituição, até o desfecho. Não volte no tempo nem corte para imagem de outro assunto no meio. O usuário chama isso de "os vídeos se completarem".
+    - Se um clipe cobre o evento todo (repost de transmissão de 40–60 s), use-o como espinha e intercale só o 2º ângulo (replay, arquibancada) do mesmo instante.
+    - Frase maior que o trecho: estique com 0,6–0,75x no mesmo momento, não pule para outro.
+    - Jogador ou bola sempre dentro do quadro, com zoom moderado (1,2–1,6) e `keys` seguindo a ação.
 
 Registre, por trecho, 2 ou 3 candidatos e a escolha, com o porquê. Isso vira a `nota` do shot. Se não houver alternativa, diga isso.
 
@@ -448,6 +461,11 @@ Em 05/10/2026 o disco C: chegou a 22 GB livres. Cada vídeo ocupava ~5 GB: ~2,3 
 - **Nunca apague de vez:** tudo vai para a Lixeira (`scripts/lixeira.py`), e quem esvazia é ele. Se a "Proteção contra ransomware" do Defender estiver ligada e a pasta for protegida, o arquivo não sai e o script avisa. Não desligue a proteção: avise o usuário.
 
 ## Erros já cometidos (não repetir)
+
+- Bruno Duarte (08/out/2026, aprovado sem mudanças). Erros pegos na própria revisão, antes da entrega:
+  - Logos de TNT e Prime no quadro; dividida ao vivo enquadrada com o lance fora do centro; "o Colidio lança o David" coberto por outro lance. Só a revisão a cada 0,1s mostrou.
+  - Narração sem a frase de abertura do roteiro, avisada só na entrega. Compare a transcrição com o roteiro antes de montar.
+  - Abrir 4 ou mais folhas de contato por mensagem: várias voltaram "[media removed: request limit]". Junte num mosaico ou abra de 2 em 2.
 
 - Calcutá / Índia x Brasil (03/out/2026). O usuário não pediu refação, mas apontou:
   - Gancho num plano parado (grupinho de brasileiros no setor vazio), com o take do torcedor batendo a cadeira disponível no material.
