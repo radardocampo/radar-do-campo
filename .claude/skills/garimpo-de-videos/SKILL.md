@@ -20,6 +20,19 @@ Daí saem as três regras centrais desta skill:
 2. **Avalia-se o trecho, não o clipe.** React, compilado, legenda queimada e marca d'água descartam o trecho ruim; o resto do clipe continua valendo.
 3. **Filmagem longa de torcida é o material mais valioso**, e deve ser caçada de propósito.
 
+## Modo padrão: garimpo enxuto (desde 08/10/2026)
+
+Em 08/10/2026 (Bruno Duarte, Botafogo 1x2 Vasco) o usuário pediu "não exagerar nos tokens". O vídeo montado com esse material saiu "perfeito", e ele quer que o garimpo seja assim **todo dia**. O modo enxuto é o padrão. Só use o garimpo completo, com as 7 redes e o mapeamento de todo clipe, quando ele pedir ("garimpo completo", "todas as redes").
+
+1. **Reaproveite antes de buscar.** Se existe em `Shorts\` outra pasta do mesmo jogo, leia o `inventario.json` dela e copie o que serve. Depois liste, por parte do roteiro, só o que falta.
+2. **Busque pouco e no alvo.** Comece pelo TikTok, no Chrome logado, com 4–6 buscas focadas: o lance-chave, o protagonista, cada gol ou lance citado e `<time> x <time> arquibancada <estádio>`. Junte os links com JS num `localStorage` depois de cada busca e rolagem. Vá para outra rede **só para a parte que ficou sem material** (coletiva na íntegra → YouTube; post que só existe no Instagram).
+3. **Filtre antes de baixar.** Rode `yt-dlp --skip-download --print "%(uploader_id)s|%(id)s|%(duration)s|%(width)sx%(height)s|%(title).70s"` em lote e corte o óbvio antes do download: outro jogo ou idioma, slideshow de fotos, react sem trecho útil.
+4. **Verifique em mosaico.** Gere a folha de cada clipe com miniaturas pequenas (largura 70–120, passo 2–3 s) e junte de 10 a 12 clipes numa imagem só, com o nome do arquivo em cada linha. Abra no máximo 2–3 imagens por mensagem; com mais que isso, voltam "[media removed: request limit]". A folha fina (`--passo 0.3–0.6`) fica só para o lance-chave.
+5. **Mapeie as janelas do que cobre o roteiro.** Os clipes que cobrem uma parte do roteiro ganham janelas detalhadas no `inventario.json`. O compacto que só repete um ângulo já mapeado fica em `clipes/`, citado na entrega como "repete ângulo, sem janelas". Isso não é o "não verificado" do Carrascal: o clipe foi aberto no mosaico.
+6. **Durante a montagem, busca extra pontual.** Se uma frase ficar sem imagem (em 08/10, o Colidio), faça uma busca rápida só para ela, em vez de um garimpo amplo antes.
+
+Na rodada de 08/10 foram 5 buscas no TikTok e 46 clipes baixados. 24 foram mapeados, 9 descartados e 2 eram duplicados. Isso bastou para um vídeo aprovado sem mudanças. Continue entregando o placar das cotas do Passo 2, dizendo o que faltou.
+
 ## Onde trabalhar (regra fixa do usuário)
 
 Tudo o que esta skill grava fica **dentro da pasta do vídeo**: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\Videos prontos\Shorts\<nome do vídeo>\`. Se a pasta ainda não existir, crie-a com o título do vídeo. Clipes, fotos, folhas de contato (`frames/`), listas de download, logs, `.baixados.txt`, `inventario.json` e scripts auxiliares ficam todos nela.
@@ -141,6 +154,9 @@ Consultas: varie nome completo → sobrenome/apelido → hashtag do time → tip
 - abra o perfil de quem postou filmagem de arquibancada: costuma ter vários vídeos do mesmo jogo.
 - **Jogo da Seleção: liste o perfil @canalwamo logo no começo** (filma da arquibancada, 1080x1920). Se `yt-dlp https://www.tiktok.com/@perfil` falhar com "Unable to extract secondary user ID" (Endrick, set/2026), pegue o `channel_id` de um vídeo do perfil (`yt-dlp --skip-download --print "%(channel_id)s" <url de um vídeo>`) e liste `tiktokuser:<channel_id>` com `--flat-playlist`.
 - **Mesmo jogo, outro roteiro:** se já existe em `Shorts\` a pasta de outro vídeo do mesmo jogo, leia o `inventario.json` dela e copie (não mova) os clipes que servem, antes de buscar de novo. No Endrick, o job do Vini x Austrália já tinha a confusão, o gol do Bruno e todo o apoio do estádio.
+- **Take de torcida do momento do gancho:** antes de encerrar, garanta um vídeo da arquibancada do lance que vai abrir o vídeo. No Endrick (set/2026) o usuário achou sozinho o bolo inteiro filmado da arquibancada num post intitulado "Endrick 1 vs 11 vini reaction" (@trent_1228): a legenda falava de reação, não da briga. Busque também por `<jogador> 1 vs 11`, `<jogador> vs <seleção> fight`, `<jogador> reaction`, `<time> brawl stands` e abra os posts de título genérico dos ids do dia.
+- **Fato de outra data dito de passagem também conta** ("depois do título da Copa do Mundo", "campeão em julho"): traga a imagem do título (campeões no túnel, taça, festa), não só o jogo do dia. No Modric (set/2026) o usuário buscou sozinho a seleção da Espanha no túnel da Copa, em Los Angeles.
+- **O protagonista do placar, de perto:** se o roteiro abre num placar ("a Espanha meteu 4 a 1"), traga o craque do jogo em gesto marcante filmado da arquibancada (Yamal sentado na bola, @football.360.1). Foi o gancho que o usuário escolheu.
 - **Vlog de torcedor no YouTube** (`<time> x <time> <estádio> vlog`, `matchday vlog`) costuma ter o jogo inteiro filmado da arquibancada, com o lance-chave de trás do gol (Kane: o vlog "JK On Tour" tinha todos os gols e o pênalti). Baixe em 1080p e mapeie os letreiros do autor, que dizem minuto e autor de cada gol.
 
 **Filtrar pela data:**
@@ -224,6 +240,7 @@ Destaque no topo os **vídeos longos de torcida** encontrados e quanto tempo lim
 - Atlético-GO (set/2026): garimpar só o jogo do dia quando o roteiro citava retrospecto e título do rival. A montagem teve que parar e voltar ao garimpo (Passo 3c).
 - Confiar em vídeo de busca sem conferir a data: o mesmo confronto aparece em vlogs de anos diferentes.
 - Aceitar vídeo gerado por IA como bastidor real (Kane: "De la Fuente e Kane no vestiário", da conta theMattAI). Desconfie de cena de vestiário/bastidor que nenhum veículo mostrou.
+- Modric e Endrick (comparados em 02/out/2026): o usuário baixou sozinho o gancho dos dois vídeos (o Yamal sentado na bola; o bolo do Endrick filmado da arquibancada), a imagem do título da Copa (túnel em Los Angeles) e o gol do Yamal na transmissão aberta até a rede.
 - Raphinha cortado da Seleção (30/set/2026):
   - Buscar o fato antigo (lesão contra a França) só com "raphinha lesão frança": não achei a filmagem da arquibancada com o telão, que o usuário achou com "Mbappé lesiona Raphinha". Busque pelo rival envolvido no lance e em inglês (Passo 3c).
   - Não trazer imagem do lugar citado (Calcutá) nem o infográfico do dado-resumo (365Scores): o usuário foi buscar os dois (Passo 3c).
