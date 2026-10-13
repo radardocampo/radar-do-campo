@@ -17,12 +17,8 @@ Duas exceções, e só essas: (a) o usuário pedir explicitamente um jogo ou tem
 ## Passo 0 — Edições do usuário ainda não comparadas (aprendizado diário)
 Antes do Passo 1, olhe as pastas de `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\Videos prontos\Shorts\` modificadas nos últimos 3 dias. Em cada uma, se `Videos prontos\` tiver um vídeo editado por ele (nome diferente dos nossos 4: `video pronto para o TIKTOK.mp4`, `video pronto para o YOUTUBE.mp4`, `*-completo-sem-legenda.mp4`, `*-com-legenda-sem-marca.mp4` ou `*-limpo.mp4`; normalmente `<título> TIKTOK.mp4`) e não existir `_montagem\cmp\comparado.txt`, avise em uma linha e pergunte se ele quer que, depois da rotina, a edição seja comparada e a skill `montagem-de-video` atualizada (o fluxo está na seção "Aprendizado diário" dela). Não faça a comparação antes da rotina sem ele pedir.
 
-## Passo 1 — Perguntar o modo de busca
-Antes de começar a buscar, pergunte ao usuário (com a ferramenta de pergunta de múltipla escolha, quando disponível; em texto simples se não estiver) qual modo ele quer:
-1. **Busca padrão** — só a busca de sempre (Passos 3-7), sem entrar nas redes sociais.
-2. **Busca padrão + redes sociais** — a mesma busca de sempre, e também checar nas redes sociais o que está sendo falado de cada jogo encontrado (Passo 8).
-
-Espere a resposta antes de continuar. Se estiver rodando sem ninguém pra responder (ex.: tarefa agendada/sessão desacompanhada), assuma o modo 2 (mais completo) e avise no início da resposta que assumiu isso.
+## Passo 1 — Sempre busca padrão + redes sociais (sem perguntar)
+Desde 12/out/2026, por pedido do usuário, a rotina **sempre** faz a busca padrão (Passos 3-7) **e** a repercussão em todas as redes sociais (Passo 8). Não pergunte o modo de busca: vá direto. Só pule as redes se o próprio usuário pedir isso na mensagem (ex.: "sem redes", "só busca padrão").
 
 ## Passo 2 — Definir a janela de busca
 - Sem outra instrução, a janela é o dia anterior, considerado no fuso America/Sao_Paulo.
@@ -59,8 +55,8 @@ O detalhe obscuro também precisa ser tão verificável quanto o placar: nunca i
 
 Lances controversos (pênalti duvidoso, decisão de arbitragem) entram como polêmica/repercussão ("a decisão gerou revolta e virou polêmica"), nunca como veredito ("foi um roubo") — a menos que haja confirmação objetiva do erro (revisão do VAR, comunicado oficial da arbitragem).
 
-## Passo 8 — Repercussão nas redes sociais (só no modo 2 do Passo 1, ou sempre no Passo 13)
-Se o usuário escolheu o modo "busca + redes" (ou pediu diretamente a repercussão de um jogo específico, Passo 13), pra CADA jogo relevante, vá nas redes sociais ver o que está sendo comentado.
+## Passo 8 — Repercussão nas redes sociais (sempre, na rotina e no Passo 13)
+Pra CADA jogo relevante, vá nas redes sociais ver o que está sendo comentado.
 
 **Mecanismo:** essa etapa usa o navegador de verdade do usuário — Claude in Chrome (`mcp__claude-in-chrome__*`) — nas abas já logadas de cada rede, do mesmo jeito que a skill `garimpo-de-videos` faz. X, Instagram e Facebook só mostram resultado de busca completo pra quem está logado — isso é só uma exigência técnica dessas redes, não define prioridade de cobertura. Se o Claude in Chrome não estiver disponível na sessão, avise o usuário que essa etapa não pode ser feita completa e ofereça seguir só com a busca padrão (ou só o Passo 6-7, no caso do Passo 13) em vez de tentar simular via busca web geral.
 
@@ -86,7 +82,7 @@ URLs e truques que funcionam (Claude in Chrome):
 - Kwai: a URL de busca não funciona, e o campo de busca da home no navegador sem login devolve só o feed. Registre "falhou: busca do Kwai web sem login" e siga.
 
 ## Passo 9 — Montar o resumo por jogo (prévia de candidatos)
-Antes de escrever qualquer roteiro completo, entregue uma lista curta pro usuário escolher. Para cada jogo analisado, mostre em poucas linhas: o jogo e o que aconteceu (resultado/destaque rápido); o detalhe obscuro resumido do Passo 6-7 (SEM redigir o gancho nem o roteiro em si), se houver um confirmado; o tipo de detalhe (tático, estatístico, comportamental/gesto, arbitragem, reação de torcida); no modo 2, o resumo da repercussão nas redes do Passo 8; e a fonte/link que confirma cada ponto.
+Antes de escrever qualquer roteiro completo, entregue uma lista curta pro usuário escolher. Para cada jogo analisado, mostre em poucas linhas: o jogo e o que aconteceu (resultado/destaque rápido); o detalhe obscuro resumido do Passo 6-7 (SEM redigir o gancho nem o roteiro em si), se houver um confirmado; o tipo de detalhe (tático, estatístico, comportamental/gesto, arbitragem, reação de torcida); o resumo da repercussão nas redes do Passo 8; e a fonte/link que confirma cada ponto.
 
 Traga de 4 a 6 candidatos sempre que o dia permitir, variando os tipos entre eles — mesmo sabendo que só 2 a 4 vão virar roteiro. Não desenvolva o roteiro completo nessa etapa.
 
@@ -122,8 +118,8 @@ O usuário avisa qual dos dois casos é ao enviar o material.
 Além do fluxo completo (Passos 1-11) e dos modos de entrada do Passo 12, o usuário pode pedir informação sobre UM jogo específico que ele já identificou — nomeando os times, a data, ou mandando um link — em vez de pedir a rotina do dia inteiro. Sinais desse pedido: "o que estão falando do jogo de [time A] e [time B]", "quero saber a repercussão desse jogo [link/data]", "esse jogo que está passando agora, [time A] x [time B]".
 
 Nesse modo:
-- Pule os Passos 1-5 (não precisa perguntar o modo de busca, nem definir janela, nem filtrar por liga/relevância — o jogo já foi escolhido pelo usuário, não está concorrendo com outros). A exclusão fixa de futebol feminino também não se aplica aqui: se o usuário trouxe o jogo, é porque ele quer.
+- Pule os Passos 2-5 (não precisa definir janela, nem filtrar por liga/relevância — o jogo já foi escolhido pelo usuário, não está concorrendo com outros). A exclusão fixa de futebol feminino também não se aplica aqui: se o usuário trouxe o jogo, é porque ele quer.
 - Vá direto pro Passo 6 (levantar resultado/destaques/lances) e Passo 7 (checar fonte) pra esse jogo.
-- Faça também o Passo 8 (repercussão nas redes sociais) automaticamente, sem precisar perguntar o modo — foi isso que o usuário pediu.
+- Faça também o Passo 8 (repercussão nas redes sociais) automaticamente — foi isso que o usuário pediu.
 - Se o jogo ainda estiver em andamento no momento do pedido, avise isso explicitamente e deixe claro que o placar/estatísticas podem mudar até o fim da partida — nunca apresente informação parcial de um jogo em andamento como se fosse o resultado final.
 - Entregue um resumo direto (o que aconteceu até agora + o que está sendo falado nas redes), sem montar a "prévia de candidatos" do Passo 9 nem esperar escolha (Passo 10) — isso só faz sentido quando há vários jogos concorrendo por um roteiro. Só desenvolva o roteiro completo (Passo 11) depois, se o usuário pedir isso explicitamente sobre esse jogo específico.
