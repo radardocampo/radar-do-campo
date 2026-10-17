@@ -27,3 +27,4 @@
 - [Atualizar skill = todos os lugares](atualizar-skill-em-todos-lugares.md) — pedido de atualizar skill: HUB + .skill, nuvem/GitHub e upload no claude.ai pelo Chrome, sem ele precisar reenviar
 - [Garimpo enxuto é o padrão](garimpo-enxuto-padrao.md) — desde 2026-10-08, todo dia: TikTok 4–6 buscas, mosaico, outras redes só pro que faltar; completo só se ele pedir (rotina segue nas 7 redes)
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
+- [Comparação em lote 17/10](comparacao-lote-2026-10-17.md) — 17 vídeos comparados; 8 sem troca de imagem; regras na skill 2026-10-17

@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-08 (Bruno Duarte aprovado: gancho = prévia da queda, depois o lance inteiro em ordem cronológica; Passo 3, item 21).** A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-17 (comparação de 17 vídeos: 8 publicados sem mudar imagem; gancho literal à primeira frase, sem flash no 1º quadro, loop só por rosto/ação, nunca react/webcam; Décima segunda rodada).** Anterior: 2026-10-08 (Bruno Duarte, Passo 3, item 21). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -101,6 +101,16 @@ Décima primeira rodada, **"Bruno Duarte apagou e ninguém viu" (Botafogo 1x2 Va
 - **Torcida 16%** e foi aprovado: o incidente só existia na transmissão (Passo 5, meta de torcida não se aplica).
 - A revisão a cada 0,1s pegou o que faltava: logos de TNT/Prime, a dividida ao vivo mal enquadrada e a frase "o Colidio lança o David" coberta por outro lance. Foram 3 rodadas de rascunho, e só depois os 4 arquivos.
 - A narração do AI Studio veio **sem a frase de abertura** do roteiro (o gancho do Tite). Avise antes de montar (Passo 0).
+
+Décima segunda rodada, **comparação em lote de 17 vídeos (02/out a 17/out/2026)**, `compara_edicao.py` entre o `completo-sem-legenda` e o `TIKTOK.mp4` publicado:
+- **8 de 17 saíram sem nenhuma troca de imagem, só a trilha** (Hojlund, Vitor Hugo, Luiz Araujo/Gabigol, CR7 suspenso, Pulgar, Vasco/Bombonera, Bruno Duarte e Cunha, o de 17/out). Padrão atual está certo: não mexa no que a rotina já faz.
+- **Gancho literal à primeira frase (Messi, "Todo mundo viu o Messi se despedir"):** abri no Messi rindo com os companheiros (outro momento). Ele abriu no Messi emocionado no telão e nos drones com o 10, a própria homenagem. A imagem de 0–2s mostra o fato da primeira frase, não a pessoa em outro contexto (itens 9 e 10).
+- **Sem flash branco no 1º quadro do gancho (Endrick x Roma, Drones):** ele tirou o `flash` do primeiro corte e abriu o quadro um pouco mais (mais da ação visível). Gancho seco, como no Vini. Não ponha `fx: flash` no shot 1.
+- **Loop só por rosto ou ação, nunca por react/webcam (Drones):** o último shot era um streamer de webcam (react); ele fechou no close do Messi olhando para cima sorrindo, e o gancho recomeça nos drones. No Isaac Romero ele reajustou o shot final para o gesto do próprio gancho (mão levantada); no Tite encurtou 0,4s e fechou mais no árbitro com o cartão. Confira o último shot no `bordas_XX.jpg`: sem pessoa de webcam nem texto de fonte.
+- **Plano de lugar legível (Isaac, 5,8–7,7s):** eu usei o gramado visto de cima, estreito, vertical, com poucas pessoas. Ele pôs o plano horizontal da cerimônia com os times alinhados. Plano de contexto mostra gente e cena, não só grama.
+- **Flashback P&B só quando a fonte é antiga e curta (Rossi):** ele tirou a grade escura e preta e branca dos trechos de fato antigo e deixou colorido, e refinou tudo no Concat (65,17s). Com muito trecho de arquivo, o P&B cansa; use `flashback` só em 2 ou 3 shots.
+- **Vini expulso:** ele reeditou a segunda metade para 60s, trocando a súmula em texto (36s) pelo árbitro mostrando o cartão em campo e fechando no Vini apontando para a torcida. Fato visual ganha da súmula em texto quando existe o lance.
+- **Jorge Jesus (26–27,5s):** só reenquadrou o post do Instagram (mais alto). Calcutá (11,0–11,8s): troca de 0,8s, não identificada.
 
 Loudness final e altura da legenda ele ajusta sempre no CapCut: no Palermo/Diogo publicou a -7 LUFS com a legenda a ~61%; no Raphinha, -10,3 LUFS com a legenda a ~70%. Os valores do Passo 6 e do Passo 7 são só o ponto de partida.
 
