@@ -5,6 +5,8 @@ description: "Usar quando o usuário pede a rotina/temas de roteiro do dia (jogo
 
 # Garimpar temas e montar roteiros de futebol (Radar do Campo)
 
+**Atualizada em 2026-10-18:** a rotina não fecha sem as 7 redes no Chrome dele e a lista escrita (Passos 8 e 9); canais do mesmo nicho e tema saturado (Passo 8b); roteiro com 255–265 palavras, gancho curto que não aponta a revelação e foco só no incidente (Passo 11); prompt de garimpo para chat novo (Passo 11b).
+
 Objetivo: ao invés de partir de um roteiro pronto pra achar clipes-fonte (isso é a skill `garimpo-de-videos`), aqui o ponto de partida é o próprio calendário de jogos — encontrar, entre os jogos de futebol de um período (padrão: o dia anterior, fuso America/Sao_Paulo), quais têm um ângulo forte o bastante pra virar roteiro do canal Radar do Campo, montar um resumo por jogo pro usuário escolher, e só então escrever o(s) roteiro(s) completo(s) dos ângulos escolhidos. Também cobre o caso de o usuário já chegar com um jogo específico em mente (Passo 13).
 
 Essa skill assume que já foi decidido que é hora de rodar esse fluxo (normalmente porque as instruções do projeto do usuário mandam chamar essa skill quando ele pede "a rotina/os temas do dia") — ela não precisa reconhecer a frase-gatilho sozinha, só executar o fluxo abaixo assim que for chamada.
@@ -49,6 +51,8 @@ Essa regra vale tanto pro placar/resultado básico quanto pro detalhe obscuro qu
 - Se o que não dá pra confirmar é o **detalhe obscuro/ângulo**, descarte esse ângulo (ou esse jogo inteiro) e procure outro em vez de levar adiante sem certeza — sempre vai ter outro jogo/ângulo pra tentar.
 - Se o que não dá pra confirmar é uma **informação básica da partida** (placar, data, competição, se o jogo realmente aconteceu como descrito), não apresente como fato: declare a incerteza explicitamente e peça confirmação ao usuário antes de seguir, em vez de simplesmente descartar o jogo ou inventar em cima.
 
+**Post de rede social também não é fonte.** Ele serve de pista, mas o fato vai para a lista e para o roteiro só depois de achado numa matéria com data. Em 18/out/2026 um post do Facebook dizia que o Barreto, do Criciúma, "também foi expulso" por chutar a segunda bola em 2024. A matéria mostrou que deu pênalti, não expulsão. Na lista de candidatos, marque o que veio só de post como "ainda não conferido".
+
 **Resumo automático de busca não é fonte.** O texto-resumo que a ferramenta de busca devolve junto dos links pode inventar: em 27/set/2026 um desses resumos afirmou "Manchester City 5x3 Sunderland em 26/09", num dia de Data FIFA sem Premier League. Só vale como confirmado o que está numa página aberta (WebFetch ou navegador) com data explícita. Também confira o calendário antes de listar ligas: em Data FIFA não há Brasileirão, Premier League, La Liga nem Champions, mas pode haver Série B, Nations League, amistosos e ligas de outros continentes. O jogo feminino que aparecer nessas datas (ex.: Corinthians x São Paulo feminino) continua fora (exclusão fixa).
 
 O detalhe obscuro também precisa ser tão verificável quanto o placar: nunca invente, arredonde ou "engorde" um número, uma fala ou uma ação pra deixar o gancho mais forte.
@@ -58,7 +62,11 @@ Lances controversos (pênalti duvidoso, decisão de arbitragem) entram como pol�
 ## Passo 8 — Repercussão nas redes sociais (sempre, na rotina e no Passo 13)
 Pra CADA jogo relevante, vá nas redes sociais ver o que está sendo comentado.
 
-**Mecanismo:** essa etapa usa o navegador de verdade do usuário — Claude in Chrome (`mcp__claude-in-chrome__*`) — nas abas já logadas de cada rede, do mesmo jeito que a skill `garimpo-de-videos` faz. X, Instagram e Facebook só mostram resultado de busca completo pra quem está logado — isso é só uma exigência técnica dessas redes, não define prioridade de cobertura. Se o Claude in Chrome não estiver disponível na sessão, avise o usuário que essa etapa não pode ser feita completa e ofereça seguir só com a busca padrão (ou só o Passo 6-7, no caso do Passo 13) em vez de tentar simular via busca web geral.
+**Mecanismo:** essa etapa usa o navegador de verdade do usuário — Claude in Chrome (`mcp__claude-in-chrome__*`) — nas abas já logadas de cada rede, do mesmo jeito que a skill `garimpo-de-videos` faz. X, Instagram e Facebook só mostram resultado de busca completo pra quem está logado — isso é só uma exigência técnica dessas redes, não define prioridade de cobertura.
+
+**Sem o Chrome, a rotina não está pronta (reclamação de 18/out/2026, "já é o segundo dia").** Duas rotinas seguidas terminaram sem passar nas redes pelo navegador dele, e a entrega saiu assim mesmo. Por isso:
+- Se o Claude in Chrome não responder, tente de novo (outro `tabs_context_mcp`, outra aba) enquanto adianta os Passos 3–7.
+- Se mesmo assim não conectar, **não entregue a lista como pronta**. Diga que a etapa das redes está pendente, peça para ele reconectar a extensão e continue quando ele avisar. Não troque por busca web nem pelo navegador embutido: a busca do TikTok no navegador embutido exige login e volta "Algo deu errado".
 
 **Prioridade de cobertura:** comece pelo **TikTok** — é a rede que o usuário mais usa pra buscar e baixar vídeo (alinhado com a própria conta @radardocampo_), e costuma render bem pra ver se um lance ou gesto virou meme/trend. Procure pelo nome do jogador/time + palavra-chave do lance e olhe os comentários dos vídeos mais engajados, não só a legenda. Depois complemente com as outras redes, na referência de cobertura da skill `garimpo-de-videos` (Instagram, X, YouTube, Facebook, Kwai, Threads) — aqui o objetivo é ler o que está sendo dito (posts, comentários, hashtags), não achar clipe limpo pra baixar:
 - **X (Twitter)** costuma ser a fonte mais rápida pra reação/controvérsia em tempo real — busque pelo time/jogador + o jogo, ordenando por mais recente.
@@ -72,16 +80,28 @@ Pra CADA jogo relevante, vá nas redes sociais ver o que está sendo comentado.
 - Antes de entregar o Passo 9, monte a grade candidato × rede e marque cada célula: o que achou (com curtidas/visualizações), "nada relevante" ou "falhou: motivo". Entregue essa grade junto da lista. Célula em branco não pode existir.
 - Rede que falhar: tente de novo uma vez, por outro caminho, antes de marcar "falhou". Diga ao usuário qual rede falhou e por quê, sem passar por cima calado.
 
-URLs e truques que funcionam (Claude in Chrome):
-- TikTok: `https://www.tiktok.com/search?q=<busca>`; ler os cards com JS em `a[href*="/video/"]` (curtidas + legenda), esperando ~4 s.
-- Instagram: `https://www.instagram.com/explore/search/keyword/?q=<2 palavras>` (mais que 2 palavras costuma vir vazio; acento também pode zerar). A grade não traz legenda: pegue os ids de `a[href*="/p/"]` e, na mesma aba, faça `fetch('/p/<id>/')` e leia a `meta og:description` ("104K likes, 4,857 comments - conta no October 4, 2026: legenda"). Assim dá pra ler vários posts sem navegar. Pra ler comentários, abra o post.
+URLs e truques que funcionam (Claude in Chrome; em 18/out/2026 as 7 redes funcionaram):
+- **Fixtures do dia:** a API `site.api.espn.com/apis/site/v2/sports/soccer/<liga>/scoreboard?dates=AAAAMMDD` (fetch no Chrome) é a fonte confiável. Páginas "jogos de hoje" (Lance, Goal) erraram a data em 06/out.
+- TikTok: `https://www.tiktok.com/search?q=<busca>`; ler `[data-e2e=search_top-item]` → `[data-e2e=video-views]` + `search-card-video-caption` + `search-card-user-unique-id` (o antigo `a[href*="/video/"]` também serve para juntar links), esperando ~4 s. A página do vídeo abre em branco pela extensão: legenda, curtidas e views do vídeo saem com `yt-dlp --skip-download --write-info-json`. Para ler os comentários, abra o vídeo mais curtido e leia o painel de comentários; em 18/out o mais curtido do Bernal x Yamal (415) virou frase do roteiro.
+- Instagram: `https://www.instagram.com/explore/search/keyword/?q=<2 palavras>` (mais que 2 palavras costuma vir vazio; acento também pode zerar; nome próprio sozinho às vezes volta "Nenhum resultado", e trocar a 2ª palavra resolve). A grade não traz legenda: pegue os ids de `a[href*="/p/"]` e, na mesma aba, faça `fetch('/p/<id>/')` e leia a `meta og:description` ("104K likes, 4,857 comments - conta no October 4, 2026: legenda"). Assim dá pra ler vários posts sem navegar. Pra ler comentários, abra o post.
 - YouTube: na aba do YouTube, `fetch('/results?search_query=<busca>')` e extraia título + `viewCountText` do HTML; várias buscas numa chamada só.
 - Facebook: `https://www.facebook.com/search/videos/?q=<busca>`; ler o `[role="main"]` (remover a repetição "Facebook").
-- Threads: `https://www.threads.com/search?q=<busca>&serp_type=default`; texto do body já traz posts com curtidas.
-- X: `https://x.com/search?q=<busca>&f=live`. Em 05/out/2026 o X não abriu de jeito nenhum pelo Claude in Chrome (a aba voltava pra nova guia ou travava). Se acontecer, avise o usuário: provavelmente o x.com está bloqueado nas permissões de site da extensão ou o X está instalado como app no Chrome e captura os links. Não troque por busca web.
-- Kwai: a URL de busca não funciona, e o campo de busca da home no navegador sem login devolve só o feed. Registre "falhou: busca do Kwai web sem login" e siga.
+- Threads: `https://www.threads.com/search?q=<busca>&serp_type=default`; texto do body já traz posts com curtidas. Termo em inglês às vezes volta vazio: marque "nada encontrado" depois de 2 buscas.
+- X: `https://x.com/search?q=<busca>&f=top` (ou `&f=live` para o mais recente); leia os `article` e o aria-label do `[role=group]` (curtidas e visualizações). Não devolva `location.href` no JS: a extensão bloqueia a saída por ter query string. Se o X não abrir (aconteceu em 05/out: a aba voltava para nova guia), avise o usuário: provavelmente o x.com está bloqueado nas permissões de site da extensão ou instalado como app no Chrome. Não troque por busca web.
+- Kwai: `https://www.kwai.com/discover/<termo>` e leia o texto do body depois de "Reservados." (a URL `/search` e o campo de busca da home não funcionam sem login). Nome comum mistura com outro jogador (em 18/out, "Bernal" trouxe o Marc Bernal): confira o time no texto.
+
+## Passo 8b — Canais do mesmo nicho e tema saturado
+Pedido de 18/out/2026: "pesquise em canais do mesmo nicho e bem parecido com o meu estilo de vídeo, mas procure por canais que tenham engajamento no assunto". Faça em toda rotina, depois do Passo 8:
+- **Quem medir:** o @Onfirefut (YouTube @Onfirefut e TikTok; ~241 mil inscritos e ~174 mil seguidores em out/2026) é o mais próximo do formato de storytelling ("a atitude de…", "ninguém percebeu…"). Procure também os canais "irmãos" que aparecem nas buscas com o mesmo formato. As contas grandes (TNT, SportsCenter, CazéTV) medem o volume do assunto, mas não o formato.
+- **O que medir:**
+  - os vídeos dele que mais rendem e o tipo: em out/2026, atitude e provocação (Pulgar 911 mil, Carrascal 394 mil);
+  - se ele **já postou** sobre cada candidato, com o título e as views.
+- **Na lista:** candidato que o Onfirefut já fez ganha **"saturado no nicho"**, com os títulos dele. No Bernal x Yamal ele já tinha dois ("Yamal entrou na mente do Facundo", 17 mil; "O espetáculo debochado do Yamal", 33 mil). Saturado não descarta: se o usuário escolher, o roteiro vai por um **ângulo que ele não usou**. No Bernal foi a súmula e o risco de perder o Clássico (Passo 11).
+- Feche a lista com uma linha sobre o que os canais parecidos mostraram (formato que está rendendo, tema que ninguém fez em português).
 
 ## Passo 9 — Montar o resumo por jogo (prévia de candidatos)
+**A lista vai escrita no texto da resposta, inteira** (reclamação de 18/out/2026: "não mostra os candidatos pra mim escolher, só os números"). Eu tinha fechado a rotina só com a caixa de resumo do fim do turno, e ele nunca viu a lista. Escreva cada candidato com título, o que aconteceu, o detalhe obscuro, o tipo, as redes (com números) e as fontes. Depois venha a grade candidato × rede, a linha dos canais do nicho (Passo 8b) e a sua leitura (quais têm mais engajamento no Brasil, qual está aberto, qual está saturado). Só então a caixa de resumo com a pergunta.
+
 Antes de escrever qualquer roteiro completo, entregue uma lista curta pro usuário escolher. Para cada jogo analisado, mostre em poucas linhas: o jogo e o que aconteceu (resultado/destaque rápido); o detalhe obscuro resumido do Passo 6-7 (SEM redigir o gancho nem o roteiro em si), se houver um confirmado; o tipo de detalhe (tático, estatístico, comportamental/gesto, arbitragem, reação de torcida); o resumo da repercussão nas redes do Passo 8; e a fonte/link que confirma cada ponto.
 
 Traga de 4 a 6 candidatos sempre que o dia permitir, variando os tipos entre eles — mesmo sabendo que só 2 a 4 vão virar roteiro. Não desenvolva o roteiro completo nessa etapa.
@@ -92,7 +112,7 @@ Pare aqui e espere o usuário responder quais candidatos quer transformar em rot
 ## Passo 11 — Desenvolver o(s) roteiro(s) completo(s) dos escolhidos
 Escreva no estilo do canal Radar do Campo, usando o canal @Onfirefut (https://www.youtube.com/@Onfirefut) como referência de estilo e ritmo (ele não é o canal do usuário, é só benchmark estético). Entregue pronto pra revisão, sem enrolação.
 
-Duração: narração de ~70 segundos (considerando pausas/cortes de edição, o vídeo final fica em 60s) — cerca de 220-240 palavras.
+Duração: o vídeo final **nunca pode ficar abaixo de 60s** (acima é aceito; 73s passou). A montagem corta as pausas (não acelera) e o loop corta a frase-ponte, então o texto encolhe ~10%. Mire **255–265 palavras** no texto do AI Studio. Em 18/out/2026 o roteiro do Andreas tinha 235 palavras e deu 59,2s. A voz varia de 3,4 a 4 palavras/s depois do corte: erre para mais, nunca para menos.
 
 Estrutura obrigatória, cada parte identificada com etiqueta curta no texto entregue:
 - **Gancho:** 1-2 frases que geram curiosidade sem entregar a resposta. Padrão de contraste: "Todo mundo viu [fato óbvio do lance], mas o detalhe que ninguém percebeu [depois/antes] é [mais interessante/engraçado] ainda" — exemplo: "Todo mundo viu o jogo do Santos e do Internacional, mas ninguém percebeu o detalhe que teve no final do jogo." Nunca revelar no gancho qual é o detalhe.
@@ -101,11 +121,31 @@ Estrutura obrigatória, cada parte identificada com etiqueta curta no texto entr
 - **Reviravolta:** dado ou fato inesperado, se houver.
 - **Payoff:** resolução só no final, fechando o gancho inicial. Nunca revele o desfecho antes dessa etapa.
 
+O que ele mudou no roteiro do Bernal x Yamal (18/out/2026), e vale para todos:
+- **Gancho falado curto, no padrão "Todo mundo viu…".** Eu abri com "Olha esse momento: o volante do Betis agarra o Lamine Yamal pelo pescoço, e o Yamal vai pro chão segurando o rosto. Todo mundo viu a cabeçada." Ele cortou a descrição e deixou "Todo mundo viu a cabeçada que o Lamine Yamal recebeu." Quando ele diz "o gancho pode começar com a cena", a cena é **a imagem** (a montagem abre nela). A voz não narra o que a imagem já mostra.
+- **O gancho não aponta onde está a revelação.** "Mas quase ninguém leu o que o juiz escreveu na súmula depois" entregava que o segredo estava na súmula. Ele pediu para trocar, e ficou "Mas o que veio depois dessa cabeçada é ainda mais estranho." Diga que existe um detalhe, nunca em que documento, fala ou momento ele está.
+- **Roteiro de incidente fala só do incidente.** Ele pediu "inteiramente sobre a situação": saíram o recorde do Barça (9 vitórias em 9) e o placar final, que não levavam à cabeçada. O dado do jogo só entra se explica o incidente (o "acabado de diminuir pra três a dois" ficou, porque explica o clima).
+- **Ao trocar a primeira frase, confira os pronomes.** Com o gancho falando "a cabeçada que o Lamine Yamal recebeu", a frase seguinte "O nome dele é Facundo Bernal" passou a parecer que falava do Yamal. Virou "Quem deu a cabeçada foi o Facundo Bernal".
+- **Tema saturado no nicho (Passo 8b): ângulo que o concorrente não usou.** No Bernal, o Onfirefut tinha feito "Yamal entrou na mente" e "espetáculo debochado"; o nosso foi a súmula e o Clássico.
+- **Duas versões que não batem viram polêmica, nunca veredito:** "um jornal espanhol diz que foi o Yamal quem empurrou primeiro; um jornal de Barcelona diz que foi o Bernal". Versão de um jornal só, sem outra fonte (o tapa do Lo Celso), fica de fora.
+- **Comentário real é material de roteiro.** "Nos comentários, chamaram ele de nova princesa e de melhor ator de Hollywood… vermelho claríssimo pro Vini" saiu dos comentários mais curtidos do post da ESPN Deportes. Anote quem escreveu e onde, para o garimpo trazer o print (a montagem mostra o print real).
+
 Se mais de um candidato for escolhido no mesmo lote, varie a fraseologia do gancho entre eles — mantenha o padrão de contraste, mas não repita a frase-molde palavra por palavra em todos os roteiros do lote.
 
 Ao final de cada roteiro, informe a contagem aproximada de palavras (pra conferir o tempo) e a fonte (link) do detalhe destacado.
 
 Depois do roteiro com etiquetas, entregue também um bloco **"Texto para o AI Studio"**, corrido e sem as etiquetas (Gancho, Contexto, Desenvolvimento, Reviravolta, Payoff). Em 02/out/2026 o roteiro foi colado com as etiquetas e a voz leu "Contexto", "Reviravolta" e "Payoff", que precisaram ser cortadas na montagem.
+
+Feche com 3–4 linhas de **ideias para a montagem**: a imagem do gancho, a prova de cada fato forte e o que mostrar na revelação. Ex.: "gancho = a cabeçada até o Yamal cair, como prévia; 'um jornal diz… outro diz' = os dois ângulos do empurrão; comentários = prints reais; 'terminou a partida' = o Yamal de pé no resto do jogo".
+
+## Passo 11b — Prompt para garimpar num chat novo (quando ele pedir)
+Em 18/out/2026 ele pediu "gere um prompt com o contexto para garimpar os vídeos desse roteiro em um chat novo", e o garimpo que saiu dele foi bom. Entregue num bloco de código, pronto para colar:
+1. `Use a skill garimpo-de-videos para garimpar e baixar os clipes deste roteiro do canal Radar do Campo.`
+2. **CONTEXTO DO TEMA (já confirmado):** jogo, competição, data, estádio, minuto a minuto do lance, nomes completos (inclusive goleiro e árbitro), o que veio depois (coletiva, pedido de desculpas, súmula) e as datas futuras citadas.
+3. **ROTEIRO (narração final):** o texto corrido que foi para o AI Studio.
+4. **O QUE CADA TRECHO PRECISA DE IMAGEM:** lista numerada, um item por frase forte, dizendo a imagem literal e a preferência (arquibancada, dois ângulos, print do comentário, print da súmula, "se não houver, close de X").
+5. **POSTS QUE JÁ ACHEI NA PESQUISA (começar por eles):** os links das redes com curtidas, inclusive o post onde estão os comentários citados.
+6. **OBSERVAÇÕES:** canais concorrentes cujos clipes não devem ser usados (Onfirefut), ângulos que eles já usaram, buscas úteis em português e na língua do jogo.
 
 ## Passo 12 — Dois modos de entrada alternativos (material pronto)
 Esse fluxo (Passos 1-11) é o padrão quando a skill é chamada pra buscar temas do zero. Mas o usuário pode entrar direto com material, pulando tudo isso:
@@ -123,3 +163,9 @@ Nesse modo:
 - Faça também o Passo 8 (repercussão nas redes sociais) automaticamente — foi isso que o usuário pediu.
 - Se o jogo ainda estiver em andamento no momento do pedido, avise isso explicitamente e deixe claro que o placar/estatísticas podem mudar até o fim da partida — nunca apresente informação parcial de um jogo em andamento como se fosse o resultado final.
 - Entregue um resumo direto (o que aconteceu até agora + o que está sendo falado nas redes), sem montar a "prévia de candidatos" do Passo 9 nem esperar escolha (Passo 10) — isso só faz sentido quando há vários jogos concorrendo por um roteiro. Só desenvolva o roteiro completo (Passo 11) depois, se o usuário pedir isso explicitamente sobre esse jogo específico.
+
+**Candidato colado de outra rotina** ("pesquise e confirme mais informações e monte o roteiro perfeito para viralizar", 18/out/2026, Bernal x Yamal):
+- confira cada ponto do candidato numa página com data (Passo 7) e diga o que confirmou, o que não achou (o minuto do amarelo) e o que ficou de fora por ter uma fonte só (o tapa do Lo Celso);
+- passe nas 7 redes pelo Chrome (Passo 8), lendo os comentários mais curtidos;
+- veja os ângulos que o Onfirefut já usou (Passo 8b);
+- escreva o roteiro já nesta resposta (Passo 11), com as fontes do detalhe.

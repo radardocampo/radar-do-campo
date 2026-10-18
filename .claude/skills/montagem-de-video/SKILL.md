@@ -1,11 +1,11 @@
 ---
 name: montagem-de-video
-description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a partir de roteiro + clipes garimpados + narração, no estilo das montagens feitas à mão pelo usuário: narração na velocidade original com as pausas entre trechos cortadas, filmagem da torcida em planos longos como base, protagonista sempre na tela, lance-chave em plano aberto antes do close, legenda karaokê (palavra falada em amarelo) no meio da tela e marca d'água do radar. Use sempre que o usuário pedir para montar, editar, cortar ou finalizar o vídeo de um roteiro, mesmo que ele não diga 'montagem'. Use também quando ele pedir para comparar/estudar a edição que ele fez (compara minha edição, já postei, vê o que eu mudei) para aprimorar a skill."
+description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a partir de roteiro + clipes garimpados + narração, no estilo das montagens feitas à mão pelo usuário: narração na velocidade original com as pausas entre trechos cortadas, filmagem da torcida em planos longos como base, protagonista sempre na tela, lance-chave em plano aberto antes do close, legenda karaokê (palavra falada em amarelo) no meio da tela e marca d'água do radar. Use sempre que o usuário pedir para montar, editar, cortar ou finalizar o vídeo de um roteiro, mesmo que ele não diga 'montagem'. Use também quando ele pedir para comparar/estudar a edição que ele fez (compara minha edição, já postei, vê o que eu mudei) para aprimorar a skill, ou para abrir a montagem no CapCut (rascunho editável)."
 ---
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-17 (comparação de 17 vídeos: 8 publicados sem mudar imagem; gancho literal à primeira frase, sem flash no 1º quadro, loop só por rosto/ação, nunca react/webcam; Décima segunda rodada).** Anterior: 2026-10-08 (Bruno Duarte, Passo 3, item 21). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-18 (Andreas, Bernal x Yamal e Leo Flores: rascunho editável no CapCut (Passo 9), mínimo de 60s esticando as respirações, print real de comentário e súmula (item 22), os ajustes que ele fez no CapCut (item 23); Décima terceira rodada).** Anterior: 2026-10-17 (comparação em lote de 17 vídeos). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -112,6 +112,16 @@ Décima segunda rodada, **comparação em lote de 17 vídeos (02/out a 17/out/20
 - **Vini expulso:** ele reeditou a segunda metade para 60s, trocando a súmula em texto (36s) pelo árbitro mostrando o cartão em campo e fechando no Vini apontando para a torcida. Fato visual ganha da súmula em texto quando existe o lance.
 - **Jorge Jesus (26–27,5s):** só reenquadrou o post do Instagram (mais alto). Calcutá (11,0–11,8s): troca de 0,8s, não identificada.
 
+Décima terceira rodada, **Leo Flores, Andreas Pereira e Bernal x Yamal (17 e 18/out/2026)**. O Leo Flores saiu **sem nenhuma troca de imagem**, só com a trilha (-10,6 LUFS). O Andreas e o Bernal ele refinou **dentro do rascunho do CapCut que nós geramos** (Passo 9). Por isso a comparação foi pelo próprio projeto: o `draft_content.json` que geramos contra o que ele salvou. Ficaram a legenda (fonte, tamanho, altura) e a trilha do modelo dele sem mexer. O que ele mudou:
+- **"O motivo da expulsão" = o cartão no quadro (Andreas, 3–8s):** eu enquadrei o árbitro da cintura para cima e o cartão vermelho levantado ficou fora do quadro. Ele desceu o quadro para mostrar o cartão e os jogadores reclamando. A logo da ge entrou no canto, e ele cobriu com um desfoque retangular (máscara no CapCut). A ação vale mais que um quadro sem logo (item 23; Passo 5, marcas).
+- **Detalhe pequeno num plano aberto = punch-in progressivo até ele (Andreas, 22–25s):** em "uma bola veio da arquibancada e caiu no gramado", o plano alto da Prime mostrava o campo inteiro e a bola extra era um ponto. Ele fechou de 3,16 para 4,67 seguindo a bola, até ela ficar visível (item 23).
+- **Relação no espaço = abrir o quadro (Andreas, 25–32s):** no lance em câmera lenta eu fiquei fechado (1,75) no Andreas. Depois do chute, ele abriu para 1,19, para caber as duas bolas, o Andreas e o atacante. O espectador precisa ver a bola extra acertando a bola do jogo (item 23).
+- **Gancho com punch-in no contato (Bernal, 0–1s):** a cabeçada na câmera da TV passou de 1,22 para 1,72 no meio do shot, fechando no instante do contato.
+- **Arte parada ganha movimento (Bernal, 9,4–11,8s):** na arte "DONE DEAL" do Betis ele pôs um zoom lento de 1,0 para 1,25. Foto ou arte em tela cheia não fica estática.
+- **Pan seguindo a ação** na cabeçada em câmera lenta (23–26s) e no gol do Abde. Este ele teve que refazer, porque o keyframe que eu gravei não andava no CapCut (Passo 9, tempo dos keyframes).
+- **Efeitos sonoros ligados nos dois:** ele ativou a faixa SFX (que eu deixava muda) e só baixou o 1º impacto do Andreas de 0,55 para 0,43. A trilha ACIDO do Bernal saiu ~1,4s antes do fim (loop só com voz).
+- **Exportou um arquivo só, com a lupa e o logo do YouTube ocultos.** Publicou a -14,4 LUFS (Andreas) e -13,3 LUFS (Bernal), porque o CapCut não normaliza. Os nossos 4 arquivos continuam a -10 LUFS.
+
 Loudness final e altura da legenda ele ajusta sempre no CapCut: no Palermo/Diogo publicou a -7 LUFS com a legenda a ~61%; no Raphinha, -10,3 LUFS com a legenda a ~70%. Os valores do Passo 6 e do Passo 7 são só o ponto de partida.
 
 Em caso de dúvida sobre estilo, extraia quadros dessa referência (`scripts/folha_contato.py`) e compare. Ela vale mais que qualquer número escrito aqui.
@@ -145,6 +155,8 @@ Base: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`
 | Trilhas | `Musicas edição\` (normalmente o próprio usuário coloca a trilha) |
 | Referências publicadas | `HUB Radar do Campo\Claude\videos exemplos\` |
 | Fonte da legenda | `assets/Montserrat-Italic-VF.ttf` (nesta skill) |
+| Fonte da legenda no CapCut | `assets/Montserrat-ExtraBoldItalic.ttf` (instância fixa wght 800 do VF, usada pelo `capcut_projeto.py`) |
+| Rascunhos do CapCut | `%LOCALAPPDATA%\CapCut\User Data\Projects\com.lveditor.draft\` (o modelo dele é o mais recente que não começa com "Radar - ") |
 
 ## Scripts desta skill (em `scripts/`)
 
@@ -165,6 +177,8 @@ Base: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`
 | `posfx.py` | transições do canal, marcadas por shot na EDL (`"fx"`): `flash` (clarão + soco de zoom), `flashback_in` (clarão + zoom + grade de arquivo P&B), `flashback` (só a grade). Roda depois do `prep_shots.py` e refaz os cortes; pode rodar de novo depois de rerenderizar shots |
 | `compara_edicao.py` | compara a nossa entrega com a versão que o usuário refinou no editor: trechos de imagem trocados (por região da tela) e janelas de áudio diferentes |
 | `lado_a_lado.py` | folha com o nosso vídeo em cima e o dele embaixo, no mesmo tempo, para ver o que ele trocou |
+| `capcut_projeto.py` | gera o rascunho editável no CapCut a partir da EDL, em cima do rascunho-modelo dele (Passo 9) |
+| `artes_print.py` | `card`: recorta um comentário do print e faz o card com sombra; `documento`: súmula/comunicado em tela cheia com o trecho lido realçado em amarelo sobre o lance desfocado (Passo 3, item 22) |
 
 Use os scripts. Cada um carrega a correção de um erro que já aconteceu (estão no fim da skill); reescrever do zero traz os erros de volta.
 
@@ -177,6 +191,8 @@ A narração é gerada pelo **próprio usuário no Google AI Studio** (Gemini 2.
 **Frase-ponte de loop:** antes de ele gerar a narração, confira se o roteiro termina com uma frase que repete a abertura (ex.: abertura "O jogador mais rico do mundo tá desempregado." → fim "…Minuto em campo, não. É por esse motivo que o jogador mais rico do mundo tá desempregado."). Se não terminar, **sugira a frase-ponte** para ele colar no AI Studio. Ela liga o fim ao começo, e o `loop_final.py` corta a narração no começo da repetição.
 
 **Confira a narração contra o roteiro** (transcrição do Passo 1): se um trecho do roteiro não foi falado, avise antes de montar. A narração do Faiq pulou a abertura "Todo mundo tá falando que…" e ninguém percebeu. A do Raphinha não falou "sábado, em Calcutá" e trocou "inédito" por "difícil"; o vídeo saiu assim. Liste cada diferença (palavra pulada ou trocada) com o tempo, para ele decidir se gera o trecho de novo.
+
+**Mais de uma narração na pasta:** às vezes ele gera duas ou mais (no Bernal, a das 16h16 e a das 16h17). Transcreva todas, compare com o roteiro e use a que tem menos erro de pronúncia e nenhuma frase faltando. A das 16h16 dizia "Amal", "procedor" e "pescorso". Diga na entrega qual usou e por quê.
 
 A entrega padrão são **4 arquivos**, sempre gerados juntos pelo `render_final.py` (a EDL é a mesma, então as extras saem baratas):
 - **`video pronto para o TIKTOK.mp4`:** o completo, pronto pra postar (cor + legenda + narração + SFX), com a marca da lupa (`logos\Logo sem fundo maior.png`).
@@ -195,6 +211,8 @@ Pergunte só sobre **SFX**: quer efeitos nos impactos? Se quiser, os 4 arquivos 
 A narração **não é acelerada**. O script corta os silêncios entre os trechos: cada pausa de 0,12s ou mais (a -30 dB) vira uma respiração de **0,12s** (`--manter`), e o silêncio do começo e do fim sai quase todo. Pausas curtas dentro da frase ficam como estão. Isso vem antes de qualquer outra coisa, porque as emendas, os tempos das palavras e a duração da EDL dependem dessa linha do tempo nova. As emendas ficam em `pausas.json` e são os pontos de corte da montagem.
 
 Só mude a velocidade (`--vel`) ou a respiração (`--manter`) se o usuário pedir. O padrão é `--ruido=-30dB --min-pausa=0.12` (o antigo -35 dB/0,15s achou só 2 pausas nas narrações do Kane e do Atlético-GO; o novo achou 22 e 38). Se ainda sair poucas emendas (menos de uma a cada 4s), tente `--ruido=-28dB` ou `--min-pausa=0.10`. **Valor negativo vai com `=`**: `--ruido -30dB` quebra o argparse. O script imprime quanto silêncio saiu. Confira que nenhum silêncio de 0,12s ou mais sobrou na `narracao_final.wav`.
+
+**Mínimo de 60s (regra do usuário, out/2026).** O vídeo final, depois do corte de pausas e do `loop_final.py`, **nunca fica abaixo de 60s**. Acima disso tudo bem (73s foi aceito no Endrick x Roma). Se ficar abaixo, **primeiro estique as respirações com a mesma narração**: rode de novo com `--manter` maior, até ~0,2s. O ganho é o número de emendas vezes a diferença. No Andreas (18/out) eu parei e pedi narração nova para 59,2s, e ele respondeu "ajuste os cortes para que fique em 60 segundos com essa mesmo". Com `--manter 0.17` nas 25 emendas, deu 60,19s, sem acelerar nem cortar fala. Só se nem com ~0,2s chegar a 60 pare antes da EDL e proponha uma frase a acrescentar (só fato confirmado) para ele gerar de novo.
 
 ## Passo 1b — Loop no final
 
@@ -274,6 +292,18 @@ Quebre a narração em trechos pelas pausas e marque o que cada um precisa mostr
     - Se um clipe cobre o evento todo (repost de transmissão de 40–60 s), use-o como espinha e intercale só o 2º ângulo (replay, arquibancada) do mesmo instante.
     - Frase maior que o trecho: estique com 0,6–0,75x no mesmo momento, não pule para outro.
     - Jogador ou bola sempre dentro do quadro, com zoom moderado (1,2–1,6) e `keys` seguindo a ação.
+22. **Fala que cita comentário, documento ou post = o print real** (Bernal x Yamal, 18/out/2026). Isto é diferente do Matheuzinho (item 7), em que o print de post tomava o lugar do vídeo do lance. Aqui o assunto da frase é o próprio texto:
+    - **"Nos comentários, chamaram ele de nova princesa…"**: o card com o comentário de verdade (nome, texto, curtidas) por cima do lance, entrando na palavra. Use `artes_print.py card` sobre o print que o garimpo trouxe e ponha na EDL como `destaque` `icone`, com `tam` ~0,86, um card por comentário citado. Pode empilhar dois (y 0,6 e 0,3) quando as frases vêm seguidas.
+    - **"O árbitro escreveu na súmula…"**: a súmula de verdade em tela cheia, sobre um quadro do lance desfocado, com **o trecho que a narração lê realçado em amarelo**. Use `artes_print.py documento --variantes`: a versão limpa entra quando a frase começa, e a realçada no trecho da revelação. **O realce não pode cair na faixa da legenda** (48–60% da altura): no Bernal precisei subir o texto marcado, porque ele ficava embaixo da karaokê.
+    - **"Pediu desculpas num story"**: o print do story (repost de jornal no X serve), com zoom lento.
+    - Isto refina a regra do Vini (rodada 12, "fato visual ganha da súmula em texto"): quando a súmula só narra um lance que existe em vídeo, mostre o lance. Quando a revelação **é o que está escrito** ("não precisou de atendimento médico e pôde continuar"), o documento é a imagem literal. Logo depois, volte à prova visual (o Yamal de pé).
+23. **O que ele ajusta no CapCut em cima do nosso corte** (Andreas e Bernal, 18/out/2026). Faça já na EDL:
+    - **Expulsão, cartão, "o motivo da expulsão"**: o cartão levantado tem que estar no quadro. Enquadre o árbitro com o braço e o cartão, não da cintura para cima. Se a logo da emissora entrar, a ação ganha (Passo 5, marcas).
+    - **Objeto ou detalhe pequeno num plano aberto** (a bola extra caindo no gramado, a bola do jogo, o objeto atirado): **punch-in progressivo** com `keys` e `zoom` crescendo até o objeto ficar visível. No Andreas foi de 3,16 para 4,67 em ~2,5s, seguindo a bola. Aqui o plano aberto é o lance, não um plano de escala.
+    - **Frase sobre relação no espaço** ("ela acertou a bola do jogo", "ele chutou a segunda bola"): o quadro tem que caber os dois elementos. No meio do lance em câmera lenta ele abriu de 1,75 para 1,19 depois do chute, para a bola extra e a bola do jogo aparecerem juntas.
+    - **Gancho com punch-in no contato:** além da prévia cortada no impacto (item 9), feche o quadro no instante do contato (1,22 → 1,72 no Bernal), com `keys` seguindo os dois jogadores.
+    - **Foto ou arte em tela cheia nunca parada:** zoom lento de ~1,0 para ~1,25 em 0,6–1s (arte "DONE DEAL" no Bernal), ou pan lento.
+    - **Câmera lenta com pan seguindo a ação** (a cabeçada a 0,56x no Bernal), não janela fixa.
 
 Registre, por trecho, 2 ou 3 candidatos e a escolha, com o porquê. Isso vira a `nota` do shot. Se não houver alternativa, diga isso.
 
@@ -337,9 +367,10 @@ Enquadramento, por shot:
 - **Seta ou círculo vermelho no protagonista** quando o quadro é confuso (amontoado, grade, vários jogadores iguais): `"destaque": [{"tipo": "seta"|"circulo", "x", "y", "ang", "tam", "t0", "t1"}]`, em fração do quadro final. `x`/`y` é a ponta da seta (ou o centro do círculo), e `ang` diz de onde a seta vem (135 = do canto superior esquerdo). No Palermo/Diogo, o usuário acrescentou à mão uma seta vermelha apontando o Palermo embaixo da grade caída. Ele **segurou esse plano** durante "o muro desaba em cima da perna dele… perna esquerda fraturada", em vez de cortar para o rosto. Enquanto a narração descreve a lesão, fique no plano que mostra a lesão acontecendo.
 
 **Marcas d'água de terceiros (regra do usuário, set/2026):** no vídeo final só pode aparecer a marca do canal. Marca de perfil (WAMO, @fulano) e logo de emissora (ge, sportv, ESPN, TNT, Paramount+, 10) têm que ser escondidos. **O placar/relógio da transmissão pode ficar** quando prova o lance: no Vini x Austrália o usuário escolheu justamente o take com "2T 34:29 AUS 2x3 BRA" na tela para o pênalti decisivo. O usuário não quer borrão: o `delogo` deixa uma mancha que "ainda polui". Em ordem de preferência:
-  0. **Meça antes de escrever a EDL**, com `python scripts/grade.py <saida.jpg> "<clipe>|<seg>|<rótulo>" ...` em cada fonte usada, **incluindo o rodapé e os primeiros 5s do clipe**. No Atlético-GO escaparam do enquadramento: um pedaço do logo da ITV no canto, "www.diariodegoias.com.br" no rodapé, a assinatura "@futebolgoiano1minuto" na borda de baixo e o card do post da ESPN (placar + texto) nos primeiros 4s do clipe. O último caso é típico do **shot de loop**, que volta alguns segundos antes da entrada do primeiro e cai no card de abertura do post: escolha a entrada do gancho de modo que o trecho do loop fique depois do card. **Assinaturas pequenas de perfil também contam**: no Arrascaeta escaparam "@BRAYANNCRF" (rodapé da faixa do vídeo), "SportyNet" (topo) e "FUTSTATUS" (canto superior direito), cada uma com poucos pixels, e só foram vistas na revisão com recorte ampliado. Em repost de TikTok com a transmissão numa faixa, meça onde a faixa termina e use `"recorte"` cortando **dentro** dela (acima da assinatura), não na borda preta.
+  0. **Meça antes de escrever a EDL**, com `python scripts/grade.py <saida.jpg> "<clipe>|<seg>|<rótulo>" ...` em cada fonte usada, **incluindo o rodapé e os primeiros 5s do clipe**. No Atlético-GO escaparam do enquadramento: um pedaço do logo da ITV no canto, "www.diariodegoias.com.br" no rodapé, a assinatura "@futebolgoiano1minuto" na borda de baixo e o card do post da ESPN (placar + texto) nos primeiros 4s do clipe. O último caso é típico do **shot de loop**, que volta alguns segundos antes da entrada do primeiro e cai no card de abertura do post: escolha a entrada do gancho de modo que o trecho do loop fique depois do card. **Assinaturas pequenas de perfil também contam**: no Arrascaeta escaparam "@BRAYANNCRF" (rodapé da faixa do vídeo), "SportyNet" (topo) e "FUTSTATUS" (canto superior direito), cada uma com poucos pixels, e só foram vistas na revisão com recorte ampliado. Em repost de TikTok com a transmissão numa faixa, meça onde a faixa termina e use `"recorte"` cortando **dentro** dela (acima da assinatura), não na borda preta. **Cards de texto do perfil no meio do lance** também contam: no Andreas, o "MDS olha essa expulsão" sobre a jogada, a logo da Band nos planos da comemoração e, no Bernal, a logo da CazéTV no topo dos shots 24 e 28 só apareceram na revisão. Meça também os trechos que você vai **reenquadrar** (a logo entra quando a janela desce).
   - **Logo atravessada no meio do quadro** (TyC Sports na altura da cintura dos jogadores): enquadre **acima** dela (zoom ~1,9 e `cy` ~0,26 no camisa 10) e acompanhe o jogador com `keys` `[t, cx, cy]` quando ele subir ou descer no quadro; se o enquadramento acima corta o assunto, troque de fonte.
   1. **Enquadrar sem a marca (padrão):** zoom leve + `cy`/`cx` que deixem a marca fora (ex.: WAMO no topo sai com zoom ~1,22 e `cy` ~0,59; ge no canto direito sai com zoom ~1,3 e `cx` ~0,385). Fica invisível de verdade. Meça onde a marca está (grade de 10%) e calcule a janela: altura = 1/zoom, largura = 0,5625×altura/proporção do fonte.
+  1b. **A ação vale mais que o quadro sem logo** (Andreas, 18/out/2026): quando o único enquadramento com a ação inteira (o cartão vermelho levantado) deixa uma logo pequena no canto, ele enquadra a ação e cobre a logo com um **desfoque retangular pequeno** (máscara no CapCut). Faça o mesmo com `"borrar"` só sobre a logo, nunca com clone, e avise na entrega. Não corte a ação para fugir da logo.
   2. **Trocar o trecho** quando o enquadramento que tira a marca também corta o assunto (rosto pela metade, lance fora do quadro) ou passa de ~2,4x de upscale. No Matheuzinho, o zoom 2,0 na zona mista da WAMO cortou o rosto e o usuário apontou "enquadramento ruim": troquei pela entrevista da ge, que sai limpa com zoom 1,72.
   3. **`"tampar"` só em fundo liso**, como logo sobre card branco ou céu, com `"de": "cor"`. Formato na raiz da EDL: `{"CLIPE": [[x, y, larg, alt] | {"box": [...], "de": "esq|dir|baixo|cima|cor"}, ...]}` em fração do quadro-fonte. O `limpar_marcas.py` também clona textura vizinha (`esq|dir|baixo|cima`), mas **o usuário vê a clonagem como "reflexo muito aparente"** sobre torcida, rosto, camisa e placa (Matheuzinho, set/2026). Clone só num pedaço minúsculo de gramado uniforme, e confira de perto.
   - **Legenda queimada da própria fonte** (as amarelas do post da ESPN com a fala do goleiro, no meio da tela) fica em cima da nossa karaokê. Se não dá para enquadrar sem ela sem cortar o protagonista, mantenha e **avise o usuário na entrega** com o intervalo exato, para ele baixar a nossa legenda no CapCut nesse trecho.
@@ -381,8 +412,8 @@ gera `_montagem/render/rascunho_tiktok.mp4`: a mesma composição do TikTok fina
 
   Abra `render/_checagem_marca.png` (linha 1: lupa visível; linha 2: "Radar Do Campo" visível; linha 3: **sem** marca; linha 4: com legenda **sem** marca). Qualquer linha errada, não entregue. A imagem agora é gerada **antes** da checagem de áudio, então sai mesmo quando o áudio falha.
 - **Áudio x narração:** o script compara cada entrega com a `narracao_final.wav` segundo a segundo. **FALA SUMIDA** (a narração tem voz e a entrega quase não tem) bloqueia a entrega. **Correlação baixa** é só aviso: o limitador de volume achata os picos da voz e derruba a correlação sem faltar nada (Kane, set/2026: 4 janelas "divergentes" e a transcrição da entrega bateu 100% com a narração). Se aparecer só o aviso, transcreva a entrega com faster-whisper e compare com o roteiro antes de entregar.
-- **SFX:** 2–4 no vídeo todo, nos impactos (gancho, revelação, lance-chave). O script monta uma cama única em numpy.
-- **Loudness:** o áudio final é normalizado a **-10 LUFS** (medido no Faiq). As montagens automáticas anteriores saíram com -18,9 e -13,4, baixas demais. O nível final e a trilha (~13–14 dB abaixo da voz) ficam por conta do usuário no CapCut: no Palermo/Diogo ele publicou a -7,1 LUFS. Não mude o alvo por conta própria.
+- **SFX:** 2–4 no vídeo todo, nos impactos (gancho, revelação, lance-chave). O script monta uma cama única em numpy. Nos dois vídeos refinados no CapCut (Andreas e Bernal, 18/out) ele **ligou** a faixa de efeitos que eu deixava muda, então no rascunho do CapCut ela vem ligada (Passo 9). Os 4 arquivos continuam sem SFX, e o 5º sai com.
+- **Loudness:** o áudio final é normalizado a **-10 LUFS** (medido no Faiq). As montagens automáticas anteriores saíram com -18,9 e -13,4, baixas demais. O nível final e a trilha (~13–14 dB abaixo da voz) ficam por conta do usuário no CapCut: no Palermo/Diogo ele publicou a -7,1 LUFS. Não mude o alvo por conta própria. O que ele exporta do rascunho do CapCut sai mais baixo, porque o CapCut não normaliza: -14,4 no Andreas e -13,3 no Bernal. O Andreas (-11,3) e o Bernal (-10,5) também saíram um pouco abaixo do alvo no nosso render: confira o valor que o `render_final.py` imprime e avise se passar de 1 dB.
 - **Exportação:** 1440x2560, 60fps, H.264 ~20 Mbps, AAC 192k. Os 4 arquivos vão para `<job>/Videos prontos/` e nada mais entra nessa pasta. São 4 encodes de 1440x2560 (preset medium, ~12–15 min no total): rode em background e **só uma vez**, depois da revisão limpa do rascunho. Se o usuário pedir correção depois da entrega, volte ao rascunho, revise só os shots mexidos e gere os 4 de novo no fim. A prévia 720p e a checagem da marca ficam em `_montagem/render/`.
 
 ## Passo 8 — Revisão antes de entregar
@@ -420,6 +451,27 @@ Qualquer defeito: corrija a EDL, rode de novo e revise de novo.
 
 Qualquer "sim" volta à EDL.
 
+## Passo 9 — Rascunho editável no CapCut (desde 18/out/2026)
+
+O usuário quer ajustar sozinho o que fizemos, sem pedir outra rodada. Em 18/out ele pediu: "ao invés de abrir a timeline no Concat, consegue fazer o mesmo só que no CapCut?". O CapCut substitui o Concat (`concat_projeto.py`, que fica só se ele pedir o Concat). **No fim de toda entrega, ofereça em uma linha abrir o rascunho no CapCut**, e gere quando ele aceitar (ou quando ele pedir, como no Bernal: "abre tudo certinho no CapCut como fizemos na última"). Não gere sem perguntar, porque gerar exige fechar o CapCut dele.
+
+    python _montagem/scripts/capcut_projeto.py "<job>" --nome "Radar - <título>" [--modelo "<rascunho-modelo>"] [--sfx-mudo]
+
+O que ele aprovou, depois de recusar a 1ª versão ("não consigo mexer no que você fez como zoom, enquadramento e efeitos, até mesmo a legenda está diferente, e já quero que a música do meu rascunho anterior esteja igual"):
+- **Parte do rascunho-modelo dele:** é o mais recente que não começa com "Radar - ", hoje o "0417-cópia… (15)". A pasta é copiada inteira, então vêm junto as duas trilhas com o volume e a posição dele (0,34 e 0,14), o efeito "Dramatic", a lupa e o logo do YouTube oculto, tudo cortado na duração do vídeo. Não mexa no volume da trilha do modelo.
+- **Tudo nativo e editável, nada renderizado por cima.** A 1ª versão tinha uma faixa CORTE com o vídeo entregue em cima dos brutos, e ele não conseguia mexer. Agora cada shot é o clipe bruto, com corte e velocidade, escala e posição em Vídeo › Transformar e o movimento em keyframes.
+- **Cor da entrega gravada nas cópias dos clipes** (`_montagem/capcut_clipes/`, eq 1,18/1,12). Keyframe de Ajuste (saturação/contraste) aparece no painel, mas não renderiza.
+- **Flash:** PNG branco com keyframe de opacidade, na faixa FLASH, mais o soco de escala no shot. **Flashback:** filtro P&B do CapCut (褪色黑白, biblioteca Pro; ele é Pro) numa faixa própria.
+- **Cards e fotos:** foto ou PNG da EDL vira clipe de 12s, e os destaques `icone` (cards de comentário) vão nas faixas CARDS/CARDS2, editáveis.
+- **Legenda:** karaokê com um trecho por palavra, a palavra falada em amarelo #FAFE05 e a mesma fonte da entrega (`assets/Montserrat-ExtraBoldItalic.ttf`, passada como caminho no estilo). Tamanho 10 e centro a 54%. Ele não mexeu na legenda em nenhum dos dois.
+- **SFX ligado** (ele ligou a faixa nos dois; `--sfx-mudo` deixa muda). Narração na faixa NARRACAO.
+- **Tempo dos keyframes = tempo da fonte.** O CapCut grava o `time_offset` no tempo do clipe (o mesmo do `source_timerange`), não relativo ao início do segmento. A 1ª versão gravava relativo: em clipe com entrada > 0, o pan e o soco ficavam parados, e no Bernal ele teve que refazer o pan do gol do Abde. O script converte (`in + t × velocidade`).
+
+Pegadinhas:
+- **Gere com o CapCut FECHADO.** Com ele aberto, o `root_meta_info.json` é reescrito, o rascunho some da lista ou abre a versão velha, e ao fechar o CapCut grava por cima. Se só o nosso rascunho estiver aberto, `taskkill //F //IM CapCut.exe`. Se o projeto dele estiver aberto, **pergunte antes**.
+- Para conferir: o computer-use precisa de "CapCut", "capcut.exe" e "File Explorer" (barra de tarefas). A home abre no monitor VX-215X e o editor no 27G2G4. Confira 3–4 pontos na prévia (gancho, um flash, um card, o flashback) e diga que não assistiu o vídeo inteiro no CapCut.
+- Ele exporta do CapCut um arquivo só, com o título como nome, em `Videos prontos/`. Para comparar depois ("Aprendizado diário"), compare o `draft_content.json` do "Radar - <título>" com o que o script gera de novo numa raiz temporária dentro do job (`--raiz "<job>/_montagem/cmp/capcut_orig"`, com uma cópia só do `draft_content.json` e do `draft_meta_info.json` do modelo e do `root_meta_info.json`). Isso mostra cada zoom, keyframe, faixa e volume que ele mudou, o que o vídeo sozinho não mostra.
+
 ## Bloqueios: não entregue quando
 
 - a revisão a cada 0,1s (`revisao.py`) não foi percorrida no rascunho do corte que vai ser entregue (inteira na 1ª passada; os shots alterados em cada correção), ou achou defeito não corrigido;
@@ -436,12 +488,14 @@ Qualquer "sim" volta à EDL.
 - algum shot com zoom deixa o assunto sair do quadro, ou o lance fica ilegível (bola/protagonista minúsculos, borrão de upscale);
 - aparece ferimento/sangue sem desfoque, ou o desfoque deixa retângulo ou vermelho aparente;
 - a duração diverge da `narracao_final.wav` em mais de 0,2s, falta áudio ou há quadro preto nas viradas;
+- o vídeo final ficou abaixo de 60s (estique as respirações antes, Passo 1);
+- a frase cita um comentário ou um documento e a imagem não é o print real dele (Passo 3, item 22), ou o realce do documento cai embaixo da legenda;
 - clipes baixados não foram abertos (o Passo 2 não foi feito em `_extras`/`_rejeitados`);
 - falta algum dos 4 arquivos em `Videos prontos/`, a marca do TikTok e a do YouTube saíram trocadas, o "sem legenda" ou o "com legenda sem marca" tem marca, ou algum arquivo falhou na checagem de áudio x narração.
 
 ## Entrega
 
-Os 4 arquivos em `<job>/Videos prontos/`: `video pronto para o TIKTOK.mp4`, `video pronto para o YOUTUBE.mp4`, `<apelido>-completo-sem-legenda.mp4` e `<apelido>-com-legenda-sem-marca.mp4` (+ o 5º `video pronto para o TIKTOK - COM EFEITOS SONOROS.mp4`, se ele quis SFX). Na raiz do job, `legenda para o CapCut.srt` e `guia da trilha.txt`: diga em uma linha para ele importar esse arquivo no CapCut em vez da legenda automática. Mostre a prévia (`_montagem/render/<apelido>-preview.mp4`) com `SendUserFile`. Resuma em poucas linhas: planos/min, % de torcida, % de protagonista, as decisões que valem discussão e o que ficou mais fraco e por quê. Não prometa desempenho.
+Os 4 arquivos em `<job>/Videos prontos/`: `video pronto para o TIKTOK.mp4`, `video pronto para o YOUTUBE.mp4`, `<apelido>-completo-sem-legenda.mp4` e `<apelido>-com-legenda-sem-marca.mp4` (+ o 5º `video pronto para o TIKTOK - COM EFEITOS SONOROS.mp4`, se ele quis SFX). Na raiz do job, `legenda para o CapCut.srt` e `guia da trilha.txt`: diga em uma linha para ele importar esse arquivo no CapCut em vez da legenda automática. Mostre a prévia (`_montagem/render/<apelido>-preview.mp4`) com `SendUserFile`. Resuma em poucas linhas: planos/min, % de torcida, % de protagonista, as decisões que valem discussão e o que ficou mais fraco e por quê. Não prometa desempenho. Termine oferecendo abrir o rascunho editável no CapCut (Passo 9).
 
 **Limpeza automática da entrega (05/10/2026).** No fim do render final, e nunca no `--rascunho`, o `render_final.py` manda para a Lixeira só o que se refaz sozinho: `corte_completo.mp4`, `corte_limpo.mp4` e `rascunho_tiktok.mp4` (~1,7 GB). Shots, clipes, EDL e prévia ficam, então correção e remontagem continuam iguais. Se ele pedir correção depois da entrega, siga o fluxo de sempre: o `prep_shots`/`posfx` emendam o corte de novo, e o `render_final` refaz o `corte_completo` pela `lista_completo.txt` se ele não existir. Não comente a limpeza na entrega, a não ser que ela falhe.
 
@@ -455,6 +509,8 @@ Se ele refinou a nossa entrega no editor (mesma duração; costuma ficar em `Vid
     python scripts/lado_a_lado.py "<nosso>.mp4" "<dele>.mp4" "<job>/_montagem/lado.jpg" <t0> <t1> 0.3
 
 O primeiro lista os trechos de imagem trocados (por região da tela) e as janelas de áudio diferentes; o segundo mostra os dois lado a lado. Resíduo de áudio constante e baixo em todo o vídeo é a trilha dele; picos isolados são SFX. Traduza cada troca numa regra e proponha a mudança nesta skill.
+
+Se ele refinou **no rascunho do CapCut** que geramos (Passo 9), o `compara_edicao.py` acusa diferença em quase tudo, porque os brutos e o filtro P&B do CapCut não batem pixel a pixel com o nosso render. Nesse caso compare **o projeto**, como explicado no Passo 9: cada zoom, keyframe, faixa ligada ou oculta e volume que ele mudou aparece ali. Use o `lado_a_lado.py` só nos trechos que o projeto apontar.
 
 ## Espaço em disco: fechar os vídeos postados
 
@@ -471,6 +527,13 @@ Em 05/10/2026 o disco C: chegou a 22 GB livres. Cada vídeo ocupava ~5 GB: ~2,3 
 - **Nunca apague de vez:** tudo vai para a Lixeira (`scripts/lixeira.py`), e quem esvazia é ele. Se a "Proteção contra ransomware" do Defender estiver ligada e a pasta for protegida, o arquivo não sai e o script avisa. Não desligue a proteção: avise o usuário.
 
 ## Erros já cometidos (não repetir)
+
+- Andreas Pereira e Bernal x Yamal (18/out/2026):
+  - Parar a montagem e pedir narração nova porque deu 59,2s, quando dava para chegar a 60 com a mesma, esticando as respirações (Passo 1).
+  - 1ª versão do rascunho do CapCut com o corte renderizado por cima dos brutos: zoom, enquadramento e efeitos ficaram impossíveis de mexer, a legenda saiu com outra fonte e a música do modelo dele não veio (Passo 9).
+  - Keyframes gravados relativos ao segmento: no CapCut o pan e o soco ficaram parados em todo clipe com entrada > 0 (Passo 9).
+  - Cartão vermelho fora do quadro em "o motivo da expulsão", bola extra invisível no plano aberto e quadro fechado demais para a bola extra acertar a bola do jogo. Ele corrigiu os três no CapCut (item 23).
+  - Card "MDS olha essa expulsão", logo da Band e logo da CazéTV só vistos na revisão (Passo 5, item 0).
 
 - Bruno Duarte (08/out/2026, aprovado sem mudanças). Erros pegos na própria revisão, antes da entrega:
   - Logos de TNT e Prime no quadro; dividida ao vivo enquadrada com o lance fora do centro; "o Colidio lança o David" coberto por outro lance. Só a revisão a cada 0,1s mostrou.

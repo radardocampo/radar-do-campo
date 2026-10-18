@@ -27,4 +27,7 @@
 - [Atualizar skill = todos os lugares](atualizar-skill-em-todos-lugares.md) — pedido de atualizar skill: HUB + .skill, nuvem/GitHub e upload no claude.ai pelo Chrome, sem ele precisar reenviar
 - [Garimpo enxuto é o padrão](garimpo-enxuto-padrao.md) — desde 2026-10-08, todo dia: TikTok 4–6 buscas, mosaico, outras redes só pro que faltar; completo só se ele pedir (rotina segue nas 7 redes)
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
-- [Comparação em lote 17/10](comparacao-lote-2026-10-17.md) — 17 vídeos comparados; 8 sem troca de imagem; regras na skill 2026-10-17
+- [Comparação em lote 17/10](comparacao-lote-2026-10-17.md) — 17 vídeos comparados; 8 sem troca de imagem; regras na skill 2026-10-17; em 18/10 Leo Flores, Andreas e Bernal (rodada 13, skill 2026-10-18)
+- [Vídeo final nunca abaixo de 60s](video-final-sempre-60s.md) — mínimo 60s, acima é aceito; abaixo: primeiro esticar respirações (--manter até ~0,2s), só então pedir narração nova; roteiro 255–265 palavras
+- [Rotina: candidatos no texto + redes no Chrome](rotina-mostrar-candidatos-em-texto.md) — 2026-10-18 reclamação: nunca fechar só com a caixa; lista completa escrita + 7 redes pelo navegador dele
+- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9 da montagem (2026-10-18): só no PC; oferecer no fim de toda entrega; keyframes em tempo da fonte; gerar com CapCut fechado

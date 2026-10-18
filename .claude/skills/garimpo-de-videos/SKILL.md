@@ -5,6 +5,8 @@ description: "Usar quando o usuário fornece um roteiro de vídeo e pede para en
 
 # Garimpo de clipes — Radar do Campo
 
+**Atualizada em 2026-10-18:** prints do que o roteiro cita (comentário, súmula, story), começar pelos links da pesquisa, nada de clipe de canal concorrente, arquivos de trabalho fora da raiz.
+
 Objetivo: dado um roteiro, entregar uma pasta cheia de material bruto baixado **e mapeado por trecho**, pronta para a `montagem-de-video`. Não é lista de links: é arquivo em disco + inventário.
 
 ## O que a montagem do usuário ensinou
@@ -39,6 +41,7 @@ Tudo o que esta skill grava fica **dentro da pasta do vídeo**: `C:\Users\bruno\
 
 - **Só leitura:** `logos\`, `Sons edição\`, `Musicas edição\`, `HUB Radar do Campo\`, a raiz de `Videos prontos\`, a própria pasta `Shorts\` e `Downloads\`. Nunca grave nem mova arquivo para elas.
 - Arquivo temporário também vai para a pasta do vídeo, não para `/tmp`, scratchpad ou pasta geral.
+- **Raiz do job limpa:** listas de links, logs de download, metadados (`tt_meta.txt`), scripts auxiliares e transcrições soltas vão em `<job>/_registro/`. Na raiz ficam só o roteiro, `inventario.json`, `.baixados.txt`, `clipes/` e `frames/`. No Andreas (18/out) foi assim; no Bernal, no mesmo dia, ficaram ~25 arquivos `log_dl*.txt`, `l_*.txt` e `tt_*.txt` soltos na raiz.
 - `scripts/folha_contato.py` usa a trava `scripts/pasta_job.py` e aborta se a saída estiver fora de `Shorts\<vídeo>\`.
 
 ## Ambiente (máquina local Windows)
@@ -53,11 +56,14 @@ Tudo o que esta skill grava fica **dentro da pasta do vídeo**: `C:\Users\bruno\
 
 - **TikTok baixa sem cookies** (o yt-dlp resolve o desafio sozinho). Instagram também baixou sem cookies na maioria dos posts (11 de 14 no último job).
 - Com o Chrome aberto, `--cookies-from-browser chrome` falha ("Could not copy Chrome cookie database"). Tente primeiro sem cookies; se falhar, tente `firefox`/`edge`; só então peça para fechar o Chrome.
-- A URL de busca do Kwai (`/search/video?searchKey=`) está devolvendo "sem conexão"; use o campo de busca da home.
+- A URL de busca do Kwai (`/search/video?searchKey=`) está devolvendo "sem conexão"; use `https://www.kwai.com/discover/<termo>` (funcionou em out/2026).
+- Post que não baixa (TikTok da ESPN com "IP bloqueado", X da DAZN Portugal com erro 403 no Bernal x Yamal): procure o mesmo vídeo repostado por outro perfil antes de marcar `[BAIXAR MANUALMENTE]`.
 
 ## Passo 1 — Pasta do job e roteiro
 
 O usuário normalmente já deixou a pasta do vídeo com o roteiro em `.txt`/`.docx`. Liste a pasta e leia o roteiro do arquivo antes de pedir qualquer coisa. Se o arquivo existir mas estiver vazio (só os cabeçalhos), avise e use o roteiro do chat.
+
+**Pedido que já traz contexto e links** (o prompt que a `garimpo-de-temas` gera no Passo 11b: contexto confirmado, "o que cada trecho precisa de imagem", "posts que já achei"): grave o roteiro em `ROTEIRO.txt` e **baixe primeiro os posts listados**. Eles já foram conferidos na pesquisa. Use a lista numerada de imagens como as partes do Passo 2, e as observações (canal concorrente, buscas úteis) como regra do job.
 
 Estrutura:
 
@@ -93,8 +99,9 @@ Quebre em partes (gancho, cada lance citado, fechamento). Para cada parte anote 
 | **Lugar citado** (estádio/cidade, qualquer data se o evento não aconteceu). *Só se o roteiro nomear um lugar* | 1 |
 | **Infográfico do dado-resumo** (portal: 365Scores, ge, OneFootball). *Só se o roteiro trouxer um número/histórico* | 1 por dado, se existir |
 | **Escudo PNG sem fundo**. *Só se o roteiro abrir com veredito ("foi cortado", "foi demitido")* | 1 |
+| **Print do que o roteiro cita** (comentário, súmula/documento, story ou post). *Só se o roteiro citar* | 1 por citação |
 
-As quatro últimas linhas são **condicionais**: se o roteiro não tem aquele elemento, a cota não existe e não entra no placar do Passo 8. Não busque escudo, lugar ou infográfico "por garantia".
+As cinco últimas linhas são **condicionais**: se o roteiro não tem aquele elemento, a cota não existe e não entra no placar do Passo 8. Não busque escudo, lugar ou infográfico "por garantia".
 
 Se uma cota não fechar, diga qual e por quê. Não entregue pela metade em silêncio.
 
@@ -129,6 +136,12 @@ Para **dado-resumo** do roteiro ("quarta lesão em um ano", "terceira vez com a 
 
 Para **veredito na abertura** ("foi cortado", "foi demitido"): baixe o **escudo do clube ou da seleção em PNG sem fundo** (Wikimedia Commons, ≥512px) para `clipes/fotos/escudo_<time>.png`. A montagem põe o escudo riscado com um X sobre a cabeça do protagonista (`destaque` `icone`), como o usuário fez com a CBF no Raphinha.
 
+Para **texto citado no roteiro** (Bernal x Yamal, 18/out/2026), a montagem mostra o print real (`artes_print.py`):
+- **Comentários** ("nos comentários chamaram ele de nova princesa…"): abra no Chrome o post onde eles estão (o roteiro ou o prompt dizem qual; no Bernal, o post da ESPN Deportes com 268 mil curtidas), ache cada comentário citado e salve um print da tela com o nome, o texto e as curtidas legíveis. Arquivo: `clipes/fotos/print_comentario_<palavra>_<rede>-<perfil>.jpg`.
+- **Súmula, acta ou comunicado:** busque no X `acta <jogador>`, `súmula <jogador>`, `<árbitro> acta`. Jornalistas e perfis de arbitragem postam o print no mesmo dia; no Bernal veio do @alexferj_. Precisa estar legível na frase que o roteiro lê.
+- **Story ou post de desculpas:** o story some em 24h, mas jornais (Marca, AS) e perfis no X repostam o print. Busque `<jogador> story disculpas` / `<jogador> pede desculpas story`.
+- Registre no `inventario.json` com `tipo: "print"`, a URL e qual frase do roteiro ele prova.
+
 Para **falas citadas** (coletiva, zona mista, "ele disse que…"):
 - procure a **íntegra**, não só o recorte viral (no Atlético-GO: coletiva completa de 139s no @diariodegoias);
 - **transcreva com faster-whisper** e anote no inventário o segundo exato de cada frase usada no roteiro. Foi assim que "doido varrido" (0–7s) e "corto o pescoço na hora certa" (70,5–75s) viraram fala confirmada e com tempo marcado, em vez de citação de matéria.
@@ -143,6 +156,8 @@ Para **falas citadas** (coletiva, zona mista, "ele disse que…"):
 - **Overlay de transmissão** (placar, logo da emissora) não é legenda. O placar/tempo de jogo é prova de lance: anote onde ele aparece.
 - **Resolução:** trecho abaixo de 720 de largura só entra se não houver alternativa para o mesmo momento; anote. Mas **momento único vence resolução**: no Raphinha, o usuário usou reposts 720x960 porque eram os únicos com ele andando no intervalo visto da arquibancada e com o close dele com o médico. Repost ruim com o momento certo fica no inventário, com a janela marcada.
 - **Repost com legenda mentirosa:** o "raphinha injury today" de 29/set (@0.0.0.0.0.0.919) era a lesão da Copa (camisa 11, junho), não a da Austrália (camisa 10). Confirme o jogo pelo **uniforme e pelo número** (na Copa ele usou a 11 e, nos amistosos de setembro, a 10 com braçadeira), não pela legenda nem pela data do post.
+- **Nunca use clipe de canal concorrente do mesmo formato** (@Onfirefut e parecidos: storytelling narrado de futebol). Não baixe vídeo deles nem como 2º ângulo: é o vídeo de outro canal do nicho, e o usuário pediu para não usar no Bernal x Yamal.
+- **Vídeo gerado por IA:** desconfie de uniforme errado e closes de estúdio. O `tt_el.banquillo54` do Bernal x Yamal tinha a camisa do Barça errada e foi descartado. E confira de quem é o lance: o `tt_ffc.teixeira`, achado na busca "bernal", era sobre o Martinelli.
 - Risco de Content ID: YouTube é o mais agressivo; Instagram/Facebook são rigorosos com transmissão e tranquilos com filmagem real; TikTok, X e Kwai são os mais tolerantes.
 
 ## Passo 5 — Buscar e baixar (baixe cedo, verifique depois)
@@ -228,6 +243,11 @@ Organize por parte do roteiro. Em cada linha: **[BAIXADO]** ou **[BAIXAR MANUALM
 Destaque no topo os **vídeos longos de torcida** encontrados e quanto tempo limpo cada um tem: eles definem a montagem. Liste o apoio por categoria. Feche com o placar das cotas do Passo 2, dizendo o que faltou e por quê.
 
 ## Erros já cometidos (não repetir)
+
+- Bernal x Yamal (18/out/2026):
+  - Deixar ~25 arquivos de trabalho (logs, listas, metadados) soltos na raiz do job (use `_registro/`).
+  - Não buscar no Instagram nem os perfis que o prompt pediu para procurar (ESPN México, @desde.lagrada.yt), só porque os 3 posts dados já tinham baixado. O que o pedido lista é cota.
+  - A torcida do Betis no gol do Abde não apareceu: só a transmissão. Listar o perfil de quem filmou outros gols da arquibancada (@d77aguilar) cobriu os gols do Barça. Liste esse tipo de perfil logo no começo.
 
 - Deixar 14 clipes em `_extras` "não verificados"; um deles era a base do vídeo que o usuário montou.
 - Rejeitar o clipe inteiro por ter react, legenda queimada ou círculo de destaque.
