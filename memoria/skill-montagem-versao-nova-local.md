@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 28d61b0f-8ec4-43d3-8538-39bc650fdb15
-  modified: 2026-10-01T21:57:12.184Z
+  modified: 2026-10-18T22:24:35.741Z
 ---
 
 Em 2026-09-23 a skill `montagem-de-video` carregada ainda era a antiga (Remotion, legenda a 74%). Ou seja, o usuário não gravou o `.skill` novo de [[referencia-montagem-carrascal]]. A versão nova (pipeline ffmpeg + PIL, narração 1,2x, karaokê a 54%) foi copiada do scratchpad temporário para:
@@ -70,6 +70,19 @@ Ver [[montagem-gancho-e-contexto-literal]].
 Também: no PowerShell, `--shots 01,41` vira array e o `prep_shots` recebe "1 41" (o 01 é pulado sem aviso); passe entre aspas: `--shots "01,41"`.
 
 **2026-09-30 (após o Raphinha cortado, montado do zero pelo usuário):** HUB atualizado (backup `_bak-2026-09-30-raphinha\`) e `.skill` reempacotados e INSTALADOS pelo claude.ai em 2026-09-30 (montagem-de-video = claude.ai v19, garimpo-de-videos = claude.ai v6): montagem-de-video "v18" (itens 15–20, `destaque` tipo `icone`, `legenda_capcut.srt` + cópia para "<job>/legenda para o CapCut.srt", ritmo 22–30/min, replay do lance-chave com `flashforward`) e garimpo-de-videos (Passo 3c: fato antigo pelo rival, lugar, infográfico, escudo; id completo no nome; inventário por lote; máx. 4 imagens/mensagem; cotas de escudo/lugar/infográfico são CONDICIONAIS, só quando o roteiro tem o elemento — o usuário perguntou se era obrigatório sempre). Ver [[referencia-edicao-raphinha-cortado]].
+
+**2026-10-18 — HUB "Versão 2026-10-18" + as 4 skills enviadas pelo claude.ai.** Backup em `_bak-2026-10-18-capcut-andreas-bernal\`.
+- **O que entrou:**
+  - Passo 9 (CapCut);
+  - mínimo de 60s esticando as respirações;
+  - item 22 (print real) e item 23 (ajustes dele no CapCut);
+  - scripts `capcut_projeto.py` e `artes_print.py`, mais a fonte ExtraBoldItalic.
+- **Outras skills:**
+  - `titulos-e-tags` ganhou cópia no HUB pela primeira vez;
+  - `garimpo-de-temas` e `garimpo-de-videos` foram atualizadas.
+- **Nuvem:** commit 57beaee.
+- **Upload no claude.ai:** dá para mandar os 4 `.skill` de uma vez e clicar "Substituir" em cada um.
+- **Cópia instalada no PC:** logo depois do upload, a de `AppData\...\skills-plugin` ainda era a antiga. Ela sincroniza depois (nova sessão). O Passo Zero cobre a montagem enquanto isso.
 
 **2026-10-05 (limpeza de disco):** HUB "Versão 2026-10-05", com backup em `_bak-2026-10-05-limpeza\`:
 - `render_final.py` manda os cortes regeneráveis para a Lixeira na entrega final e refaz o `corte_completo` pela lista se faltar.

@@ -20,14 +20,21 @@
 - [Edição dele do Raphinha cortado](referencia-edicao-raphinha-cortado.md) — 2026-09-30: montou do zero; ícone CBF riscado, punch-in na coxa, lugar/lista/instituição literais, infográfico IA, SRT para o CapCut
 - [Placar final: conferir acréscimos](placar-final-conferir-acrescimos.md) — Índia x Brasil 03/10: páginas ao vivo diziam 3x0, foi 4x0 (90+5); público "início" ≠ oficial
 - [Montagem pensada pra viralizar](montagem-pensada-pra-viralizar.md) — 2026-10-03 Calcutá: gancho = pico do material, ação até o impacto, sem zoom em plano de escala, frase inteira literal; skill HUB 2026-10-03
-- [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — 2026-10-05: só TikTok não serve; 7 redes no Chrome dele + grade; 06/10: X abriu, Kwai via /discover/, placares pela API da ESPN
+- [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — desde 12/10 sempre busca + 7 redes sem perguntar; grade candidato × rede; X e Kwai (/discover/) funcionam; TikTok via data-e2e + yt-dlp
 - [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
 - [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — 2026-10-06: roteiro+montagem na nuvem, repo radar-do-campo, enviar.ps1/receber.ps1
 - [Lance em sequência aprovado (Bruno Duarte)](montagem-lance-em-sequencia-aprovado.md) — 2026-10-08 "perfeito": gancho = prévia da queda; depois o lance inteiro em ordem, cada frase com o próximo momento do mesmo evento; zoom 1,2–1,6 seguindo a bola
 - [Atualizar skill = todos os lugares](atualizar-skill-em-todos-lugares.md) — pedido de atualizar skill: HUB + .skill, nuvem/GitHub e upload no claude.ai pelo Chrome, sem ele precisar reenviar
 - [Garimpo enxuto é o padrão](garimpo-enxuto-padrao.md) — desde 2026-10-08, todo dia: TikTok 4–6 buscas, mosaico, outras redes só pro que faltar; completo só se ele pedir (rotina segue nas 7 redes)
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
-- [Comparação em lote 17/10](comparacao-lote-2026-10-17.md) — 17 vídeos comparados; 8 sem troca de imagem; regras na skill 2026-10-17; em 18/10 Leo Flores, Andreas e Bernal (rodada 13, skill 2026-10-18)
-- [Vídeo final nunca abaixo de 60s](video-final-sempre-60s.md) — mínimo 60s, acima é aceito; abaixo: primeiro esticar respirações (--manter até ~0,2s), só então pedir narração nova; roteiro 255–265 palavras
+- [Tom do canal medido](narracao-tom-do-canal-medido.md) — 2026-10-11: faixa 140–160 Hz, 2,8–3,5 palavras/s; AI Studio só no navegador; TikTok @_radardocampo só via Chrome
+- [Vídeo final nunca abaixo de 60s](video-final-sempre-60s.md) — mínimo 60s, acima é aceito; abaixo: primeiro esticar respirações (--manter até ~0,2s, 18/10), só então pedir narração nova; roteiro 255–265 palavras
+- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9 da skill (HUB 2026-10-18): oferecer no fim de toda entrega; keyframes em tempo da fonte; SFX ligado; gerar com CapCut fechado
+- [Concat: timeline editável](concat-timeline-editavel.md) — substituído pelo CapCut em 18/10; concat_projeto.py só se ele pedir o Concat
+- [Teste do VoiceStudio](voicestudio-teste-2026-10-16.md) — 2026-10-16: instalado, erro de clone resolvido (ref ≤20 s), mas CPU lenta demais (>7 min p/ 12 s)
+- [Concat: fork próprio](concat-fork-proprio.md) — 2026-10-16: radardocampo/Concat + clone em Desktop/Concat-fonte; compilado, branch meu-concat (v0.2.7), script compilar.ps1
 - [Rotina: candidatos no texto + redes no Chrome](rotina-mostrar-candidatos-em-texto.md) — 2026-10-18 reclamação: nunca fechar só com a caixa; lista completa escrita + 7 redes pelo navegador dele
-- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9 da montagem (2026-10-18): só no PC; oferecer no fim de toda entrega; keyframes em tempo da fonte; gerar com CapCut fechado
+- [Comparação em lote 17/10](comparacao-lote-2026-10-17.md) — 17 vídeos comparados; 8 sem troca de imagem; regras na skill HUB 2026-10-17; em 18/10 Leo Flores, Andreas e Bernal (rodada 13, HUB 2026-10-18)
+- [Roteiro sem comentários aleatórios](roteiro-sem-comentarios-aleatorios.md) — 2026-10-19 Paquetá: nada de comentário/curtida de anônimo como pauta; só pessoa relevante ou se o tema for isso
+- [Agente de voz do PC](agente-voz-pc.md) — BUSINESSgente-voz: Whisper local + regras + Gemini (20 req/dia grátis); próximos passos
+- [Roteiro de situação: direto](roteiro-situacao-direto.md) — 2026-10-20 Neymar/Soteldo: gancho afirmativo, sem "Todo mundo viu", sem contexto de rodada/histórico
