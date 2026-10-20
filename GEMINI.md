@@ -23,6 +23,14 @@ Responda sempre em português do Brasil, direto e curto.
   ffmpeg, yt-dlp e Python já estão instalados. O terminal é PowerShell 5.1: sem `&&` (use `;`).
 - Narração: o usuário gera no AI Studio e coloca na pasta do vídeo. Use `narracao.py` como a skill manda.
 
+## Autonomia total (autorização permanente do usuário)
+O usuário já autorizou, de forma permanente, tudo o que a montagem precisa: listar e ler qualquer pasta
+(inclusive `.agents/`, `Videos prontos\`, `logos\`, `Sons edição\`), rodar os scripts Python das skills,
+ffmpeg/ffprobe, criar e sobrescrever arquivos dentro da pasta do vídeo. NÃO peça permissão nem confirmação
+para isso, e não pare para perguntar "posso continuar?". A skill `accidental-data-loss-prevention` só vale
+para apagar arquivos ou `git push --force`/`git reset` — o resto é rotina, faça direto.
+Pare para perguntar SÓ quando for: apagar arquivo do usuário, mexer no GitHub além do `git pull`, ou trocar o gancho.
+
 ## Como trabalhar
 - Leve a tarefa até o fim sem pedir aprovação de cada passo. Pergunte só se a escolha mudar o vídeo
   de um jeito que ele não aprovaria (ex.: trocar o gancho que ele definiu).
