@@ -38,3 +38,4 @@
 - [Roteiro sem comentários aleatórios](roteiro-sem-comentarios-aleatorios.md) — 2026-10-19 Paquetá: nada de comentário/curtida de anônimo como pauta; só pessoa relevante ou se o tema for isso
 - [Agente de voz do PC](agente-voz-pc.md) — BUSINESSgente-voz: Whisper local + regras + Gemini (20 req/dia grátis); próximos passos
 - [Roteiro de situação: direto](roteiro-situacao-direto.md) — 2026-10-20 Neymar/Soteldo: gancho afirmativo, sem "Todo mundo viu", sem contexto de rodada/histórico
+- [Antigravity como plano B](antigravity-plano-b.md) — 2026-10-20: GEMINI.md + .agents/skills no repo; sincronizar.ps1 em toda mudança; checar memoria/pendente-antigravity.md
