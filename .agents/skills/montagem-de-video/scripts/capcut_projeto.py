@@ -54,7 +54,7 @@ def us(t): return int(round(t * 1_000_000))
 # ---------- modelo ----------
 if a.modelo: modelo = os.path.join(a.raiz, a.modelo)
 else:
-    cand = [p for p in glob.glob(os.path.join(a.raiz, "*", "draft_content.json")) if not os.path.basename(os.path.dirname(p)).startswith("Radar - ")]
+    cand = [p for p in glob.glob(os.path.join(a.raiz, "*", "draft_content.json")) if not os.path.basename(os.path.dirname(p)).startswith(("Radar - ", "_tmp"))]
     modelo = os.path.dirname(max(cand, key=os.path.getmtime))
 tpl = json.load(open(os.path.join(modelo, "draft_content.json"), encoding="utf-8"))
 print("modelo:", os.path.basename(modelo))
@@ -133,7 +133,8 @@ if pb_ranges:
     sc.add_track(cc.TrackType.filter, "FLASHBACK")
     ini_pb, fim_pb = min(r[0] for r in pb_ranges), max(r[1] for r in pb_ranges)
     sc.add_filter(cc.FilterType.褪色黑白, trange(us(ini_pb), us(fim_pb - ini_pb)), "FLASHBACK", intensity=100.0)
-sc.add_segment(cc.AudioSegment(cc.AudioMaterial(os.path.join(M, "narracao_final.wav")), trange(0, us(dur_total))), "NARRACAO")
+_nm = cc.AudioMaterial(os.path.join(M, "narracao_final.wav"))
+sc.add_segment(cc.AudioSegment(_nm, trange(0, min(us(dur_total), _nm.duration))), "NARRACAO")
 sfx_p = os.path.join(M, "sfx.json")
 if os.path.exists(sfx_p):
     lst = sorted(json.load(open(sfx_p, encoding="utf-8")), key=lambda x: x["t"])
@@ -199,7 +200,10 @@ for t in tpl["tracks"]:
             if s.get("source_timerange"): s["source_timerange"]["duration"] = int(nd * sp)
         segs.append(s)
     t = copy.deepcopy(t); t["segments"] = segs; herdadas.append(t)
-for t in herdadas:                                                  # logos acima do video e do flash
+    if t["type"] == "audio":                                        # trilha principal: ele baixa 0,34 -> 0,07-0,16 (21/10)
+        for s in t["segments"]:
+            if s.get("volume", 1.0) > 0.2: s["volume"] = 0.12
+for t in herdadas:                                                 # logos acima do video e do flash
     for s in t["segments"]:
         if t["type"] == "video": s["render_index"] = (s.get("render_index") or 0) + 10
 out["tracks"] = [novas["VIDEO"], novas["FLASH"]] + [novas[n] for n in ("CARDS", "CARDS2") if n in novas and novas[n]["segments"]] + ([novas["FLASHBACK"]] if "FLASHBACK" in novas else []) + [t for t in herdadas if t["type"] == "video"] + \

@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-18 (Andreas, Bernal x Yamal e Leo Flores: rascunho editável no CapCut (Passo 9), mínimo de 60s esticando as respirações, print real de comentário e súmula (item 22), os ajustes que ele fez no CapCut (item 23); Décima terceira rodada).** Anterior: 2026-10-17 (comparação em lote de 17 vídeos). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -122,6 +122,20 @@ Décima terceira rodada, **Leo Flores, Andreas Pereira e Bernal x Yamal (17 e 18
 - **Efeitos sonoros ligados nos dois:** ele ativou a faixa SFX (que eu deixava muda) e só baixou o 1º impacto do Andreas de 0,55 para 0,43. A trilha ACIDO do Bernal saiu ~1,4s antes do fim (loop só com voz).
 - **Exportou um arquivo só, com a lupa e o logo do YouTube ocultos.** Publicou a -14,4 LUFS (Andreas) e -13,3 LUFS (Bernal), porque o CapCut não normaliza. Os nossos 4 arquivos continuam a -10 LUFS.
 
+Décima quarta rodada, **Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha (19 a 21/out/2026)**. Ele refinou os cinco **dentro do rascunho do CapCut**, e a comparação foi pelo projeto (`compara_capcut.py`). Em nenhum mexeu na legenda. O que se repetiu:
+- **Gancho nunca parado:** nos cinco ele mexeu no shot 1. Punch-in (Vitinha 1,05→1,76; Thiago 2,4→2,84) e pan seguindo a ação (Paquetá -0,22→+0,22; Soteldo; Vitinha). No Kannemann foi o contrário: o nosso pan pulava de lado no meio do gancho (+0,28 → -0,55), e ele abriu para 1,23 e deixou a janela quase parada sobre a ação inteira. O shot de loop leva o mesmo quadro (item 23).
+- **Gancho = a humilhação/o fato do título acontecendo (Thiago Mendes):** trocou o nosso gancho por um post da ESPN que ele baixou, **os jogadores do Boca comemorando na frente do Thiago Mendes**, fechando nos jogadores (o card do post fica fora do quadro). O título dele era "…após ser humilhado na eliminação". O loop fecha no mesmo clipe a 0,33x.
+- **Post citado = o post (Thiago):** em "postou uma montagem feita com inteligência artificial em que rasgava o escudo do Boca", ele pôs **a própria montagem** (repost de perfil de torcida). Item 22 vale também para arte/IA citada.
+- **Janela no lado ou na altura errada:** no Soteldo, quase todos os shots da ESPN tinham y 0,26 e ele desceu para ~0 / -0,27. No Kannemann, a coletiva do Renato e os melhores momentos estavam do lado errado (x -0,43 → 0,37). Confira na revisão se o assunto está no centro da janela, não só dentro dela.
+- **Duas fontes do mesmo lance: a limpa (Soteldo):** trocou 3 shots do post da ESPN com cards de texto queimados ("…ado ilegal", "NEYMAR PARTIU PARA CIMA DO SOTELDO, MAS…") pelo outro post da ESPN do mesmo lance, sem texto.
+- **Texto queimado sem fonte alternativa = desfoque retangular (Paquetá):** cópia do clipe por cima, com máscara desfocada só sobre o texto. Mesma regra do Andreas (Passo 5, marcas, 1b).
+- **Menos cortes no trecho da prova (Thiago, Kannemann):** quatro shots curtos de fontes diferentes viraram o post do Neymar com a camisa do Paredes (punch-in com pan) + uma reação em câmera lenta 0,62x por 6,3s. No Kannemann, tirou um insert de 0,7s de outra fonte no meio de um lance.
+- **Prova segurada até o fim (Paquetá):** os cards de comentário (corintiano e palmeirense) entram empilhados e ficam até o último quadro, em vez de entrar e sair um por um.
+- **Zoom menor em lance coletivo:** no Thiago ele abriu quase todos os shots do começo (1,5→1,25; 1,67→1,36; 1,93→1,55). Zoom forte só em detalhe ou rosto.
+- **Flashback P&B mais longo** (Kannemann 58–68s, Vitinha 46–51s): ele esticou a faixa do filtro para cobrir o trecho de outra época inteiro.
+- **Trilha do modelo mais baixa em todos:** de 0,34 para 0,15 / 0,16 / 0,09 / 0,07. O `capcut_projeto.py` agora grava 0,12 na trilha principal do modelo (Passo 9). Nos vídeos sem SFX, ele apagou a faixa SFX vazia.
+- **Faltou no garimpo:** o post da ESPN da comemoração na frente do Thiago Mendes e o repost da montagem de IA. Ele baixou os dois.
+
 Loudness final e altura da legenda ele ajusta sempre no CapCut: no Palermo/Diogo publicou a -7 LUFS com a legenda a ~61%; no Raphinha, -10,3 LUFS com a legenda a ~70%. Os valores do Passo 6 e do Passo 7 são só o ponto de partida.
 
 Em caso de dúvida sobre estilo, extraia quadros dessa referência (`scripts/folha_contato.py`) e compare. Ela vale mais que qualquer número escrito aqui.
@@ -178,6 +192,7 @@ Base: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`
 | `compara_edicao.py` | compara a nossa entrega com a versão que o usuário refinou no editor: trechos de imagem trocados (por região da tela) e janelas de áudio diferentes |
 | `lado_a_lado.py` | folha com o nosso vídeo em cima e o dele embaixo, no mesmo tempo, para ver o que ele trocou |
 | `capcut_projeto.py` | gera o rascunho editável no CapCut a partir da EDL, em cima do rascunho-modelo dele (Passo 9) |
+| `compara_capcut.py` | compara o `draft_content.json` que geramos com o que ele salvou no CapCut: shots trocados, zoom, posição, keyframes, faixas e volumes (diferença de ±0,01s em início/duração é arredondamento do CapCut). Para regerar o original: `capcut_projeto.py "<job>" --nome "Radar - <título>" --modelo "<modelo>" --raiz "<job>/_montagem/cmp/capcut_orig"`, **rodando de dentro de `<job>/_montagem`** (os cards da EDL são caminhos relativos a ela) e com `PYTHONIOENCODING=utf-8` |
 | `artes_print.py` | `card`: recorta um comentário do print e faz o card com sombra; `documento`: súmula/comunicado em tela cheia com o trecho lido realçado em amarelo sobre o lance desfocado (Passo 3, item 22) |
 
 Use os scripts. Cada um carrega a correção de um erro que já aconteceu (estão no fim da skill); reescrever do zero traz os erros de volta.
@@ -304,6 +319,10 @@ Quebre a narração em trechos pelas pausas e marque o que cada um precisa mostr
     - **Gancho com punch-in no contato:** além da prévia cortada no impacto (item 9), feche o quadro no instante do contato (1,22 → 1,72 no Bernal), com `keys` seguindo os dois jogadores.
     - **Foto ou arte em tela cheia nunca parada:** zoom lento de ~1,0 para ~1,25 em 0,6–1s (arte "DONE DEAL" no Bernal), ou pan lento.
     - **Câmera lenta com pan seguindo a ação** (a cabeçada a 0,56x no Bernal), não janela fixa.
+    - **Shot 1 e shot de loop com movimento** (rodada 14, os 5 vídeos): punch-in de ~1,0–1,2 para ~1,7 e/ou `keys` com pan seguindo a ação. Pan suave e no sentido da ação, nunca um salto de lado no meio do shot (Kannemann).
+    - **Assunto no centro da janela:** confira a altura (`cy`) e o lado (`cx`) em cada shot. A pessoa que fala ou o lance no meio do quadro, não encostados na borda.
+    - **Duas fontes do mesmo momento:** escolha a que não tem card nem texto queimado (Soteldo). Se só existe a com texto, `borrar` retangular só sobre o texto (Paquetá).
+    - **Cards e prints da reta final ficam até o último quadro**, empilhados, em vez de entrar e sair (Paquetá).
 
 Registre, por trecho, 2 ou 3 candidatos e a escolha, com o porquê. Isso vira a `nota` do shot. Se não houver alternativa, diga isso.
 
@@ -458,7 +477,7 @@ O usuário quer ajustar sozinho o que fizemos, sem pedir outra rodada. Em 18/out
     python _montagem/scripts/capcut_projeto.py "<job>" --nome "Radar - <título>" [--modelo "<rascunho-modelo>"] [--sfx-mudo]
 
 O que ele aprovou, depois de recusar a 1ª versão ("não consigo mexer no que você fez como zoom, enquadramento e efeitos, até mesmo a legenda está diferente, e já quero que a música do meu rascunho anterior esteja igual"):
-- **Parte do rascunho-modelo dele:** é o mais recente que não começa com "Radar - ", hoje o "0417-cópia… (15)". A pasta é copiada inteira, então vêm junto as duas trilhas com o volume e a posição dele (0,34 e 0,14), o efeito "Dramatic", a lupa e o logo do YouTube oculto, tudo cortado na duração do vídeo. Não mexa no volume da trilha do modelo.
+- **Parte do rascunho-modelo dele:** é o mais recente que não começa com "Radar - " nem com "_tmp", hoje o "0417-cópia… (15)". A pasta é copiada inteira, então vêm junto as duas trilhas com a posição dele, o efeito "Dramatic", a lupa e o logo do YouTube oculto, tudo cortado na duração do vídeo. **Volume da trilha principal: 0,12** (rodada 14: o modelo vem com 0,34, e ele baixou para 0,07–0,16 nos cinco vídeos). A segunda trilha (0,14) fica como está.
 - **Tudo nativo e editável, nada renderizado por cima.** A 1ª versão tinha uma faixa CORTE com o vídeo entregue em cima dos brutos, e ele não conseguia mexer. Agora cada shot é o clipe bruto, com corte e velocidade, escala e posição em Vídeo › Transformar e o movimento em keyframes.
 - **Cor da entrega gravada nas cópias dos clipes** (`_montagem/capcut_clipes/`, eq 1,18/1,12). Keyframe de Ajuste (saturação/contraste) aparece no painel, mas não renderiza.
 - **Flash:** PNG branco com keyframe de opacidade, na faixa FLASH, mais o soco de escala no shot. **Flashback:** filtro P&B do CapCut (褪色黑白, biblioteca Pro; ele é Pro) numa faixa própria.

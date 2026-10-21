@@ -1,4 +1,4 @@
-# Radar do Campo — leia primeiro (para qualquer IA)
+﻿# Radar do Campo — leia primeiro (para qualquer IA)
 
 Este repositório guarda tudo o que uma IA precisa para trabalhar no canal Radar do Campo:
 o que o canal é, o fluxo de produção, as skills (passo a passo de cada etapa) e a memória
@@ -16,7 +16,7 @@ o que o canal é, o fluxo de produção, as skills (passo a passo de cada etapa)
 3. **Narração**: o dono gera a voz no **Google AI Studio** (no navegador). Entregar o roteiro também sem os rótulos "Gancho/Contexto/Payoff".
 4. **Garimpo de vídeos** (`garimpo-de-videos`): baixar clipes de torcida/arquibancada (evitar transmissão oficial por Content ID) em TikTok, Instagram, X, YouTube, Facebook, Kwai, Threads. Inventário dos trechos.
 5. **Montagem** (`montagem-de-video`): scripts Python + ffmpeg montam o vídeo em `Videos prontos\Shorts\<vídeo>\`; entrega vários arquivos (com/sem legenda, com SFX) e rascunho editável no CapCut.
-6. O dono revisa/ajusta no CapCut e posta. Quando ele manda a edição dele, compara-se com a nossa e as diferenças viram regra (memórias `referencia-edicao-*`).
+6. O dono revisa/ajusta no CapCut e posta. Quando ele manda a edição dele, compara-se com a nossa e as diferenças viram regra (memórias `referencia-edicao-*` e `comparacao-lote-*`). Desde 18/10 ele refina no rascunho do CapCut que geramos; aí a comparação é pelo projeto (`compara_capcut.py`, ver a skill montagem-de-video).
 
 ## Onde está cada coisa
 | O quê | Onde |
