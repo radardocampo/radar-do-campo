@@ -242,6 +242,17 @@ Organize por parte do roteiro. Em cada linha: **[BAIXADO]** ou **[BAIXAR MANUALM
 
 Destaque no topo os **vídeos longos de torcida** encontrados e quanto tempo limpo cada um tem: eles definem a montagem. Liste o apoio por categoria. Feche com o placar das cotas do Passo 2, dizendo o que faltou e por quê.
 
+
+## Passo 9 — Prompt para montar num chat novo (SEMPRE, no fim do garimpo)
+Desde 21/out/2026: toda entrega de garimpo termina com um prompt num bloco de código, pronto para colar num chat novo (Claude ou Antigravity como plano B):
+1. `Use a skill montagem-de-video para montar o Short deste roteiro do canal Radar do Campo.`
+2. **PASTA DO JOB:** caminho completo da pasta com os clipes e o inventário.
+3. **ROTEIRO (narração final)** e onde está/estará o áudio da narração (o usuário gera no AI Studio).
+4. **CONTEXTO DO TEMA:** jogo, data, placar final, nomes completos, o lance minuto a minuto.
+5. **MAPA TRECHO → CLIPE:** para cada frase, arquivo + janela (ex.: `tt_x.mp4 3–12s`) e o que mostra; marcar qual é o gancho (pico do material) e qual fecha o loop.
+6. **O QUE FALTOU:** trechos sem imagem e a alternativa sugerida (foto, print, close).
+7. **OBSERVAÇÕES:** marcas d'água a tampar, clipes de concorrentes a evitar, mínimo de 60s.
+
 ## Erros já cometidos (não repetir)
 
 - Bernal x Yamal (18/out/2026):

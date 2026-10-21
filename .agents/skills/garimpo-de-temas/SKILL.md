@@ -138,7 +138,8 @@ Depois do roteiro com etiquetas, entregue também um bloco **"Texto para o AI St
 
 Feche com 3–4 linhas de **ideias para a montagem**: a imagem do gancho, a prova de cada fato forte e o que mostrar na revelação. Ex.: "gancho = a cabeçada até o Yamal cair, como prévia; 'um jornal diz… outro diz' = os dois ângulos do empurrão; comentários = prints reais; 'terminou a partida' = o Yamal de pé no resto do jogo".
 
-## Passo 11b — Prompt para garimpar num chat novo (quando ele pedir)
+## Passo 11b — Prompt para garimpar num chat novo (SEMPRE, depois de todo roteiro)
+Desde 21/out/2026 é padrão: todo roteiro entregue termina com este prompt, sem ele pedir (cada etapa roda num chat novo para economizar token, e o mesmo prompt serve para o Antigravity como plano B).
 Em 18/out/2026 ele pediu "gere um prompt com o contexto para garimpar os vídeos desse roteiro em um chat novo", e o garimpo que saiu dele foi bom. Entregue num bloco de código, pronto para colar:
 1. `Use a skill garimpo-de-videos para garimpar e baixar os clipes deste roteiro do canal Radar do Campo.`
 2. **CONTEXTO DO TEMA (já confirmado):** jogo, competição, data, estádio, minuto a minuto do lance, nomes completos (inclusive goleiro e árbitro), o que veio depois (coletiva, pedido de desculpas, súmula) e as datas futuras citadas.
