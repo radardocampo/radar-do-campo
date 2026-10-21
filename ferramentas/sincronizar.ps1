@@ -24,7 +24,7 @@ Get-ChildItem ".agents\skills" -Recurse -Directory -Filter "__pycache__" | Remov
 # 3. Memorias (so acrescenta/atualiza; nao apaga as que vieram da nuvem)
 Copy-Item "$mem\*.md" "memoria\" -Force
 
-git add .claude/skills .agents/skills memoria GEMINI.md ferramentas/sincronizar.ps1
+git add .claude/skills .agents/skills memoria GEMINI.md CLAUDE.md AGENTS.md LEIA-PRIMEIRO.md ferramentas/sincronizar.ps1
 git diff --cached --quiet
 if ($LASTEXITCODE -ne 0) {
     git commit -q -m "Sincroniza skills e memorias ($(Get-Date -Format yyyy-MM-dd))"

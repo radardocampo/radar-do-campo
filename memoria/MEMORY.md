@@ -39,3 +39,4 @@
 - [Agente de voz do PC](agente-voz-pc.md) — BUSINESSgente-voz: Whisper local + regras + Gemini (20 req/dia grátis); próximos passos
 - [Roteiro de situação: direto](roteiro-situacao-direto.md) — 2026-10-20 Neymar/Soteldo: gancho afirmativo, sem "Todo mundo viu", sem contexto de rodada/histórico
 - [Antigravity como plano B](antigravity-plano-b.md) — 2026-10-20: GEMINI.md + .agents/skills no repo; sincronizar.ps1 em toda mudança; checar memoria/pendente-antigravity.md
+- [Atualizar tudo, todas as áreas](atualizar-tudo-em-todas-as-areas.md) — 2026-10-21: toda mudança revisa skills, memória, LEIA-PRIMEIRO/CLAUDE/GEMINI/AGENTS no repo e roda sincronizar.ps1; repo = conhecimento completo p/ outra IA

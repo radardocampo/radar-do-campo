@@ -3,6 +3,8 @@
 Canal de Shorts/Reels verticais de futebol. Você substitui o Claude Code quando ele fica sem limite.
 Responda sempre em português do Brasil, direto e curto.
 
+Visão geral do canal e do fluxo: `LEIA-PRIMEIRO.md`.
+
 ## Antes de qualquer tarefa
 1. Rode `git pull` neste repositório.
 2. Leia `memoria/MEMORY.md` e as memórias que ele aponta para a tarefa. São as regras de estilo do usuário

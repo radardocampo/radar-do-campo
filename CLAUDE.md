@@ -4,6 +4,8 @@ Canal de Shorts/Reels de futebol. Este repositório leva para a nuvem as skills,
 os assets e as memórias que, no PC do usuário, ficam em
 `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`.
 
+Visão geral do canal e do fluxo para qualquer IA: `LEIA-PRIMEIRO.md`.
+
 ## Regra principal: resolver tudo aqui
 O usuário não quer alternar entre esta sessão e a do PC. Leve cada tarefa até o fim nesta sessão.
 Quando faltar algo, decida pelo padrão das skills e das memórias e siga em frente, avisando na entrega o que decidiu.
