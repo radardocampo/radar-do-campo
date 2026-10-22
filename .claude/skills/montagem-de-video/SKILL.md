@@ -142,7 +142,7 @@ Em caso de dúvida sobre estilo, extraia quadros dessa referência (`scripts/fol
 
 ## Onde trabalhar (regra fixa do usuário)
 
-Tudo o que esta skill grava fica **dentro da pasta do vídeo**: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\Videos prontos\Shorts\<nome do vídeo>\`. Isso vale para `_montagem/`, `render/`, prévias, folhas de contato, EDL, JSONs, scripts auxiliares e os 4 vídeos da pasta `Videos prontos/` do próprio job.
+Tudo o que esta skill grava fica **dentro da pasta do vídeo**: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\Videos prontos\Shorts\<nome do vídeo>\`. Isso vale para `_montagem/`, `render/`, prévias, folhas de contato, EDL, JSONs, scripts auxiliares e os 2 vídeos da pasta `Videos prontos/` do próprio job.
 
 - **Só leitura:** `logos\`, `Sons edição\`, `Musicas edição\`, `HUB Radar do Campo\` (inclusive `videos exemplos\` e `remotion-radar\`), a raiz de `Videos prontos\`, a própria pasta `Shorts\` e `Downloads\`. Nunca grave nem mova arquivo para elas.
 - Narração ou material que chegou em `Downloads\`: **copie** para a pasta do vídeo e trabalhe na cópia.
@@ -215,7 +215,7 @@ A narração é gerada pelo **próprio usuário no Google AI Studio** (Gemini 2.
 
 Nenhum dos dois leva lupa, "Radar Do Campo" nem outra marca do canal, e o rascunho do CapCut (Passo 9) também não traz as faixas de logo do modelo.
 
-**Transições (padrão desde 28/set/2026):** marque `"fx"` na EDL e rode `posfx.py`. `flash` nos momentos-chave (gancho, revelação, lance-chave, virada de bloco), `flashback_in` no primeiro shot de um trecho de outra época e `flashback` nos seguintes desse trecho. As transições entram nos 4 arquivos. Ele pediu no Ronaldo e no Arrascaeta e manteve nos dois.
+**Transições (padrão desde 28/set/2026):** marque `"fx"` na EDL e rode `posfx.py`. `flash` nos momentos-chave (gancho, revelação, lance-chave, virada de bloco), `flashback_in` no primeiro shot de um trecho de outra época e `flashback` nos seguintes desse trecho. As transições entram nas 2 entregas. Ele pediu no Ronaldo e no Arrascaeta e manteve nos dois.
 
 Pergunte só sobre **SFX**: quer efeitos nos impactos? Se quiser, monte o `sfx.json` e ele entra **só na faixa SFX do rascunho do CapCut** (Passo 9); as 2 entregas saem sem SFX (não passe `--sfx` no `render_final.py`). O `render_final.py` grava `guia da trilha.txt` na raiz do job (entrada, queda, revelação, degrau, batidas e saída, no padrão dele); avise na entrega. A trilha é o usuário quem coloca no CapCut (no Faiq ficou ~14 dB abaixo da voz; no Ronaldo e no Arrascaeta começou ~15 dB abaixo e subiu em degraus até ~8–10 dB); não adicione música sem ele pedir.
 
