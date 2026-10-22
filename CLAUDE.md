@@ -36,7 +36,7 @@ O usuário sobe a pasta do vídeo num branch `video/<nome>` com `Videos prontos/
    - Montagem parcial do usuário (arquivo `*pré feito*.mp4` / `*pre-feito*`): a narração completa, já cortada, e a música estão no áudio desse vídeo. `tempos do pre-feito/palavras.json` e `frases.srt` têm os tempos por palavra sobre esse áudio, sem cortes. Use esse áudio como está (sem normalizar se já estiver perto de -10 LUFS), mantenha intacto o trecho que ele montou e monte o resto em cima dessa linha do tempo.
    - Em todos os casos, corrija a grafia das palavras pelo roteiro (nomes de jogadores, acentos).
    - Se não houver tempos nenhum: alinhe o roteiro pelas pausas (`ffmpeg silencedetect`) e pela energia da voz e avise na entrega que a legenda pode estar 0,1–0,2s fora.
-4. Siga a skill `montagem-de-video` (rascunho, revisão visual, 4 entregas). Faça a revisão você mesmo pelos frames; não espere aprovação do rascunho.
+4. Siga a skill `montagem-de-video` (rascunho, revisão visual, 2 entregas: com legenda e sem legenda, sem logo). Faça a revisão você mesmo pelos frames; não espere aprovação do rascunho.
 5. Entrega: `python ferramentas/pacote.py partir "<job>/<subpasta Videos prontos>"`, depois `git add -f` **apenas** dessa subpasta,
    de `<job>/legenda para o CapCut.srt` e de `<job>/_montagem/*.json` (receita, pequenos). Commit e push no mesmo branch.
    Nunca `git add -A` e nunca commite `clipes/` (já está no PC).

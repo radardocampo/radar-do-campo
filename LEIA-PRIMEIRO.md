@@ -15,7 +15,7 @@ o que o canal é, o fluxo de produção, as skills (passo a passo de cada etapa)
 2. **Títulos e tags** (`titulos-e-tags`): títulos, texto de capa, tags.
 3. **Narração**: o dono gera a voz no **Google AI Studio** (no navegador). Entregar o roteiro também sem os rótulos "Gancho/Contexto/Payoff".
 4. **Garimpo de vídeos** (`garimpo-de-videos`): baixar clipes de torcida/arquibancada (evitar transmissão oficial por Content ID) em TikTok, Instagram, X, YouTube, Facebook, Kwai, Threads. Inventário dos trechos.
-5. **Montagem** (`montagem-de-video`): scripts Python + ffmpeg montam o vídeo em `Videos prontos\Shorts\<vídeo>\`; entrega vários arquivos (com/sem legenda, com SFX) e rascunho editável no CapCut.
+5. **Montagem** (`montagem-de-video`): scripts Python + ffmpeg montam o vídeo em `Videos prontos\Shorts\<vídeo>\`; entrega 2 arquivos, com legenda e sem legenda, **sem logo do canal** (desde 21/10/2026), e o rascunho editável no CapCut, de onde o dono refina e exporta a versão final.
 6. O dono revisa/ajusta no CapCut e posta. Quando ele manda a edição dele, compara-se com a nossa e as diferenças viram regra (memórias `referencia-edicao-*` e `comparacao-lote-*`). Desde 18/10 ele refina no rascunho do CapCut que geramos; aí a comparação é pelo projeto (`compara_capcut.py`, ver a skill montagem-de-video).
 
 ## Onde está cada coisa

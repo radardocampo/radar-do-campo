@@ -1,29 +1,25 @@
 # -*- coding: utf-8 -*-
-"""Render final: corte + cor + marca d'agua + legenda + narracao + SFX, e as outras versoes.
+"""Render final: corte + cor + legenda + narracao, as 2 entregas.
 
 uso:
   python render_final.py --render <pasta do prep_shots> --narracao narracao_final.wav \
       --legenda <pasta do legenda_karaoke> --saida <pasta do job> --nome carrascal \
-      [--sfx sfx.json] [--sem-legsemmarca] [--rascunho]
-  --rascunho: so o TIKTOK em encode rapido (<render>/rascunho_tiktok.mp4) para a revisao.
-  Fluxo: rascunho -> revisao -> corrige -> rascunho de novo -> ... -> SO NO FIM os 4 arquivos (sem --rascunho).
+      [--sfx sfx.json] [--rascunho]
+  --rascunho: so o com-legenda em encode rapido (<render>/rascunho.mp4) para a revisao.
+  Fluxo: rascunho -> revisao -> corrige -> rascunho de novo -> ... -> SO NO FIM as 2 entregas (sem --rascunho).
 
 sfx.json: [{"t": 1.6, "arquivo": "C:/.../Sons edição/impact-cinematic-boom-352465.mp3", "vol": 0.6}]
+  (padrao: NAO passe --sfx; os SFX vao so na faixa SFX do rascunho do CapCut)
 gera em <saida>/Videos prontos/ (so as entregas, nada de arquivo de trabalho):
-  video pronto para o TIKTOK.mp4    completo (cor + legenda + narracao + SFX) com a marca da lupa
-  video pronto para o YOUTUBE.mp4   o mesmo completo, com a marca horizontal "Radar Do Campo" no topo direito
-  <nome>-completo-sem-legenda.mp4   base de edicao: 9:16 cheio, cor + narracao, SEM legenda e SEM marca
-  <nome>-com-legenda-sem-marca.mp4  o completo (cor + legenda + narracao + SFX) SEM marca d'agua do canal
-                                    (troca pedida em 01/10/2026: substituiu o antigo <nome>-limpo.mp4)
-Marcas diferentes por rede para o TikTok e o YouTube nao cruzarem os arquivos (pedido do usuario).
-O sem-legenda NAO leva marca: o usuario edita a partir dele, e com a lupa gravada ela vazou para
-metade da versao dele do YouTube (Faiq Bolkiah, set/2026).
+  <nome>-com-legenda.mp4   completo: cor + legenda + narracao
+  <nome>-sem-legenda.mp4   base de edicao: cor + narracao, sem legenda
+NENHUMA leva logo do canal (pedido do usuario em 21/10/2026: ele refina e exporta tudo no CapCut
+e deixou de usar a logo; acabaram os arquivos TIKTOK/YOUTUBE e o com-legenda-sem-marca).
 e em <saida>/ (raiz do job): "legenda para o CapCut.srt" (grafia certa, para importar no CapCut)
-e em <render>/: <nome>-preview.mp4 (720p) e _checagem_marca.png
+e em <render>/: <nome>-preview.mp4 (720p)
 """
 import argparse, json, os, shutil, subprocess, sys, wave
 import numpy as np
-from PIL import Image
 
 BASE = os.environ.get("RADAR_BASE", r"C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo")
 ap = argparse.ArgumentParser()
@@ -33,16 +29,10 @@ ap.add_argument("--legenda", required=True)
 ap.add_argument("--saida", required=True)
 ap.add_argument("--nome", required=True)
 ap.add_argument("--sfx")
-ap.add_argument("--logo", default=os.path.join(BASE, "logos", "Logo sem fundo maior.png"),
-                help="marca do TikTok (lupa)")
-ap.add_argument("--logo-youtube", default=os.path.join(BASE, "logos", "Radar_do_Campo branco sem fundo.png"),
-                help="marca do YouTube (horizontal, lupa + texto)")
-ap.add_argument("--opacidade", type=float, default=0.20)
 ap.add_argument("--lufs", type=float, default=-10.0, help="o usuario publica em -10 LUFS")
-ap.add_argument("--sem-legsemmarca", action="store_true", help="nao gera o com-legenda-sem-marca")
 ap.add_argument("--rascunho", action="store_true",
-                help="so o TIKTOK, rapido (ultrafast), em <render>/rascunho_tiktok.mp4, para a revisao a cada 0,1s. "
-                     "Os 4 arquivos finais saem UMA vez, depois que a revisao do rascunho estiver limpa")
+                help="so o com-legenda, rapido (ultrafast), em <render>/rascunho.mp4, para a revisao a cada 0,1s. "
+                     "As 2 entregas saem UMA vez, depois que a revisao do rascunho estiver limpa")
 a = ap.parse_args()
 from pasta_job import dentro_do_job
 dentro_do_job(a.saida); dentro_do_job(a.render); dentro_do_job(a.legenda)
@@ -69,31 +59,6 @@ if not os.path.exists(corte):
     print("corte_completo.mp4 refeito a partir dos shots")
 D = dur(corte)
 
-# ---- marca d'agua, opacidade 0,20. Posicoes medidas nas montagens do usuario:
-# TikTok: lupa com 17% da largura, centralizada, centro a 86,5% da altura.
-# YouTube: logo horizontal "Radar Do Campo" com 28% da largura, canto superior direito
-#          (centro em 80% da largura e 9,7% da altura), discreta como a que ele usa.
-# A logo e recortada no bbox do alpha antes (a horizontal tem ~60% de borda transparente).
-# alpha_composite, NAO paste(logo, pos, logo): o paste com mascara aplica o alpha duas vezes
-# e a logo fica praticamente invisivel (aconteceu: opacidade efetiva ~0,03).
-def faz_marca(arquivo, largura, nome_png, cx=0.5, cy=0.865):
-    logo = Image.open(arquivo).convert("RGBA")
-    logo = logo.crop(logo.split()[3].getbbox())
-    lw = round(W * largura); lh = round(logo.height * lw / logo.width)
-    logo = logo.resize((lw, lh), Image.LANCZOS)
-    arr = np.array(logo); arr[..., 3] = (arr[..., 3].astype(float) * a.opacidade).astype(np.uint8)
-    marca = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    marca.alpha_composite(Image.fromarray(arr), (round(W * cx - lw / 2), round(H * cy - lh / 2)))
-    png = os.path.join(a.render, nome_png); marca.save(png)
-    amax = int(np.array(marca)[..., 3].max())
-    if amax < 255 * a.opacidade * 0.8:
-        sys.exit(f"{nome_png} com alpha maximo {amax} - a logo vai sumir no video")
-    return png
-marca_png = faz_marca(a.logo, 0.17, "marca.png")
-marca_yt_png = faz_marca(a.logo_youtube, 0.28, "marca_youtube.png", cx=0.80, cy=0.097)
-
-# PNG da marca entra em loop a 60fps: como imagem unica, o overlay perdia a marca
-# depois dos ~10s (camisa amarela, set/2026) e a checagem mostrava recorte vazio.
 # ---- cama de SFX montada em numpy (adelay+amix descartou efeitos com offset grande)
 cama = np.zeros((int((D + 1) * SR), 2), dtype=np.float32)
 if a.sfx:
@@ -121,10 +86,9 @@ LN = f"loudnorm=I={a.lufs}:TP=-1.5:LRA=11"
 
 pasta_entrega = os.path.join(a.saida, "Videos prontos")
 os.makedirs(pasta_entrega, exist_ok=True)
-saida_c = os.path.join(pasta_entrega, "video pronto para o TIKTOK.mp4")
-saida_y = os.path.join(pasta_entrega, "video pronto para o YOUTUBE.mp4")
-saida_s = os.path.join(pasta_entrega, f"{a.nome}-completo-sem-legenda.mp4")
-saida_l = os.path.join(pasta_entrega, f"{a.nome}-com-legenda-sem-marca.mp4")
+saida_l = os.path.join(pasta_entrega, f"{a.nome}-com-legenda.mp4")
+saida_s = os.path.join(pasta_entrega, f"{a.nome}-sem-legenda.mp4")
+ENTREGAS = [saida_l, saida_s]
 # AUDIO EM PASSO SEPARADO. Com o audio no mesmo filter_complex da logo em loop e da faixa de
 # legenda, o ffmpeg descartou ~9s de narracao em silencio (camisa amarela, set/2026): o arquivo
 # tinha 62s, mas a fala pulava de "de um empate" para "o simbolo do maior trauma" e acabava em 53s.
@@ -132,43 +96,29 @@ audio_final = os.path.join(a.render, "audio_final.wav")
 run(["ffmpeg", "-y", "-v", "error", "-i", a.narracao, "-i", cama_wav, "-filter_complex",
      f"[0:a][1:a]amix=inputs=2:normalize=0:duration=first,{LN}[a]", "-map", "[a]",
      "-ar", str(SR), "-ac", "2", "-c:a", "pcm_s16le", audio_final])
-filtro = (f"[0:v]eq=saturation=1.18:contrast=1.12[c];[c][1:v]overlay=0:0:format=auto:shortest=1[m];"
-          f"[m][2:v]overlay=0:{banda['y']}:format=auto:shortest=0[v]")
+filtro = f"[0:v]eq=saturation=1.18:contrast=1.12[c];[c][1:v]overlay=0:{banda['y']}:format=auto:shortest=0[v]"
 if a.rascunho:
-    # mesma composicao do TIKTOK final (cor + lupa + legenda + audio), encode rapido, fora de "Videos prontos"
-    rasc = os.path.join(a.render, "rascunho_tiktok.mp4")
-    run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-loop", "1", "-framerate", "60", "-i", marca_png, "-i", faixa,
-         "-i", audio_final, "-filter_complex", filtro, "-map", "[v]", "-map", "3:a",
-         "-c:v", "libx264", "-crf", "20", "-preset", "ultrafast", "-pix_fmt", "yuv420p", "-r", "60", *ENC_A,
-         "-t", f"{D:.3f}", rasc])
+    # mesma composicao do com-legenda final (cor + legenda + audio), encode rapido, fora de "Videos prontos"
+    rasc = os.path.join(a.render, "rascunho.mp4")
+    run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", faixa, "-i", audio_final, "-filter_complex", filtro,
+         "-map", "[v]", "-map", "2:a", "-c:v", "libx264", "-crf", "20", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
+         "-r", "60", *ENC_A, "-t", f"{D:.3f}", rasc])
     print("rascunho:", rasc, f"({dur(rasc):.2f}s, corte {D:.2f}s)")
-    print("rode revisao.py nele; so depois de limpo rode render_final.py SEM --rascunho (4 arquivos, uma vez)")
+    print("rode revisao.py nele; so depois de limpo rode render_final.py SEM --rascunho (2 arquivos, uma vez)")
     sys.exit(0)
-# legenda com a grafia certa, para importar no CapCut (fica na raiz do job: "Videos prontos" so leva os 4 videos)
+# legenda com a grafia certa, para importar no CapCut (fica na raiz do job: "Videos prontos" so leva os videos)
 srt_leg = os.path.join(a.legenda, "legenda_capcut.srt")
 if os.path.exists(srt_leg):
     shutil.copyfile(srt_leg, os.path.join(a.saida, "legenda para o CapCut.srt"))
     print("ok:", os.path.join(a.saida, "legenda para o CapCut.srt"))
-for png, destino in ((marca_png, saida_c), (marca_yt_png, saida_y)):
-    run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-loop", "1", "-framerate", "60", "-i", png, "-i", faixa,
-         "-i", audio_final, "-filter_complex", filtro, "-map", "[v]", "-map", "3:a", *ENC_V, *ENC_A,
-         "-t", f"{D:.3f}", "-movflags", "+faststart", destino])
-    print("ok:", destino)
-
-# sem legenda = base de edicao do usuario: mesma cor, SEM legenda e SEM marca d'agua
+run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", faixa, "-i", audio_final, "-filter_complex", filtro,
+     "-map", "[v]", "-map", "2:a", *ENC_V, *ENC_A, "-t", f"{D:.3f}", "-movflags", "+faststart", saida_l])
+print("ok:", saida_l)
 run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", audio_final, "-vf", "eq=saturation=1.18:contrast=1.12",
      "-map", "0:v", "-map", "1:a", *ENC_V, *ENC_A, "-t", f"{D:.3f}", "-movflags", "+faststart", saida_s])
 print("ok:", saida_s)
 
-# com legenda e SEM marca d'agua (pedido do usuario em 01/10/2026, no lugar do antigo "limpo"):
-# mesma cor e mesma faixa de legenda do TIKTOK, sem a lupa e sem o "Radar Do Campo"
-if not a.sem_legsemmarca:
-    run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", faixa, "-i", audio_final, "-filter_complex",
-         f"[0:v]eq=saturation=1.18:contrast=1.12[c];[c][1:v]overlay=0:{banda['y']}:format=auto:shortest=0[v]",
-         "-map", "[v]", "-map", "2:a", *ENC_V, *ENC_A, "-t", f"{D:.3f}", "-movflags", "+faststart", saida_l])
-    print("ok:", saida_l)
-
-run(["ffmpeg", "-y", "-v", "error", "-i", saida_c, "-vf", "scale=720:1280:flags=lanczos", "-c:v", "libx264",
+run(["ffmpeg", "-y", "-v", "error", "-i", saida_l, "-vf", "scale=720:1280:flags=lanczos", "-c:v", "libx264",
      "-crf", "27", "-preset", "fast", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
      os.path.join(a.render, f"{a.nome}-preview.mp4")])
 
@@ -179,23 +129,11 @@ if os.path.exists(_edl):
     subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "guia_trilha.py"), _edl, a.saida])
 
 # ---- checagens objetivas
-lf = run(["ffmpeg", "-i", saida_c, "-vn", "-af", "ebur128=framelog=quiet", "-f", "null", "-"]).stderr
+lf = run(["ffmpeg", "-i", saida_l, "-vn", "-af", "ebur128=framelog=quiet", "-f", "null", "-"]).stderr
 integ = [l for l in lf.splitlines() if l.strip().startswith("I:")]
 print("loudness:", integ[-1].strip() if integ else "?", f"(alvo {a.lufs} LUFS)")
-for p in [saida_c, saida_y, saida_s] + ([saida_l] if not a.sem_legsemmarca else []):
+for p in ENTREGAS:
     print(f"duracao {os.path.basename(p)}: {dur(p):.2f}s (corte {D:.2f}s)")
-# recorte da regiao da marca em 3 momentos. Linhas: TIKTOK (embaixo no centro, TEM que ter a lupa),
-# YOUTUBE (topo direito, TEM que ter "Radar Do Campo"), sem legenda (embaixo no centro, NAO pode ter marca).
-Y_LUPA, Y_YT = round(H * 0.865) - 210, max(0, round(H * 0.097) - 210)
-chk = Image.new("RGB", (3 * 900, 4 * 420))
-for lin, (fonte, x0, y0) in enumerate([(saida_c, 270, Y_LUPA), (saida_y, W - 900, Y_YT), (saida_s, 270, Y_LUPA)] + ([(saida_l, 270, Y_LUPA)] if not a.sem_legsemmarca else [])):
-    for i, t in enumerate((D * 0.2, D * 0.5, D * 0.8)):
-        png = os.path.join(a.render, "_m.png")
-        run(["ffmpeg", "-y", "-v", "error", "-ss", f"{t:.2f}", "-i", fonte, "-frames:v", "1",
-             "-vf", f"crop=900:420:{x0}:{y0}", png])
-        chk.paste(Image.open(png).convert("RGB"), (i * 900, lin * 420))
-chk_png = os.path.join(a.render, "_checagem_marca.png"); chk.save(chk_png)
-print(f"abra {chk_png}: linha 1 lupa visivel, linha 2 'Radar Do Campo' visivel, linha 3 SEM marca, linha 4 SEM marca (com legenda)")
 
 # audio de cada entrega tem que seguir a narracao do comeco ao fim (envelope por segundo).
 # Duracao igual NAO prova nada: o arquivo com 9s de fala faltando tambem tinha 62s.
@@ -209,7 +147,7 @@ def env_arr(p):
     x = np.abs(np.frombuffer(r, dtype=np.int16).astype(np.float32))
     return x[: len(x) // 80 * 80].reshape(-1, 80).mean(1)
 ref = env_arr(a.narracao); falhas = []
-for nome_arq in [saida_c, saida_y, saida_s] + ([saida_l] if not a.sem_legsemmarca else []):
+for nome_arq in ENTREGAS:
     e = env_arr(nome_arq); n = min(len(e), len(ref)); e, r_ = e[:n], ref[:n]
     voz = r_ > np.percentile(r_, 40)
     g = float(np.median(e[voz] / np.maximum(r_[voz], 1))) if voz.any() else 1.0
@@ -233,9 +171,8 @@ if falhas:
 # So o que se refaz sozinho vai para a Lixeira: os cortes emendados (refeitos dos shots em segundos)
 # e o rascunho (refeito a cada correcao). Os shots (render/completo, render/limpo), os clipes,
 # a EDL e a previa ficam: correcao e remontagem continuam iguais. Clipes so saem no fechar_videos.py.
-# A saida com SFX (_montagem/com_sfx) roda DEPOIS desta e refaz o corte pela lista, sem problema.
 from lixeira import para_lixeira, tamanho
-regen = [os.path.join(a.render, n) for n in ("corte_completo.mp4", "corte_limpo.mp4", "rascunho_tiktok.mp4")]
+regen = [os.path.join(a.render, n) for n in ("corte_completo.mp4", "corte_limpo.mp4", "rascunho.mp4", "rascunho_tiktok.mp4")]
 regen = [p for p in regen if os.path.exists(p)]
 liberado = sum(tamanho(p) for p in regen)
 movidos, falhou = para_lixeira(regen)

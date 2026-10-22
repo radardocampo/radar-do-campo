@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """Revisao obrigatoria antes de qualquer entrega: um quadro a cada 0,1s do video final, em
 folhas numeradas com o tempo e o shot da EDL queimados em cada miniatura. Percorra TODAS as
-folhas e confira cada area do quadro (assunto, legenda, marca do canal, marca de terceiros,
+folhas e confira cada area do quadro (assunto, legenda, marca de terceiros,
 bordas, quadro preto, flash de outro lance). Qualquer defeito: corrija a EDL, rerenderize e
 rode a revisao de novo.
 
 uso:
-  python revisao.py "<job>/Videos prontos/video pronto para o TIKTOK.mp4" "<job>/_montagem/revisao"
+  python revisao.py "<job>/_montagem/render/rascunho.mp4" "<job>/_montagem/revisao"
                     [--edl "<job>/_montagem/edl.json"] [--passo 0.1] [--cols 10] [--linhas 6]
 gera revisao/folha_01.jpg, folha_02.jpg... (60 quadros por folha = 6s de video)
 e, com --edl, revisao/bordas_01.jpg...: cada virada de shot a 30fps (0,2s antes e depois), uma linha

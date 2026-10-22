@@ -1,11 +1,11 @@
 ---
 name: montagem-de-video
-description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a partir de roteiro + clipes garimpados + narração, no estilo das montagens feitas à mão pelo usuário: narração na velocidade original com as pausas entre trechos cortadas, filmagem da torcida em planos longos como base, protagonista sempre na tela, lance-chave em plano aberto antes do close, legenda karaokê (palavra falada em amarelo) no meio da tela e marca d'água do radar. Use sempre que o usuário pedir para montar, editar, cortar ou finalizar o vídeo de um roteiro, mesmo que ele não diga 'montagem'. Use também quando ele pedir para comparar/estudar a edição que ele fez (compara minha edição, já postei, vê o que eu mudei) para aprimorar a skill, ou para abrir a montagem no CapCut (rascunho editável)."
+description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a partir de roteiro + clipes garimpados + narração, no estilo das montagens feitas à mão pelo usuário: narração na velocidade original com as pausas entre trechos cortadas, filmagem da torcida em planos longos como base, protagonista sempre na tela, lance-chave em plano aberto antes do close, legenda karaokê (palavra falada em amarelo) no meio da tela. Use sempre que o usuário pedir para montar, editar, cortar ou finalizar o vídeo de um roteiro, mesmo que ele não diga 'montagem'. Use também quando ele pedir para comparar/estudar a edição que ele fez (compara minha edição, já postei, vê o que eu mudei) para aprimorar a skill, ou para abrir a montagem no CapCut (rascunho editável)."
 ---
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -164,7 +164,7 @@ Base: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`
 
 | Asset | Caminho |
 |---|---|
-| Marca d'água (PNG do radar/lupa) | `logos\Logo sem fundo maior.png` |
+| Marca d'água do canal | **não usa mais** (21/out/2026); `logos\` fica só como arquivo |
 | Efeitos sonoros | `Sons edição\` (impactos: `impact-cinematic-boom-352465.mp3`, `impacto cinema 2.mp3`, `impacto cinema 3.mp3`) |
 | Trilhas | `Musicas edição\` (normalmente o próprio usuário coloca a trilha) |
 | Referências publicadas | `HUB Radar do Campo\Claude\videos exemplos\` |
@@ -209,15 +209,15 @@ A narração é gerada pelo **próprio usuário no Google AI Studio** (Gemini 2.
 
 **Mais de uma narração na pasta:** às vezes ele gera duas ou mais (no Bernal, a das 16h16 e a das 16h17). Transcreva todas, compare com o roteiro e use a que tem menos erro de pronúncia e nenhuma frase faltando. A das 16h16 dizia "Amal", "procedor" e "pescorso". Diga na entrega qual usou e por quê.
 
-A entrega padrão são **4 arquivos**, sempre gerados juntos pelo `render_final.py` (a EDL é a mesma, então as extras saem baratas):
-- **`video pronto para o TIKTOK.mp4`:** o completo, pronto pra postar (cor + legenda + narração + SFX), com a marca da lupa (`logos\Logo sem fundo maior.png`).
-- **`video pronto para o YOUTUBE.mp4`:** o mesmo completo, com a marca horizontal "Radar Do Campo" (`logos\Radar_do_Campo branco sem fundo.png`). O usuário posta nas duas redes com marcas diferentes para os arquivos não cruzarem.
-- **`<apelido>-completo-sem-legenda.mp4`:** **base de edição**. É o corte em 9:16 cheio, com cor e narração, **sem legenda e sem marca d'água**. O usuário remonta a partir dele. Com a lupa gravada, ela vazou para metade da versão dele do YouTube.
-- **`<apelido>-com-legenda-sem-marca.mp4`:** o completo (cor + legenda + narração), **com a legenda e sem nenhuma marca d'água do canal** (nem a lupa, nem o "Radar Do Campo"). Substituiu o antigo `<apelido>-limpo.mp4` (corte + narração) a pedido do usuário em 01/out/2026.
+**Entrega = 2 arquivos, sem logo do canal (pedido do usuário em 21/out/2026).** Ele sempre abre no CapCut, refina e exporta a versão final de lá, e deixou de usar a logo. Acabaram o `video pronto para o TIKTOK`, o `video pronto para o YOUTUBE`, o `com-legenda-sem-marca` e o 5º arquivo com SFX. O `render_final.py` gera só:
+- **`<apelido>-com-legenda.mp4`:** o completo (cor + legenda karaokê + narração).
+- **`<apelido>-sem-legenda.mp4`:** **base de edição**, o corte em 9:16 cheio com cor e narração, sem legenda.
+
+Nenhum dos dois leva lupa, "Radar Do Campo" nem outra marca do canal, e o rascunho do CapCut (Passo 9) também não traz as faixas de logo do modelo.
 
 **Transições (padrão desde 28/set/2026):** marque `"fx"` na EDL e rode `posfx.py`. `flash` nos momentos-chave (gancho, revelação, lance-chave, virada de bloco), `flashback_in` no primeiro shot de um trecho de outra época e `flashback` nos seguintes desse trecho. As transições entram nos 4 arquivos. Ele pediu no Ronaldo e no Arrascaeta e manteve nos dois.
 
-Pergunte só sobre **SFX**: quer efeitos nos impactos? Se quiser, os 4 arquivos saem **sem** SFX e um 5º arquivo, `video pronto para o TIKTOK - COM EFEITOS SONOROS.mp4`, sai com eles (`render_final.py --sfx sfx.json --sem-legsemmarca` numa saída à parte, `_montagem/com_sfx`, e copie só esse arquivo). Assim ele descarta sem pedir nova rodada; no Ronaldo e no Arrascaeta ele descartou os efeitos. O `render_final.py` grava `guia da trilha.txt` na raiz do job (entrada, queda, revelação, degrau, batidas e saída, no padrão dele); avise na entrega. A trilha é o usuário quem coloca no CapCut (no Faiq ficou ~14 dB abaixo da voz; no Ronaldo e no Arrascaeta começou ~15 dB abaixo e subiu em degraus até ~8–10 dB); não adicione música sem ele pedir.
+Pergunte só sobre **SFX**: quer efeitos nos impactos? Se quiser, monte o `sfx.json` e ele entra **só na faixa SFX do rascunho do CapCut** (Passo 9); as 2 entregas saem sem SFX (não passe `--sfx` no `render_final.py`). O `render_final.py` grava `guia da trilha.txt` na raiz do job (entrada, queda, revelação, degrau, batidas e saída, no padrão dele); avise na entrega. A trilha é o usuário quem coloca no CapCut (no Faiq ficou ~14 dB abaixo da voz; no Ronaldo e no Arrascaeta começou ~15 dB abaixo e subiu em degraus até ~8–10 dB); não adicione música sem ele pedir.
 
 ## Passo 1 — Narração: cortar as pausas e medir
 
@@ -415,35 +415,30 @@ Abra a `previa_legenda.png` e leia a lista de blocos que o script imprime. Se um
 
 ## Passo 7 — Render, áudio e marca d'água
 
-**Ordem (regra de 29/set/2026, para a montagem não passar de ~1h):** rascunho → revisão (Passo 8) → corrige → rascunho → revisão só dos shots alterados → … → **os 4 arquivos uma vez só, no fim**. No Vini x Austrália a montagem levou ~2h porque cada correção refazia os 4 arquivos (~20 min cada, 3 vezes). O rascunho sai em ~2 min.
+**Ordem (regra de 29/set/2026, para a montagem não passar de ~1h):** rascunho → revisão (Passo 8) → corrige → rascunho → revisão só dos shots alterados → … → **as 2 entregas uma vez só, no fim**. No Vini x Austrália a montagem levou ~2h porque cada correção refazia os 4 arquivos (~20 min cada, 3 vezes). O rascunho sai em ~2 min.
 
     python scripts/render_final.py --render "<job>/_montagem/render" --narracao "<job>/_montagem/narracao_final.wav" --legenda "<job>/_montagem" --saida "<job>" --nome <apelido> --rascunho
 
-gera `_montagem/render/rascunho_tiktok.mp4`: a mesma composição do TikTok final (cor + lupa + legenda + narração), com encode rápido e fora de `Videos prontos/`. Com a revisão limpa, rode o mesmo comando **sem** `--rascunho` (e com `--sfx sfx.json`, se houver) para gerar as entregas:
+gera `_montagem/render/rascunho.mp4`: a mesma composição do com-legenda final (cor + legenda + narração), com encode rápido e fora de `Videos prontos/`. Com a revisão limpa, rode o mesmo comando **sem** `--rascunho` (e com `--sfx sfx.json`, se houver) para gerar as entregas:
 
     python scripts/render_final.py --render "<job>/_montagem/render" --narracao "<job>/_montagem/narracao_final.wav" --legenda "<job>/_montagem" --saida "<job>" --nome <apelido> [--sfx sfx.json]
 
 - **Cor:** saturação 1,18, contraste 1,12.
-- **Marca d'água** (opacidade 0,20):
-  - **TikTok:** lupa com 17% da largura, centralizada, centro a 86,5% da altura
-  - **YouTube:** logo horizontal "Radar Do Campo" com 28% da largura, **canto superior direito** (centro em 80% da largura e 9,7% da altura), como o usuário usa
-  - **Sem legenda** e **com legenda sem marca:** nenhuma marca
-
-  Abra `render/_checagem_marca.png` (linha 1: lupa visível; linha 2: "Radar Do Campo" visível; linha 3: **sem** marca; linha 4: com legenda **sem** marca). Qualquer linha errada, não entregue. A imagem agora é gerada **antes** da checagem de áudio, então sai mesmo quando o áudio falha.
+- **Sem marca d'água do canal** (21/out/2026): nenhuma das 2 entregas leva lupa ou "Radar Do Campo". Não existe mais `_checagem_marca.png`.
 - **Áudio x narração:** o script compara cada entrega com a `narracao_final.wav` segundo a segundo. **FALA SUMIDA** (a narração tem voz e a entrega quase não tem) bloqueia a entrega. **Correlação baixa** é só aviso: o limitador de volume achata os picos da voz e derruba a correlação sem faltar nada (Kane, set/2026: 4 janelas "divergentes" e a transcrição da entrega bateu 100% com a narração). Se aparecer só o aviso, transcreva a entrega com faster-whisper e compare com o roteiro antes de entregar.
-- **SFX:** 2–4 no vídeo todo, nos impactos (gancho, revelação, lance-chave). O script monta uma cama única em numpy. Nos dois vídeos refinados no CapCut (Andreas e Bernal, 18/out) ele **ligou** a faixa de efeitos que eu deixava muda, então no rascunho do CapCut ela vem ligada (Passo 9). Os 4 arquivos continuam sem SFX, e o 5º sai com.
+- **SFX:** 2–4 no vídeo todo, nos impactos (gancho, revelação, lance-chave). O script monta uma cama única em numpy. Nos dois vídeos refinados no CapCut (Andreas e Bernal, 18/out) ele **ligou** a faixa de efeitos que eu deixava muda, então no rascunho do CapCut ela vem ligada (Passo 9). As 2 entregas saem sem SFX; os efeitos ficam só na faixa do CapCut.
 - **Loudness:** o áudio final é normalizado a **-10 LUFS** (medido no Faiq). As montagens automáticas anteriores saíram com -18,9 e -13,4, baixas demais. O nível final e a trilha (~13–14 dB abaixo da voz) ficam por conta do usuário no CapCut: no Palermo/Diogo ele publicou a -7,1 LUFS. Não mude o alvo por conta própria. O que ele exporta do rascunho do CapCut sai mais baixo, porque o CapCut não normaliza: -14,4 no Andreas e -13,3 no Bernal. O Andreas (-11,3) e o Bernal (-10,5) também saíram um pouco abaixo do alvo no nosso render: confira o valor que o `render_final.py` imprime e avise se passar de 1 dB.
-- **Exportação:** 1440x2560, 60fps, H.264 ~20 Mbps, AAC 192k. Os 4 arquivos vão para `<job>/Videos prontos/` e nada mais entra nessa pasta. São 4 encodes de 1440x2560 (preset medium, ~12–15 min no total): rode em background e **só uma vez**, depois da revisão limpa do rascunho. Se o usuário pedir correção depois da entrega, volte ao rascunho, revise só os shots mexidos e gere os 4 de novo no fim. A prévia 720p e a checagem da marca ficam em `_montagem/render/`.
+- **Exportação:** 1440x2560, 60fps, H.264 ~20 Mbps, AAC 192k. As 2 entregas vão para `<job>/Videos prontos/` e nada mais entra nessa pasta. São 2 encodes de 1440x2560 (preset medium, ~6–8 min no total): rode em background e **só uma vez**, depois da revisão limpa do rascunho. Se o usuário pedir correção depois da entrega, volte ao rascunho, revise só os shots mexidos e gere as 2 de novo no fim. A prévia 720p e a checagem da marca ficam em `_montagem/render/`.
 
 ## Passo 8 — Revisão antes de entregar
 
 1. **Revisão obrigatória a cada 0,1s (regra do usuário, set/2026) antes de QUALQUER entrega**, inclusive reentregas depois de correção. Ela é feita no **rascunho** (Passo 7), não nos arquivos finais:
 
-       python scripts/revisao.py "<job>/_montagem/render/rascunho_tiktok.mp4" "<job>/_montagem/revisao" --edl "<job>/_montagem/edl.json"
+       python scripts/revisao.py "<job>/_montagem/render/rascunho.mp4" "<job>/_montagem/revisao" --edl "<job>/_montagem/edl.json"
 
    Na primeira passada, o vídeo inteiro. **Depois de uma correção**, gere o rascunho de novo e revise só os shots que você mexeu (com 0,5s de margem para pegar as emendas):
 
-       python scripts/revisao.py "<job>/_montagem/render/rascunho_tiktok.mp4" "<job>/_montagem/revisao" --edl "<job>/_montagem/edl.json" --shots 18,20
+       python scripts/revisao.py "<job>/_montagem/render/rascunho.mp4" "<job>/_montagem/revisao" --edl "<job>/_montagem/edl.json" --shots 18,20
 
    Mudou a duração de um shot? Os vizinhos mudam de posição: inclua-os em `--shots`. Tirou ou juntou shot (renumeração)? Revise o vídeo inteiro de novo.
 
@@ -451,18 +446,18 @@ gera `_montagem/render/rascunho_tiktok.mp4`: a mesma composição do TikTok fina
    - **Centro:** o assunto que a nota prometeu está na tela e dentro do quadro?
    - **Legenda:** diz o que está sendo falado e não cobre o lance (mãos, bola, rosto)?
    - **Topo e cantos:** sobrou marca de terceiro (WAMO, ge, sportv, placar de TV), mancha do clone, letra ou rosto duplicado?
-   - **Rodapé:** marca do canal no lugar certo?
+   - **Rodapé:** nenhuma marca do canal (desde 21/out/2026 não vai logo)?
    - **Viradas:** quadro preto, flash de outro lance ou transição queimada da fonte?
    - **Últimos quadros:** emendam no primeiro (loop)?
 
-   Anote cada defeito com tempo e shot, corrija a EDL, rerenderize os shots (`prep_shots.py --shots`, `posfx.py`), gere o rascunho e **revise de novo** os shots mexidos até sair limpo. Só então gere os 4 arquivos e entregue. Depois do render final, confira a `_checagem_marca.png` e a checagem de áudio; a revisão quadro a quadro não precisa ser repetida, porque a imagem é a mesma do rascunho.
+   Anote cada defeito com tempo e shot, corrija a EDL, rerenderize os shots (`prep_shots.py --shots`, `posfx.py`), gere o rascunho e **revise de novo** os shots mexidos até sair limpo. Só então gere as 2 entregas e entregue. Depois do render final, confira a `_checagem_marca.png` e a checagem de áudio; a revisão quadro a quadro não precisa ser repetida, porque a imagem é a mesma do rascunho.
 2. **Bordas de cada shot:** com `--edl`, o `revisao.py` também gera `bordas_XX.jpg`, com cada virada de shot a 30fps (0,2s antes e depois), uma linha por corte. **Percorra todas.** O passo de 0,1s pula quadro solto, e a auditoria do `prep_shots.py` não separa esses casos de ruído (testei um limiar mais sensível nas bordas: o quadro de outro vídeo deu score 0,09, igual ao 2º quadro de qualquer shot). No Endrick, só as bordas mostraram 1 quadro de outro vídeo com o microfone "BTB Sports" no início da zona mista, uma fusão da fonte com imagem fantasma, 1 quadro de outra cena no fim de um shot e um quadro escurecido no começo de outro. A correção padrão é avançar a entrada (ou recuar a saída) 0,15–0,3s. O clarão branco no 1º quadro de shot com `fx: flash` é esperado, não é defeito.
 3. **Compare com a referência:** ponha 4–6 quadros da sua montagem ao lado de quadros equivalentes da referência (mesma posição na narração). Legenda na mesma altura e tamanho? Mesma proporção de torcida? Protagonista na tela nas falas genéricas?
 4. **Revisão às cegas:** assista como espectador. Deu para entender o lance-chave sem pausar? O final parece final e emenda no começo?
 
 Qualquer defeito: corrija a EDL, rode de novo e revise de novo.
 
-**Checagem de viralização (Passo 3b) no rascunho, antes dos 4 arquivos:**
+**Checagem de viralização (Passo 3b) no rascunho, antes das 2 entregas:**
 - O 1º segundo mostra o pico nº 1 do mapa de impacto?
 - Cada ação do vídeo aparece até o pico, inclusive o golpe ou contato? Olhe o último quadro de cada shot de ação na folha `bordas_XX.jpg`.
 - Algum shot com zoom ou upscale escondeu a escala que a frase promete ("lotou", "vazio", "85 mil")?
@@ -477,7 +472,7 @@ O usuário quer ajustar sozinho o que fizemos, sem pedir outra rodada. Em 18/out
     python _montagem/scripts/capcut_projeto.py "<job>" --nome "Radar - <título>" [--modelo "<rascunho-modelo>"] [--sfx-mudo]
 
 O que ele aprovou, depois de recusar a 1ª versão ("não consigo mexer no que você fez como zoom, enquadramento e efeitos, até mesmo a legenda está diferente, e já quero que a música do meu rascunho anterior esteja igual"):
-- **Parte do rascunho-modelo dele:** é o mais recente que não começa com "Radar - " nem com "_tmp", hoje o "0417-cópia… (15)". A pasta é copiada inteira, então vêm junto as duas trilhas com a posição dele, o efeito "Dramatic", a lupa e o logo do YouTube oculto, tudo cortado na duração do vídeo. **Volume da trilha principal: 0,12** (rodada 14: o modelo vem com 0,34, e ele baixou para 0,07–0,16 nos cinco vídeos). A segunda trilha (0,14) fica como está.
+- **Parte do rascunho-modelo dele:** é o mais recente que não começa com "Radar - " nem com "_tmp", hoje o "0417-cópia… (15)". A pasta é copiada inteira, então vêm junto as duas trilhas com a posição dele, o efeito "Dramatic", tudo cortado (as faixas de logo do modelo, lupa e YouTube, ficam de fora desde 21/out/2026) na duração do vídeo. **Volume da trilha principal: 0,12** (rodada 14: o modelo vem com 0,34, e ele baixou para 0,07–0,16 nos cinco vídeos). A segunda trilha (0,14) fica como está.
 - **Tudo nativo e editável, nada renderizado por cima.** A 1ª versão tinha uma faixa CORTE com o vídeo entregue em cima dos brutos, e ele não conseguia mexer. Agora cada shot é o clipe bruto, com corte e velocidade, escala e posição em Vídeo › Transformar e o movimento em keyframes.
 - **Cor da entrega gravada nas cópias dos clipes** (`_montagem/capcut_clipes/`, eq 1,18/1,12). Keyframe de Ajuste (saturação/contraste) aparece no painel, mas não renderiza.
 - **Flash:** PNG branco com keyframe de opacidade, na faixa FLASH, mais o soco de escala no shot. **Flashback:** filtro P&B do CapCut (褪色黑白, biblioteca Pro; ele é Pro) numa faixa própria.
@@ -494,7 +489,7 @@ Pegadinhas:
 ## Bloqueios: não entregue quando
 
 - a revisão a cada 0,1s (`revisao.py`) não foi percorrida no rascunho do corte que vai ser entregue (inteira na 1ª passada; os shots alterados em cada correção), ou achou defeito não corrigido;
-- a marca d'água não aparece na `_checagem_marca.png`, ou a legenda não está no padrão do Passo 6 (Modo Completo);
+- aparece logo do canal em alguma entrega, ou a legenda não está no padrão do Passo 6 (Modo Completo);
 - algum corte de conteúdo cai fora de pausa da narração;
 - o último plano não emenda no primeiro (loop visual: mesmo clipe, saída do último = entrada do primeiro);
 - aparece marca d'água de outro perfil ou emissora (WAMO, ge, sportv, Paramount+…) em qualquer quadro, ou sobrou mancha/reflexo de clonagem;
@@ -510,19 +505,19 @@ Pegadinhas:
 - o vídeo final ficou abaixo de 60s (estique as respirações antes, Passo 1);
 - a frase cita um comentário ou um documento e a imagem não é o print real dele (Passo 3, item 22), ou o realce do documento cai embaixo da legenda;
 - clipes baixados não foram abertos (o Passo 2 não foi feito em `_extras`/`_rejeitados`);
-- falta algum dos 4 arquivos em `Videos prontos/`, a marca do TikTok e a do YouTube saíram trocadas, o "sem legenda" ou o "com legenda sem marca" tem marca, ou algum arquivo falhou na checagem de áudio x narração.
+- falta o `com-legenda` ou o `sem-legenda` em `Videos prontos/`, ou algum dos dois falhou na checagem de áudio x narração.
 
 ## Entrega
 
-Os 4 arquivos em `<job>/Videos prontos/`: `video pronto para o TIKTOK.mp4`, `video pronto para o YOUTUBE.mp4`, `<apelido>-completo-sem-legenda.mp4` e `<apelido>-com-legenda-sem-marca.mp4` (+ o 5º `video pronto para o TIKTOK - COM EFEITOS SONOROS.mp4`, se ele quis SFX). Na raiz do job, `legenda para o CapCut.srt` e `guia da trilha.txt`: diga em uma linha para ele importar esse arquivo no CapCut em vez da legenda automática. Mostre a prévia (`_montagem/render/<apelido>-preview.mp4`) com `SendUserFile`. Resuma em poucas linhas: planos/min, % de torcida, % de protagonista, as decisões que valem discussão e o que ficou mais fraco e por quê. Não prometa desempenho. Termine oferecendo abrir o rascunho editável no CapCut (Passo 9).
+Os 2 arquivos em `<job>/Videos prontos/`: `<apelido>-com-legenda.mp4` e `<apelido>-sem-legenda.mp4`, sem logo. Na raiz do job, `legenda para o CapCut.srt` e `guia da trilha.txt`: diga em uma linha para ele importar esse arquivo no CapCut em vez da legenda automática. Mostre a prévia (`_montagem/render/<apelido>-preview.mp4`) com `SendUserFile`. Resuma em poucas linhas: planos/min, % de torcida, % de protagonista, as decisões que valem discussão e o que ficou mais fraco e por quê. Não prometa desempenho. Termine oferecendo abrir o rascunho editável no CapCut (Passo 9).
 
-**Limpeza automática da entrega (05/10/2026).** No fim do render final, e nunca no `--rascunho`, o `render_final.py` manda para a Lixeira só o que se refaz sozinho: `corte_completo.mp4`, `corte_limpo.mp4` e `rascunho_tiktok.mp4` (~1,7 GB). Shots, clipes, EDL e prévia ficam, então correção e remontagem continuam iguais. Se ele pedir correção depois da entrega, siga o fluxo de sempre: o `prep_shots`/`posfx` emendam o corte de novo, e o `render_final` refaz o `corte_completo` pela `lista_completo.txt` se ele não existir. Não comente a limpeza na entrega, a não ser que ela falhe.
+**Limpeza automática da entrega (05/10/2026).** No fim do render final, e nunca no `--rascunho`, o `render_final.py` manda para a Lixeira só o que se refaz sozinho: `corte_completo.mp4`, `corte_limpo.mp4` e `rascunho.mp4` (~1,7 GB). Shots, clipes, EDL e prévia ficam, então correção e remontagem continuam iguais. Se ele pedir correção depois da entrega, siga o fluxo de sempre: o `prep_shots`/`posfx` emendam o corte de novo, e o `render_final` refaz o `corte_completo` pela `lista_completo.txt` se ele não existir. Não comente a limpeza na entrega, a não ser que ela falhe.
 
 Se o usuário mandar a montagem que ele fez à mão com o mesmo material, rode `casar_fontes.py` nela para ver de onde saiu cada trecho, compare com a sua e proponha mudanças nesta skill. Com ~100 clipes e compactos longos do YouTube, ele leva ~40 min: rode em background e, enquanto isso, faça as folhas do vídeo dele a cada 0,5s (`folha_contato.py --passo 0.5`), transcreva a narração e o vídeo final (faster-whisper) e meça LUFS e trilha. Match com score abaixo de ~0,7 não é confiável quando há ícone, seta ou zoom por cima: confirme olhando o quadro. Os clipes que ele baixou por conta própria (arquivos com o id do TikTok como nome) mostram o que faltou no garimpo: consulte a origem com `yt-dlp --print "%(uploader)s|%(upload_date)s|%(description)s"` e leve a lição para a skill `garimpo-de-videos`.
 
 **Aprendizado diário (pedido do usuário, out/2026):** quando ele disser algo como "compara minha edição de hoje" (ou a rotina do dia achar um vídeo editado por ele ainda não comparado), compare, mostre o que ele mudou e **atualize esta skill no HUB no mesmo dia**: backup `_bak-AAAA-MM-DD-<vídeo>`, regra nova no lugar certo (Passo 3/5/7, "Erros já cometidos"), nova data na linha de versão, `.skill` reempacotado. Grave `<job>/_montagem/cmp/comparado.txt` quando terminar, para a rotina não oferecer de novo.
 
-Se ele refinou a nossa entrega no editor (mesma duração; costuma ficar em `Videos prontos/` como `<título> TIKTOK.mp4`), compare com a base que ele usou (normalmente o `completo-sem-legenda`):
+Se ele refinou a nossa entrega no editor (mesma duração; costuma ficar em `Videos prontos/` como `<título> TIKTOK.mp4`), compare com a base que ele usou (normalmente o `sem-legenda`; antes de 21/10 era o `completo-sem-legenda`):
 
     python scripts/compara_edicao.py "<nosso>.mp4" "<dele>.mp4" "<job>/_montagem/cmp"
     python scripts/lado_a_lado.py "<nosso>.mp4" "<dele>.mp4" "<job>/_montagem/lado.jpg" <t0> <t1> 0.3

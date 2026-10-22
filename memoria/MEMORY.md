@@ -1,6 +1,6 @@
 - [Referência de montagem (Carrascal)](referencia-montagem-carrascal.md) — vídeo montado à mão pelo usuário que define o estilo das skills de garimpo/montagem
 - [Download sem cookies no garimpo](garimpo-download-sem-cookies.md) — cookies do Chrome/Edge falham no yt-dlp; TikTok/YouTube/X baixam sem
-- [Skill de montagem nova (local)](skill-montagem-versao-nova-local.md) — instalada em 2026-09-25 = cópia do HUB/.../versao-nova-2026-09-22; só grava em Shorts/<vídeo>; tampa marcas de terceiros (clone, sem borrão); loop visual obrigatório; 4 arquivos em Videos prontos/ (desde 2026-10-01 o 4º é "com-legenda-sem-marca", não mais o "limpo"); -10 LUFS
+- [Skill de montagem nova (local)](skill-montagem-versao-nova-local.md) — instalada em 2026-09-25 = cópia do HUB/.../versao-nova-2026-09-22; só grava em Shorts/<vídeo>; tampa marcas de terceiros (clone, sem borrão); loop visual obrigatório; entrega hoje = 2 arquivos, ver entrega-2-arquivos-sem-logo; -10 LUFS
 - [Referência de montagem (Faiq)](referencia-montagem-faiq.md) — montagem à mão do usuário de 2026-09-24: frase-ponte de loop, -10 LUFS, marca YouTube no topo direito, vazamento da lupa
 - [Narração lê os rótulos do roteiro](narracao-le-rotulos-do-roteiro.md) — entregar também a versão sem "Gancho/Contexto/Payoff" para colar no AI Studio
 - [Narração é feita no AI Studio](narracao-feita-no-ai-studio.md) — o usuário gera a voz no site; skill de narração via API foi excluída a pedido dele
@@ -8,7 +8,7 @@
 - [Python da Store não lê AppData\Roaming](python-store-nao-le-appdata-roaming.md) — copiar scripts das skills (watch, folha_contato) antes de rodar; ffmpeg local sem -vsync
 - [Montagem: sem zoom excessivo, gancho forte](montagem-sem-zoom-excessivo-gancho-forte.md) — tela cheia com zoom que acompanha o lance (sem faixa desfocada), só esconder marca d'água, gancho = lance chocante com ferimento desfocado
 - [Gancho forte e contexto literal](montagem-gancho-e-contexto-literal.md) — 2026-09-27: abrir no momento mais forte; fala factual pede imagem do fato (jogos/títulos anteriores), não torcida; prévia de suspense antes da revelação
-- [Montagem: 5º arquivo com SFX](montagem-versao-extra-com-sfx.md) — 4 padrão sem efeitos + "TIKTOK - COM EFEITOS SONOROS"; transições flash+zoom e flashback via posfx.py
+- [Montagem: SFX](montagem-versao-extra-com-sfx.md) — (5º arquivo extinto em 21/10; SFX só no CapCut) transições flash+zoom e flashback via posfx.py
 - [Garimpo: coleta de links no Chrome](garimpo-coleta-links-chrome.md) — JS trunca ~1000 chars (paginar), Instagram só busca 2 palavras, título de vídeo de torcida pode ser de outro jogo
 - [Edição dele sobre Ronaldo/Arrascaeta](referencia-edicao-ronaldo-arrascaeta.md) — 2026-09-29: lance-chave em take contínuo, close de emoção nas falas de ação, loop pelo rosto, legenda refeita no CapCut, trilha em degraus, tirou nossos SFX
 - [Edição dele do Vini x Austrália](referencia-edicao-vini-penalti.md) — 2026-09-29: chute no plano, payoff com outra fonte + placar de TV até a rede, punch-in em ação pequena, sem rosto aleatório
@@ -41,3 +41,4 @@
 - [Antigravity como plano B](antigravity-plano-b.md) — 2026-10-20: GEMINI.md + .agents/skills no repo; sincronizar.ps1 em toda mudança; checar memoria/pendente-antigravity.md
 - [Atualizar tudo, todas as áreas](atualizar-tudo-em-todas-as-areas.md) — 2026-10-21: toda mudança revisa skills, memória, LEIA-PRIMEIRO/CLAUDE/GEMINI/AGENTS no repo e roda sincronizar.ps1; repo = conhecimento completo p/ outra IA
 - [Comparação em lote 21/10](comparacao-lote-2026-10-21.md) — 5 vídeos de 19–21/10 editados no CapCut; comparação por projeto; lições por vídeo
+- [Entrega: 2 arquivos sem logo](entrega-2-arquivos-sem-logo.md) — desde 2026-10-21 só com-legenda e sem-legenda, sem logo; TikTok/YouTube extintos, refina no CapCut

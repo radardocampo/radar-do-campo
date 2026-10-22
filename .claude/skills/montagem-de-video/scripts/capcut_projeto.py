@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Gera um rascunho do CapCut (desktop) com a montagem da entrega, TUDO editavel no proprio CapCut,
-partindo do rascunho-modelo do usuario (musica, logos e configuracoes dele).
+partindo do rascunho-modelo do usuario (musica e configuracoes dele; as logos do modelo NAO entram desde 21/10/2026).
 
 uso: python capcut_projeto.py "<pasta do video>" --nome "<nome do rascunho>" [--modelo "<rascunho modelo>"]
      (FECHE o CapCut antes: com ele aberto o indice root_meta_info.json e reescrito e o rascunho some)
@@ -13,7 +13,7 @@ Faixas:
             fica como keyframe de escala no proprio shot
   CARDS/CARDS2 - destaques "icone" da EDL (cards de comentario, prints) como PNG editavel por cima
   FLASHBACK - filtro P&B do CapCut no trecho de outra data
-  logos e musica do modelo (lupa, logo do YouTube oculto, trilhas e efeitos dele), cortados na duracao do video
+  musica do modelo (trilhas e efeitos dele; as faixas de logo do modelo ficam de fora), cortados na duracao do video
   LEGENDA - texto karaoke: um trecho por palavra, palavra falada em amarelo (#FAFE05), fonte da entrega
   NARRACAO e SFX (SFX ligado: ele ligou a faixa nos dois primeiros rascunhos; --sfx-mudo deixa muda)
 
@@ -181,7 +181,7 @@ for t in d["materials"]["texts"]:
     c["styles"] = novos; t["content"] = json.dumps(c, ensure_ascii=False)
     if os.path.exists(FONTE): t["font_path"] = FONTE
 
-# ---------- junta com o modelo: musica + logos dele, cortados na duracao ----------
+# ---------- junta com o modelo: musica e efeitos dele, cortados na duracao ----------
 D = us(dur_total)
 out = copy.deepcopy(tpl)
 for k, v in d["materials"].items():
@@ -189,7 +189,7 @@ for k, v in d["materials"].items():
 novas = {t["name"]: t for t in d["tracks"]}
 herdadas = []
 for t in tpl["tracks"]:
-    if t["type"] == "video" and not t["segments"]: continue          # trilha principal vazia do modelo
+    if t["type"] == "video": continue   # trilha vazia do modelo e as logos (lupa/YouTube): sem logo desde 21/10/2026
     segs = []
     for s in t["segments"]:
         st, du = s["target_timerange"]["start"], s["target_timerange"]["duration"]
