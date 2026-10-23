@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-23 (comparação em lote de Carlos Miguel, Thiago Silva e Cetré; Décima quinta rodada). Antes: 2026-10-22 (correção no `capcut_projeto.py`: o fim de cada trecho da legenda é arredondado em microssegundos antes de subtrair o início, porque o arredondamento separado sobrepunha trechos e travava o rascunho no Thiago Silva). Antes: 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-23b (prompt de títulos e tags para chat novo no fim de toda entrega). Antes: 2026-10-23 (comparação em lote de Carlos Miguel, Thiago Silva e Cetré; Décima quinta rodada). Antes: 2026-10-22 (correção no `capcut_projeto.py`: o fim de cada trecho da legenda é arredondado em microssegundos antes de subtrair o início, porque o arredondamento separado sobrepunha trechos e travava o rascunho no Thiago Silva). Antes: 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -177,6 +177,7 @@ Base: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`
 | Trilhas | `Musicas edição\` (normalmente o próprio usuário coloca a trilha) |
 | Referências publicadas | `HUB Radar do Campo\Claude\videos exemplos\` |
 | Fonte da legenda | `assets/Montserrat-Italic-VF.ttf` (nesta skill) |
+| Prompt de títulos e tags | `assets/prompt_titulos_tags.txt` (modelo preenchido no fim de toda entrega) |
 | Fonte da legenda no CapCut | `assets/Montserrat-ExtraBoldItalic.ttf` (instância fixa wght 800 do VF, usada pelo `capcut_projeto.py`) |
 | Rascunhos do CapCut | `%LOCALAPPDATA%\CapCut\User Data\Projects\com.lveditor.draft\` (o modelo dele é o mais recente que não começa com "Radar - ") |
 
@@ -518,6 +519,8 @@ Pegadinhas:
 ## Entrega
 
 Os 2 arquivos em `<job>/Videos prontos/`: `<apelido>-com-legenda.mp4` e `<apelido>-sem-legenda.mp4`, sem logo. Na raiz do job, `legenda para o CapCut.srt` e `guia da trilha.txt`: diga em uma linha para ele importar esse arquivo no CapCut em vez da legenda automática. Mostre a prévia (`_montagem/render/<apelido>-preview.mp4`) com `SendUserFile`. Resuma em poucas linhas: planos/min, % de torcida, % de protagonista, as decisões que valem discussão e o que ficou mais fraco e por quê. Não prometa desempenho. Termine oferecendo abrir o rascunho editável no CapCut (Passo 9).
+
+**Prompt de títulos e tags para chat novo (pedido do usuário em 23/out/2026).** Ele roda títulos/capa/tags num chat novo. Em toda entrega, sem perguntar, preencha `assets/prompt_titulos_tags.txt` (troque `{PROTAGONISTAS}`, `{JOGO}`, `{FATO}`, `{DURACAO}` e `{ROTEIRO}` pelo roteiro limpo, sem os rótulos Gancho/Contexto/Payoff e com a grafia certa dos nomes), grave em `<job>/prompt titulos e tags.txt` e mostre o prompt inteiro num bloco de código na resposta, pronto para copiar. O prompt é autossuficiente (traz as regras da skill `titulos-e-tags`): funciona em qualquer chat, mesmo sem a skill. Se a skill `titulos-e-tags` mudar, atualize este modelo junto.
 
 **Limpeza automática da entrega (05/10/2026).** No fim do render final, e nunca no `--rascunho`, o `render_final.py` manda para a Lixeira só o que se refaz sozinho: `corte_completo.mp4`, `corte_limpo.mp4` e `rascunho.mp4` (~1,7 GB). Shots, clipes, EDL e prévia ficam, então correção e remontagem continuam iguais. Se ele pedir correção depois da entrega, siga o fluxo de sempre: o `prep_shots`/`posfx` emendam o corte de novo, e o `render_final` refaz o `corte_completo` pela `lista_completo.txt` se ele não existir. Não comente a limpeza na entrega, a não ser que ela falhe.
 

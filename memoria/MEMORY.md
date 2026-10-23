@@ -43,3 +43,4 @@
 - [Comparação em lote 21/10](comparacao-lote-2026-10-21.md) — 5 vídeos de 19–21/10 editados no CapCut; comparação por projeto; lições por vídeo
 - [Entrega: 2 arquivos sem logo](entrega-2-arquivos-sem-logo.md) — desde 2026-10-21 só com-legenda e sem-legenda, sem logo; TikTok/YouTube extintos, refina no CapCut
 - [Comparação em lote 23/10](comparacao-lote-2026-10-23.md) — Carlos Miguel, Thiago Silva, Cetré pelo CapCut; skill HUB 2026-10-23 (rodada 15)
+- [Entrega: prompt de títulos e tags](entrega-prompt-titulos-tags.md) — desde 2026-10-23 toda montagem termina com prompt pronto p/ chat novo (assets/prompt_titulos_tags.txt)
