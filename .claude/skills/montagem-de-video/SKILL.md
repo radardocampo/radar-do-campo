@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-22 (correção no `capcut_projeto.py`: o fim de cada trecho da legenda é arredondado em microssegundos antes de subtrair o início, porque o arredondamento separado sobrepunha trechos e travava o rascunho no Thiago Silva). Antes: 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -541,6 +541,8 @@ Em 05/10/2026 o disco C: chegou a 22 GB livres. Cada vídeo ocupava ~5 GB: ~2,3 
 - **Nunca apague de vez:** tudo vai para a Lixeira (`scripts/lixeira.py`), e quem esvazia é ele. Se a "Proteção contra ransomware" do Defender estiver ligada e a pasta for protegida, o arquivo não sai e o script avisa. Não desligue a proteção: avise o usuário.
 
 ## Erros já cometidos (não repetir)
+
+- Thiago Silva (22/out/2026): o `capcut_projeto.py` travou com "SegmentOverlap" na legenda, porque palavras divididas à mão (anos por extenso) tinham tempos que, arredondados separadamente, se sobrepunham em 1 µs. Corrigido no script.
 
 - Andreas Pereira e Bernal x Yamal (18/out/2026):
   - Parar a montagem e pedir narração nova porque deu 59,2s, quando dava para chegar a 60 com a mesma, esticando as respirações (Passo 1).

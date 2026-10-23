@@ -162,7 +162,7 @@ for bi, b in enumerate(blocos):
     for i, tok in enumerate(toks):
         a0 = b["texto"].index(tok, pc); pc = a0 + len(tok)
         if fim[i] - ini[i] < 0.02: continue
-        tseg = cc.TextSegment(b["texto"], trange(us(ini[i]), us(min(fim[i], dur_total) - ini[i])), font=cc.FontType.Montserrat,
+        tseg = cc.TextSegment(b["texto"], trange(us(ini[i]), us(min(fim[i], dur_total)) - us(ini[i])), font=cc.FontType.Montserrat,
                               style=copy.deepcopy(estilo), border=borda, shadow=sombra, clip_settings=copy.deepcopy(pos_leg))
         sc.add_segment(tseg, "LEGENDA"); destaques[tseg.material_id] = (a0, pc)
 sc.save()
