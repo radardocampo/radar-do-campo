@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-22 (correção no `capcut_projeto.py`: o fim de cada trecho da legenda é arredondado em microssegundos antes de subtrair o início, porque o arredondamento separado sobrepunha trechos e travava o rascunho no Thiago Silva). Antes: 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-23 (comparação em lote de Carlos Miguel, Thiago Silva e Cetré; Décima quinta rodada). Antes: 2026-10-22 (correção no `capcut_projeto.py`: o fim de cada trecho da legenda é arredondado em microssegundos antes de subtrair o início, porque o arredondamento separado sobrepunha trechos e travava o rascunho no Thiago Silva). Antes: 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -135,6 +135,14 @@ Décima quarta rodada, **Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago 
 - **Flashback P&B mais longo** (Kannemann 58–68s, Vitinha 46–51s): ele esticou a faixa do filtro para cobrir o trecho de outra época inteiro.
 - **Trilha do modelo mais baixa em todos:** de 0,34 para 0,15 / 0,16 / 0,09 / 0,07. O `capcut_projeto.py` agora grava 0,12 na trilha principal do modelo (Passo 9). Nos vídeos sem SFX, ele apagou a faixa SFX vazia.
 - **Faltou no garimpo:** o post da ESPN da comemoração na frente do Thiago Mendes e o repost da montagem de IA. Ele baixou os dois.
+
+Décima quinta rodada, **Carlos Miguel e a toalha, Thiago Silva 2008–2026 e Cetré e o pênalti repetido (22 e 23/out/2026)**, comparados pelo projeto do CapCut (`compara_capcut.py`). Legenda intacta nos três. O que ele mudou:
+- **Punch-in no lance, de novo:** gancho do Thiago Silva de 1,0 para 2,23; shot 1 do Carlos Miguel com zoom 1,9→2,65 e pan; vários shots do Thiago com pan seguindo a ação onde a nossa janela era fixa. Shot parado com ação acontecendo continua sendo o ajuste nº 1.
+- **Gancho pelo pico em câmera lenta (Cetré):** trocou o rosto de 0,6s por um close dos pés a 0,81x com pan, e repetiu esse mesmo take no meio (35,4s e 49,2s) e no loop. O lance-chave volta como refrão visual.
+- **Trecho da prova inteiro numa fonte só, em câmera lenta (Carlos Miguel 38,5–44,8s):** dois shots de fontes diferentes viraram um take da getv a 0,5x por 6,3s.
+- **Desfoque retangular de texto/logo em série (Cetré):** 9 cópias do clipe da Conmebol por cima, na mesma posição, para mascarar o texto queimado.
+- **Flashback P&B:** no Thiago Silva ele apagou o filtro (61s de arquivo em P&B cansava); no Cetré trocou o filtro por outro. Trecho longo de arquivo fica colorido.
+- **Trilha ainda mais baixa** (0,08–0,11) e faixa SFX vazia apagada.
 
 Loudness final e altura da legenda ele ajusta sempre no CapCut: no Palermo/Diogo publicou a -7 LUFS com a legenda a ~61%; no Raphinha, -10,3 LUFS com a legenda a ~70%. Os valores do Passo 6 e do Passo 7 são só o ponto de partida.
 
