@@ -50,4 +50,4 @@ Trilhas (`Musicas edição/`) não estão aqui: o usuário coloca a trilha no Ca
 Quando o usuário der uma regra nova, grave em `memoria/` (mesmo formato), atualize `memoria/MEMORY.md`
 e commite na `main` (`git stash` / troque de branch se precisar, sem levar arquivos do vídeo).
 
-- Comparar a edição dele (desde 18/10 feita no rascunho do CapCut que geramos): comparar o projeto com `compara_capcut.py` da skill montagem-de-video, salvar a lição numa memória a cada vídeo (`comparacao-lote-*`), gravar `<job>/_montagem/cmp/comparado.txt` e só no fim atualizar a skill (versão 2026-10-21).
+- Comparar a edição dele (desde 18/10 feita no rascunho do CapCut que geramos): comparar o projeto com `compara_capcut.py` e, corte a corte, com `analisa_capcut.py` + `pares_quadros.py` (desde 27/10; confira se o zoom dele não era só para esconder marca), salvar a lição numa memória a cada vídeo (`comparacao-lote-*`), gravar `<job>/_montagem/cmp/comparado.txt` e só no fim atualizar a skill (versão atual: 2026-10-27).

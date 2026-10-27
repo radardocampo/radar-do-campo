@@ -28,3 +28,5 @@ Em 2026-10-18 (Andreas Pereira) o usuário pediu a timeline editável no CapCut 
 - Rodar com o CapCut FECHADO: `taskkill //F //IM CapCut.exe` se só o meu rascunho estiver aberto; se o projeto dele estiver aberto, pedir antes. Com o CapCut aberto, o root_meta_info.json é reescrito e o rascunho some ou abre a versão velha.
 - A home do CapCut abre no monitor VX-215X e o editor no 27G2G4.
 - O computer-use precisa de "CapCut", "capcut.exe" e "File Explorer" (barra de tarefas).
+
+**27/10/2026:** o script passou a gerar as faixas DESFOQUE (cada `borrar` vira uma cópia do clipe com máscara Retângulo + Desfocar) e SETAS (seta/círculo em PNG). A 2ª trilha agora vai até ~1s antes do fim, e a virada da música vai para o shot `"revelacao": true`. Conferi no CapCut com um rascunho de teste. Ver [[comparacao-lote-2026-10-27]].

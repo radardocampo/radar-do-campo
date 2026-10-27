@@ -20,7 +20,7 @@
 - [Edição dele do Raphinha cortado](referencia-edicao-raphinha-cortado.md) — 2026-09-30: montou do zero; ícone CBF riscado, punch-in na coxa, lugar/lista/instituição literais, infográfico IA, SRT para o CapCut
 - [Placar final: conferir acréscimos](placar-final-conferir-acrescimos.md) — Índia x Brasil 03/10: páginas ao vivo diziam 3x0, foi 4x0 (90+5); público "início" ≠ oficial
 - [Montagem pensada pra viralizar](montagem-pensada-pra-viralizar.md) — 2026-10-03 Calcutá: gancho = pico do material, ação até o impacto, sem zoom em plano de escala, frase inteira literal; skill HUB 2026-10-03
-- [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — desde 12/10 sempre busca + 7 redes sem perguntar; grade candidato × rede; X e Kwai (/discover/) funcionam; TikTok via data-e2e + yt-dlp
+- [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — desde 12/10 sempre busca + 7 redes sem perguntar; grade candidato × rede; X funciona; Kwai /discover/ quebrou em 26/10; matérias via RSS do Google Notícias no Chrome; TikTok via data-e2e + yt-dlp
 - [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
 - [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — 2026-10-06: roteiro+montagem na nuvem, repo radar-do-campo, enviar.ps1/receber.ps1
 - [Lance em sequência aprovado (Bruno Duarte)](montagem-lance-em-sequencia-aprovado.md) — 2026-10-08 "perfeito": gancho = prévia da queda; depois o lance inteiro em ordem, cada frase com o próximo momento do mesmo evento; zoom 1,2–1,6 seguindo a bola
@@ -29,7 +29,7 @@
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
 - [Tom do canal medido](narracao-tom-do-canal-medido.md) — 2026-10-11: faixa 140–160 Hz, 2,8–3,5 palavras/s; AI Studio só no navegador; TikTok @_radardocampo só via Chrome
 - [Vídeo final nunca abaixo de 60s](video-final-sempre-60s.md) — mínimo 60s, acima é aceito; abaixo: primeiro esticar respirações (--manter até ~0,2s, 18/10), só então pedir narração nova; roteiro 255–265 palavras
-- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9 da skill (HUB 2026-10-18): oferecer no fim de toda entrega; keyframes em tempo da fonte; SFX ligado; gerar com CapCut fechado
+- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9 da skill (HUB 2026-10-18): oferecer no fim de toda entrega; keyframes em tempo da fonte; SFX ligado; gerar com CapCut fechado; desde 27/10 leva desfoque, setas e música até o fim
 - [Concat: timeline editável](concat-timeline-editavel.md) — substituído pelo CapCut em 18/10; concat_projeto.py só se ele pedir o Concat
 - [Teste do VoiceStudio](voicestudio-teste-2026-10-16.md) — 2026-10-16: instalado, erro de clone resolvido (ref ≤20 s), mas CPU lenta demais (>7 min p/ 12 s)
 - [Concat: fork próprio](concat-fork-proprio.md) — 2026-10-16: radardocampo/Concat + clone em Desktop/Concat-fonte; compilado, branch meu-concat (v0.2.7), script compilar.ps1
@@ -43,4 +43,6 @@
 - [Comparação em lote 21/10](comparacao-lote-2026-10-21.md) — 5 vídeos de 19–21/10 editados no CapCut; comparação por projeto; lições por vídeo
 - [Entrega: 2 arquivos sem logo](entrega-2-arquivos-sem-logo.md) — desde 2026-10-21 só com-legenda e sem-legenda, sem logo; TikTok/YouTube extintos, refina no CapCut
 - [Comparação em lote 23/10](comparacao-lote-2026-10-23.md) — Carlos Miguel, Thiago Silva, Cetré pelo CapCut; skill HUB 2026-10-23 (rodada 15)
+- [Comparação em lote 27/10](comparacao-lote-2026-10-27.md) — CR7, Toney, Neymar, Piqué, Yamal; capcut_projeto leva desfoque/setas/música; analisa_capcut.py; skill HUB 2026-10-27 (rodada 16)
 - [Entrega: prompt de títulos e tags](entrega-prompt-titulos-tags.md) — desde 2026-10-23 toda montagem termina com prompt pronto p/ chat novo (assets/prompt_titulos_tags.txt)
+- [Caso AdSense PIN](adsense-pin-verificacao-endereco.md) — 23/10/2026: PINs não chegaram, pedido de verificação por documento enviado ao suporte de criadores
