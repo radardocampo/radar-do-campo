@@ -73,7 +73,8 @@ sc.add_track(cc.TrackType.video, "DESFOQUE", relative_index=1)
 sc.add_track(cc.TrackType.video, "FLASH", relative_index=2)
 sc.add_track(cc.TrackType.video, "CARDS", relative_index=3)
 sc.add_track(cc.TrackType.video, "CARDS2", relative_index=4)
-sc.add_track(cc.TrackType.video, "SETAS", relative_index=5)
+sc.add_track(cc.TrackType.video, "CARDS3", relative_index=5)
+sc.add_track(cc.TrackType.video, "SETAS", relative_index=6)
 sc.add_track(cc.TrackType.text, "LEGENDA")
 sc.add_track(cc.TrackType.audio, "NARRACAO")
 sc.add_track(cc.TrackType.audio, "SFX", mute=a.sfx_mudo)
@@ -188,7 +189,7 @@ for s in edl["shots"]:
         cm = cc.VideoMaterial(d["arquivo"])
         sc.add_segment(cc.VideoSegment(cm, trange(us(s["tStart"] + t0), us(t1 - t0)),
                        clip_settings=cc.ClipSettings(scale_x=d.get("tam", 0.3), scale_y=d.get("tam", 0.3),
-                                                     transform_y=(0.5 - d["y"]) * 2, transform_x=(d["x"] - 0.5) * 2)), "CARDS2" if kd else "CARDS")
+                                                     transform_y=(0.5 - d["y"]) * 2, transform_x=(d["x"] - 0.5) * 2)), ("CARDS", "CARDS2", "CARDS3")[min(kd, 2)])
 
 # flashback em preto e branco: filtro do CapCut (editavel/removivel) no trecho de outra data
 if pb_ranges:
@@ -323,7 +324,7 @@ if len(duas) == 1 and len(uma) == 1:
     for t in duas + uma: t["segments"] = [sg for sg in t["segments"] if sg["target_timerange"]["duration"] > 0]
 else:
     print("AVISO: o modelo nao tem 2 trilhas + 1 impacto; musica so cortada na duracao")
-out["tracks"] = [novas["VIDEO"]] + ([novas["DESFOQUE"]] if novas["DESFOQUE"]["segments"] else []) + [novas["FLASH"]] + [novas[n] for n in ("CARDS", "CARDS2", "SETAS") if n in novas and novas[n]["segments"]] + ([novas["FLASHBACK"]] if "FLASHBACK" in novas else []) + [t for t in herdadas if t["type"] == "video"] + \
+out["tracks"] = [novas["VIDEO"]] + ([novas["DESFOQUE"]] if novas["DESFOQUE"]["segments"] else []) + [novas["FLASH"]] + [novas[n] for n in ("CARDS", "CARDS2", "CARDS3", "SETAS") if n in novas and novas[n]["segments"]] + ([novas["FLASHBACK"]] if "FLASHBACK" in novas else []) + [t for t in herdadas if t["type"] == "video"] + \
                 [novas["NARRACAO"], novas["SFX"]] + [t for t in herdadas if t["type"] == "audio"] + \
                 [t for t in herdadas if t["type"] not in ("video", "audio")] + [novas["LEGENDA"]]
 out["duration"] = D

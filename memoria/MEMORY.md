@@ -20,7 +20,7 @@
 - [Edição dele do Raphinha cortado](referencia-edicao-raphinha-cortado.md) — 2026-09-30: montou do zero; ícone CBF riscado, punch-in na coxa, lugar/lista/instituição literais, infográfico IA, SRT para o CapCut
 - [Placar final: conferir acréscimos](placar-final-conferir-acrescimos.md) — Índia x Brasil 03/10: páginas ao vivo diziam 3x0, foi 4x0 (90+5); público "início" ≠ oficial
 - [Montagem pensada pra viralizar](montagem-pensada-pra-viralizar.md) — 2026-10-03 Calcutá: gancho = pico do material, ação até o impacto, sem zoom em plano de escala, frase inteira literal; skill HUB 2026-10-03
-- [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — desde 12/10 sempre busca + 7 redes sem perguntar; grade candidato × rede; X funciona; Kwai /discover/ quebrou em 26/10; matérias via RSS do Google Notícias no Chrome; TikTok via data-e2e + yt-dlp
+- [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — desde 12/10 sempre busca + 7 redes sem perguntar; grade candidato × rede; X funciona; Kwai /discover/ quebrou em 26/10 e voltou em 28/10; TikTok pela aba Vídeos; matérias via RSS do Google Notícias no Chrome; TikTok via data-e2e + yt-dlp
 - [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
 - [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — 2026-10-06: roteiro+montagem na nuvem, repo radar-do-campo, enviar.ps1/receber.ps1
 - [Lance em sequência aprovado (Bruno Duarte)](montagem-lance-em-sequencia-aprovado.md) — 2026-10-08 "perfeito": gancho = prévia da queda; depois o lance inteiro em ordem, cada frase com o próximo momento do mesmo evento; zoom 1,2–1,6 seguindo a bola
@@ -46,3 +46,5 @@
 - [Comparação em lote 27/10](comparacao-lote-2026-10-27.md) — CR7, Toney, Neymar, Piqué, Yamal; capcut_projeto leva desfoque/setas/música; analisa_capcut.py; skill HUB 2026-10-27 (rodada 16)
 - [Entrega: prompt de títulos e tags](entrega-prompt-titulos-tags.md) — desde 2026-10-23 toda montagem termina com prompt pronto p/ chat novo (assets/prompt_titulos_tags.txt)
 - [Caso AdSense PIN](adsense-pin-verificacao-endereco.md) — 23/10/2026: PINs não chegaram, pedido de verificação por documento enviado ao suporte de criadores
+- [Comparação 28/10 Bruno x Fleetwood](comparacao-2026-10-28-bruno-fleetwood.md) — rodada 17: gancho fechado no protagonista, nome de comentarista desfocado, card-clímax sozinho; CARDS3
+- [Desempenho do canal 28/10](desempenho-canal-2026-10-28.md) — views do fluxo no YT/TT; vence detalhe escondido/regra, incidente físico, estrela+conflito

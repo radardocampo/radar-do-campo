@@ -170,3 +170,11 @@ Nesse modo:
 - passe nas 7 redes pelo Chrome (Passo 8), lendo os comentários mais curtidos;
 - veja os ângulos que o Onfirefut já usou (Passo 8b);
 - escreva o roteiro já nesta resposta (Passo 11), com as fontes do detalhe.
+## O que os números do canal mostram (medido em 28/10/2026, vídeos de 24/09 a 28/10)
+
+Use isto para escolher o tema e escrever o gancho:
+- **Ganham nos 3 apps:** (1) o detalhe escondido ou a regra que muda o lance ("o pênalti do Kane não valeria", "nenhum jogador usou a 10", "o gesto já tinha expulsado o Kaio Jorge", "o gol talvez nem seja dele"); (2) incidente físico (apagou em campo, punho quebrado, briga); (3) estrela + conflito (Kane, CR7, Neymar, Messi).
+- **Perdem:** provocação ou histórico sem fato novo (Piqué, Toney), golaço sem polêmica (Paquetá), jogo sem estrela.
+- **TikTok:** a maioria sai no 1º segundo. Os que seguraram até 0:04 tiveram 27–30% de vídeo completo e mais views. A primeira frase tem que prometer o detalhe ou a regra, não o contexto.
+- **YouTube:** a % assistida fica em 70–90% em quase todos. O que decide é o tema e o gancho fazerem o feed escolher o vídeo. Roteiro que passa de ~1:10 cai para ~70% assistido; mire 60–65s.
+- **Instagram:** só a camisa 10 passou de 100 mil; a capa com frase curta de mistério ("A 10 SUMIU", "CHUTOU A BANDEIRA") puxa.

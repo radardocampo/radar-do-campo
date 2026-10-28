@@ -1,6 +1,6 @@
 ---
 name: garimpo-temas-todas-as-redes
-description: rotina do dia com redes = passar TODAS as 7 redes por candidato no Chrome do usuário e mostrar a grade; X e Kwai (/discover/) funcionaram em 06/10
+description: rotina do dia com redes = passar TODAS as 7 redes por candidato no Chrome do usuário e mostrar a grade; em 28/10 Kwai /discover/ voltou e TikTok só pela aba Vídeos
 metadata:
   node_type: memory
   type: feedback
@@ -17,3 +17,5 @@ Na rotina (garimpo-de-temas, modo redes), o usuário quer a busca feita no naveg
 **Atualização 2026-10-12:** a pedido dele, a rotina SEMPRE faz busca + 7 redes, sem perguntar o modo (skill v9 no claude.ai, HUB e nuvem). TikTok: ler `[data-e2e=search_top-item]` → `[data-e2e=video-views]` + `search-card-video-caption` + `search-card-user-unique-id`; a página do vídeo abre em branco pela extensão, então legenda/curtidas/views do vídeo via `yt-dlp --skip-download --write-info-json` (comentários do TikTok não vieram). Threads às vezes volta vazio para termos em inglês: marcar "nada encontrado" depois de 2 buscas.
 
 **Atualização 2026-10-26:** o Kwai `/discover/<termo>` passou a devolver o mesmo feed genérico para qualquer termo (frase ou palavra única), então marcar "falhou" e avisar. A busca web (WebSearch) estava com índice velho e não achava os jogos da véspera. O que funcionou para achar matérias com data foi o RSS do Google Notícias, buscado de dentro de uma aba do news.google.com no Chrome: `fetch('/rss/search?q=<termo> when:2d&hl=pt-BR&gl=BR&ceid=BR:pt-419')`, lendo título + pubDate por regex (o DOMParser é bloqueado por TrustedHTML). Para abrir a matéria, fazer `location.href = <link do item>` e depois `get_page_text`. A extensão bloqueia mostrar o link (base64), então não dá para imprimir. Saídas maiores que ~1000 caracteres: guardar em `window.R` e ler em fatias.
+
+**Atualização 2026-10-28:** o Kwai `/discover/<termo>` voltou a buscar de verdade (resultados batiam com o termo; "dowman" sozinho mistura com Rihanna "Man Down"). TikTok: a aba "Melhores" (`/search?q=`) dava "Algo deu errado" mesmo após "Tente novamente"; a aba Vídeos (`/search/video?q=`) funcionou — juntar `a[href*="/video/"]`, subir 4 pais e ler o innerText (curtidas | legenda | data), descartando os do painel de notificações. A página do vídeo carregou normal e os comentários saem clicando na aba "Comentários" (~x1344,y196) e lendo `[data-e2e=comment-level-1]`, subindo até o pai que tem só aquele comentário (nome = 1ª linha, curtidas = linha só numérica). yt-dlp `--write-comments` não trouxe comentários do TikTok. Instagram: comentários do post saem do `main.innerText`, procurando as linhas "N curtidas" (autor 3 linhas antes, texto 1 antes).
