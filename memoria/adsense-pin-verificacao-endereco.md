@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 8cc21d08-8950-4ac3-965c-f0ea6bd09273
-  modified: 2026-10-27T20:25:41.474Z
+  modified: 2026-10-29T00:03:59.041Z
 ---
 
 Monetização do canal pausada (prazo do PIN venceu em 09/10/2026; 4 PINs enviados, último 03/09, nenhum chegou). Endereço AdSense: Servidão do Mar Grosso 55, Campeche, Florianópolis, CEP 88063-279 (Correios confirma Campeche). Conta de luz Celesc diz "Morro das Pedras" por erro — por isso o suporte recusou um comprovante antes.
@@ -17,4 +17,4 @@ Em 23/10/2026 foi enviado novo caso pelo formulário de e-mail do Suporte para C
 
 Atualização 24/10/2026: suporte (Jace, caso 6-2392000041965, yt-partner-support@google.com) pediu para gerar novo PIN; "Reenviar PIN" ainda dá "uma vez a cada três semanas". Respondido no Gmail com print do erro (AdSense/4_erro_reenviar_pin.jpg). Aguardando retorno.
 
-25/10: Jace pediu conta de consumo recente com endereço "letra por letra". 27/10: mandada conta Casan 10/2026 (AdSense/5_conta_agua_casan_10-2026_parte1/2.jpg, fotos do Drive) + CNH + NF-e. 27/10 17h21: Kiana assumiu, pediu novo PIN; mesmo erro, print AdSense/6_erro_reenviar_pin_27-10.jpg enviado pedindo isenção. Atenção: endereço no AdSense NÃO tem "Campeche" (só "Servidao do mar grosso 55 casa FLORIANÓPOLIS - SC 88063-279") — possível causa das cartas perdidas; sugerir correção ao suporte. No Gmail, digitar no corpo não funciona: usar execCommand('insertText') via JS.
+25/10: Jace pediu conta de consumo recente com endereço "letra por letra". 27/10: mandada conta Casan 10/2026 (AdSense/5_conta_agua_casan_10-2026_parte1/2.jpg, fotos do Drive) + CNH + NF-e. 27/10 17h21: Kiana assumiu, pediu novo PIN; mesmo erro, print AdSense/6_erro_reenviar_pin_27-10.jpg enviado pedindo isenção. Atenção: endereço no AdSense NÃO tem "Campeche" (só "Servidao do mar grosso 55 casa FLORIANÓPOLIS - SC 88063-279") — possível causa das cartas perdidas; sugerir correção ao suporte. 28/10 18h10: Jace disse que solicitou um novo PIN pelo lado deles, pediu para não responder e vai avisar quando a equipe der retorno. Endereço do AdSense continua sem Campeche. No Gmail, digitar no corpo não funciona: usar execCommand('insertText') via JS.

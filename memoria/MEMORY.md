@@ -47,4 +47,5 @@
 - [Entrega: prompt de títulos e tags](entrega-prompt-titulos-tags.md) — desde 2026-10-23 toda montagem termina com prompt pronto p/ chat novo (assets/prompt_titulos_tags.txt)
 - [Caso AdSense PIN](adsense-pin-verificacao-endereco.md) — 23/10/2026: PINs não chegaram, pedido de verificação por documento enviado ao suporte de criadores
 - [Comparação 28/10 Bruno x Fleetwood](comparacao-2026-10-28-bruno-fleetwood.md) — rodada 17: gancho fechado no protagonista, nome de comentarista desfocado, card-clímax sozinho; CARDS3
+- [Clipe sujo: buscar versão limpa](montagem-trocar-clipe-sujo-por-versao-limpa.md) — 29/10: se o enquadramento exige zoom grande por texto/logo na tela, garimpar o mesmo vídeo limpo em vez de aproximar
 - [Desempenho do canal 28/10](desempenho-canal-2026-10-28.md) — views do fluxo no YT/TT; vence detalhe escondido/regra, incidente físico, estrela+conflito
