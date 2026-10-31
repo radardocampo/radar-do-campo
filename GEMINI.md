@@ -23,6 +23,7 @@ Visão geral do canal e do fluxo: `LEIA-PRIMEIRO.md`.
 - Ignore o `CLAUDE.md` deste repo e os scripts `enviar.ps1`/`receber.ps1`/`preparar_nuvem.sh`: são do fluxo na nuvem.
 - Rode os scripts direto do repo: `python ".agents\skills\montagem-de-video\scripts\<script>.py" ...`.
   ffmpeg, yt-dlp e Python já estão instalados. O terminal é PowerShell 5.1: sem `&&` (use `;`).
+- Hub: no fim de cada skill rode o "Fechamento obrigatório: Hub" (última seção do SKILL.md). O `hub.py` funciona daqui do PC e é rotina, não precisa perguntar.
 - Narração: o usuário gera no AI Studio e coloca na pasta do vídeo. Use `narracao.py` como a skill manda.
 
 ## Autonomia total (autorização permanente do usuário)

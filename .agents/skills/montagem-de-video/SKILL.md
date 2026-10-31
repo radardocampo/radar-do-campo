@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-10-29 (regra: shot com enquadramento ruim por sujeira na tela volta ao garimpo atrás do mesmo vídeo limpo, em vez de zoom). Antes: 2026-10-28 (comparação do Bruno Guimarães x Fleetwood; Décima sétima rodada; `capcut_projeto.py` aceita 3 cards empilhados no mesmo shot, faixa CARDS3). Antes: 2026-10-27 (comparação em lote de CR7/Girotto, Toney, Neymar e a Lei Vini Jr, Piqué/Mbappé e Yamal na Bola de Ouro; Décima sexta rodada; o rascunho do CapCut agora leva os desfoques, as setas e a música até o fim, com a virada na revelação; `analisa_capcut.py` e `pares_quadros.py`). Antes: 2026-10-23b (prompt de títulos e tags para chat novo no fim de toda entrega). Antes: 2026-10-23 (comparação em lote de Carlos Miguel, Thiago Silva e Cetré; Décima quinta rodada). Antes: 2026-10-22 (correção no `capcut_projeto.py`: o fim de cada trecho da legenda é arredondado em microssegundos antes de subtrair o início, porque o arredondamento separado sobrepunha trechos e travava o rascunho no Thiago Silva). Antes: 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
+**Versão 2026-10-31 ("Fechamento obrigatório: Hub" no fim do arquivo: na entrega a pauta vai para Pronto com os arquivos e o prompt de títulos e tags; o rascunho do CapCut volta a pauta para Montagem; `{PASTA}` no prompt de títulos). Antes: 2026-10-30 (a pauta do Hub acompanha a montagem: seção "Hub", Passo 0 e Entrega; `{PAUTA}` no prompt de títulos). Antes: 2026-10-29 (regra: shot com enquadramento ruim por sujeira na tela volta ao garimpo atrás do mesmo vídeo limpo, em vez de zoom). Antes: 2026-10-28 (comparação do Bruno Guimarães x Fleetwood; Décima sétima rodada; `capcut_projeto.py` aceita 3 cards empilhados no mesmo shot, faixa CARDS3). Antes: 2026-10-27 (comparação em lote de CR7/Girotto, Toney, Neymar e a Lei Vini Jr, Piqué/Mbappé e Yamal na Bola de Ouro; Décima sexta rodada; o rascunho do CapCut agora leva os desfoques, as setas e a música até o fim, com a virada na revelação; `analisa_capcut.py` e `pares_quadros.py`). Antes: 2026-10-23b (prompt de títulos e tags para chat novo no fim de toda entrega). Antes: 2026-10-23 (comparação em lote de Carlos Miguel, Thiago Silva e Cetré; Décima quinta rodada). Antes: 2026-10-22 (correção no `capcut_projeto.py`: o fim de cada trecho da legenda é arredondado em microssegundos antes de subtrair o início, porque o arredondamento separado sobrepunha trechos e travava o rascunho no Thiago Silva). Antes: 2026-10-21b (entrega reduzida a 2 arquivos, com-legenda e sem-legenda, sem logo do canal; o rascunho do CapCut não herda as logos do modelo). Antes: 2026-10-21 (comparação em lote de Paquetá, Kannemann, Neymar x Soteldo, Neymar x Thiago Mendes e Vitinha, todos refinados no CapCut: gancho com punch-in e pan, janela no lado certo do assunto, fonte limpa do mesmo lance, prova segurada até o fim, trilha do modelo mais baixa, `compara_capcut.py`; Décima quarta rodada).** Anterior: 2026-10-18 (Andreas, Bernal e Leo Flores: rascunho do CapCut, item 22 e item 23). A versão é identificada pela DATA (não por v18/v19: o claude.ai conta os envios com outro número).
 
 ## PASSO ZERO OBRIGATÓRIO — usar sempre a versão mais nova
 
@@ -236,7 +236,23 @@ Base: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`
 
 Use os scripts. Cada um carrega a correção de um erro que já aconteceu (estão no fim da skill); reescrever do zero traz os erros de volta.
 
+## Hub: a pauta acompanha o trabalho (desde 30/out/2026)
+
+Pedido do usuário em 30/out/2026: "todo o processo de escolher os roteiros, garimpagem e montagem do vídeo sincronizado certinho com as pautas e a esteira do Hub". Cada vídeo é uma **pauta** no Hub (radardocampo.online → Vídeos → Pautas), e a esteira anda: pauta → roteiro → garimpo → montagem → pronto → no ar. Esta skill avisa o Hub pelo script `hub.py`:
+
+    python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte montagem-de-video <comando>
+
+- **Comandos:** `buscar [termo]`, `ler <id>`, `criar "<título>" [--etapa E] [--notas-arquivo F] [--roteiro-arquivo F] [--refs-json F] [--proximo-prompt-arquivo F]`, `etapa <id> <etapa> [--nota "..."]`, `atualizar <id> [--roteiro-arquivo F] [--notas-arquivo F] [--pasta P] [--arquivo "rótulo=caminho"] [--titulo T] [--proximo-prompt-arquivo F] [--etapa E] [--nota "..."]`, `prompt <id> <arquivo> [--etapa E]` (só o prompt do próximo passo), `clipe <id> <url> [--tipo clipe|referencia] [--trecho gancho|lance|torcida|reacao|contexto] [--inicio 0:12] [--fim 0:25] [--nota "..."]`, `clipes <id> <lista.json>`. Saída em JSON.
+- **Achar o id da pauta:** procure a linha `PAUTA DO HUB: <id>` no pedido (o botão "Copiar prompt" do Hub e os prompts de chat novo das skills trazem essa linha). Sem ela, rode `buscar "<jogador ou time>"` e use a pauta que bater; se nenhuma bater, crie uma.
+- **Passe o id adiante:** todo prompt para chat novo que esta skill gerar leva `PAUTA DO HUB: <id>` na primeira linha depois do pedido.
+- **O prompt do próximo passo vai para a pauta (desde 31/out/2026).** O prompt de chat novo que esta skill entrega é gravado na pauta com `--proximo-prompt-arquivo <arquivo>` (ou `prompt <id> <arquivo>`). O Hub mostra o bloco "Prompt para o próximo passo" com botão de copiar, e ele cola num chat novo direto de lá.
+- **O fluxo só termina com o "Fechamento obrigatório: Hub"** (última seção deste arquivo). Pedido de 31/out/2026: a esteira anda sozinha quando cada fluxo termina, sem depender de alguém lembrar de chamar o `hub.py`.
+- **O Hub nunca trava o vídeo.** Se o `hub.py` der erro (sem internet, senha ausente, pauta excluída), diga em uma linha na resposta e siga o trabalho. Nunca peça para o usuário consertar o Hub no meio da rotina.
+- Arquivo temporário para o `hub.py` (roteiro, lista JSON) segue a regra de pastas desta skill.
+
 ## Passo 0 — Insumos e perguntas
+
+**Hub:** o id da pauta vem da linha `PAUTA DO HUB` do pedido ou de `<job>/_registro/pauta_hub.txt` (o garimpo grava). Sem nenhum dos dois, `buscar` pelo protagonista. Ao começar: `atualizar <id> --etapa montagem --pasta "<job>" --nota "montagem começou"`.
 
 Olhe a pasta do job inteira antes de perguntar qualquer coisa: roteiro (`.txt`/`.docx`), `clipes/` com **todas** as subpastas (`apoio/`, `_extras/`, `_rejeitados/`, `_duplicados/`), `inventario.json` e a narração. Se o roteiro estiver vazio, avise e use o texto que o usuário mandou no chat, salvando-o como `roteiro.txt` para a legenda.
 
@@ -526,6 +542,8 @@ O usuário quer ajustar sozinho o que fizemos, sem pedir outra rodada. Em 18/out
 
     python _montagem/scripts/capcut_projeto.py "<job>" --nome "Radar - <título>" [--modelo "<rascunho-modelo>"] [--sfx-mudo]
 
+Rascunho gerado, rode a parte "Rascunho do CapCut" do "Fechamento obrigatório: Hub" (fim deste arquivo).
+
 O que ele aprovou, depois de recusar a 1ª versão ("não consigo mexer no que você fez como zoom, enquadramento e efeitos, até mesmo a legenda está diferente, e já quero que a música do meu rascunho anterior esteja igual"):
 - **Parte do rascunho-modelo dele:** é o mais recente que não começa com "Radar - " nem com "_tmp", hoje o "0417-cópia… (15)". A pasta é copiada inteira, então vêm junto as duas trilhas com a posição dele, o efeito "Dramatic", tudo cortado (as faixas de logo do modelo, lupa e YouTube, ficam de fora desde 21/out/2026) na duração do vídeo. **Volume da trilha principal: 0,12** (rodada 14: o modelo vem com 0,34, e ele baixou para 0,07–0,16 nos cinco vídeos). A segunda trilha vai a 0,09 e até ~1s antes do fim (o modelo parava em ~66s), e o impacto "Dramatic" a 0,3. Com `"revelacao": true` num shot, a virada inteira (fim da 1ª trilha, Dramatic, entrada da 2ª) vai para ele. Sem a marca, fica em 44,6s e o script avisa (rodada 16).
 - **Tudo nativo e editável, nada renderizado por cima.** A 1ª versão tinha uma faixa CORTE com o vídeo entregue em cima dos brutos, e ele não conseguia mexer. Agora cada shot é o clipe bruto, com corte e velocidade, escala e posição em Vídeo › Transformar e o movimento em keyframes.
@@ -567,7 +585,9 @@ Pegadinhas:
 
 Os 2 arquivos em `<job>/Videos prontos/`: `<apelido>-com-legenda.mp4` e `<apelido>-sem-legenda.mp4`, sem logo. Na raiz do job, `legenda para o CapCut.srt` e `guia da trilha.txt`: diga em uma linha para ele importar esse arquivo no CapCut em vez da legenda automática. Mostre a prévia (`_montagem/render/<apelido>-preview.mp4`) com `SendUserFile`. Resuma em poucas linhas: planos/min, % de torcida, % de protagonista, as decisões que valem discussão e o que ficou mais fraco e por quê. Não prometa desempenho. Termine oferecendo abrir o rascunho editável no CapCut (Passo 9).
 
-**Prompt de títulos e tags para chat novo (pedido do usuário em 23/out/2026).** Ele roda títulos/capa/tags num chat novo. Em toda entrega, sem perguntar, preencha `assets/prompt_titulos_tags.txt` (troque `{PROTAGONISTAS}`, `{JOGO}`, `{FATO}`, `{DURACAO}` e `{ROTEIRO}` pelo roteiro limpo, sem os rótulos Gancho/Contexto/Payoff e com a grafia certa dos nomes), grave em `<job>/prompt titulos e tags.txt` e mostre o prompt inteiro num bloco de código na resposta, pronto para copiar. O prompt é autossuficiente (traz as regras da skill `titulos-e-tags`): funciona em qualquer chat, mesmo sem a skill. Se a skill `titulos-e-tags` mudar, atualize este modelo junto.
+**Hub, na entrega:** siga o "Fechamento obrigatório: Hub" (fim deste arquivo), depois de gravar o prompt de títulos e tags abaixo.
+
+**Prompt de títulos e tags para chat novo (pedido do usuário em 23/out/2026).** Ele roda títulos/capa/tags num chat novo. Em toda entrega, sem perguntar, preencha `assets/prompt_titulos_tags.txt` (troque `{PROTAGONISTAS}`, `{JOGO}`, `{FATO}`, `{DURACAO}`, `{PAUTA}` (o id da pauta do Hub), `{PASTA}` (a pasta do job) e `{ROTEIRO}` pelo roteiro limpo, sem os rótulos Gancho/Contexto/Payoff e com a grafia certa dos nomes), grave em `<job>/prompt titulos e tags.txt` e mostre o prompt inteiro num bloco de código na resposta, pronto para copiar. O prompt é autossuficiente (traz as regras da skill `titulos-e-tags`): funciona em qualquer chat, mesmo sem a skill. Se a skill `titulos-e-tags` mudar, atualize este modelo junto.
 
 **Limpeza automática da entrega (05/10/2026).** No fim do render final, e nunca no `--rascunho`, o `render_final.py` manda para a Lixeira só o que se refaz sozinho: `corte_completo.mp4`, `corte_limpo.mp4` e `rascunho.mp4` (~1,7 GB). Shots, clipes, EDL e prévia ficam, então correção e remontagem continuam iguais. Se ele pedir correção depois da entrega, siga o fluxo de sempre: o `prep_shots`/`posfx` emendam o corte de novo, e o `render_final` refaz o `corte_completo` pela `lista_completo.txt` se ele não existir. Não comente a limpeza na entrega, a não ser que ela falhe.
 
@@ -697,3 +717,19 @@ Em 05/10/2026 o disco C: chegou a 22 GB livres. Cada vídeo ocupava ~5 GB: ~2,3 
 - Áudio final em -18,9 LUFS, baixo demais. Depois, -13,4; o usuário publica em -10.
 - "Sem legenda" com a lupa gravada: o usuário editou a partir dele, e a lupa do TikTok vazou para a versão do YouTube (Faiq Bolkiah).
 - Evitar a imagem literal (o time campeão com a taça) por medo de Content ID e cobrir "time principal" com estádio vazio.
+
+## Fechamento obrigatório: Hub (fim da entrega e do rascunho do CapCut)
+
+**Na entrega (sempre),** depois de gravar `<job>/prompt titulos e tags.txt` e antes de encerrar a resposta:
+
+    python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte montagem-de-video atualizar <id> --etapa pronto --pasta "<job>" --arquivo "Com legenda=<job>\Videos prontos\<apelido>-com-legenda.mp4" --arquivo "Sem legenda=<job>\Videos prontos\<apelido>-sem-legenda.mp4" --arquivo "Legenda para o CapCut=<job>\legenda para o CapCut.srt" --proximo-prompt-arquivo "<job>\prompt titulos e tags.txt" --nota "montagem entregue: <duração>s"
+
+**Rascunho do CapCut (Passo 9),** logo depois de gerar:
+
+    python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte montagem-de-video atualizar <id> --etapa montagem --arquivo "Rascunho no CapCut=Radar - <título>" --proximo-prompt-arquivo "<job>\prompt titulos e tags.txt" --nota "rascunho no CapCut; ele refina e exporta"
+
+A pauta volta para Montagem porque o vídeo que vai ao ar é o que ele exporta do CapCut (CR7, 31/out/2026). Quem passa para Pronto depois é a skill `titulos-e-tags`, no fim dela.
+
+**Correção depois da entrega:** rode de novo a linha da entrega (arquivo de mesmo caminho é trocado, não duplicado).
+
+Feche a resposta com uma linha: `Hub: <título> em Pronto (ou Montagem, com o rascunho do CapCut), arquivos e prompt de títulos e tags salvos.` Se o `hub.py` falhar, diga o erro nessa linha e siga (seção "Hub").

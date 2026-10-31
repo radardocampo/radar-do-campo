@@ -18,6 +18,8 @@ o que o canal é, o fluxo de produção, as skills (passo a passo de cada etapa)
 5. **Montagem** (`montagem-de-video`): scripts Python + ffmpeg montam o vídeo em `Videos prontos\Shorts\<vídeo>\`; entrega 2 arquivos, com legenda e sem legenda, **sem logo do canal** (desde 21/10/2026), e o rascunho editável no CapCut, de onde o dono refina e exporta a versão final, e um prompt pronto de títulos/capa/tags (`prompt titulos e tags.txt`) para ele colar num chat novo (desde 23/10/2026).
 6. O dono revisa/ajusta no CapCut e posta. Quando ele manda a edição dele, compara-se com a nossa e as diferenças viram regra (memórias `referencia-edicao-*` e `comparacao-lote-*`). Desde 18/10 ele refina no rascunho do CapCut que geramos; aí a comparação é pelo projeto (`compara_capcut.py`, e corte a corte com `analisa_capcut.py` + `pares_quadros.py`, ver a skill montagem-de-video). Desde 27/10 o rascunho já leva os desfoques, as setas e a música até o fim, com a virada na revelação.
 
+7. **Hub (painel web, radardocampo.online → Vídeos → Pautas):** cada vídeo é uma pauta que anda na esteira pauta → roteiro → garimpo → montagem → pronto → no ar. Cada skill termina com o "Fechamento obrigatório: Hub" (última seção do SKILL.md), que chama `radardocampohub1.0\scripts\hub.py` no PC: o roteiro cria/atualiza a pauta em Roteiro; o garimpo passa para Garimpo com a pasta e os clipes; a montagem passa para Pronto na entrega (volta para Montagem quando gera o rascunho do CapCut); títulos e tags anexam o arquivo e passam para Pronto. Cada skill grava na pauta o **prompt do próximo passo** (`--proximo-prompt-arquivo`), e o Hub mostra ele com botão de copiar para colar num chat novo (desde 31/10/2026). Sem acesso ao `hub.py` (nuvem, chat sem PC), diga em uma linha que o Hub não foi avisado e siga.
+
 ## Onde está cada coisa
 | O quê | Onde |
 |---|---|
@@ -25,6 +27,7 @@ o que o canal é, o fluxo de produção, as skills (passo a passo de cada etapa)
 | Memória (regras do dono) | `memoria/MEMORY.md` (índice) + um arquivo por regra em `memoria/` |
 | Pasta real de trabalho | `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\` (`Videos prontos\`, `logos\`, `Sons edição\`, `Musicas edição\`) |
 | Instruções por ferramenta | `CLAUDE.md` (Claude na nuvem) · `GEMINI.md` (Antigravity no PC) · `AGENTS.md` (outras IAs) |
+| Hub (pautas e esteira) | `HUB Radar do Campoadardocampohub1.0\` (site) · ponte das skills: `scripts\hub.py` (senha em `HUB Radar do Campo\Claude\hub-sync.env`, fora do GitHub) |
 | Scripts de apoio | `ferramentas/` (`sincronizar.ps1`, `enviar.ps1`/`receber.ps1` da nuvem) |
 
 ## Antes de qualquer tarefa

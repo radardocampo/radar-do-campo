@@ -5,11 +5,25 @@ description: "Usar quando o usuário pede a rotina/temas de roteiro do dia (jogo
 
 # Garimpar temas e montar roteiros de futebol (Radar do Campo)
 
-**Atualizada em 2026-10-18:** a rotina não fecha sem as 7 redes no Chrome dele e a lista escrita (Passos 8 e 9); canais do mesmo nicho e tema saturado (Passo 8b); roteiro com 255–265 palavras, gancho curto que não aponta a revelação e foco só no incidente (Passo 11); prompt de garimpo para chat novo (Passo 11b).
+**Atualizada em 2026-10-31:** todo roteiro termina com o "Fechamento obrigatório: Hub" (fim do arquivo): a pauta vai para Roteiro com o roteiro, as notas e o prompt de garimpo. **Antes, 2026-10-30:** a pauta do Hub acompanha a rotina (seção "Hub" e Passos 10, 11, 11b e 13). **Antes, 2026-10-18:** a rotina não fecha sem as 7 redes no Chrome dele e a lista escrita (Passos 8 e 9); canais do mesmo nicho e tema saturado (Passo 8b); roteiro com 255–265 palavras, gancho curto que não aponta a revelação e foco só no incidente (Passo 11); prompt de garimpo para chat novo (Passo 11b).
 
 Objetivo: ao invés de partir de um roteiro pronto pra achar clipes-fonte (isso é a skill `garimpo-de-videos`), aqui o ponto de partida é o próprio calendário de jogos — encontrar, entre os jogos de futebol de um período (padrão: o dia anterior, fuso America/Sao_Paulo), quais têm um ângulo forte o bastante pra virar roteiro do canal Radar do Campo, montar um resumo por jogo pro usuário escolher, e só então escrever o(s) roteiro(s) completo(s) dos ângulos escolhidos. Também cobre o caso de o usuário já chegar com um jogo específico em mente (Passo 13).
 
 Essa skill assume que já foi decidido que é hora de rodar esse fluxo (normalmente porque as instruções do projeto do usuário mandam chamar essa skill quando ele pede "a rotina/os temas do dia") — ela não precisa reconhecer a frase-gatilho sozinha, só executar o fluxo abaixo assim que for chamada.
+
+## Hub: a pauta acompanha o trabalho (desde 30/out/2026)
+
+Pedido do usuário em 30/out/2026: "todo o processo de escolher os roteiros, garimpagem e montagem do vídeo sincronizado certinho com as pautas e a esteira do Hub". Cada vídeo é uma **pauta** no Hub (radardocampo.online → Vídeos → Pautas), e a esteira anda: pauta → roteiro → garimpo → montagem → pronto → no ar. Esta skill avisa o Hub pelo script `hub.py`:
+
+    python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte garimpo-de-temas <comando>
+
+- **Comandos:** `buscar [termo]`, `ler <id>`, `criar "<título>" [--etapa E] [--notas-arquivo F] [--roteiro-arquivo F] [--refs-json F] [--proximo-prompt-arquivo F]`, `etapa <id> <etapa> [--nota "..."]`, `atualizar <id> [--roteiro-arquivo F] [--notas-arquivo F] [--pasta P] [--arquivo "rótulo=caminho"] [--titulo T] [--proximo-prompt-arquivo F] [--etapa E] [--nota "..."]`, `prompt <id> <arquivo> [--etapa E]` (só o prompt do próximo passo), `clipe <id> <url> [--tipo clipe|referencia] [--trecho gancho|lance|torcida|reacao|contexto] [--inicio 0:12] [--fim 0:25] [--nota "..."]`, `clipes <id> <lista.json>`. Saída em JSON.
+- **Achar o id da pauta:** procure a linha `PAUTA DO HUB: <id>` no pedido (o botão "Copiar prompt" do Hub e os prompts de chat novo das skills trazem essa linha). Sem ela, rode `buscar "<jogador ou time>"` e use a pauta que bater; se nenhuma bater, crie uma.
+- **Passe o id adiante:** todo prompt para chat novo que esta skill gerar leva `PAUTA DO HUB: <id>` na primeira linha depois do pedido.
+- **O prompt do próximo passo vai para a pauta (desde 31/out/2026).** O prompt de chat novo que esta skill entrega é gravado na pauta com `--proximo-prompt-arquivo <arquivo>` (ou `prompt <id> <arquivo>`). O Hub mostra o bloco "Prompt para o próximo passo" com botão de copiar, e ele cola num chat novo direto de lá.
+- **O fluxo só termina com o "Fechamento obrigatório: Hub"** (última seção deste arquivo). Pedido de 31/out/2026: a esteira anda sozinha quando cada fluxo termina, sem depender de alguém lembrar de chamar o `hub.py`.
+- **O Hub nunca trava o vídeo.** Se o `hub.py` der erro (sem internet, senha ausente, pauta excluída), diga em uma linha na resposta e siga o trabalho. Nunca peça para o usuário consertar o Hub no meio da rotina.
+- Arquivo temporário para o `hub.py` (roteiro, lista JSON) segue a regra de pastas desta skill.
 
 ## Exclusão fixa — futebol feminino fora da busca
 O canal não cobre futebol feminino. Jogos de competições femininas (Brasileirão Feminino, Champions Feminina, NWSL, Copa do Mundo Feminina, categorias de base femininas etc.) **nunca** entram como candidatos: nem pela busca das ligas prioritárias (Passo 3), nem pela checada dos jogos "fracos" (Passo 4), nem pelo fallback (Passo 5), nem pela repercussão nas redes (Passo 8) — mesmo que seja uma final, tenha viralizado ou tenha o melhor ângulo do dia. Se o dia só rendeu jogo feminino, vá pro fallback do Passo 5 ou diga que não teve tema, em vez de trazer um candidato feminino.
@@ -109,6 +123,8 @@ Traga de 4 a 6 candidatos sempre que o dia permitir, variando os tipos entre ele
 ## Passo 10 — Esperar a escolha do usuário
 Pare aqui e espere o usuário responder quais candidatos quer transformar em roteiro (por número, "todos", ou pedindo mais opções se nenhum convencer). Só depois disso, siga pro Passo 11.
 
+**Hub:** só os candidatos **escolhidos** viram pauta (os outros não, para a lista do Hub não encher todo dia). Para cada escolhido, antes de escrever: `buscar` pelo protagonista (ele pode ter salvo a pauta pela extensão do Chrome); se não houver, `criar "<título curto do tema>" --etapa pauta --notas-arquivo <resumo.txt> --refs-json <posts.json>`. O resumo leva o que aconteceu, o detalhe obscuro e as fontes com link; os posts das redes do Passo 8 entram como `{"url": ..., "kind": "referencia", "note": "104 mil curtidas, comentários citados"}`.
+
 ## Passo 11 — Desenvolver o(s) roteiro(s) completo(s) dos escolhidos
 Escreva no estilo do canal Radar do Campo, usando o canal @Onfirefut (https://www.youtube.com/@Onfirefut) como referência de estilo e ritmo (ele não é o canal do usuário, é só benchmark estético). Entregue pronto pra revisão, sem enrolação.
 
@@ -132,6 +148,8 @@ O que ele mudou no roteiro do Bernal x Yamal (18/out/2026), e vale para todos:
 
 Se mais de um candidato for escolhido no mesmo lote, varie a fraseologia do gancho entre eles — mantenha o padrão de contraste, mas não repita a frase-molde palavra por palavra em todos os roteiros do lote.
 
+**Hub:** com o roteiro e o prompt do Passo 11b prontos, siga o "Fechamento obrigatório: Hub" (fim deste arquivo). Se ele pedir mudança no roteiro depois, rode o fechamento de novo.
+
 Ao final de cada roteiro, informe a contagem aproximada de palavras (pra conferir o tempo) e a fonte (link) do detalhe destacado.
 
 Depois do roteiro com etiquetas, entregue também um bloco **"Texto para o AI Studio"**, corrido e sem as etiquetas (Gancho, Contexto, Desenvolvimento, Reviravolta, Payoff). Em 02/out/2026 o roteiro foi colado com as etiquetas e a voz leu "Contexto", "Reviravolta" e "Payoff", que precisaram ser cortadas na montagem.
@@ -141,12 +159,14 @@ Feche com 3–4 linhas de **ideias para a montagem**: a imagem do gancho, a prov
 ## Passo 11b — Prompt para garimpar num chat novo (SEMPRE, depois de todo roteiro)
 Desde 21/out/2026 é padrão: todo roteiro entregue termina com este prompt, sem ele pedir (cada etapa roda num chat novo para economizar token, e o mesmo prompt serve para o Antigravity como plano B).
 Em 18/out/2026 ele pediu "gere um prompt com o contexto para garimpar os vídeos desse roteiro em um chat novo", e o garimpo que saiu dele foi bom. Entregue num bloco de código, pronto para colar:
-1. `Use a skill garimpo-de-videos para garimpar e baixar os clipes deste roteiro do canal Radar do Campo.`
+1. `Use a skill garimpo-de-videos para garimpar e baixar os clipes deste roteiro do canal Radar do Campo.` e, logo abaixo, `PAUTA DO HUB: <id>`.
 2. **CONTEXTO DO TEMA (já confirmado):** jogo, competição, data, estádio, minuto a minuto do lance, nomes completos (inclusive goleiro e árbitro), o que veio depois (coletiva, pedido de desculpas, súmula) e as datas futuras citadas.
 3. **ROTEIRO (narração final):** o texto corrido que foi para o AI Studio.
 4. **O QUE CADA TRECHO PRECISA DE IMAGEM:** lista numerada, um item por frase forte, dizendo a imagem literal e a preferência (arquibancada, dois ângulos, print do comentário, print da súmula, "se não houver, close de X").
 5. **POSTS QUE JÁ ACHEI NA PESQUISA (começar por eles):** os links das redes com curtidas, inclusive o post onde estão os comentários citados.
 6. **OBSERVAÇÕES:** canais concorrentes cujos clipes não devem ser usados (Onfirefut), ângulos que eles já usaram, buscas úteis em português e na língua do jogo.
+
+Esse mesmo texto vai para a pauta do Hub no fechamento (fim deste arquivo), e o botão do Hub copia ele.
 
 ## Passo 12 — Dois modos de entrada alternativos (material pronto)
 Esse fluxo (Passos 1-11) é o padrão quando a skill é chamada pra buscar temas do zero. Mas o usuário pode entrar direto com material, pulando tudo isso:
@@ -160,6 +180,7 @@ Além do fluxo completo (Passos 1-11) e dos modos de entrada do Passo 12, o usu�
 
 Nesse modo:
 - Pule os Passos 2-5 (não precisa definir janela, nem filtrar por liga/relevância — o jogo já foi escolhido pelo usuário, não está concorrendo com outros). A exclusão fixa de futebol feminino também não se aplica aqui: se o usuário trouxe o jogo, é porque ele quer.
+- Se o pedido trouxer `PAUTA DO HUB: <id>` (veio do botão "Copiar prompt" do Hub), rode `ler <id>` e use as notas, as referências e os clipes salvos como ponto de partida; o roteiro e a etapa vão para essa mesma pauta.
 - Vá direto pro Passo 6 (levantar resultado/destaques/lances) e Passo 7 (checar fonte) pra esse jogo.
 - Faça também o Passo 8 (repercussão nas redes sociais) automaticamente — foi isso que o usuário pediu.
 - Se o jogo ainda estiver em andamento no momento do pedido, avise isso explicitamente e deixe claro que o placar/estatísticas podem mudar até o fim da partida — nunca apresente informação parcial de um jogo em andamento como se fosse o resultado final.
@@ -178,3 +199,18 @@ Use isto para escolher o tema e escrever o gancho:
 - **TikTok:** a maioria sai no 1º segundo. Os que seguraram até 0:04 tiveram 27–30% de vídeo completo e mais views. A primeira frase tem que prometer o detalhe ou a regra, não o contexto.
 - **YouTube:** a % assistida fica em 70–90% em quase todos. O que decide é o tema e o gancho fazerem o feed escolher o vídeo. Roteiro que passa de ~1:10 cai para ~70% assistido; mire 60–65s.
 - **Instagram:** só a camisa 10 passou de 100 mil; a capa com frase curta de mistério ("A 10 SUMIU", "CHUTOU A BANDEIRA") puxa.
+
+## Fechamento obrigatório: Hub (último passo de todo roteiro)
+
+Depois de entregar o roteiro e o prompt do Passo 11b, para **cada** roteiro escrito e antes de encerrar a resposta:
+
+1. Grave na pasta temporária da skill: `roteiro.txt` (o "Texto para o AI Studio"), `notas.txt` (jogo e data, o detalhe, as fontes com link, as ideias de montagem e as redes com números) e `prompt garimpo.txt` (o prompt do Passo 11b exatamente como foi entregue, com a linha `PAUTA DO HUB`).
+2. Com a pauta conhecida (Passo 10 ou `PAUTA DO HUB` no pedido):
+
+       python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte garimpo-de-temas atualizar <id> --etapa roteiro --roteiro-arquivo roteiro.txt --notas-arquivo notas.txt --proximo-prompt-arquivo "prompt garimpo.txt" --nota "roteiro com N palavras"
+
+   Sem pauta, crie antes de escrever o prompt, para o id ir na linha `PAUTA DO HUB`: `criar "<título curto>" --etapa roteiro --roteiro-arquivo roteiro.txt --notas-arquivo notas.txt --refs-json posts.json`; depois grave o prompt com `prompt <id> "prompt garimpo.txt"`.
+3. Se ele pedir mudança no roteiro depois, repita 1 e 2 com o texto novo (o prompt também muda).
+4. Feche a resposta com uma linha por pauta: `Hub: <título> em Roteiro, com o prompt de garimpo.` Se o `hub.py` falhar, diga o erro nessa linha e siga (seção "Hub").
+
+O Passo 13 sem roteiro (só o resumo do jogo) não tem fechamento: nada mudou na esteira.

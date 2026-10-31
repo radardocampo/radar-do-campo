@@ -5,7 +5,7 @@ description: "Usar quando o usuário fornece um roteiro de vídeo e pede para en
 
 # Garimpo de clipes — Radar do Campo
 
-**Atualizada em 2026-10-18:** prints do que o roteiro cita (comentário, súmula, story), começar pelos links da pesquisa, nada de clipe de canal concorrente, arquivos de trabalho fora da raiz.
+**Atualizada em 2026-10-31:** todo garimpo termina com o "Fechamento obrigatório: Hub" (fim do arquivo): clipes ligados, pasta e o prompt de montagem na pauta. **Antes, 2026-10-30:** a pauta do Hub acompanha o garimpo (seção "Hub", Passos 1, 8 e 9). **Antes, 2026-10-18:** prints do que o roteiro cita (comentário, súmula, story), começar pelos links da pesquisa, nada de clipe de canal concorrente, arquivos de trabalho fora da raiz.
 
 Objetivo: dado um roteiro, entregar uma pasta cheia de material bruto baixado **e mapeado por trecho**, pronta para a `montagem-de-video`. Não é lista de links: é arquivo em disco + inventário.
 
@@ -34,6 +34,20 @@ Em 08/10/2026 (Bruno Duarte, Botafogo 1x2 Vasco) o usuário pediu "não exagerar
 6. **Durante a montagem, busca extra pontual.** Se uma frase ficar sem imagem (em 08/10, o Colidio), faça uma busca rápida só para ela, em vez de um garimpo amplo antes.
 
 Na rodada de 08/10 foram 5 buscas no TikTok e 46 clipes baixados. 24 foram mapeados, 9 descartados e 2 eram duplicados. Isso bastou para um vídeo aprovado sem mudanças. Continue entregando o placar das cotas do Passo 2, dizendo o que faltou.
+
+## Hub: a pauta acompanha o trabalho (desde 30/out/2026)
+
+Pedido do usuário em 30/out/2026: "todo o processo de escolher os roteiros, garimpagem e montagem do vídeo sincronizado certinho com as pautas e a esteira do Hub". Cada vídeo é uma **pauta** no Hub (radardocampo.online → Vídeos → Pautas), e a esteira anda: pauta → roteiro → garimpo → montagem → pronto → no ar. Esta skill avisa o Hub pelo script `hub.py`:
+
+    python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte garimpo-de-videos <comando>
+
+- **Comandos:** `buscar [termo]`, `ler <id>`, `criar "<título>" [--etapa E] [--notas-arquivo F] [--roteiro-arquivo F] [--refs-json F] [--proximo-prompt-arquivo F]`, `etapa <id> <etapa> [--nota "..."]`, `atualizar <id> [--roteiro-arquivo F] [--notas-arquivo F] [--pasta P] [--arquivo "rótulo=caminho"] [--titulo T] [--proximo-prompt-arquivo F] [--etapa E] [--nota "..."]`, `prompt <id> <arquivo> [--etapa E]` (só o prompt do próximo passo), `clipe <id> <url> [--tipo clipe|referencia] [--trecho gancho|lance|torcida|reacao|contexto] [--inicio 0:12] [--fim 0:25] [--nota "..."]`, `clipes <id> <lista.json>`. Saída em JSON.
+- **Achar o id da pauta:** procure a linha `PAUTA DO HUB: <id>` no pedido (o botão "Copiar prompt" do Hub e os prompts de chat novo das skills trazem essa linha). Sem ela, rode `buscar "<jogador ou time>"` e use a pauta que bater; se nenhuma bater, crie uma.
+- **Passe o id adiante:** todo prompt para chat novo que esta skill gerar leva `PAUTA DO HUB: <id>` na primeira linha depois do pedido.
+- **O prompt do próximo passo vai para a pauta (desde 31/out/2026).** O prompt de chat novo que esta skill entrega é gravado na pauta com `--proximo-prompt-arquivo <arquivo>` (ou `prompt <id> <arquivo>`). O Hub mostra o bloco "Prompt para o próximo passo" com botão de copiar, e ele cola num chat novo direto de lá.
+- **O fluxo só termina com o "Fechamento obrigatório: Hub"** (última seção deste arquivo). Pedido de 31/out/2026: a esteira anda sozinha quando cada fluxo termina, sem depender de alguém lembrar de chamar o `hub.py`.
+- **O Hub nunca trava o vídeo.** Se o `hub.py` der erro (sem internet, senha ausente, pauta excluída), diga em uma linha na resposta e siga o trabalho. Nunca peça para o usuário consertar o Hub no meio da rotina.
+- Arquivo temporário para o `hub.py` (roteiro, lista JSON) segue a regra de pastas desta skill.
 
 ## Onde trabalhar (regra fixa do usuário)
 
@@ -76,6 +90,8 @@ Estrutura:
       inventario.json
 
 Não existe mais `_extras` "não verificado": clipe baixado é clipe verificado.
+
+**Hub, no começo do garimpo:** ache o id da pauta (seção "Hub"); sem pauta, crie com `criar "<título>" --etapa garimpo --roteiro-arquivo ROTEIRO.txt`. Grave o id em `<job>/_registro/pauta_hub.txt` (a montagem lê dali) e rode `atualizar <id> --etapa garimpo --pasta "<job>" --nota "garimpo começou"`. Rode também `ler <id>`: os **clipes salvos pela extensão do Chrome** (`kind: clipe`, com trecho e início/fim) contam como "posts que já achei": baixe primeiro e use as janelas marcadas como ponto de partida do mapeamento.
 
 ## Passo 2 — Quebrar o roteiro e definir as cotas
 
@@ -243,16 +259,20 @@ Organize por parte do roteiro. Em cada linha: **[BAIXADO]** ou **[BAIXAR MANUALM
 
 Destaque no topo os **vídeos longos de torcida** encontrados e quanto tempo limpo cada um tem: eles definem a montagem. Liste o apoio por categoria. Feche com o placar das cotas do Passo 2, dizendo o que faltou e por quê.
 
+**Hub, na entrega:** ligue à pauta os clipes que cobrem o roteiro, um por trecho mapeado (até ~30), com `clipes <id> <job>/_registro/hub_clipes.json`. Cada item: `url` (a fonte original), `kind: "clipe"`, `role` (gancho, lance, torcida, reacao ou contexto, pela parte do roteiro), `start_s`/`end_s` da melhor janela, `title` (o que mostra) e `note` (nome do arquivo em `clipes/` e a parte do roteiro). O resto (pasta, nota e prompt de montagem) vai no "Fechamento obrigatório: Hub" (fim deste arquivo). A etapa continua garimpo; quem muda para montagem é a montagem.
+
 
 ## Passo 9 — Prompt para montar num chat novo (SEMPRE, no fim do garimpo)
 Desde 21/out/2026: toda entrega de garimpo termina com um prompt num bloco de código, pronto para colar num chat novo (Claude ou Antigravity como plano B):
-1. `Use a skill montagem-de-video para montar o Short deste roteiro do canal Radar do Campo.`
+1. `Use a skill montagem-de-video para montar o Short deste roteiro do canal Radar do Campo.` e, logo abaixo, `PAUTA DO HUB: <id>`.
 2. **PASTA DO JOB:** caminho completo da pasta com os clipes e o inventário.
 3. **ROTEIRO (narração final)** e onde está/estará o áudio da narração (o usuário gera no AI Studio).
 4. **CONTEXTO DO TEMA:** jogo, data, placar final, nomes completos, o lance minuto a minuto.
 5. **MAPA TRECHO → CLIPE:** para cada frase, arquivo + janela (ex.: `tt_x.mp4 3–12s`) e o que mostra; marcar qual é o gancho (pico do material) e qual fecha o loop.
 6. **O QUE FALTOU:** trechos sem imagem e a alternativa sugerida (foto, print, close).
 7. **OBSERVAÇÕES:** marcas d'água a tampar, clipes de concorrentes a evitar, mínimo de 60s.
+
+Grave esse mesmo texto em `<job>/_registro/prompt_montagem.txt`: ele vai para a pauta no fechamento, e o botão do Hub copia ele.
 
 ## Erros já cometidos (não repetir)
 
@@ -278,3 +298,17 @@ Desde 21/out/2026: toda entrega de garimpo termina com um prompt num bloco de c�
   - Não trazer imagem do lugar citado (Calcutá) nem o infográfico do dado-resumo (365Scores): o usuário foi buscar os dois (Passo 3c).
   - Passar de 1h abrindo folhas de 6–7 em 6–7 imagens ("request limit"), sem gravar inventário nenhum: o usuário montou sem as janelas (Passo 7, item 0).
   - Nomear com os 6 últimos dígitos do id: ele não reconheceu o arquivo e baixou de novo (Passo 5).
+
+## Fechamento obrigatório: Hub (último passo de todo garimpo)
+
+Na entrega, depois do prompt do Passo 9 e antes de encerrar a resposta:
+
+1. Ligue os clipes: `clipes <id> <job>/_registro/hub_clipes.json` (Passo 8).
+2. Confira que `<job>/_registro/prompt_montagem.txt` tem o prompt do Passo 9 exatamente como foi entregue, com a linha `PAUTA DO HUB`.
+3. Rode:
+
+       python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte garimpo-de-videos atualizar <id> --etapa garimpo --pasta "<job>" --proximo-prompt-arquivo "<job>\_registro\prompt_montagem.txt" --nota "garimpo: N clipes mapeados; faltou: ..."
+
+4. Feche a resposta com uma linha: `Hub: <título> em Garimpo, N clipes ligados, prompt de montagem salvo.` Se o `hub.py` falhar, diga o erro nessa linha e siga (seção "Hub").
+
+Se ele pedir mais clipes depois, repita 1 a 3 (os links já ligados são pulados, e o prompt novo substitui o anterior).
