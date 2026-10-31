@@ -50,4 +50,4 @@
 - [Clipe sujo: buscar versão limpa](montagem-trocar-clipe-sujo-por-versao-limpa.md) — 29/10: se o enquadramento exige zoom grande por texto/logo na tela, garimpar o mesmo vídeo limpo em vez de aproximar
 - [Desempenho do canal 28/10](desempenho-canal-2026-10-28.md) — views do fluxo no YT/TT; vence detalhe escondido/regra, incidente físico, estrela+conflito
 - [Conferir qual lance pelo número](garimpo-conferir-qual-lance-pelo-numero.md) — 29/10 Giay x Larson: clipe da arquibancada era do Larson (26 + Gabigol 9); mesmo post da ge em 1080 no TikTok
-- [Hub: esteira e prompt do próximo passo](hub-esteira-e-prompt-proximo-passo.md) — 31/10: toda skill termina com "Fechamento obrigatório: Hub" e grava o prompt do próximo chat na pauta; migrations via db query
+- [Hub: esteira e prompt do próximo passo](hub-esteira-e-prompt-proximo-passo.md) — 31/10: toda skill termina com "Fechamento obrigatório: Hub"; Pronto só pela titulos-e-tags (montagem fica em Montagem); prompt do próximo chat na pauta; migrations via db query
