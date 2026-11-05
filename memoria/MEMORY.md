@@ -37,7 +37,7 @@
 - [Comparação em lote 17/10](comparacao-lote-2026-10-17.md) — 17 vídeos comparados; 8 sem troca de imagem; regras na skill HUB 2026-10-17; em 18/10 Leo Flores, Andreas e Bernal (rodada 13, HUB 2026-10-18)
 - [Roteiro sem comentários aleatórios](roteiro-sem-comentarios-aleatorios.md) — 2026-10-19 Paquetá: nada de comentário/curtida de anônimo como pauta; só pessoa relevante ou se o tema for isso
 - [Agente de voz do PC](agente-voz-pc.md) — BUSINESSgente-voz: Whisper local + regras + Gemini (20 req/dia grátis); próximos passos
-- [Roteiro de situação: direto](roteiro-situacao-direto.md) — 2026-10-20 Neymar/Soteldo: gancho afirmativo, sem "Todo mundo viu", sem contexto de rodada/histórico
+- [Roteiro de situação: direto](roteiro-situacao-direto.md) — 2026-10-20 Neymar/Soteldo + 03/11 Haaland/Enzo: nome do jogador no gancho, sem "companheiro", sem views de TikTok/polêmica, sem rodada/histórico
 - [Antigravity como plano B](antigravity-plano-b.md) — 2026-10-20: GEMINI.md + .agents/skills no repo; sincronizar.ps1 em toda mudança; checar memoria/pendente-antigravity.md
 - [Atualizar tudo, todas as áreas](atualizar-tudo-em-todas-as-areas.md) — 2026-10-21: toda mudança revisa skills, memória, LEIA-PRIMEIRO/CLAUDE/GEMINI/AGENTS no repo e roda sincronizar.ps1; repo = conhecimento completo p/ outra IA
 - [Comparação em lote 21/10](comparacao-lote-2026-10-21.md) — 5 vídeos de 19–21/10 editados no CapCut; comparação por projeto; lições por vídeo
@@ -50,4 +50,5 @@
 - [Clipe sujo: buscar versão limpa](montagem-trocar-clipe-sujo-por-versao-limpa.md) — 29/10: se o enquadramento exige zoom grande por texto/logo na tela, garimpar o mesmo vídeo limpo em vez de aproximar
 - [Desempenho do canal 28/10](desempenho-canal-2026-10-28.md) — views do fluxo no YT/TT; vence detalhe escondido/regra, incidente físico, estrela+conflito
 - [Conferir qual lance pelo número](garimpo-conferir-qual-lance-pelo-numero.md) — 29/10 Giay x Larson: clipe da arquibancada era do Larson (26 + Gabigol 9); mesmo post da ge em 1080 no TikTok
+- [Diagnóstico do canal 04/11](diagnostico-canal-2026-11-04.md) — linha de base: mediana 6,7k→21k com as skills e parada desde 15/10; US$ 464 no YT total, TikTok paga ~7–10x mais por view; 0,2% recorrente; riscos e o que vender
 - [Hub: esteira e prompt do próximo passo](hub-esteira-e-prompt-proximo-passo.md) — 31/10: selo trabalhando/aguardando (hub.py status) na abertura e no fechamento; toda skill termina com "Fechamento obrigatório: Hub"; Pronto só pela titulos-e-tags (montagem fica em Montagem); prompt do próximo chat na pauta; migrations via db query
