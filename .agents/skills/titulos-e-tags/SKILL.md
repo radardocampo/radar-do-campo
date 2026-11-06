@@ -5,24 +5,13 @@ description: "Use quando o usuário fornece um roteiro pronto de vídeo de futeb
 
 # Títulos e Tags — Radar do Campo
 
-**Atualizada em 2026-10-31 (tarde):** selo de andamento no Hub: `status <id> trabalhando` na abertura e `--status aguardando` com o texto do próximo passo no fechamento (seção "Hub"). **Antes, 2026-10-31:** a Etapa 2 termina com o "Fechamento obrigatório: Hub" (fim do arquivo): títulos, capa e tags anexados à pauta, que vai para Pronto. **Antes, 2026-10-30:** com a pauta do Hub no pedido, o título confirmado vai para a pauta (seção "Hub" e fim da Etapa 1). **Antes, 2026-10-18:** de 8 a 10 textos de capa agrupados por ângulo, capa casada com a foto que ele mandar, ortografia conferida letra por letra e gancho de identidade brasileira no título. A cópia-mestre fica no HUB (`versao-nova-2026-09-22\titulos-e-tags\`).
+**Versão 2026-11-06** (legenda do TikTok pensada para a busca, crédito das imagens, fim do "ninguém percebeu, mas…" como padrão; Hub resumido, comandos em `referencias/hub.md`). Histórico em `referencias/historico.md`. A cópia-mestre fica no HUB (`versao-nova-2026-09-22\titulos-e-tags\`).
 
 Fluxo em duas etapas para transformar um roteiro pronto em título, texto de capa (thumbnail) e tags do YouTube. Não pule direto para a Etapa 2 sem passar pela Etapa 1.
 
-## Hub: a pauta acompanha o trabalho (desde 30/out/2026)
+## Hub
 
-Pedido do usuário em 30/out/2026: "todo o processo de escolher os roteiros, garimpagem e montagem do vídeo sincronizado certinho com as pautas e a esteira do Hub". Cada vídeo é uma **pauta** no Hub (radardocampo.online → Vídeos → Pautas), e a esteira anda: pauta → roteiro → garimpo → montagem → pronto → no ar. Esta skill avisa o Hub pelo script `hub.py`:
-
-    python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte titulos-e-tags <comando>
-
-- **Comandos:** `buscar [termo]`, `ler <id>`, `criar "<título>" [--etapa E] [--notas-arquivo F] [--roteiro-arquivo F] [--refs-json F] [--proximo-prompt-arquivo F] [--status S] [--status-texto "..."]`, `etapa <id> <etapa> [--status S] [--status-texto "..."] [--nota "..."]`, `atualizar <id> [--roteiro-arquivo F] [--notas-arquivo F] [--pasta P] [--arquivo "rótulo=caminho"] [--titulo T] [--proximo-prompt-arquivo F] [--etapa E] [--status S] [--status-texto "..."] [--nota "..."]`, `status <id> trabalhando|aguardando [--texto "..."]` (só o selo de andamento; S = trabalhando ou aguardando), `prompt <id> <arquivo> [--etapa E]` (só o prompt do próximo passo), `clipe <id> <url> [--tipo clipe|referencia] [--trecho gancho|lance|torcida|reacao|contexto] [--inicio 0:12] [--fim 0:25] [--nota "..."]`, `clipes <id> <lista.json>`. Saída em JSON.
-- **Achar o id da pauta:** procure a linha `PAUTA DO HUB: <id>` no pedido (o botão "Copiar prompt" do Hub e os prompts de chat novo das skills trazem essa linha). Sem ela, rode `buscar "<jogador ou time>"` e use a pauta que bater; se nenhuma bater, crie uma.
-- **Passe o id adiante:** todo prompt para chat novo que esta skill gerar leva `PAUTA DO HUB: <id>` na primeira linha depois do pedido.
-- **O prompt do próximo passo vai para a pauta (desde 31/out/2026).** O prompt de chat novo que esta skill entrega é gravado na pauta com `--proximo-prompt-arquivo <arquivo>` (ou `prompt <id> <arquivo>`). O Hub mostra o bloco "Prompt para o próximo passo" com botão de copiar, e ele cola num chat novo direto de lá.
-- **O fluxo só termina com o "Fechamento obrigatório: Hub"** (última seção deste arquivo). Pedido de 31/out/2026: a esteira anda sozinha quando cada fluxo termina, sem depender de alguém lembrar de chamar o `hub.py`.
-- **Selo de andamento (desde 31/out/2026).** Pedido do usuário: "bater o olho e saber se o Claude está trabalhando nela ou se ela está esperando o próximo passo". O selo é separado da etapa: `trabalhando` (bolinha pulsando no Hub) enquanto esta skill executa, `aguardando` quando a parte dela termina. Sem `--status-texto` (ou `--texto` no comando `status`), o Hub usa o texto padrão da etapa: roteiro "Escrevendo roteiro" / "Esperando garimpo"; garimpo "Garimpando" / "Esperando montagem"; montagem "Sendo montado pelo Claude" / "Esperando refinamento no CapCut"; pronto "Pronto para postar". Em `trabalhando` por mais de 3 h sem atualização, o Hub mostra "sem notícias há Xh" (o chat pode ter parado no meio). Mudar a etapa sem `--status` já deixa a pauta em `aguardando`. **Nesta skill:** na abertura, com a pauta conhecida e terminal neste PC, `status <id> trabalhando --texto "Gerando títulos e tags"` (a pauta continua em Montagem enquanto isso); no fechamento, `--etapa pronto --status aguardando` ("Pronto para postar"). Se o `hub.py` falhar, siga (o Hub nunca trava o vídeo).
-- **O Hub nunca trava o vídeo.** Se o `hub.py` der erro (sem internet, senha ausente, pauta excluída), diga em uma linha na resposta e siga o trabalho. Nunca peça para o usuário consertar o Hub no meio da rotina.
-- Arquivo temporário para o `hub.py` (roteiro, lista JSON) segue a regra de pastas desta skill.
+Comandos e regras gerais: `referencias/hub.md`. Nesta skill: na abertura, com a pauta conhecida e terminal neste PC, `status <id> trabalhando --texto "Gerando títulos e tags"` (a pauta continua em Montagem); com o título confirmado, `atualizar <id> --titulo`; no fim, o "Fechamento obrigatório: Hub", que é o único lugar que passa a pauta para Pronto. Se o `hub.py` falhar, diga em uma linha e siga.
 
 ## Etapa 1 — Títulos
 
@@ -63,11 +52,15 @@ Feche com as 1–2 favoritas e o porquê, ligando com o título (o título conta
 - Dê 4 textos que conversam com esse gesto ("EXPULSO POR ISSO?" com a mão aberta; "AMARELO + VERMELHO" com os dois cartões; "O QUE EU FIZ?" como fala dele), com a favorita.
 - Diga onde pôr o texto sem cobrir rosto, cartão ou bola (o terço de baixo sobre a grama, ou o canto que está livre), e o destaque: letra branca com contorno preto e a palavra-chave em vermelho.
 
+**Legenda do TikTok (busca):** a busca traz ~40% das views do canal no TikTok. Escreva 1–2 frases com as palavras que alguém digitaria para achar o vídeo: nome completo do protagonista, time, adversário ou competição e o fato em palavras simples ("Haaland reclama com Enzo Fernández em City x Brighton"), mais 3 a 5 hashtags (jogador, time, #futebol). Serve também para Instagram e Kwai.
+
+**Crédito das imagens:** uma linha "Imagens: @perfil1, @perfil2, emissora" para o fim da descrição/legenda em todas as redes. As fontes vêm do prompt da montagem (`{FONTES}`) ou do `inventario.json` da pasta do vídeo (uploader dos clipes usados). Não dá direito de uso, mas mostra de onde veio o material.
+
 **Tags para o YouTube**: gere imediatamente uma lista de tags otimizadas, com até 500 caracteres. Formato obrigatório: texto corrido separado por vírgulas, pronto para copiar e colar — nunca usar bullet points ou listas numeradas. Misture termos muito específicos do vídeo atual (nomes de jogadores, clubes, situação específica) com termos gerais do nicho (radar do campo, futebol, curiosidades de futebol, futebol europeu, bastidores do futebol, mercado da bola, etc.). Confira o limite de caracteres antes de entregar.
 
 ## Observações de estilo
 
-- O canal usa o padrão de gancho "ninguém percebeu, mas..." — aproveite isso nas opções de Curiosidade quando fizer sentido.
+- Nome do protagonista e o fato concreto vêm antes do mistério. "Todo mundo viu" e "ninguém percebeu" deixaram de ser padrão (06/11/2026): no máximo uma das 6 opções usa esse tipo de abertura.
 - **Gancho de identidade brasileira:** se o protagonista estrangeiro passou por clube brasileiro, ou o caso envolve brasileiro, ponha isso no título. Em 18/out ele escolheu "Ex-Fluminense deu duas cabeçadas no Lamine Yamal e pode pegar 12 jogos": "Ex-Fluminense" faz quem acompanha o Brasileirão parar no vídeo. Junte com um dado concreto pouco visto ("duas cabeçadas", da súmula) e a consequência em aberto ("pode pegar 12 jogos").
 - Nas duas escolhas de 18/out ele ficou com "A Melhor Escolha" sem ajuste (Andreas: "Andreas foi expulso por chutar uma bola… que não era a do jogo"). Continue recomendando um só, com o gatilho explicado.
 - Se o usuário pedir para focar mais em algum ângulo específico (ex: a confirmação em vez do mistério), gere uma nova rodada de títulos com esse foco antes de seguir para a Etapa 2.
@@ -77,7 +70,7 @@ Feche com as 1–2 favoritas e o porquê, ligando com o título (o título conta
 Com a pauta conhecida e terminal neste PC, antes de encerrar a resposta da Etapa 2:
 
 1. `ler <id>` para pegar a pasta e a etapa da pauta.
-2. Grave `<pasta>\titulos e tags.txt` (sem pasta na pauta, na pasta temporária) com o título confirmado, os textos de capa favoritos e as tags, do jeito que foram entregues.
+2. Grave `<pasta>\titulos e tags.txt` (sem pasta na pauta, na pasta temporária) com o título confirmado, os textos de capa favoritos, a legenda do TikTok, o crédito das imagens e as tags, do jeito que foram entregues.
 3. Rode:
 
        python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte titulos-e-tags atualizar <id> --etapa pronto --status aguardando --arquivo "Títulos e tags=<arquivo>" --nota "título, capa e tags prontos"

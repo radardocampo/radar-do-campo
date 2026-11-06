@@ -30,3 +30,5 @@ Em 2026-10-18 (Andreas Pereira) o usuário pediu a timeline editável no CapCut 
 - O computer-use precisa de "CapCut", "capcut.exe" e "File Explorer" (barra de tarefas).
 
 **27/10/2026:** o script passou a gerar as faixas DESFOQUE (cada `borrar` vira uma cópia do clipe com máscara Retângulo + Desfocar) e SETAS (seta/círculo em PNG). A 2ª trilha agora vai até ~1s antes do fim, e a virada da música vai para o shot `"revelacao": true`. Conferi no CapCut com um rascunho de teste. Ver [[comparacao-lote-2026-10-27]].
+
+**Atualização 06/11/2026:** não oferecer mais: gerar o rascunho no fim de toda entrega, sem perguntar. Só perguntar se o projeto dele estiver aberto no CapCut. SFX ligado com 2–4 impactos sempre (`sfx.json`). Ver [[decisoes-skills-2026-11-06]].

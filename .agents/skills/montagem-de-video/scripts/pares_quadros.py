@@ -1,5 +1,5 @@
 """Mosaico nosso x dele nos tempos que o analisa_capcut.py apontou (4 pares por linha, com rotulo da frase).
-Uso: pares_quadros.py <nosso sem-legenda>.mp4 <exportado dele>.mp4 <job>/_montagem/cmp/pares.jpg 0.5,3.2,... "rot1|rot2|..."
+Uso: pares_quadros.py <nosso: _montagem/render/<apelido>-preview.mp4 (ou sem-legenda antigo)> <exportado dele>.mp4 <job>/_montagem/cmp/pares.jpg 0.5,3.2,... "rot1|rot2|..."
 """
 import subprocess, sys, io
 from PIL import Image, ImageDraw, ImageFont

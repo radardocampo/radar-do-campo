@@ -1,14 +1,11 @@
-- [Referência de montagem (Carrascal)](referencia-montagem-carrascal.md) — vídeo montado à mão pelo usuário que define o estilo das skills de garimpo/montagem
+- [Referência de montagem (Carrascal)](referencia-montagem-carrascal.md) — histórica desde 06/11; referências atuais = Bruno Duarte e camisa 10
 - [Download sem cookies no garimpo](garimpo-download-sem-cookies.md) — cookies do Chrome/Edge falham no yt-dlp; TikTok/YouTube/X baixam sem
-- [Skill de montagem nova (local)](skill-montagem-versao-nova-local.md) — instalada em 2026-09-25 = cópia do HUB/.../versao-nova-2026-09-22; só grava em Shorts/<vídeo>; tampa marcas de terceiros (clone, sem borrão); loop visual obrigatório; entrega hoje = 2 arquivos, ver entrega-2-arquivos-sem-logo; -10 LUFS
-- [Referência de montagem (Faiq)](referencia-montagem-faiq.md) — montagem à mão do usuário de 2026-09-24: frase-ponte de loop, -10 LUFS, marca YouTube no topo direito, vazamento da lupa
 - [Narração lê os rótulos do roteiro](narracao-le-rotulos-do-roteiro.md) — entregar também a versão sem "Gancho/Contexto/Payoff" para colar no AI Studio
 - [Narração é feita no AI Studio](narracao-feita-no-ai-studio.md) — o usuário gera a voz no site; skill de narração via API foi excluída a pedido dele
 - [Fonte WAMO para jogos da Seleção](fonte-wamo-selecao.md) — @canalwamo filma jogos do Brasil da arquibancada; listar perfil via yt-dlp
 - [Python da Store não lê AppData\Roaming](python-store-nao-le-appdata-roaming.md) — copiar scripts das skills (watch, folha_contato) antes de rodar; ffmpeg local sem -vsync
 - [Montagem: sem zoom excessivo, gancho forte](montagem-sem-zoom-excessivo-gancho-forte.md) — tela cheia com zoom que acompanha o lance (sem faixa desfocada), só esconder marca d'água, gancho = lance chocante com ferimento desfocado
 - [Gancho forte e contexto literal](montagem-gancho-e-contexto-literal.md) — 2026-09-27: abrir no momento mais forte; fala factual pede imagem do fato (jogos/títulos anteriores), não torcida; prévia de suspense antes da revelação
-- [Montagem: SFX](montagem-versao-extra-com-sfx.md) — (5º arquivo extinto em 21/10; SFX só no CapCut) transições flash+zoom e flashback via posfx.py
 - [Garimpo: coleta de links no Chrome](garimpo-coleta-links-chrome.md) — JS trunca ~1000 chars (paginar), Instagram só busca 2 palavras, título de vídeo de torcida pode ser de outro jogo
 - [Edição dele sobre Ronaldo/Arrascaeta](referencia-edicao-ronaldo-arrascaeta.md) — 2026-09-29: lance-chave em take contínuo, close de emoção nas falas de ação, loop pelo rosto, legenda refeita no CapCut, trilha em degraus, tirou nossos SFX
 - [Edição dele do Vini x Austrália](referencia-edicao-vini-penalti.md) — 2026-09-29: chute no plano, payoff com outra fonte + placar de TV até a rede, punch-in em ação pequena, sem rosto aleatório
@@ -22,26 +19,23 @@
 - [Montagem pensada pra viralizar](montagem-pensada-pra-viralizar.md) — 2026-10-03 Calcutá: gancho = pico do material, ação até o impacto, sem zoom em plano de escala, frase inteira literal; skill HUB 2026-10-03
 - [Rotina: redes todas, por candidato](garimpo-temas-todas-as-redes.md) — desde 12/10 sempre busca + 7 redes sem perguntar; grade candidato × rede; X funciona; Kwai /discover/ quebrou em 26/10 e voltou em 28/10; TikTok pela aba Vídeos; matérias via RSS do Google Notícias no Chrome; TikTok via data-e2e + yt-dlp
 - [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
-- [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — 2026-10-06: roteiro+montagem na nuvem, repo radar-do-campo, enviar.ps1/receber.ps1
+- [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — aposentado em 06/11 (crédito venceu); só o repo HUB/radar-do-campo
 - [Lance em sequência aprovado (Bruno Duarte)](montagem-lance-em-sequencia-aprovado.md) — 2026-10-08 "perfeito": gancho = prévia da queda; depois o lance inteiro em ordem, cada frase com o próximo momento do mesmo evento; zoom 1,2–1,6 seguindo a bola
 - [Atualizar skill = todos os lugares](atualizar-skill-em-todos-lugares.md) — pedido de atualizar skill: HUB + .skill, nuvem/GitHub e upload no claude.ai pelo Chrome, sem ele precisar reenviar
 - [Garimpo enxuto é o padrão](garimpo-enxuto-padrao.md) — desde 2026-10-08, todo dia: TikTok 4–6 buscas, mosaico, outras redes só pro que faltar; completo só se ele pedir (rotina segue nas 7 redes)
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
 - [Tom do canal medido](narracao-tom-do-canal-medido.md) — 2026-10-11: faixa 140–160 Hz, 2,8–3,5 palavras/s; AI Studio só no navegador; TikTok @_radardocampo só via Chrome
-- [Vídeo final nunca abaixo de 60s](video-final-sempre-60s.md) — mínimo 60s, acima é aceito; abaixo: primeiro esticar respirações (--manter até ~0,2s, 18/10), só então pedir narração nova; roteiro 255–265 palavras
-- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9 da skill (HUB 2026-10-18): oferecer no fim de toda entrega; keyframes em tempo da fonte; SFX ligado; gerar com CapCut fechado; desde 27/10 leva desfoque, setas e música até o fim
-- [Concat: timeline editável](concat-timeline-editavel.md) — substituído pelo CapCut em 18/10; concat_projeto.py só se ele pedir o Concat
-- [Teste do VoiceStudio](voicestudio-teste-2026-10-16.md) — 2026-10-16: instalado, erro de clone resolvido (ref ≤20 s), mas CPU lenta demais (>7 min p/ 12 s)
-- [Concat: fork próprio](concat-fork-proprio.md) — 2026-10-16: radardocampo/Concat + clone em Desktop/Concat-fonte; compilado, branch meu-concat (v0.2.7), script compilar.ps1
+- [Vídeo final nunca abaixo de 60s](video-final-sempre-60s.md) — mínimo 60s, ideal 60–66s; abaixo: esticar respirações (--manter até ~0,2s); roteiro 245–255 palavras
+- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9: desde 06/11 gerado sempre, sem perguntar (só pergunta se o projeto dele estiver aberto); keyframes em tempo da fonte; SFX ligado
 - [Rotina: candidatos no texto + redes no Chrome](rotina-mostrar-candidatos-em-texto.md) — 2026-10-18 reclamação: nunca fechar só com a caixa; lista completa escrita + 7 redes pelo navegador dele
 - [Comparação em lote 17/10](comparacao-lote-2026-10-17.md) — 17 vídeos comparados; 8 sem troca de imagem; regras na skill HUB 2026-10-17; em 18/10 Leo Flores, Andreas e Bernal (rodada 13, HUB 2026-10-18)
 - [Roteiro sem comentários aleatórios](roteiro-sem-comentarios-aleatorios.md) — 2026-10-19 Paquetá: nada de comentário/curtida de anônimo como pauta; só pessoa relevante ou se o tema for isso
-- [Agente de voz do PC](agente-voz-pc.md) — BUSINESSgente-voz: Whisper local + regras + Gemini (20 req/dia grátis); próximos passos
+- [Agente de voz do PC](agente-voz-pc.md) — BUSINESS\agente-voz: Whisper local + regras + Gemini (20 req/dia grátis); próximos passos
 - [Roteiro de situação: direto](roteiro-situacao-direto.md) — 2026-10-20 Neymar/Soteldo + 03/11 Haaland/Enzo: nome do jogador no gancho, sem "companheiro", sem views de TikTok/polêmica, sem rodada/histórico
 - [Antigravity como plano B](antigravity-plano-b.md) — 2026-10-20: GEMINI.md + .agents/skills no repo; sincronizar.ps1 em toda mudança; checar memoria/pendente-antigravity.md
 - [Atualizar tudo, todas as áreas](atualizar-tudo-em-todas-as-areas.md) — 2026-10-21: toda mudança revisa skills, memória, LEIA-PRIMEIRO/CLAUDE/GEMINI/AGENTS no repo e roda sincronizar.ps1; repo = conhecimento completo p/ outra IA
 - [Comparação em lote 21/10](comparacao-lote-2026-10-21.md) — 5 vídeos de 19–21/10 editados no CapCut; comparação por projeto; lições por vídeo
-- [Entrega: 2 arquivos sem logo](entrega-2-arquivos-sem-logo.md) — desde 2026-10-21 só com-legenda e sem-legenda, sem logo; TikTok/YouTube extintos, refina no CapCut
+- [Entrega: sem logo e sem MP4](entrega-2-arquivos-sem-logo.md) — sem logo desde 21/10; desde 06/11 sem os 2 MP4: prévia + rascunho do CapCut
 - [Comparação em lote 23/10](comparacao-lote-2026-10-23.md) — Carlos Miguel, Thiago Silva, Cetré pelo CapCut; skill HUB 2026-10-23 (rodada 15)
 - [Comparação em lote 27/10](comparacao-lote-2026-10-27.md) — CR7, Toney, Neymar, Piqué, Yamal; capcut_projeto leva desfoque/setas/música; analisa_capcut.py; skill HUB 2026-10-27 (rodada 16)
 - [Entrega: prompt de títulos e tags](entrega-prompt-titulos-tags.md) — desde 2026-10-23 toda montagem termina com prompt pronto p/ chat novo (assets/prompt_titulos_tags.txt)
@@ -50,5 +44,7 @@
 - [Clipe sujo: buscar versão limpa](montagem-trocar-clipe-sujo-por-versao-limpa.md) — 29/10: se o enquadramento exige zoom grande por texto/logo na tela, garimpar o mesmo vídeo limpo em vez de aproximar
 - [Desempenho do canal 28/10](desempenho-canal-2026-10-28.md) — views do fluxo no YT/TT; vence detalhe escondido/regra, incidente físico, estrela+conflito
 - [Conferir qual lance pelo número](garimpo-conferir-qual-lance-pelo-numero.md) — 29/10 Giay x Larson: clipe da arquibancada era do Larson (26 + Gabigol 9); mesmo post da ge em 1080 no TikTok
+- [Decisões da limpeza das skills 06/11](decisoes-skills-2026-11-06.md) — gancho sem fórmula, opinião + assinatura "O radar não deixa passar.", sem MP4, CapCut sempre, SFX/P&B fixos, nuvem aposentada, pausa de obra até 06/12, voz segue no AI Studio
 - [Diagnóstico do canal 04/11](diagnostico-canal-2026-11-04.md) — linha de base: mediana 6,7k→21k com as skills e parada desde 15/10; US$ 464 no YT total, TikTok paga ~7–10x mais por view; 0,2% recorrente; riscos e o que vender
 - [Hub: esteira e prompt do próximo passo](hub-esteira-e-prompt-proximo-passo.md) — 31/10: selo trabalhando/aguardando (hub.py status) na abertura e no fechamento; toda skill termina com "Fechamento obrigatório: Hub"; Pronto só pela titulos-e-tags (montagem fica em Montagem); prompt do próximo chat na pauta; migrations via db query
+- Memórias antigas substituídas (Faiq, skill local de set/2026, 5º arquivo com SFX, Concat, VoiceStudio) ficam em `arquivo/`, fora do índice.

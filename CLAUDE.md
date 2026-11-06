@@ -1,5 +1,7 @@
 # Radar do Campo — sessão na nuvem
 
+> **Fluxo na nuvem aposentado em 06/11/2026** (o crédito venceu em 05/11; o clone `nuvem\` do PC e os atalhos `Enviar/Receber da nuvem.bat` foram para a Lixeira). Este arquivo fica só como referência, caso ele volte a usar. Se uma sessão na nuvem abrir este repo mesmo assim: na nuvem não há CapCut, então a montagem entrega com `render_final.py --mp4` (os 2 MP4); no PC a entrega é a prévia + o rascunho do CapCut.
+
 Canal de Shorts/Reels de futebol. Este repositório leva para a nuvem as skills,
 os assets e as memórias que, no PC do usuário, ficam em
 `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`.
@@ -36,7 +38,7 @@ O usuário sobe a pasta do vídeo num branch `video/<nome>` com `Videos prontos/
    - Montagem parcial do usuário (arquivo `*pré feito*.mp4` / `*pre-feito*`): a narração completa, já cortada, e a música estão no áudio desse vídeo. `tempos do pre-feito/palavras.json` e `frases.srt` têm os tempos por palavra sobre esse áudio, sem cortes. Use esse áudio como está (sem normalizar se já estiver perto de -10 LUFS), mantenha intacto o trecho que ele montou e monte o resto em cima dessa linha do tempo.
    - Em todos os casos, corrija a grafia das palavras pelo roteiro (nomes de jogadores, acentos).
    - Se não houver tempos nenhum: alinhe o roteiro pelas pausas (`ffmpeg silencedetect`) e pela energia da voz e avise na entrega que a legenda pode estar 0,1–0,2s fora.
-4. Siga a skill `montagem-de-video` (rascunho, revisão visual, 2 entregas: com legenda e sem legenda, sem logo). Faça a revisão você mesmo pelos frames; não espere aprovação do rascunho.
+4. Siga a skill `montagem-de-video` (rascunho, revisão visual; aqui na nuvem o fechamento é com `--mp4`, porque não há CapCut: 2 entregas, com legenda e sem legenda, sem logo). Faça a revisão você mesmo pelos frames; não espere aprovação do rascunho.
 5. Entrega: `python ferramentas/pacote.py partir "<job>/<subpasta Videos prontos>"`, depois `git add -f` **apenas** dessa subpasta,
    de `<job>/legenda para o CapCut.srt` e de `<job>/_montagem/*.json` (receita, pequenos). Commit e push no mesmo branch.
    Nunca `git add -A` e nunca commite `clipes/` (já está no PC).
@@ -50,4 +52,4 @@ Trilhas (`Musicas edição/`) não estão aqui: o usuário coloca a trilha no Ca
 Quando o usuário der uma regra nova, grave em `memoria/` (mesmo formato), atualize `memoria/MEMORY.md`
 e commite na `main` (`git stash` / troque de branch se precisar, sem levar arquivos do vídeo).
 
-- Comparar a edição dele (desde 18/10 feita no rascunho do CapCut que geramos): comparar o projeto com `compara_capcut.py` e, corte a corte, com `analisa_capcut.py` + `pares_quadros.py` (desde 27/10; confira se o zoom dele não era só para esconder marca), salvar a lição numa memória a cada vídeo (`comparacao-lote-*`), gravar `<job>/_montagem/cmp/comparado.txt` e só no fim atualizar a skill (versão atual: 2026-10-27).
+- Comparar a edição dele (desde 18/10 feita no rascunho do CapCut que geramos): comparar o projeto com `compara_capcut.py` e, corte a corte, com `analisa_capcut.py` + `pares_quadros.py` (desde 27/10; confira se o zoom dele não era só para esconder marca), **só quando ele pedir** (pausa de obra até 06/12/2026). Se virar regra, ela substitui a antiga no lugar dela no SKILL.md, com a data; o caso vai para `referencias/historico.md` da skill. Grave `<job>/_montagem/cmp/comparado.txt`. Versão atual das skills: 2026-11-06 (ver memória `decisoes-skills-2026-11-06`).

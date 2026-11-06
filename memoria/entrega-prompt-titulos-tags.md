@@ -9,3 +9,5 @@ Pedido do usuário em 2026-10-23: depois da montagem, além de oferecer o rascun
 
 **Why:** ele sempre abria um chat novo e tinha que pedir os títulos do zero.
 **How to apply:** na entrega da skill de montagem (HUB 2026-10-23b), preencher `assets/prompt_titulos_tags.txt` com o roteiro limpo (sem rótulos, nomes com grafia certa), gravar em `<job>/prompt titulos e tags.txt` e mostrar o prompt inteiro num bloco de código. Se a skill titulos-e-tags mudar, atualizar o modelo junto.
+
+**Atualização 06/11/2026:** o modelo leva `{FONTES}` (crédito "Imagens: …") e pede a legenda do TikTok pensada para a busca.

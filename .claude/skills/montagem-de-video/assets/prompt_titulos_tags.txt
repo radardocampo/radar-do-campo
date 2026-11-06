@@ -7,7 +7,7 @@ ETAPA 1 — TÍTULOS
 - 6 opções, em 3 categorias com 2 cada: Foco em Curiosidade, Foco em Drama/Mistério, Foco Direto/Viral.
 - Pelo menos uma opção tem que dizer o fato concreto do vídeo (a notícia, o placar, a punição), não só o mistério do gancho.
 - Se o protagonista estrangeiro passou por clube brasileiro, ou o caso envolve brasileiro, use isso no título (ex.: "Ex-Fluminense deu duas cabeçadas no Lamine Yamal e pode pegar 12 jogos"): identidade brasileira + dado concreto pouco visto + consequência em aberto.
-- O canal usa o gancho "ninguém percebeu, mas..." quando cabe.
+- Nome do protagonista e o fato concreto vêm antes do mistério. Nada de fórmula repetida ("todo mundo viu", "ninguém percebeu") em toda opção: no máximo uma das 6 usa esse tipo de abertura.
 - Feche com "A Melhor Escolha": um título só, e um parágrafo explicando o porquê e o gatilho mental (curiosity gap, autoridade, urgência etc.).
 - PARE aqui e espere eu confirmar o título (posso escolher um, pedir ajuste ou trazer o meu).
 - Com o título confirmado, se você tiver terminal neste PC, avise o Hub (o título da pauta igual ao do vídeo faz o Hub ligar a pauta ao vídeo quando ele for postado):
@@ -19,7 +19,9 @@ ETAPA 2 — CAPA E TAGS (só depois do título confirmado)
 - Releia cada texto da capa letra por letra antes de entregar (rr/ss, acentos, cedilha). Já saiu "EMPUROU" no lugar de "EMPURROU".
 - Se eu mandar a foto da capa: descreva o gesto/expressão em uma linha, dê 4 textos que conversam com ela, diga onde pôr o texto sem cobrir rosto/bola/cartão e sugira letra branca com contorno preto e a palavra-chave em vermelho.
 - Tags do YouTube: até 500 caracteres, texto corrido separado por vírgulas, pronto para colar (sem lista, sem marcadores). Misture termos do vídeo (jogadores, clubes, competição, situação) com termos do nicho (radar do campo, futebol, curiosidades de futebol, bastidores do futebol, futebol brasileiro etc.). Confira a contagem de caracteres.
-- No fim, se você tiver terminal neste PC, grave o título confirmado, as capas favoritas e as tags em "{PASTA}\titulos e tags.txt" e avise o Hub (anexa o arquivo e passa a pauta para Pronto):
+- Legenda do TikTok (a busca traz ~40% das views do canal lá): 1–2 frases com as palavras que alguém digitaria para achar o vídeo — nome completo do protagonista, time, adversário/competição e o fato em palavras simples ("Haaland reclama com Enzo Fernández em City x Brighton") — e 3 a 5 hashtags (jogador, time, #futebol). Serve também para Instagram e Kwai.
+- Crédito das imagens, no fim da descrição/legenda de todas as redes: "Imagens: {FONTES}". Não tira o direito de ninguém, mas mostra de onde veio o material.
+- No fim, se você tiver terminal neste PC, grave o título confirmado, as capas favoritas, a legenda do TikTok, o crédito e as tags em "{PASTA}\titulos e tags.txt" e avise o Hub (anexa o arquivo e passa a pauta para Pronto):
   python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte titulos-e-tags atualizar {PAUTA} --etapa pronto --status aguardando --arquivo "Títulos e tags={PASTA}\titulos e tags.txt" --nota "título, capa e tags prontos"
   Sem terminal, só siga.
 
@@ -28,6 +30,7 @@ DADOS DO VÍDEO
 - Jogo/competição/data: {JOGO}
 - Fato principal: {FATO}
 - Duração do vídeo: {DURACAO}
+- Fontes das imagens: {FONTES}
 
 ROTEIRO
 {ROTEIRO}

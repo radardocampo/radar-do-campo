@@ -15,3 +15,5 @@ Ele NÃO quer alternar entre o chat do PC e o da nuvem: tudo resolvido lá. Por 
 
 **Why:** usuário quer gastar o crédito de sessão na nuvem antes de expirar (05/11/2026 04:59).
 **How to apply:** ao mudar skill ou memória aqui no PC, copiar também para `nuvem\` e dar push; antes de usar a nuvem, `git pull` no PC traz memórias novas de lá.
+
+**Aposentado em 06/11/2026:** o crédito venceu em 05/11 e ele aceitou parar de usar a nuvem. A pasta `Radar do Campo\nuvem\` (clone duplicado do mesmo repo) foi para a Lixeira junto com os atalhos .bat; o repo que vale é `HUB Radar do Campo\radar-do-campo`. Ver [[decisoes-skills-2026-11-06]].

@@ -19,7 +19,7 @@ Todo pedido de atualização de skill (ou mudança de regra que vai para uma ski
    - Commit e push no repo radardocampo/radar-do-campo.
    - Os scripts da nuvem são adaptados ao `RADAR_BASE`: só copie script se a mudança for nele, e mantenha a adaptação.
    - Não incluir no commit alterações dele que já estavam pendentes (ex.: `ferramentas/enviar.ps1`).
-2b. **Antigravity (plano B):** rodar `HUB Radar do Campoadar-do-campoerramentas\sincronizar.ps1` — copia SKILL.md do HUB para `.claude/skills` e `.agents/skills`, memórias para `memoria/`, commit+push. Rodar também ao criar memória nova. Ver [[antigravity-plano-b]].
+2b. **Antigravity (plano B):** rodar `HUB Radar do Campo\radar-do-campo\ferramentas\sincronizar.ps1` — copia SKILL.md do HUB para `.claude/skills` e `.agents/skills`, memórias para `memoria/`, commit+push. Rodar também ao criar memória nova. Ver [[antigravity-plano-b]].
 3. **claude.ai:** fazer o upload pelo Claude in Chrome.
    - Endereço: claude.ai/customize/skills/new/upload.
    - Mandar o arquivo com `file_upload` no input "Arquivo de habilidade" e clicar em "Fazer upload e substituir".
@@ -33,3 +33,5 @@ Todo pedido de atualização de skill (ou mudança de regra que vai para uma ski
 - Entregue uma linha por lugar dizendo o que foi feito.
 - O pedido dele de atualizar a skill vale como autorização para o upload daquela skill.
 - Relacionado: [[skill-montagem-versao-nova-local]], [[fluxo-nuvem-github]].
+
+**Atualização 06/11/2026:** o passo 2 (copiar para `nuvem\`) acabou: a nuvem foi aposentada. Os lugares agora são: HUB (+ `.skill`), repo via `sincronizar.ps1` (que também copia `referencias/`) e upload no claude.ai.

@@ -8,15 +8,15 @@ o que o canal é, o fluxo de produção, as skills (passo a passo de cada etapa)
 - Shorts/Reels/TikTok verticais de futebol (YouTube, TikTok @_radardocampo, Instagram, Kwai).
 - Assuntos: o que aconteceu nos jogos de ontem — lances, polêmicas, brigas, Seleção, bastidores.
 - Identidade: "o radar não deixa passar" — detalhe, vigilância, lupa/círculo vermelho. Ver `Base do conteudo.txt`.
-- Vídeo final: **mínimo 60 s**, gancho forte nos primeiros segundos, loop no fim, legenda karaokê amarela no meio, marca d'água do radar.
+- Vídeo final: **mínimo 60 s**, gancho forte nos primeiros segundos, loop no fim, legenda karaokê amarela no meio e sem logo do canal (desde 21/10/2026).
 
 ## Fluxo de um vídeo (ordem)
-1. **Garimpo de temas** (`garimpo-de-temas`): jogos de ontem → candidatos por jogo, escritos em texto, buscando em todas as redes → o dono escolhe → roteiro de 255–265 palavras (gancho, contexto, payoff).
-2. **Títulos e tags** (`titulos-e-tags`): títulos, texto de capa, tags.
+1. **Garimpo de temas** (`garimpo-de-temas`): jogos de ontem → candidatos por jogo, escritos em texto, buscando em todas as redes → o dono escolhe → roteiro de 245–255 palavras: gancho afirmativo com o nome do protagonista (sem a fórmula "Todo mundo viu" fixa), contexto só do que leva ao payoff, payoff, 1 frase de opinião, a assinatura "O radar não deixa passar." e a frase-ponte do loop. No máximo 3 nomes além do protagonista. Cada candidato da lista leva etiqueta forte/fraco.
+2. **Títulos e tags** (`titulos-e-tags`): títulos, texto de capa, tags, legenda do TikTok pensada para a busca e crédito "Imagens: @perfis".
 3. **Narração**: o dono gera a voz no **Google AI Studio** (no navegador). Entregar o roteiro também sem os rótulos "Gancho/Contexto/Payoff".
 4. **Garimpo de vídeos** (`garimpo-de-videos`): baixar clipes de torcida/arquibancada (evitar transmissão oficial por Content ID) em TikTok, Instagram, X, YouTube, Facebook, Kwai, Threads. Inventário dos trechos.
-5. **Montagem** (`montagem-de-video`): scripts Python + ffmpeg montam o vídeo em `Videos prontos\Shorts\<vídeo>\`; entrega 2 arquivos, com legenda e sem legenda, **sem logo do canal** (desde 21/10/2026), e o rascunho editável no CapCut, de onde o dono refina e exporta a versão final, e um prompt pronto de títulos/capa/tags (`prompt titulos e tags.txt`) para ele colar num chat novo (desde 23/10/2026).
-6. O dono revisa/ajusta no CapCut e posta. Quando ele manda a edição dele, compara-se com a nossa e as diferenças viram regra (memórias `referencia-edicao-*` e `comparacao-lote-*`). Desde 18/10 ele refina no rascunho do CapCut que geramos; aí a comparação é pelo projeto (`compara_capcut.py`, e corte a corte com `analisa_capcut.py` + `pares_quadros.py`, ver a skill montagem-de-video). Desde 27/10 o rascunho já leva os desfoques, as setas e a música até o fim, com a virada na revelação.
+5. **Montagem** (`montagem-de-video`): scripts Python + ffmpeg montam o vídeo em `Videos prontos\Shorts\<vídeo>\`; entrega a prévia 720p e o **rascunho editável no CapCut, gerado sempre** (desde 06/11/2026 não há mais os 2 MP4; sem logo do canal desde 21/10/2026), de onde o dono refina e exporta a versão final que vai para as 7 redes, e um prompt pronto de títulos/capa/tags (`prompt titulos e tags.txt`) para ele colar num chat novo (desde 23/10/2026).
+6. O dono revisa/ajusta no CapCut e posta. Comparar a edição dele só quando ele pedir (pausa de obra até 06/12/2026); regra nova substitui a antiga no lugar dela, e o caso vai para `referencias/historico.md` da skill. Desde 18/10 ele refina no rascunho do CapCut que geramos; aí a comparação é pelo projeto (`compara_capcut.py`, e corte a corte com `analisa_capcut.py` + `pares_quadros.py`, ver a skill montagem-de-video). Desde 27/10 o rascunho já leva os desfoques, as setas e a música até o fim, com a virada na revelação.
 
 7. **Hub (painel web, radardocampo.online → Vídeos → Pautas):** cada vídeo é uma pauta que anda na esteira pauta → roteiro → garimpo → montagem → pronto → no ar. Cada skill termina com o "Fechamento obrigatório: Hub" (última seção do SKILL.md), que chama `radardocampohub1.0\scripts\hub.py` no PC: o roteiro cria/atualiza a pauta em Roteiro; o garimpo passa para Garimpo com a pasta e os clipes; a montagem passa para Montagem e fica lá na entrega e no rascunho do CapCut (nunca marca Pronto, desde 31/10/2026); só títulos e tags passam para Pronto, anexando o arquivo. Cada skill grava na pauta o **prompt do próximo passo** (`--proximo-prompt-arquivo`), e o Hub mostra ele com botão de copiar para colar num chat novo (desde 31/10/2026). Cada pauta tem também um **selo de andamento**, separado da etapa (desde 31/10/2026): toda skill roda `hub.py status <id> trabalhando` na abertura (bolinha pulsando no Hub) e passa `--status aguardando` no fechamento, com o texto do próximo passo ("Esperando garimpo", "Esperando montagem", "Esperando refinamento no CapCut", "No CapCut · esperando títulos e tags", "Pronto para postar"); sem `--status-texto`, o Hub usa o texto padrão da etapa. Em trabalhando por mais de 3 h sem atualização, o Hub mostra "sem notícias". Sem acesso ao `hub.py` (nuvem, chat sem PC), diga em uma linha que o Hub não foi avisado e siga.
 
@@ -26,9 +26,10 @@ o que o canal é, o fluxo de produção, as skills (passo a passo de cada etapa)
 | Skills (fonte da verdade) | PC: `HUB Radar do Campo\Claude\skills claude\versao-nova-2026-09-22\` · repo: `.claude/skills/` e `.agents/skills/` (cópias idênticas) |
 | Memória (regras do dono) | `memoria/MEMORY.md` (índice) + um arquivo por regra em `memoria/` |
 | Pasta real de trabalho | `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\` (`Videos prontos\`, `logos\`, `Sons edição\`, `Musicas edição\`) |
-| Instruções por ferramenta | `CLAUDE.md` (Claude na nuvem) · `GEMINI.md` (Antigravity no PC) · `AGENTS.md` (outras IAs) |
+| Instruções por ferramenta | `GEMINI.md` (Antigravity no PC) · `AGENTS.md` (outras IAs) · `CLAUDE.md` (Claude na nuvem, fluxo aposentado em 06/11/2026) |
 | Hub (pautas e esteira) | `HUB Radar do Campoadardocampohub1.0\` (site) · ponte das skills: `scripts\hub.py` (senha em `HUB Radar do Campo\Claude\hub-sync.env`, fora do GitHub) |
-| Scripts de apoio | `ferramentas/` (`sincronizar.ps1`, `enviar.ps1`/`receber.ps1` da nuvem) |
+| Scripts de apoio | `ferramentas/` (`sincronizar.ps1`; `enviar.ps1`/`receber.ps1` eram da nuvem, aposentada) |
+| Consulta de cada skill | `referencias/` dentro de cada skill: `hub.md` (comandos do Hub), `historico.md` (casos que originaram as regras) e, na montagem, `capcut.md`, `comparacao.md`, `limpeza.md` |
 
 ## Antes de qualquer tarefa
 1. `git pull`.

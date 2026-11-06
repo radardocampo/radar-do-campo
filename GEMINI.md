@@ -20,7 +20,7 @@ Visão geral do canal e do fluxo: `LEIA-PRIMEIRO.md`.
   (`Videos prontos\Shorts\<vídeo>\`, `logos\`, `Sons edição\`, `Musicas edição\`, `Capcut PRO\`).
   Os caminhos `C:\...\Radar do Campo\` das skills valem como estão.
 - NÃO defina `RADAR_BASE`: sem ela, os scripts já usam a pasta real acima.
-- Ignore o `CLAUDE.md` deste repo e os scripts `enviar.ps1`/`receber.ps1`/`preparar_nuvem.sh`: são do fluxo na nuvem.
+- Ignore o `CLAUDE.md` deste repo e os scripts `enviar.ps1`/`receber.ps1`/`preparar_nuvem.sh`: são do fluxo na nuvem, aposentado em 06/11/2026.
 - Rode os scripts direto do repo: `python ".agents\skills\montagem-de-video\scripts\<script>.py" ...`.
   ffmpeg, yt-dlp e Python já estão instalados. O terminal é PowerShell 5.1: sem `&&` (use `;`).
 - Hub: no fim de cada skill rode o "Fechamento obrigatório: Hub" (última seção do SKILL.md). O `hub.py` funciona daqui do PC e é rotina, não precisa perguntar.

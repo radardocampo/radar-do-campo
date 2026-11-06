@@ -5,7 +5,7 @@ description: "Usar quando o usuário fornece um roteiro de vídeo e pede para en
 
 # Garimpo de clipes — Radar do Campo
 
-**Atualizada em 2026-10-31 (tarde):** selo de andamento no Hub: `status <id> trabalhando` na abertura e `--status aguardando` com o texto do próximo passo no fechamento (seção "Hub"). **Antes, 2026-10-31:** todo garimpo termina com o "Fechamento obrigatório: Hub" (fim do arquivo): clipes ligados, pasta e o prompt de montagem na pauta. **Antes, 2026-10-30:** a pauta do Hub acompanha o garimpo (seção "Hub", Passos 1, 8 e 9). **Antes, 2026-10-18:** prints do que o roteiro cita (comentário, súmula, story), começar pelos links da pesquisa, nada de clipe de canal concorrente, arquivos de trabalho fora da raiz.
+**Versão 2026-11-06** (limpeza: Hub resumido, comandos em `referencias/hub.md`; "Erros já cometidos" foi para `referencias/historico.md`, e as regras deles já estão nos Passos; prompt de montagem leva as fontes para o crédito).
 
 Objetivo: dado um roteiro, entregar uma pasta cheia de material bruto baixado **e mapeado por trecho**, pronta para a `montagem-de-video`. Não é lista de links: é arquivo em disco + inventário.
 
@@ -35,20 +35,9 @@ Em 08/10/2026 (Bruno Duarte, Botafogo 1x2 Vasco) o usuário pediu "não exagerar
 
 Na rodada de 08/10 foram 5 buscas no TikTok e 46 clipes baixados. 24 foram mapeados, 9 descartados e 2 eram duplicados. Isso bastou para um vídeo aprovado sem mudanças. Continue entregando o placar das cotas do Passo 2, dizendo o que faltou.
 
-## Hub: a pauta acompanha o trabalho (desde 30/out/2026)
+## Hub
 
-Pedido do usuário em 30/out/2026: "todo o processo de escolher os roteiros, garimpagem e montagem do vídeo sincronizado certinho com as pautas e a esteira do Hub". Cada vídeo é uma **pauta** no Hub (radardocampo.online → Vídeos → Pautas), e a esteira anda: pauta → roteiro → garimpo → montagem → pronto → no ar. Esta skill avisa o Hub pelo script `hub.py`:
-
-    python "C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\radardocampohub1.0\scripts\hub.py" --fonte garimpo-de-videos <comando>
-
-- **Comandos:** `buscar [termo]`, `ler <id>`, `criar "<título>" [--etapa E] [--notas-arquivo F] [--roteiro-arquivo F] [--refs-json F] [--proximo-prompt-arquivo F] [--status S] [--status-texto "..."]`, `etapa <id> <etapa> [--status S] [--status-texto "..."] [--nota "..."]`, `atualizar <id> [--roteiro-arquivo F] [--notas-arquivo F] [--pasta P] [--arquivo "rótulo=caminho"] [--titulo T] [--proximo-prompt-arquivo F] [--etapa E] [--status S] [--status-texto "..."] [--nota "..."]`, `status <id> trabalhando|aguardando [--texto "..."]` (só o selo de andamento; S = trabalhando ou aguardando), `prompt <id> <arquivo> [--etapa E]` (só o prompt do próximo passo), `clipe <id> <url> [--tipo clipe|referencia] [--trecho gancho|lance|torcida|reacao|contexto] [--inicio 0:12] [--fim 0:25] [--nota "..."]`, `clipes <id> <lista.json>`. Saída em JSON.
-- **Achar o id da pauta:** procure a linha `PAUTA DO HUB: <id>` no pedido (o botão "Copiar prompt" do Hub e os prompts de chat novo das skills trazem essa linha). Sem ela, rode `buscar "<jogador ou time>"` e use a pauta que bater; se nenhuma bater, crie uma.
-- **Passe o id adiante:** todo prompt para chat novo que esta skill gerar leva `PAUTA DO HUB: <id>` na primeira linha depois do pedido.
-- **O prompt do próximo passo vai para a pauta (desde 31/out/2026).** O prompt de chat novo que esta skill entrega é gravado na pauta com `--proximo-prompt-arquivo <arquivo>` (ou `prompt <id> <arquivo>`). O Hub mostra o bloco "Prompt para o próximo passo" com botão de copiar, e ele cola num chat novo direto de lá.
-- **O fluxo só termina com o "Fechamento obrigatório: Hub"** (última seção deste arquivo). Pedido de 31/out/2026: a esteira anda sozinha quando cada fluxo termina, sem depender de alguém lembrar de chamar o `hub.py`.
-- **Selo de andamento (desde 31/out/2026).** Pedido do usuário: "bater o olho e saber se o Claude está trabalhando nela ou se ela está esperando o próximo passo". O selo é separado da etapa: `trabalhando` (bolinha pulsando no Hub) enquanto esta skill executa, `aguardando` quando a parte dela termina. Sem `--status-texto` (ou `--texto` no comando `status`), o Hub usa o texto padrão da etapa: roteiro "Escrevendo roteiro" / "Esperando garimpo"; garimpo "Garimpando" / "Esperando montagem"; montagem "Sendo montado pelo Claude" / "Esperando refinamento no CapCut"; pronto "Pronto para postar". Em `trabalhando` por mais de 3 h sem atualização, o Hub mostra "sem notícias há Xh" (o chat pode ter parado no meio). Mudar a etapa sem `--status` já deixa a pauta em `aguardando`. **Nesta skill:** na abertura, `--status trabalhando` junto do `atualizar --etapa garimpo` do começo do garimpo ("Garimpando"); no fechamento, `--status aguardando` ("Esperando montagem"). Se o `hub.py` falhar, siga (o Hub nunca trava o vídeo).
-- **O Hub nunca trava o vídeo.** Se o `hub.py` der erro (sem internet, senha ausente, pauta excluída), diga em uma linha na resposta e siga o trabalho. Nunca peça para o usuário consertar o Hub no meio da rotina.
-- Arquivo temporário para o `hub.py` (roteiro, lista JSON) segue a regra de pastas desta skill.
+Comandos e regras gerais: `referencias/hub.md`. Nesta skill: no começo, `atualizar <id> --etapa garimpo --pasta "<job>" --status trabalhando` e o id gravado em `<job>/_registro/pauta_hub.txt` (Passo 1); na entrega, os clipes ligados à pauta (Passo 8) e o "Fechamento obrigatório: Hub" com `--status aguardando` ("Esperando montagem"). Se o `hub.py` falhar, diga em uma linha e siga.
 
 ## Onde trabalhar (regra fixa do usuário)
 
@@ -272,33 +261,13 @@ Desde 21/out/2026: toda entrega de garimpo termina com um prompt num bloco de c�
 5. **MAPA TRECHO → CLIPE:** para cada frase, arquivo + janela (ex.: `tt_x.mp4 3–12s`) e o que mostra; marcar qual é o gancho (pico do material) e qual fecha o loop.
 6. **O QUE FALTOU:** trechos sem imagem e a alternativa sugerida (foto, print, close).
 7. **OBSERVAÇÕES:** marcas d'água a tampar, clipes de concorrentes a evitar, mínimo de 60s.
+8. **FONTES PARA O CRÉDITO:** os @perfis/emissoras dos clipes do mapa (uploader no `inventario.json`), para a linha "Imagens: …" da descrição.
 
 Grave esse mesmo texto em `<job>/_registro/prompt_montagem.txt`: ele vai para a pauta no fechamento, e o botão do Hub copia ele.
 
-## Erros já cometidos (não repetir)
+## Erros já cometidos
 
-- Bernal x Yamal (18/out/2026):
-  - Deixar ~25 arquivos de trabalho (logs, listas, metadados) soltos na raiz do job (use `_registro/`).
-  - Não buscar no Instagram nem os perfis que o prompt pediu para procurar (ESPN México, @desde.lagrada.yt), só porque os 3 posts dados já tinham baixado. O que o pedido lista é cota.
-  - A torcida do Betis no gol do Abde não apareceu: só a transmissão. Listar o perfil de quem filmou outros gols da arquibancada (@d77aguilar) cobriu os gols do Barça. Liste esse tipo de perfil logo no começo.
-
-- Deixar 14 clipes em `_extras` "não verificados"; um deles era a base do vídeo que o usuário montou.
-- Rejeitar o clipe inteiro por ter react, legenda queimada ou círculo de destaque.
-- Tratar vídeo longo como suspeito por padrão; filmagem longa de torcida é o melhor material.
-- Entregar só links porque o `yt-dlp` falhou, ou desistir no primeiro erro de download.
-- Entregar só lance, sem apoio.
-- Entregar o mesmo vídeo duas vezes vindo de redes diferentes.
-- Confirmar lance por thumbnail em vez de quadros do arquivo baixado.
-- Usar o browser embutido no TikTok (cai em CAPTCHA).
-- Atlético-GO (set/2026): garimpar só o jogo do dia quando o roteiro citava retrospecto e título do rival. A montagem teve que parar e voltar ao garimpo (Passo 3c).
-- Confiar em vídeo de busca sem conferir a data: o mesmo confronto aparece em vlogs de anos diferentes.
-- Aceitar vídeo gerado por IA como bastidor real (Kane: "De la Fuente e Kane no vestiário", da conta theMattAI). Desconfie de cena de vestiário/bastidor que nenhum veículo mostrou.
-- Modric e Endrick (comparados em 02/out/2026): o usuário baixou sozinho o gancho dos dois vídeos (o Yamal sentado na bola; o bolo do Endrick filmado da arquibancada), a imagem do título da Copa (túnel em Los Angeles) e o gol do Yamal na transmissão aberta até a rede.
-- Raphinha cortado da Seleção (30/set/2026):
-  - Buscar o fato antigo (lesão contra a França) só com "raphinha lesão frança": não achei a filmagem da arquibancada com o telão, que o usuário achou com "Mbappé lesiona Raphinha". Busque pelo rival envolvido no lance e em inglês (Passo 3c).
-  - Não trazer imagem do lugar citado (Calcutá) nem o infográfico do dado-resumo (365Scores): o usuário foi buscar os dois (Passo 3c).
-  - Passar de 1h abrindo folhas de 6–7 em 6–7 imagens ("request limit"), sem gravar inventário nenhum: o usuário montou sem as janelas (Passo 7, item 0).
-  - Nomear com os 6 últimos dígitos do id: ele não reconheceu o arquivo e baixou de novo (Passo 5).
+Estão em `referencias/historico.md`. Os principais viraram regra nos Passos: abrir todo clipe baixado, avaliar o trecho e não o clipe, caçar filmagem longa de torcida, buscar fato de outra data pelo rival e em inglês, conferir a data do vídeo, desconfiar de bastidor gerado por IA, nomes de arquivo reconhecíveis e raiz do job limpa.
 
 ## Fechamento obrigatório: Hub (último passo de todo garimpo)
 

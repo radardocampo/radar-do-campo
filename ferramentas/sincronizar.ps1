@@ -13,6 +13,13 @@ git pull -q --ff-only
 # 1. SKILL.md do HUB (fonte da verdade). Scripts do repo ja estao adaptados ao RADAR_BASE: nao sobrescrever.
 foreach ($s in $skills) {
     Copy-Item "$hub\$s\SKILL.md" ".claude\skills\$s\SKILL.md" -Force
+    # referencias/ (hub.md, historico.md e, na montagem, capcut/comparacao/limpeza) desde 06/11/2026
+    $refHub  = Join-Path $hub "$s\referencias"
+    $refRepo = Join-Path ".claude\skills" "$s\referencias"
+    if (Test-Path $refHub) {
+        if (Test-Path $refRepo) { Remove-Item $refRepo -Recurse -Force }
+        Copy-Item $refHub $refRepo -Recurse -Force
+    }
 }
 
 # 2. Espelho para o Antigravity (.agents/skills = mesmo conteudo de .claude/skills)
@@ -21,8 +28,19 @@ New-Item -ItemType Directory -Force ".agents" | Out-Null
 Copy-Item ".claude\skills" ".agents\skills" -Recurse -Force
 Get-ChildItem ".agents\skills" -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
 
-# 3. Memorias (so acrescenta/atualiza; nao apaga as que vieram da nuvem)
+# 3. Memorias (so acrescenta/atualiza; nao apaga as que vieram de outro lugar)
 Copy-Item "$mem\*.md" "memoria\" -Force
+# memorias aposentadas (fora do indice) ficam em memoria/arquivo, desde 06/11/2026
+$memArq = Join-Path $mem "arquivo"
+if (Test-Path $memArq) {
+    New-Item -ItemType Directory -Force (Join-Path "memoria" "arquivo") | Out-Null
+    Copy-Item (Join-Path $memArq "*.md") (Join-Path "memoria" "arquivo") -Force
+    # a copia antiga no topo de memoria/ sai do repo (git rm); o conteudo continua em memoria/arquivo/
+    Get-ChildItem (Join-Path $memArq "*.md") | ForEach-Object {
+        $velho = Join-Path "memoria" $_.Name
+        if (Test-Path $velho) { git rm -q -f -- "memoria/$($_.Name)" | Out-Null }
+    }
+}
 
 git add .claude/skills .agents/skills memoria GEMINI.md CLAUDE.md AGENTS.md LEIA-PRIMEIRO.md ferramentas/sincronizar.ps1
 git diff --cached --quiet

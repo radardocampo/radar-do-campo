@@ -14,3 +14,5 @@ As skills `montagem-de-video` e `garimpo-de-videos` foram reescritas a partir de
 
 **Why:** ele quer que o próximo roteiro já saia montado como o exemplo, sem remontar o do Carrascal.
 **How to apply:** quando houver dúvida de estilo, compare com esse vídeo de referência (quadros lado a lado), não com os números da skill.
+
+**Desde 06/11/2026 é referência histórica.** As referências atuais da montagem são o Bruno Duarte e a camisa 10 ([[decisoes-skills-2026-11-06]]).

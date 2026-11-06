@@ -20,3 +20,5 @@ Origem: em 2026-10-13 (Pulgar/Fla-Flu) o roteiro de 231 palavras virou 54,8s fin
 - Roteiro de 235 palavras deu 59,2s (Andreas): mirar 255–265 no texto do AI Studio.
 - Desde 2026-10-18 a regra está nas skills (montagem Passo 1; garimpo-de-temas Passo 11 com 255–265 palavras).
 - Relacionado: [[narracao-feita-no-ai-studio]], [[narracao-le-rotulos-do-roteiro]].
+
+**Atualização 06/11/2026:** roteiro de 245–255 palavras (era 255–265), mirando 60–66 s, porque acima de ~1:10 a retenção do YouTube cai para ~70%. O mínimo de 60 s continua. Ver [[decisoes-skills-2026-11-06]].

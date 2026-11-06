@@ -9,3 +9,5 @@ Pedido do usuário em 2026-10-21: tirar da entrega o vídeo para TikTok e o víd
 
 **Why:** ele sempre abre no CapCut, refina e renderiza a versão final de lá; só usa a entrega final dele.
 **How to apply:** `render_final.py` (HUB 2026-10-21b) já gera só os 2; o rascunho é `_montagem/render/rascunho.mp4`. SFX vai só na faixa do rascunho do CapCut (não há mais 5º arquivo). O `capcut_projeto.py` não herda as faixas de logo do modelo. Substitui a parte de entrega de [[skill-montagem-versao-nova-local]] e [[montagem-versao-extra-com-sfx]].
+
+**Atualização 06/11/2026:** os 2 MP4 também saíram. A entrega é a prévia 720p + o rascunho do CapCut (gerado sempre). `render_final.py --mp4` refaz os 2 arquivos só se ele pedir. Ver [[decisoes-skills-2026-11-06]].

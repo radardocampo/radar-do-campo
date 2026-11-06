@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
-"""Render final: corte + cor + legenda + narracao, as 2 entregas.
+"""Render: rascunho para a revisao e fechamento da entrega.
 
 uso:
   python render_final.py --render <pasta do prep_shots> --narracao narracao_final.wav \
       --legenda <pasta do legenda_karaoke> --saida <pasta do job> --nome carrascal \
-      [--sfx sfx.json] [--rascunho]
-  --rascunho: so o com-legenda em encode rapido (<render>/rascunho.mp4) para a revisao.
-  Fluxo: rascunho -> revisao -> corrige -> rascunho de novo -> ... -> SO NO FIM as 2 entregas (sem --rascunho).
+      [--rascunho] [--mp4] [--sfx sfx.json]
+  --rascunho: com-legenda em encode rapido (<render>/rascunho.mp4) para a revisao a cada 0,1s.
+  sem --rascunho (fechamento da entrega, 06/11/2026): NAO gera MP4 final. O usuario exporta o video
+      que vai ao ar do rascunho do CapCut, entao os 2 MP4 (~6-8 min de encode) sairam. O fechamento:
+      previa 720p (<render>/<nome>-preview.mp4) tirada do rascunho revisado, checagem audio x narracao,
+      "legenda para o CapCut.srt" e "guia da trilha.txt" na raiz do job, e limpeza dos cortes regeneraveis.
+  --mp4: so se o usuario pedir os arquivos antigos: <saida>/Videos prontos/<nome>-com-legenda.mp4 e
+      <nome>-sem-legenda.mp4 (sem logo do canal desde 21/10/2026).
+  Fluxo: rascunho -> revisao -> corrige -> rascunho de novo -> ... -> fechamento (sem --rascunho), uma vez.
 
 sfx.json: [{"t": 1.6, "arquivo": "C:/.../Sons edição/impact-cinematic-boom-352465.mp3", "vol": 0.6}]
-  (padrao: NAO passe --sfx; os SFX vao so na faixa SFX do rascunho do CapCut)
-gera em <saida>/Videos prontos/ (so as entregas, nada de arquivo de trabalho):
-  <nome>-com-legenda.mp4   completo: cor + legenda + narracao
-  <nome>-sem-legenda.mp4   base de edicao: cor + narracao, sem legenda
-NENHUMA leva logo do canal (pedido do usuario em 21/10/2026: ele refina e exporta tudo no CapCut
-e deixou de usar a logo; acabaram os arquivos TIKTOK/YOUTUBE e o com-legenda-sem-marca).
-e em <saida>/ (raiz do job): "legenda para o CapCut.srt" (grafia certa, para importar no CapCut)
-e em <render>/: <nome>-preview.mp4 (720p)
+  (o sfx.json fica em _montagem/ e vai para a faixa SFX do rascunho do CapCut; --sfx aqui so com --mp4)
 """
 import argparse, json, os, shutil, subprocess, sys, wave
 import numpy as np
@@ -29,10 +28,12 @@ ap.add_argument("--legenda", required=True)
 ap.add_argument("--saida", required=True)
 ap.add_argument("--nome", required=True)
 ap.add_argument("--sfx")
-ap.add_argument("--lufs", type=float, default=-10.0, help="o usuario publica em -10 LUFS")
+ap.add_argument("--lufs", type=float, default=-10.0, help="nivel do audio do rascunho/previa (o video publicado sai do CapCut)")
 ap.add_argument("--rascunho", action="store_true",
                 help="so o com-legenda, rapido (ultrafast), em <render>/rascunho.mp4, para a revisao a cada 0,1s. "
-                     "As 2 entregas saem UMA vez, depois que a revisao do rascunho estiver limpa")
+                     "O fechamento (sem --rascunho) roda UMA vez, depois que a revisao do rascunho estiver limpa")
+ap.add_argument("--mp4", action="store_true",
+                help="gera tambem os 2 MP4 antigos (com-legenda e sem-legenda) em Videos prontos/; so se o usuario pedir")
 a = ap.parse_args()
 from pasta_job import dentro_do_job
 dentro_do_job(a.saida); dentro_do_job(a.render); dentro_do_job(a.legenda)
@@ -85,10 +86,9 @@ ENC_A = ["-c:a", "aac", "-b:a", "192k", "-ar", "48000"]
 LN = f"loudnorm=I={a.lufs}:TP=-1.5:LRA=11"
 
 pasta_entrega = os.path.join(a.saida, "Videos prontos")
-os.makedirs(pasta_entrega, exist_ok=True)
 saida_l = os.path.join(pasta_entrega, f"{a.nome}-com-legenda.mp4")
 saida_s = os.path.join(pasta_entrega, f"{a.nome}-sem-legenda.mp4")
-ENTREGAS = [saida_l, saida_s]
+rasc = os.path.join(a.render, "rascunho.mp4")
 # AUDIO EM PASSO SEPARADO. Com o audio no mesmo filter_complex da logo em loop e da faixa de
 # legenda, o ffmpeg descartou ~9s de narracao em silencio (camisa amarela, set/2026): o arquivo
 # tinha 62s, mas a fala pulava de "de um empate" para "o simbolo do maior trauma" e acabava em 53s.
@@ -97,30 +97,43 @@ run(["ffmpeg", "-y", "-v", "error", "-i", a.narracao, "-i", cama_wav, "-filter_c
      f"[0:a][1:a]amix=inputs=2:normalize=0:duration=first,{LN}[a]", "-map", "[a]",
      "-ar", str(SR), "-ac", "2", "-c:a", "pcm_s16le", audio_final])
 filtro = f"[0:v]eq=saturation=1.18:contrast=1.12[c];[c][1:v]overlay=0:{banda['y']}:format=auto:shortest=0[v]"
-if a.rascunho:
-    # mesma composicao do com-legenda final (cor + legenda + audio), encode rapido, fora de "Videos prontos"
-    rasc = os.path.join(a.render, "rascunho.mp4")
+def faz_rascunho():
+    # mesma composicao do com-legenda (cor + legenda + audio), encode rapido, fora de "Videos prontos"
     run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", faixa, "-i", audio_final, "-filter_complex", filtro,
          "-map", "[v]", "-map", "2:a", "-c:v", "libx264", "-crf", "20", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
          "-r", "60", *ENC_A, "-t", f"{D:.3f}", rasc])
+
+if a.rascunho:
+    faz_rascunho()
     print("rascunho:", rasc, f"({dur(rasc):.2f}s, corte {D:.2f}s)")
-    print("rode revisao.py nele; so depois de limpo rode render_final.py SEM --rascunho (2 arquivos, uma vez)")
+    print("rode revisao.py nele; so depois de limpo rode render_final.py SEM --rascunho (fechamento, uma vez)")
     sys.exit(0)
-# legenda com a grafia certa, para importar no CapCut (fica na raiz do job: "Videos prontos" so leva os videos)
+
+# ---- fechamento da entrega
+# o rascunho revisado e a imagem da entrega; se ele nao existir (ou for mais velho que o corte), refaz
+if not os.path.exists(rasc) or os.path.getmtime(rasc) < os.path.getmtime(corte):
+    faz_rascunho()
+    print("rascunho refeito a partir do corte atual")
+# legenda com a grafia certa (raiz do job), para o caso de ele montar do zero no CapCut
 srt_leg = os.path.join(a.legenda, "legenda_capcut.srt")
 if os.path.exists(srt_leg):
     shutil.copyfile(srt_leg, os.path.join(a.saida, "legenda para o CapCut.srt"))
     print("ok:", os.path.join(a.saida, "legenda para o CapCut.srt"))
-run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", faixa, "-i", audio_final, "-filter_complex", filtro,
-     "-map", "[v]", "-map", "2:a", *ENC_V, *ENC_A, "-t", f"{D:.3f}", "-movflags", "+faststart", saida_l])
-print("ok:", saida_l)
-run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", audio_final, "-vf", "eq=saturation=1.18:contrast=1.12",
-     "-map", "0:v", "-map", "1:a", *ENC_V, *ENC_A, "-t", f"{D:.3f}", "-movflags", "+faststart", saida_s])
-print("ok:", saida_s)
+ENTREGAS = [rasc]
+if a.mp4:
+    os.makedirs(pasta_entrega, exist_ok=True)
+    run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", faixa, "-i", audio_final, "-filter_complex", filtro,
+         "-map", "[v]", "-map", "2:a", *ENC_V, *ENC_A, "-t", f"{D:.3f}", "-movflags", "+faststart", saida_l])
+    print("ok:", saida_l)
+    run(["ffmpeg", "-y", "-v", "error", "-i", corte, "-i", audio_final, "-vf", "eq=saturation=1.18:contrast=1.12",
+         "-map", "0:v", "-map", "1:a", *ENC_V, *ENC_A, "-t", f"{D:.3f}", "-movflags", "+faststart", saida_s])
+    print("ok:", saida_s)
+    ENTREGAS = [saida_l, saida_s]
 
-run(["ffmpeg", "-y", "-v", "error", "-i", saida_l, "-vf", "scale=720:1280:flags=lanczos", "-c:v", "libx264",
-     "-crf", "27", "-preset", "fast", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
-     os.path.join(a.render, f"{a.nome}-preview.mp4")])
+previa = os.path.join(a.render, f"{a.nome}-preview.mp4")
+run(["ffmpeg", "-y", "-v", "error", "-i", ENTREGAS[0], "-vf", "scale=720:1280:flags=lanczos", "-c:v", "libx264",
+     "-crf", "27", "-preset", "fast", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", previa])
+print("ok:", previa)
 
 
 # guia da trilha (raiz do job): tempos de entrada/queda/subida/saida da musica, padrao das edicoes dele
@@ -129,9 +142,9 @@ if os.path.exists(_edl):
     subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "guia_trilha.py"), _edl, a.saida])
 
 # ---- checagens objetivas
-lf = run(["ffmpeg", "-i", saida_l, "-vn", "-af", "ebur128=framelog=quiet", "-f", "null", "-"]).stderr
+lf = run(["ffmpeg", "-i", ENTREGAS[0], "-vn", "-af", "ebur128=framelog=quiet", "-f", "null", "-"]).stderr
 integ = [l for l in lf.splitlines() if l.strip().startswith("I:")]
-print("loudness:", integ[-1].strip() if integ else "?", f"(alvo {a.lufs} LUFS)")
+print("loudness:", integ[-1].strip() if integ else "?", f"(alvo {a.lufs} LUFS; o publicado sai do CapCut)")
 for p in ENTREGAS:
     print(f"duracao {os.path.basename(p)}: {dur(p):.2f}s (corte {D:.2f}s)")
 
@@ -170,7 +183,8 @@ if falhas:
 # ---- limpeza da entrega (pedido do usuario, 05/10/2026: cada video ocupava ~5 GB).
 # So o que se refaz sozinho vai para a Lixeira: os cortes emendados (refeitos dos shots em segundos)
 # e o rascunho (refeito a cada correcao). Os shots (render/completo, render/limpo), os clipes,
-# a EDL e a previa ficam: correcao e remontagem continuam iguais. Clipes so saem no fechar_videos.py.
+# a EDL e a previa 720p ficam: correcao e remontagem continuam iguais, e a previa serve de "nosso"
+# no pares_quadros.py. Clipes so saem no fechar_videos.py.
 from lixeira import para_lixeira, tamanho
 regen = [os.path.join(a.render, n) for n in ("corte_completo.mp4", "corte_limpo.mp4", "rascunho.mp4", "rascunho_tiktok.mp4")]
 regen = [p for p in regen if os.path.exists(p)]
