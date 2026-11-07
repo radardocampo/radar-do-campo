@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 4a58b344-206f-4137-aa3a-30597786cdc1
-  modified: 2026-10-05T19:52:04.104Z
+  modified: 2026-11-07T15:33:51.601Z
 ---
 
 Em 2026-10-05 o C: (930 GB) estava com 22,8 GB livres. Cada vídeo da skill ocupava ~5 GB: ~2,3 GB de `clipes`, ~3 GB de `_montagem\render` e só ~1 GB de finais.
@@ -32,5 +32,7 @@ Os scripts usados (`registro.ps1`, `lixeira.ps1`) ficaram no scratchpad da sess�
 - **Pendência do usuário:** limpar o cache do CapCut por dentro do app.
 - **CapCut:** ele quer só os 10 projetos mais recentes.
 - **Downloads:** MP4 de nome numérico são downloads do TikTok, descartáveis.
+
+- **2026-11-07 (2ª limpeza):** ele pediu "deixa só os 10 mais recentes" + registro final dos outros + esvaziar a Lixeira (autorizou esvaziar). Rodei `fechar_videos.py --executar --so <cada pasta>` nos 39 fora do top 10 (115,7 GB), esvaziando a Lixeira antes e depois; CapCut ficou com os 10 projetos mais novos (60 saíram). C: de 45 → 222 GB livres. Protegido o vídeo em andamento (Tarkowski). `Clear-RecycleBin` dá erro falso "não pode encontrar o arquivo" mas esvazia. Cache do CapCut (~34 GB) segue pendente, por dentro do app.
 
 Ver [[skill-montagem-versao-nova-local]].

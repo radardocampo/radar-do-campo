@@ -21,12 +21,12 @@
 - [Fotos do Galo no Flickr](garimpo-fotos-flickr-atletico.md) — álbum oficial por jogo (clubeatleticomineiro); HTML só rende parte das miniaturas
 - [Fluxo na nuvem via GitHub](fluxo-nuvem-github.md) — aposentado em 06/11 (crédito venceu); só o repo HUB/radar-do-campo
 - [Lance em sequência aprovado (Bruno Duarte)](montagem-lance-em-sequencia-aprovado.md) — 2026-10-08 "perfeito": gancho = prévia da queda; depois o lance inteiro em ordem, cada frase com o próximo momento do mesmo evento; zoom 1,2–1,6 seguindo a bola
-- [Atualizar skill = todos os lugares](atualizar-skill-em-todos-lugares.md) — pedido de atualizar skill: HUB + .skill, nuvem/GitHub e upload no claude.ai pelo Chrome, sem ele precisar reenviar
+- [Atualizar skill = todos os lugares](atualizar-skill-em-todos-lugares.md) — pedido de atualizar skill: HUB + .skill, repo GitHub (sincronizar.ps1) e upload no claude.ai pelo Chrome, sem ele precisar reenviar (nuvem aposentada em 06/11)
 - [Garimpo enxuto é o padrão](garimpo-enxuto-padrao.md) — desde 2026-10-08, todo dia: TikTok 4–6 buscas, mosaico, outras redes só pro que faltar; completo só se ele pedir (rotina segue nas 7 redes)
 - [Limpeza do disco e registro dos vídeos](limpeza-disco-registro-videos.md) — 2026-10-05: _registro + CSV; skill só limpa cortes na entrega, clipes saem com fechar_videos.py (>15 dias, quando ele pede); Lixeira 150 GB
 - [Tom do canal medido](narracao-tom-do-canal-medido.md) — 2026-10-11: faixa 140–160 Hz, 2,8–3,5 palavras/s; AI Studio só no navegador; TikTok @_radardocampo só via Chrome
 - [Vídeo final nunca abaixo de 60s](video-final-sempre-60s.md) — mínimo 60s, ideal 60–66s; abaixo: esticar respirações (--manter até ~0,2s); roteiro 245–255 palavras
-- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9: desde 06/11 gerado sempre, sem perguntar (só pergunta se o projeto dele estiver aberto); keyframes em tempo da fonte; SFX ligado
+- [CapCut: rascunho editável](capcut-rascunho-editavel.md) — Passo 9: desde 06/11 gerado sempre, sem perguntar (só pergunta se o projeto dele estiver aberto); keyframes em tempo da fonte; SFX ligado; desde 07/11 modelo FIXO em HUB/Claude/capcut-modelo (o "0417-cópia" sumiu na limpeza dos 10 projetos)
 - [Rotina: candidatos no texto + redes no Chrome](rotina-mostrar-candidatos-em-texto.md) — 2026-10-18 reclamação: nunca fechar só com a caixa; lista completa escrita + 7 redes pelo navegador dele
 - [Comparação em lote 17/10](comparacao-lote-2026-10-17.md) — 17 vídeos comparados; 8 sem troca de imagem; regras na skill HUB 2026-10-17; em 18/10 Leo Flores, Andreas e Bernal (rodada 13, HUB 2026-10-18)
 - [Roteiro sem comentários aleatórios](roteiro-sem-comentarios-aleatorios.md) — 2026-10-19 Paquetá: nada de comentário/curtida de anônimo como pauta; só pessoa relevante ou se o tema for isso

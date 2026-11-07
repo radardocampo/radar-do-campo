@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 9ea89624-719f-49b0-9bae-3f94d60de664
-  modified: 2026-10-18T22:20:45.805Z
+  modified: 2026-11-07T15:40:36.497Z
 ---
 
 Em 2026-10-18 (Andreas Pereira) o usuário pediu a timeline editável no CapCut em vez do Concat ([[concat-timeline-editavel]]). A 1ª versão tinha o corte renderizado por cima, e ele reclamou: "não consigo mexer no zoom, enquadramento e efeitos, a legenda está diferente, e quero a música do meu rascunho anterior igual". A versão aprovada parte do rascunho-modelo dele e deixa tudo nativo. No Bernal x Yamal ele pediu de novo ("como fizemos na última").
@@ -32,3 +32,5 @@ Em 2026-10-18 (Andreas Pereira) o usuário pediu a timeline editável no CapCut 
 **27/10/2026:** o script passou a gerar as faixas DESFOQUE (cada `borrar` vira uma cópia do clipe com máscara Retângulo + Desfocar) e SETAS (seta/círculo em PNG). A 2ª trilha agora vai até ~1s antes do fim, e a virada da música vai para o shot `"revelacao": true`. Conferi no CapCut com um rascunho de teste. Ver [[comparacao-lote-2026-10-27]].
 
 **Atualização 06/11/2026:** não oferecer mais: gerar o rascunho no fim de toda entrega, sem perguntar. Só perguntar se o projeto dele estiver aberto no CapCut. SFX ligado com 2–4 impactos sempre (`sfx.json`). Ver [[decisoes-skills-2026-11-06]].
+
+**Modelo fixo (07/11/2026, à tarde):** o modelo antigo "0417-cópia… (15)" sumiu da pasta do CapCut (ele mantém só os 10 projetos mais recentes, e os 10 "Radar - …" empurraram o modelo para fora). Sem ele, o `capcut_projeto.py` quebraria na próxima montagem. Agora o modelo fica em `HUB Radar do Campo\Claude\capcut-modelo\Radar MODELO\` (fora da lista do CapCut; só as 2 trilhas + Dramatic, 2,7 MB), feito pelo `scripts/salvar_modelo_capcut.py` a partir do rascunho do Tarkowski, e o `capcut_projeto.py` usa ele por padrão. Testado: regerar o Tarkowski com ele deu música, narração, SFX, flash e legenda iguais (±0,01 s). Para trocar a música do canal: rascunho com a música nova → `salvar_modelo_capcut.py "Radar - <rascunho>"`. Ver [[montagem-video-em-movimento]].

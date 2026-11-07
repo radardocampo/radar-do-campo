@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-11-07** (07/11: vídeo em movimento em todo shot, imagem parada só quando não existe vídeo do fato. 06/11 limpeza: a skill ficou só com as regras que valem hoje; a história de cada regra foi para `referencias/historico.md`. A entrega deixou de gerar os 2 MP4: sai a prévia, e o rascunho do CapCut é gerado sempre. Padrões fixos de SFX e P&B, sem meta de % de torcida, referências novas). A versão é identificada pela DATA.
+**Versão 2026-11-07b** (07/11 tarde: modelo fixo do CapCut fora da lista do CapCut e `salvar_modelo_capcut.py`; foto e infográfico só sem vídeo do fato; câmera lenta de vídeo real não conta como FOTO. 07/11: vídeo em movimento em todo shot, imagem parada só quando não existe vídeo do fato. 06/11 limpeza: a skill ficou só com as regras que valem hoje; a história de cada regra foi para `referencias/historico.md`. A entrega deixou de gerar os 2 MP4: sai a prévia, e o rascunho do CapCut é gerado sempre. Padrões fixos de SFX e P&B, sem meta de % de torcida, referências novas). A versão é identificada pela DATA.
 
 ## Passo zero — usar sempre a versão mais nova
 
@@ -56,7 +56,8 @@ Base: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`
 | Seta vermelha | `imagens edição\seta vermelha e  inclinada.jpg` |
 | Fonte da legenda | `assets/Montserrat-Italic-VF.ttf` (render) e `assets/Montserrat-ExtraBoldItalic.ttf` (CapCut) |
 | Prompt de títulos e tags | `assets/prompt_titulos_tags.txt` |
-| Rascunhos do CapCut | `%LOCALAPPDATA%\CapCut\User Data\Projects\com.lveditor.draft\` (o modelo é o mais recente que não começa com "Radar - " nem "_tmp") |
+| Rascunhos do CapCut | `%LOCALAPPDATA%\CapCut\User Data\Projects\com.lveditor.draft\` (os "Radar - …" que geramos) |
+| Modelo do CapCut (fixo) | `HUB Radar do Campo\Claude\capcut-modelo\Radar MODELO\` (só a música dele; fora da lista do CapCut, desde 07/11/2026) |
 
 ## Scripts (em `scripts/`)
 
@@ -66,6 +67,7 @@ Base: `C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\`
 | `loop_final.py` | corta o fim da narração no começo da palavra que emenda com a abertura |
 | `folha_contato.py` | folha de contato com tempo queimado |
 | `movimento_real.py` | separa vídeo de foto com zoom/pan (alinha quadro com quadro e mede o que sobra) |
+| `salvar_modelo_capcut.py` | refaz o modelo fixo do CapCut a partir de um rascunho com a música certa (Passo 9) |
 | `grade.py` | quadros com grade de 10%: mede zoom/cx/cy e onde fica cada marca antes da EDL |
 | `prep_shots.py` | audita a EDL e gera os shots 1440x2560 60fps + o corte; `keys`/`segue`, `recorte`, `borrar`, `destaque`, `flashforward` |
 | `posfx.py` | transições do canal por shot (`fx`): `flash`, `flashback_in`, `flashback` |
@@ -155,11 +157,11 @@ Classifique cada frase: **lance/ação**, **fato** (placar, retrospecto, título
 17. **Pessoa citada = a pessoa.** Fala sobre o protagonista ("lateral do Corinthians", "ele mesmo disse") = ele na tela. Instituição numa pergunta ou acusação = o rosto de quem a representa (Seleção → técnico; clube → técnico/presidente; arbitragem → o árbitro). Fato emocional do protagonista = o rosto dele naquele momento. Não mostre de rosto alguém que o roteiro não cita. Confira a identidade do rosto contra os quadros do lance; sem identidade confirmada, não entra.
 18. **Falas genéricas** ("virou assunto", "quase ninguém percebeu"): o protagonista na tela (andando, reagindo). Torcida/estádio genérico só quando a frase fala literalmente da torcida ou do estádio.
 19. **Ação descrita = a ação acontecendo**, não a consequência ("se machucou comemorando" = a comemoração, não a ambulância). Ação genérica ("voltou pra Barcelona") pode vir de outra data.
-20. **Lugar nomeado = imagem do lugar** (de qualquer data, se o evento ainda não aconteceu). **Enumeração = um corte por item** (~0,5 s cada, na palavra). **Parte do corpo, gesto ou detalhe nomeado = punch-in nele** (corte seco para um quadro mais fechado do mesmo take, na palavra, `zoom` ~1,6–2,2). **Dado-resumo = infográfico de portal**, com punch-in no número; se ele limpou a arte num editor de IA, confira as letras pequenas.
+20. **Lugar nomeado = imagem do lugar** (de qualquer data, se o evento ainda não aconteceu). **Enumeração = um corte por item** (~0,5 s cada, na palavra). **Parte do corpo, gesto ou detalhe nomeado = punch-in nele** (corte seco para um quadro mais fechado do mesmo take, na palavra, `zoom` ~1,6–2,2). **Dado-resumo = infográfico de portal só na palavra do número** (≤ ~1 s, com punch-in no número; o resto da frase volta ao vídeo do lance), e só quando o número não tem vídeo; se ele limpou a arte num editor de IA, confira as letras pequenas.
 21. **Pessoa nomeada entra na palavra:** o corte cai na palavra, mesmo antecipando a emenda em 0,2 s (Tipo B).
 22. **Fala que cita documento ou post = o print real.** Súmula/comunicado: `artes_print.py documento --variantes` em tela cheia sobre o lance desfocado, com o trecho lido realçado em amarelo fora da faixa da legenda (48–60% da altura) e punch-in até o trecho. Story/post: o print com zoom lento. Post em outra língua lido pela narração: a tradução entre aspas, em Montserrat ExtraBold Italic branco com contorno, logo acima do original. Quando a súmula só narra um lance que existe em vídeo, mostre o lance.
 23. **Comentários (desde 06/11/2026):** só entra comentário de pessoa relevante (jogador, técnico, clube, jornalista), ou quando a polêmica é o próprio comentário. Nesse caso: card real (`artes_print.py card`, `destaque` `icone`, `tam` ~0,86), nome do perfil desfocado se for anônimo, cards da reta final ficam até o último quadro, e o comentário que fecha entra sozinho e maior, com punch-in.
-24. **Foto ou arte em tela cheia nunca parada:** zoom lento de ~1,0 para ~1,25 ou pan lento. Close de rosto = cabeça e ombros, com quem está ao lado; foto nítida do mesmo momento (photo mode do TikTok) com punch-in vale mais que vídeo fechado e mole.
+24. **Foto ou arte só quando não existe vídeo do fato** (regra de 07/11/2026), e então nunca parada: zoom lento de ~1,0 para ~1,25 ou pan lento, por ≤ ~1 s. Close de rosto = cabeça e ombros, com quem está ao lado, **em vídeo**; foto nítida do mesmo momento (photo mode do TikTok) só substitui o vídeo quando ele está ilegível (mole demais para ver o rosto), e por ≤ ~1 s.
 25. **Expulsão/cartão:** o cartão levantado no quadro. **Objeto pequeno num plano aberto** (bola extra, objeto atirado): punch-in progressivo seguindo até ele ficar visível. **Relação no espaço** ("acertou a bola do jogo"): abra o quadro para caber os dois.
 
 **Transições e trilha**
@@ -244,6 +246,7 @@ Não gera MP4 final (o vídeo que vai ao ar sai do CapCut). `--mp4` gera os anti
        python scripts/movimento_real.py "<clipe ou rascunho.mp4>" --resumo
 
    Ele diz `FOTO a-b | VIDEO a-b`. Janela FOTO não entra na EDL se existir vídeo do mesmo fato (mesmo que o inventário diga "replay em câmera lenta"); no rascunho, nenhum FOTO acima de ~1 s, salvo fato que só existe em foto (diga na entrega). No Tarkowski (07/11) o clipe @sabulaug256 e as janelas do @Topnews1 eram 100% foto com zoom, o gancho saiu de foto e ele reclamou duas vezes; o vídeo real do lance estava no @UTDKarra, @bs.ftbl.lfc, @_ROMemorabilia_ e @ArsenalBlessing.
+   **Câmera lenta de vídeo real** (prévia de suspense a 0,25–0,5x, câmera lenta progressiva até ~0,17x) pode sair como FOTO na medição do rascunho, porque o quadro muda pouco em 0,2 s. Nesses shots, confira a janela na **fonte**: se lá é VIDEO, o shot está certo. FOTO na fonte é que não entra.
 1. **Revisão a cada 0,1 s (regra do usuário), no rascunho, antes de qualquer entrega:**
 
        python scripts/revisao.py "<job>/_montagem/render/rascunho.mp4" "<job>/_montagem/revisao" --edl "<job>/_montagem/edl.json" [--shots "18,20"]
@@ -263,6 +266,8 @@ Ele refina e exporta do CapCut. Gere o rascunho **no fim de toda entrega, sem pe
 3. Rode, de dentro de `<job>/_montagem`, com `PYTHONIOENCODING=utf-8`:
 
        python scripts/capcut_projeto.py "<job>" --nome "Radar - <título>" [--modelo "<rascunho-modelo>"]
+
+**Modelo fixo (07/11/2026):** o rascunho parte de `HUB Radar do Campo\Claude\capcut-modelo\Radar MODELO\` (as 2 trilhas dele, "Construindo de uma forma diferente" e "ACIDO III (Slowed)", e o impacto "Dramatic", com a virada em 44,6 s). Ele fica fora da lista do CapCut de propósito: o modelo antigo ("0417-cópia… (15)") sumiu na limpeza dos 10 projetos mais recentes. Para trocar a música do canal, monte um rascunho com a música nova, salve no CapCut e rode `python scripts/salvar_modelo_capcut.py "Radar - <esse rascunho>"`. `--modelo` escolhe outro modelo só para um vídeo.
 
 O rascunho parte do modelo dele (trilhas com a posição dele, impacto "Dramatic"; logos do modelo ficam de fora) e deixa **tudo nativo e editável**: cada shot é o clipe bruto com corte, velocidade, escala/posição e keyframes (no **tempo da fonte**); cor gravada nas cópias em `_montagem/capcut_clipes/`; flash em PNG (faixa FLASH); P&B pelo filtro do CapCut (faixa FLASHBACK); `borrar` como cópia com máscara Retângulo + Desfocar (faixa DESFOQUE); setas/círculos (SETAS); cards (CARDS/CARDS2/CARDS3); legenda karaokê com a fonte da entrega a 54%; narração; SFX do `sfx.json` ligado. Trilha principal a 0,12, 2ª trilha a 0,09 até ~1 s antes do fim, e a virada no shot `"revelacao"` (sem a marca, cai em 44,6 s e o script avisa).
 

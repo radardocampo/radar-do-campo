@@ -58,9 +58,15 @@ def probe(p):
 def us(t): return int(round(t * 1_000_000))
 
 # ---------- modelo ----------
-if a.modelo: modelo = os.path.join(a.raiz, a.modelo)
+# Modelo FIXO (07/11/2026): o "0417-copia... (15)" sumiu na limpeza dos 10 projetos mais recentes do CapCut.
+# O modelo agora fica fora da lista do CapCut (salvar_modelo_capcut.py) e e o padrao; --modelo escolhe outro.
+MODELO_FIXO = r"C:\Users\bruno\Desktop\all\BUSINESS\Radar do Campo\HUB Radar do Campo\Claude\capcut-modelo\Radar MODELO"
+if a.modelo: modelo = os.path.join(a.raiz, a.modelo)   # nome de um rascunho do CapCut ou caminho completo
+elif os.path.exists(os.path.join(MODELO_FIXO, "draft_content.json")): modelo = MODELO_FIXO
 else:
     cand = [p for p in glob.glob(os.path.join(a.raiz, "*", "draft_content.json")) if not os.path.basename(os.path.dirname(p)).startswith(("Radar - ", "_tmp"))]
+    if not cand:
+        raise SystemExit("ERRO: sem modelo do CapCut. Rode: python salvar_modelo_capcut.py \"Radar - <rascunho com a musica certa>\"")
     modelo = os.path.dirname(max(cand, key=os.path.getmtime))
 tpl = json.load(open(os.path.join(modelo, "draft_content.json"), encoding="utf-8"))
 print("modelo:", os.path.basename(modelo))
