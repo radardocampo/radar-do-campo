@@ -14,3 +14,5 @@ O que tinha saído parado: Lampard no banco (1,5 s quase sem movimento), gráfic
 
 **Why:** o canal é de vídeo; trecho parado parece slideshow e derruba a retenção.
 **How to apply:** em toda montagem, cada shot é vídeo em movimento do fato (coletiva = a pessoa falando/gesticulando; reação = take em que ela se mexe; regra/VAR = o lance ou o jogo andando). Quadro congelado, gráfico, card ou foto só quando não existe vídeo daquele fato, por ≤ ~1 s. Antes do rascunho, medir o movimento do corte (YDIF do ffmpeg, Passo 8 item 0 da skill, versão HUB 2026-11-07) e trocar o que estiver parado.
+
+**2ª reclamação no mesmo dia:** "continuo com imagem que dão zoom... o gancho já começa com uma imagem no zoom". A fonte @sabulaug256 (e as janelas do @Topnews1) era foto com Ken Burns do editor; o YDIF contou o zoom como movimento e o inventário do garimpo chamava de "replay em câmera lenta". Refeito com vídeo real (@UTDKarra, @bs.ftbl.lfc, @_ROMemorabilia_, @ArsenalBlessing). Regra: rodar `scripts/movimento_real.py --resumo` em todo clipe antes da EDL e no rascunho; janela FOTO só entra quando não há vídeo do fato (Martinez/Ballard ficaram ~1 s cada).
