@@ -5,7 +5,7 @@ description: "Monta Shorts/Reels verticais de futebol do canal Radar do Campo a 
 
 # Montagem de vídeo — Radar do Campo
 
-**Versão 2026-11-06** (limpeza: a skill ficou só com as regras que valem hoje; a história de cada regra foi para `referencias/historico.md`. A entrega deixou de gerar os 2 MP4: sai a prévia, e o rascunho do CapCut é gerado sempre. Padrões fixos de SFX e P&B, sem meta de % de torcida, referências novas). A versão é identificada pela DATA.
+**Versão 2026-11-07** (07/11: vídeo em movimento em todo shot, imagem parada só quando não existe vídeo do fato. 06/11 limpeza: a skill ficou só com as regras que valem hoje; a história de cada regra foi para `referencias/historico.md`. A entrega deixou de gerar os 2 MP4: sai a prévia, e o rascunho do CapCut é gerado sempre. Padrões fixos de SFX e P&B, sem meta de % de torcida, referências novas). A versão é identificada pela DATA.
 
 ## Passo zero — usar sempre a versão mais nova
 
@@ -21,6 +21,7 @@ Monta o vídeo vertical 9:16 a partir de três insumos: roteiro, clipes brutos (
 - **Flashback P&B:** só em foto antiga e em trecho de arquivo curto (até ~8 s), cobrindo o trecho inteiro (`flashback_in` no 1º shot, `flashback` em todos os seguintes até o último). Arquivo longo (> 8 s) ou vídeo de arquivo com placar/telão fica colorido.
 - **Sem logo do canal** em nada (desde 21/10/2026) e **sem marca de terceiros** (Passo 5).
 - **Duração final ≥ 60 s** e, de preferência, até ~66 s (Passo 1).
+- **Vídeo em movimento em todo shot (regra do usuário, 07/11/2026):** a montagem é feita de vídeo, não de imagem. Quadro congelado, gráfico parado, card, foto ou close sem ação só entram quando não existe vídeo daquele fato, e por no máximo ~0,5–1 s. Coletiva = trecho em que a pessoa fala/gesticula; banco/reação = take em que ela se mexe; frase de regra/VAR = o lance ou o jogo andando, com o gráfico só na palavra. Antes do rascunho, meça o movimento do corte (Passo 8, item 0) e troque todo trecho parado por vídeo.
 - **Torcida é preferência, não meta:** use filmagem de arquibancada quando ela pega o mesmo momento com o protagonista legível; transmissão quando só ela tem o lance ou o rosto.
 
 ## Referências que mandam
@@ -237,6 +238,11 @@ Não gera MP4 final (o vídeo que vai ao ar sai do CapCut). `--mp4` gera os anti
 
 ## Passo 8 — Revisão antes de entregar
 
+0. **Movimento (07/11/2026):** meça a diferença entre quadros do rascunho e liste os instantes parados:
+
+       ffmpeg -i "<job>/_montagem/render/rascunho.mp4" -vf "fps=10,signalstats,metadata=print:key=lavfi.signalstats.YDIF" -f null - 2>&1 | grep -o "YDIF=[0-9.]*"
+
+   YDIF abaixo de ~1 por mais de 0,5 s seguido = trecho parado (quadro congelado da fonte, gráfico, foto). Troque por vídeo do mesmo fato; se não existir, encurte para ≤ 1 s e diga na entrega. No Tarkowski (07/11) saíram parados: Lampard no banco, gráfico do VAR por 3 s, Ballard congelado 2 s, Moyes quase estático; ele reclamou que "ficou só imagem".
 1. **Revisão a cada 0,1 s (regra do usuário), no rascunho, antes de qualquer entrega:**
 
        python scripts/revisao.py "<job>/_montagem/render/rascunho.mp4" "<job>/_montagem/revisao" --edl "<job>/_montagem/edl.json" [--shots "18,20"]
@@ -263,6 +269,7 @@ Para conferir, abra no CapCut (computer-use: "CapCut", "capcut.exe" e "File Expl
 
 ## Bloqueios: não entregue quando
 
+- algum trecho parado (YDIF < ~1) passa de ~1 s, ou foi usado quadro/foto/gráfico parado onde existe vídeo do mesmo fato;
 - a revisão a cada 0,1 s não foi percorrida no rascunho (inteira na 1ª passada; os shots mexidos em cada correção) ou achou defeito não corrigido;
 - algum corte de conteúdo cai fora de pausa da narração;
 - o último plano não emenda no primeiro;
